@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+
+:root {
+    --aqua: #C9F2F2;
+  --grayblue:  #BCC4CE;
+  --light-cyan:#BFE5E4;
+  --lavender: #DCC1DD;
+  --black: #000000;
+  --white: #FFFFFF;
+   --grayblue-alt: #B2BCC5;
+   --polar-mist:#F4F6F6;
+   --thistle:#D8BFD8;
+   --steel-mist:#B2BCC5;
+}
+
+@theme inline { 
+ --color-aqua: var(--aqua);
+  --color-light-cyan:var(--light-cyan);
+  --color-grayblue:var(--grayblue);
+  --color-lavender:var(--lavender);
+  --color-black: var(--black);
+  --color-white:  var(--white);
+    --color-grayblue-alt: var(--grayblue-alt);
+       --color-polar-mist: var(--polar-mist);
+       --color-thistle:var(--thistle);
+          --color-steel-mist:var(--steel-mist);
+
+}
+
+@theme  {
+  --breakpoint-tiny: 18rem;
+   --breakpoint-phone: 25.625rem;     
+  --breakpoint-tiny-normal: 22.375rem;
+  --breakpoint-xs: 30rem;
+
+ 
+
+
+}
+
+
+.font-bison {
+  font-family: var(--font-bison);
+}
+
+
+
+
+
+.swiper-button-disabled {
+  display: none !important;
+}
+
+.swiper-fitContent .swiper-slide {
+  width: fit-content;
+  margin: 0 30px 0 0;
+}
+
+/* .swiper-navMedium .swiper-button-next,
+.swiper-navMedium .swiper-button-prev {
+  --swiper-navigation-size: 32px;
+} */
+
+.swiper-customNav .swiper-slide {
+  width: fit-content;
+}
+/* .swiper-customNav .swiper-button-next,
+.swiper-customNav .swiper-button-prev {
+  --swiper-navigation-size: 32px;
+}
+
+.swiper-customNav .swiper-button-next,
+.swiper-customNav .swiper-button-prev {
+  height: 100%;
+  margin-top: 0;
+  top: 0;
+  width: 50px;
+  justify-content: end;
+  background-image: linear-gradient(to right, rgba(18, 18, 18, 0), rgba(18, 18, 18, .8));
+}
+
+.swiper-customNav .swiper-button-next {
+  right: 0;
+}
+
+.swiper-customNav .swiper-button-next:hover {
+  background-image: linear-gradient(to right, rgba(18, 18, 18, 0), rgba(18, 18, 18, 1));
+} */

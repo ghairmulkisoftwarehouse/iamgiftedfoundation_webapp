@@ -1,0 +1,133 @@
+@theme {
+  --color-grayblue: #6B7A8F;  
+  --color-aqua: #7FDBFF;
+  --color-lavender: #E6E6FA;
+    --color-polar-mist:#F4F6F6;
+    --color-mint-cyan :#BFE5E4;
+}
+
+@import "tailwindcss";
+
+@layer components {
+ .btn-primary {
+    @apply   px-4 lg:px-6  py-2 lg:py-3  text-sm lg:text-base  font-medium rounded-full cursor-pointer bg-polar-mist 
+           hover:bg-gray-200 hover:text-gray-900
+           duration-200 ease-in-out relative overflow-hidden;
+}
+
+.btn-secondary {
+    @apply    px-4 lg:px-6   py-2 lg:py-3 text-sm lg:text-base font-medium rounded-full cursor-pointer bg-mint-cyan text-gray-800
+           hover:bg-[#9dd6d5] hover:text-gray-900 hover:shadow-md
+           duration-200 ease-in-out relative overflow-hidden border border-transparent hover:border-[#8bc9c8];
+  }
+
+
+
+  .btn-secondary-donate {
+    @apply    px-4 lg:px-6   py-2  text-sm lg:text-base font-medium rounded-full cursor-pointer bg-mint-cyan text-gray-800
+           hover:bg-[#9dd6d5] hover:text-gray-900 hover:shadow-md
+           duration-200 ease-in-out relative overflow-hidden border border-transparent hover:border-[#8bc9c8];
+  }
+
+  
+
+
+
+
+    .btn-donate {
+    @apply relative inline-flex items-center justify-center px-5 h-[41px] 
+           overflow-hidden tracking-tighter bg-black rounded-full 
+           transition-colors duration-300;
+  }
+
+  .btn-donate-hover {
+    @apply absolute w-0 h-0 bg-lavender rounded-full 
+           transition-all duration-500 ease-out;
+  }
+
+  .btn-donate-text {
+    @apply relative text-base text-white font-medium z-10 
+           transition-colors duration-300;
+  }
+
+  /* Icon Button */
+  .btn-icon {
+    @apply relative z-0 px-3 w-[41px] h-[41px] rounded-full flex 
+           items-center justify-center overflow-hidden bg-black 
+           transition-colors duration-300;
+  }
+
+  .btn-icon-hover {
+    @apply absolute inset-0 bg-lavender rounded-full z-0 
+           transform -translate-y-full transition-transform 
+           duration-300 ease-in-out;
+  }
+  .title-heading{
+     @apply text-black text-4xl md:text-[46px] lg:text-[55px]  xl:text-[65px];
+  }
+
+
+
+
+
+
+
+  .btn-seeMore {
+    position: relative;
+    transition: all 0.2s ease-in-out;
+    /* box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); */
+  padding: 6px 20px;
+
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    
+    gap: 10px;
+    font-weight: medium;
+    outline: none;
+    overflow: hidden;
+}
+
+
+.btn-seeMore:hover{
+    transform: scale(1.05);
+}
+
+
+.btn-seeMore:hover::before {
+    animation: shine 1.5s ease-out infinite;
+}
+
+.btn-seeMore::before{
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100%;
+    background-image: linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0) 30%,
+        rgba(255, 255, 255, 0.8),
+        rgba(255, 255, 255, 0) 70%
+    );
+    top: 0;
+    left: -100px;
+    opacity: 0.6;
+}
+
+@keyframes shine {
+    0% {
+        left: -100px;
+    }
+
+    60% {
+        left: 100%;
+    }
+
+    to {
+        left: 100%;
+    }
+}
+
+}

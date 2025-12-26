@@ -1,0 +1,33 @@
+@theme {
+  --color-grayblue: #6B7A8F;  
+  --color-aqua: #7FDBFF;
+  --color-lavender: #E6E6FA;
+    --color-polar-mist:#F4F6F6;
+    --color-mint-cyan :#BFE5E4;
+
+
+      --breakpoint-tiny: 18rem;
+   --breakpoint-phone: 25.625rem;      
+  --breakpoint-tiny-normal: 22.375rem;
+  --breakpoint-xs: 30rem;
+}
+
+
+
+@import "tailwindcss";
+
+@layer components {
+
+  .title-heading{
+     @apply text-black text-4xl  xs:text-[46px] lg:text-[55px]  xl:text-[65px];
+  }
+}
+
+
+.my-progress-bar .video-react-play-progress {
+  background-color: #ff0000 !important;
+}
+
+.my-progress-bar .video-react-load-progress {
+  background-color: #00ff00 !important; 
+}
