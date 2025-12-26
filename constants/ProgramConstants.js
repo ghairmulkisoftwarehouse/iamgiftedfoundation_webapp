@@ -9,6 +9,13 @@ import  img2  from '@/assets/images/donateperson2.png'
 import  img3  from '@/assets/images/donateperson3.png' 
 
 
+
+
+import  fundrasingimg  from '@/assets/images/fundrasingimg.png' 
+import  fundrasingimg2  from '@/assets/images/fundrasingimg2.png' 
+import  fundrasingimg3  from '@/assets/images/fundrasingimg3.png' 
+
+
 export const teamServices = [
   {
     title: "Life Skills Camp",
@@ -71,14 +78,60 @@ export const teamServices = [
 
 export const teamFundrasing = [
   {
-    title: "Life Skills Camp",
-     paragraph: "The IAMGIFTED Foundation's Life Skills Camp offer a transformative experience, enhancing athletic and life skills for youth. Participants develop teamwork, resilience, and personal growth through focused, fun activities.",
-    image: img1,
-       bgColor: "bg-steel-mist",
+    title: "Life Skills Camp — Building Confidence for the Future",
+     paragraph: "Helping youth develop confidence, teamwork, and leadership for life.",
+    image: fundrasingimg,
+ 
 
     
   },
 
+   {
+    title: "Life Skills Camp — Building Confidence for the Future",
+     paragraph: "Helping youth develop confidence, teamwork, and leadership for life.",
+    image: fundrasingimg2,
+ 
+
+    
+  },
+
+     {
+    title: "Financial Literacy — Teaching Smart Money Habits",
+     paragraph: "Teaching smart money habits for stability, growth, and success.",
+    image: fundrasingimg3,
+ 
+
+    
+  },
+
+
+
+   {
+    title: "Life Skills Camp — Building Confidence for the Future",
+     paragraph: "Helping youth develop confidence, teamwork, and leadership for life.",
+    image: fundrasingimg,
+ 
+
+    
+  },
+
+   {
+    title: "Life Skills Camp — Building Confidence for the Future",
+     paragraph: "Helping youth develop confidence, teamwork, and leadership for life.",
+    image: fundrasingimg2,
+ 
+
+    
+  },
+
+     {
+    title: "Financial Literacy — Teaching Smart Money Habits",
+     paragraph: "Teaching smart money habits for stability, growth, and success.",
+    image: fundrasingimg3,
+ 
+
+    
+  },
 
 
 

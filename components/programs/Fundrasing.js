@@ -1,5 +1,7 @@
 import { bison } from '@/components/fonts/fonts';
 import  img  from '@/assets/images/fundrasingimg.png' 
+import { teamFundrasing } from '@/constants/ProgramConstants';
+
 import  img1  from '@/assets/images/donateperson1.png' 
 import  img2  from '@/assets/images/donateperson2.png' 
 import  img3  from '@/assets/images/donateperson3.png' 
@@ -15,72 +17,82 @@ const Fundrasing = () => {
            </h2>
 
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full">
-             <div className='  border border-black/20 rounded-[20px] p-3 flex flex-col gap-3'>
-                 <Image  
-                 src={img}
-                 width={370}
-                 height={236}
-                 className='w-full'
-                  alt='img'
-                 />
-                 <h1 className=' font-semibold text-[24px]'>Life Skills Camp — Building Confidence for the Future</h1>
-                 <p className=' text-base  text-black/70'>Helping youth develop confidence, teamwork, and leadership for life.</p>
-                 <div className=' flex flex-col  '>
-                 <div className=" w-full bg-[#B2BCC599] rounded-full h-2 ">
-                            <div
-                                className="bg-light-cyan h-2 rounded-full"
-                                style={{ width: `60%` }}
-                                ></div>
-                </div>
-                    <div className='flex justify-between w-full'>
-                    <p className=' text-[10px] xs:text-xs md:text-sm text-black   font-medium'>Raised: $8,000</p>
-                    <p className=' text-[10px] xs:text-xs md:text-sm text-black/70 font-normal'>Goal: $18,000</p>
-                    </div>
-                </div>
-                <div className=' border-b border-black/10 w-full'></div>
-                <div className=' flex justify-between  w-full'>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full px-10 ">
+                 {teamFundrasing.map((item, index) => (
+        <div
+          key={index}
+          className="border border-black/20 rounded-[20px] p-3 flex flex-col gap-3"
+        >
+          <Image
+            src={item.image}
+            width={370}
+            height={236}
+            className="w-full"
+            alt={item.title}
+          />
+          <h1 className="font-semibold text-[24px]">{item.title}</h1>
+          <p className="text-base text-black/70">{item.paragraph}</p>
 
-                 <div className=' flex flex-row items-center '>
-                 <div className='w-[30px] h-[30px]  rounded-full'>
-                       <Image  
-                 src={img1}
-                 width={200}
-                 height={300}
-                 className='w-full h-full  rounded-full   object-cover'
-                  alt='img'
-                 />
-                 </div>
-                    <div className='w-[30px] h-[30px]  rounded-full  ml-[-5px]'>
-                       <Image  
-                 src={img2}
-                 width={200}
-                 height={300}
-                 className='w-full h-full  rounded-full   object-cover'
-                  alt='img'
-                 />
-                 </div>
-                    <div className='w-[30px] h-[30px]  rounded-full  ml-[-5px]'>
-                       <Image  
-                 src={img3}
-                 width={200}
-                 height={300}
-                 className='w-full h-full  rounded-full   object-cover'
-                  alt='img'
-                 />
-                 </div>
+          {/* Progress Bar */}
+          <div className="flex flex-col">
+            <div className="w-full bg-[#B2BCC599] rounded-full h-2">
+              <div
+                className="bg-light-cyan h-2 rounded-full"
+                style={{ width: `60%` }}
+              ></div>
+            </div>
+            <div className="flex justify-between w-full">
+              <p className="text-[10px] xs:text-xs md:text-sm text-black font-medium">
+                Raised: $8,000
+              </p>
+              <p className="text-[10px] xs:text-xs md:text-sm text-black/70 font-normal">
+                Goal: $18,000
+              </p>
+            </div>
+          </div>
 
-             <div className='w-[30px] h-[30px]  rounded-full  ml-[-5px] bg-black text-white text-[10px] flex justify-center  font-semibold items-center'>
-                   +124
-                 </div>
-                 </div>
+          <div className="border-b border-black/10 w-full"></div>
 
-                   <button className="btn-secondary-donate">Donate Now</button>
+          {/* Donors and Donate Button */}
+          <div className="flex justify-between w-full items-center">
+            <div className="flex flex-row items-center">
+              <div className="w-[30px] h-[30px] rounded-full">
+                <Image
+                  src={img1}
+                  width={200}
+                  height={300}
+                  className="w-full h-full rounded-full object-cover"
+                  alt="donor"
+                />
+              </div>
+              <div className="w-[30px] h-[30px] rounded-full ml-[-5px]">
+                <Image
+                  src={img2}
+                  width={200}
+                  height={300}
+                  className="w-full h-full rounded-full object-cover"
+                  alt="donor"
+                />
+              </div>
+              <div className="w-[30px] h-[30px] rounded-full ml-[-5px]">
+                <Image
+                  src={img3}
+                  width={200}
+                  height={300}
+                  className="w-full h-full rounded-full object-cover"
+                  alt="donor"
+                />
+              </div>
+              <div className="w-[30px] h-[30px] rounded-full ml-[-5px] bg-black text-white text-[10px] flex justify-center font-semibold items-center">
+                +124
+              </div>
+            </div>
 
-                </div>
+            <button className="btn-secondary-donate">Donate Now</button>
+          </div>
+        </div>
+      ))}
 
-
-             </div>
                 
             
            </div>
