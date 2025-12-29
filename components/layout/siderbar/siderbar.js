@@ -65,7 +65,12 @@ export default function Sidebar() {
 
         <div className="flex flex-col gap-2.5 px-2.5 pt-3">
             <button className="btn-primary">Account</button>
-            <button className="btn-secondary">Donate Now</button>
+            <button className="btn-secondary">
+                          <Link href="/donate"
+                          onClick={handleCloseSidebar}>
+Donate Now
+</Link>
+</button>
           </div>
       </div>
     </>

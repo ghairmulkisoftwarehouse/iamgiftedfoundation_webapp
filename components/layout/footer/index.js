@@ -60,7 +60,27 @@ const Footer = () => {
     
   
       <div className="w-full relative h-auto overflow-hidden ">
-       <div className=" absolute  top-[6px]  sm:top-[20px]  w-full h-[400px]  z-20 left-0 ">
+
+
+        <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12  absolute  w-full  left-0  z-0">
+          {boxes.map((_, index) => {
+            const isSpecialBg = specialBgIndexes.includes(index);
+            const isSpecialCircle = specialCircleIndexes.includes(index);
+
+            return (
+              <div
+                key={index}
+                className={`h-[85px] flex items-center justify-center border-r border-b border-white/10
+                  ${isSpecialBg ? " bg-transparent md:bg-[#0A0A0A]" : ""} relative`}
+              >
+                {isSpecialCircle && (
+                  <div className="absolute inset-0 w-full h-full bg-[#0A0A0A] rounded-full hidden md:block -z-10"></div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+       <div className=" relative  w-full h-[400px]  z-20 left-0 ">
       
        <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-7 lg:gap-2.5 sm:justify-between pt-14 px-5 xl:px-12   ">
          <div className="  w-full sm:w-[50%] lg:w-[30%]    h-full flex flex-col  gap-2.5">
@@ -158,24 +178,7 @@ const Footer = () => {
           <ButterfullySvg  className=' w-[300px] h-[200px] sm:w-auto sm:h-auto'/>
         </div>
 
-        <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 relative z-0">
-          {boxes.map((_, index) => {
-            const isSpecialBg = specialBgIndexes.includes(index);
-            const isSpecialCircle = specialCircleIndexes.includes(index);
-
-            return (
-              <div
-                key={index}
-                className={`h-[85px] flex items-center justify-center border-r border-b border-white/10
-                  ${isSpecialBg ? " bg-transparent md:bg-[#0A0A0A]" : ""} relative`}
-              >
-                {isSpecialCircle && (
-                  <div className="absolute inset-0 w-full h-full bg-[#0A0A0A] rounded-full hidden md:block -z-10"></div>
-                )}
-              </div>
-            );
-          })}
-        </div>
+      
       </div>
 
 <div className="w-full h-[150px] relative  flex items-center justify-center overflow-hidden pb-2">

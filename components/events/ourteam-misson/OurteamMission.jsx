@@ -7,7 +7,7 @@ import Image from 'next/image';
 
 const OurteamMission = () => {
   return (
-    <div className='bg-white px-5 xl:px-12 mt-16   mt-16'>
+    <div className='bg-white px-5 xl:px-12   mt-16'>
     <div className='flex flex-col gap-9 sm:gap-3 px-5 lg:px-12 py-9'>
     <div className='flex flex-col sm:flex-row items-center  gap-9 sm:gap-8  lg:gap-24 xl:gap-32  w-full  '>
 

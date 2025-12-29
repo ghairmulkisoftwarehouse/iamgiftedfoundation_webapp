@@ -39,7 +39,7 @@ const HeroSection = () => {
          const boxes = Array.from({ length: numBoxes });
 
   return (
-    <div className="flex flex-col gap-2 w-full h-auto  bg-gradient-to-b from-transparent to-white relative overflow-hidden">
+    <div className="flex flex-col gap-2 w-full h-auto  bg-gradient-to-b from-transparent to-white relative overflow-hidden  ">
     {/* box background */}
         <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 absolute left-0 top-5% z-0 w-full">
           {boxes.map((_, index) => {
@@ -70,7 +70,7 @@ const HeroSection = () => {
                 <h2
                 className={`
                     text-black
-                    text-[50px]   leading-14 lg:leading-tight lg:text-[60px] xl:text-[95px]
+                    text-[50px]   leading-14 lg:leading-tight lg:text-[60px] xl:text-[95px]  pt-9
                     text-center
 
                     ${bison.className}
@@ -85,8 +85,8 @@ const HeroSection = () => {
                     </span>
                 </span>
                 </h2>
-                <div className="   w-full px-8  sm:px-0  sm:w-[80%]  lg:w-[70%] mx-auto    ">
-            <p className="text-black/80  text-sm sm:text-base md:text-lg xl:text-[20px] text-center font-thin">IAMGIFTED Foundation supports families and empowers youth to discover and grow their unique talents through sports, education, and mental health initiatives.</p>
+                <div className="   w-full px-8  sm:px-0  sm:w-[80%]  lg:w-[70%] mx-auto      ">
+            <p className="text-black/80  text-sm sm:text-base md:text-lg xl:text-[20px] text-center font-thin  ">IAMGIFTED Foundation supports families and empowers youth to discover and grow their unique talents through sports, education, and mental health initiatives.</p>
                 </div>
                 <div className="flex gap-0.5 w-full justify-center">
                 
@@ -114,7 +114,7 @@ const HeroSection = () => {
                 </div>
 
                    {/*volunter section */}
-                    <div className=" flex  flex-col lg:flex-row gap-4 w-full pb-6  items-end">
+                    <div className=" flex  flex-col lg:flex-row gap-4 w-full pb-6    lg:px-10  items-end">
                     {/* left section */}
                     <div className=" w-full lg:w-[70%]    flex flex-col sm:flex-row  sm:items-end gap-4 ">
                         {/* left section   first  section  */}

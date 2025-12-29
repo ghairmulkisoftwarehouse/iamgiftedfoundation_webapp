@@ -1,0 +1,44 @@
+
+const CalendarSvg = ({ className }) => {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+    >
+      <path
+        d="M13.3327 1.66675V5.00008M6.66602 1.66675V5.00008"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M10.8333 3.33337H9.16667C6.02397 3.33337 4.45262 3.33337 3.47631 4.30968C2.5 5.286 2.5 6.85734 2.5 10V11.6667C2.5 14.8094 2.5 16.3808 3.47631 17.357C4.45262 18.3334 6.02397 18.3334 9.16667 18.3334H10.8333C13.976 18.3334 15.5474 18.3334 16.5237 17.357C17.5 16.3808 17.5 14.8094 17.5 11.6667V10C17.5 6.85734 17.5 5.286 16.5237 4.30968C15.5474 3.33337 13.976 3.33337 10.8333 3.33337Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M2.5 8.33337H17.5"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M9.16602 11.6667H13.3327M6.66602 11.6667H6.6735M10.8327 15.0001H6.66602M13.3327 15.0001H13.3252"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
+
+export default CalendarSvg

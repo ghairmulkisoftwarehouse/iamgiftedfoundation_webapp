@@ -5,6 +5,7 @@ import Awareness   from '@/components/home/awareness/Awareness';
 import ImpactStats   from '@/components/home/impactstats/ImpactStats';
 import Foundation   from '@/components/home/foundation/Foundation'
 import MissionHero   from '@/components/home/missionhero/MissionHero';
+import Fundrasing  from '@/components/home/fundrasing/Fundrasing';
 
 export default function Home() {
   return (
@@ -14,7 +15,9 @@ export default function Home() {
         <MissionHero/>
     <Awareness/>
     <DonateBanner/>
+        <Fundrasing/>
     <Foundation/>
+
     
 
 

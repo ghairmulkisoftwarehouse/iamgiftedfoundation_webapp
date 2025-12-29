@@ -5,7 +5,7 @@ import  ButterfullyrightSvg   from '@/assets/svg/ButterfullyrightSvg'
 
 const ImpactStats = () => {
   return (
-      <div className=' gap-2 w-full bg-black px-5 xl:px-12   relative  h-[500px]  sm:h-[400px] md:h-[300px] overflow-hidden'>
+      <div className=' gap-2 w-full bg-black px-5 xl:px-12   relative  h-[500px]  sm:h-[400px] md:h-[300px] overflow-hidden  lg:px-10 '>
         <div className="absolute  top-[15%]  left-[-70px] ">
           <ButterfullySvg  className=' w-[200px] h-[200px] z-4 '/>
         </div>

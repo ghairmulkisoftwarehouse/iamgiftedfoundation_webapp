@@ -1,11 +1,12 @@
 import { bison } from '@/components/fonts/fonts';
 import  img  from '@/assets/images/fundrasingimg.png' 
 import { teamFundrasing } from '@/constants/ProgramConstants';
-
 import  img1  from '@/assets/images/donateperson1.png' 
 import  img2  from '@/assets/images/donateperson2.png' 
-import  img3  from '@/assets/images/donateperson3.png' 
+import  img3  from '@/assets/images/donateperson3.png'
+import Link from 'next/link';
 import Image from 'next/image';
+
 const Fundrasing = () => {
   return (
     <div className="px-5 xl:px-12 mt-16">
@@ -17,7 +18,7 @@ const Fundrasing = () => {
            </h2>
 
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full px-10 ">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full lg:px-10  ">
                  {teamFundrasing.map((item, index) => (
         <div
           key={index}
@@ -88,7 +89,12 @@ const Fundrasing = () => {
               </div>
             </div>
 
-            <button className="btn-secondary-donate">Donate Now</button>
+            <button className="btn-secondary-donate">
+             <Link href={'/donate'}>
+                Donate Now
+             </Link>
+          
+            </button>
           </div>
         </div>
       ))}

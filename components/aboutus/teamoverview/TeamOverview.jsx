@@ -7,7 +7,7 @@ const TeamOverview = () => {
 
   return (
        <div className="px-5 xl:px-12    mt-16  ">
-       <div className=" flex flex-col gap-2 w-full">
+       <div className=" flex flex-col gap-2 w-full lg:px-10 ">
 
        <Image 
        src={Teamoverview}

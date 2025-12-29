@@ -34,7 +34,7 @@ const sizes = [
 ]
 
   return (
-    <div className="px-5 xl:px-12  swiper-customNav">
+    <div className="px-5 xl:px-12  swiper-customNav  mt-16 ">
       <div className="flex flex-col gap-6">
         <h2
           className={`title-heading md:leading-tight text-center ${bison.className}`}

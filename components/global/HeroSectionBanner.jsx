@@ -22,6 +22,10 @@ const HeroSectionBanner = ({
  const isEventDetailPage =
   pathname.startsWith("/events/") && pathname !== "/events";
 
+ const isInvolvedPage = pathname === "/getinvolved";
+  // const isDonatePage = pathname === "/donate";
+
+
   return (
     <div
       className={`w-full bg-black px-5 xl:px-12 relative ${height} flex flex-col gap-4 items-center justify-center overflow-hidden`}
@@ -43,18 +47,18 @@ const HeroSectionBanner = ({
         <span className="relative inline-block">
           <span className="relative z-10">{title}</span>
           <span className="absolute left-0 right-0 bottom-[-2px] z-0">
-              {isEventDetailPage ? (
-      <EventDetailSvg className={bannerSvgClass} />
-    ) : (
-      <BannerHeroSvg className={bannerSvgClass} />
-    )}
+      {isEventDetailPage || isInvolvedPage    ? (
+  <EventDetailSvg className={bannerSvgClass} />
+) : (
+  <BannerHeroSvg className={bannerSvgClass} />
+)}
           </span>
         </span>
       </h2>
 
       {/* Subtitle */}
       {subtitle && (
-        <p className={`text-white text-center ${subtitleClass}`}>
+        <p className={`text-white text-center  lg:px-10 ${subtitleClass}`}>
           {subtitle}
         </p>
       )}

@@ -7,7 +7,7 @@ import Link from 'next/link';
 const DonateBanner = () => {
   return (
     <div className="px-5 xl:px-12  py-16 ">
-    <div className=" h-[400px] md:h-[453px]   bg-light-cyan  rounded-[25px] relative   flex items-center justify-center   w-full overflow-hidden">
+    <div className=" h-[400px] md:h-[453px]   bg-light-cyan  rounded-[25px] relative   flex items-center justify-center   w-full overflow-hidden  lg:px-10 ">
     <div className="relative z-10 flex flex-col items-center gap-6 text-center">
     <h2 className={`title-heading  md:leading-tight ${bison.className}`}>
       Helping today helping tomorrow Charity

@@ -28,7 +28,10 @@ export default function RootLayout({ children }) {
         </nav>
         <Sidebar/>
         {children}
-        <Footer/>
+        <div className="   mt-16">
+            <Footer/>
+        </div>
+       
          </PannelContextProvider>
       </body>
      

@@ -1,4 +1,5 @@
 import  HeroSectionBanner  from '@/components/global/HeroSectionBanner';
+import EventInformation   from '@/components/eventdetails/eventInformation/EventInformation';
 
 
 
@@ -11,6 +12,7 @@ const EventPage = () => {
                 bannerSvgClass="w-[280px] md:w-[300px] lg:w-[380px] xl:w-[500px]" 
       
             />
+            <EventInformation/>
          
            
        

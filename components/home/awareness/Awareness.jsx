@@ -5,7 +5,7 @@ const Awareness = () => {
   return (
     <div className="px-5 xl:px-12 py-16">
 
-      <div className="flex flex-col  sm:flex-row items-center gap-4  md:gap-9 w-full">
+      <div className="flex flex-col  sm:flex-row items-center gap-4  md:gap-9 w-full lg:px-10 ">
 
         {/* Left side */}
         <div className="  w-full    sm:w-[50%] lg:w-[60%] flex flex-col  gap-6">

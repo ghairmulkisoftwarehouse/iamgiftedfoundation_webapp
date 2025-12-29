@@ -11,7 +11,7 @@ const Humanitarian = () => {
           Providing Humanitarian services to all people is What we do
         </h2>
 
-     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full px-10 ">
+     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full lg:px-10 ">
   {teamServices.map((service, index) => {
     const Icon = service.image;
 

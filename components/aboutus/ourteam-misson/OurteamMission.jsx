@@ -9,7 +9,7 @@ const OurteamMission = () => {
   return (
     <div className='bg-white   mt-16'>
     <div className='flex flex-col gap-9 sm:gap-3 px-5 lg:px-12 py-9'>
-    <div className='flex flex-col sm:flex-row items-center  gap-9 sm:gap-8  lg:gap-24 xl:gap-32  w-full  '>
+    <div className='flex flex-col sm:flex-row items-center  gap-9 sm:gap-8  lg:gap-24 xl:gap-32  w-full   lg:px-10  '>
 
       <div className=' w-full sm:w-1/2 lg:w-3/5 flex flex-col gap-2   '>
       <h2  className={`title-heading md:leading-tight ${bison.className}`}>From the Beginning</h2>
@@ -42,7 +42,7 @@ const OurteamMission = () => {
 
 
 
-  <div className='flex flex-col sm:flex-row items-center  gap-9 sm:gap-8 lg:gap-24 xl:gap-32  w-full '>
+  <div className='flex flex-col sm:flex-row items-center  gap-9 sm:gap-8 lg:gap-24 xl:gap-32  w-full  lg:px-10  '>
 
 
     <div className='    order-2 sm:order-1    w-full  sm:w-1/2  lg:w-2/5 justify-center items-center'>
