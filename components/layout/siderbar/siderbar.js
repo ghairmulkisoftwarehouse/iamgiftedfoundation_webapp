@@ -4,9 +4,11 @@ import { RxCross1 } from 'react-icons/rx';
 import Link from 'next/link';
 import LogoSvg from '@/assets/svg/LogoSvg';
 import { navLinks } from "@/constants/menuItem";
+import { usePathname } from 'next/navigation';
 
 export default function Sidebar() {
   const { showPannel, setShowPannel } = usePannelContext();
+     const pathname=usePathname();
 
   const handleCloseSidebar = () => {
     setShowPannel(false);
@@ -42,11 +44,17 @@ export default function Sidebar() {
         <div className="px-4 w-full pt-4">
           <ul className="flex flex-col space-y-1 font-medium text-base">
             {navLinks.map((link, index) => {
-              const isInternalAnchor = link.path?.startsWith("#");
+              
+                   const isActive = pathname === link.path; // check if active
               return (
                 <li key={index} onClick={handleCloseSidebar}>
                   {link.path ? (
-                    <Link href={link.path} className="cursor-pointer hover:bg-black/15 py-2 px-2 lg:px-2.5 rounded-md transition-all duration-200 block">
+                    <Link href={link.path} 
+                        className={`
+                cursor-pointer block py-2 px-2 lg:px-2.5 rounded-md transition-all duration-200
+                ${isActive ? 'bg-black/10 font-semibold' : 'hover:bg-black/15'}
+              `}
+                    >
                       {link.name}
                     </Link>
                   ) : (

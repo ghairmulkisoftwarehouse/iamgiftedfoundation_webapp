@@ -13,6 +13,7 @@
    --polar-mist:#F4F6F6;
    --thistle:#D8BFD8;
    --steel-mist:#B2BCC5;
+    --plyr-color-main: #BFE5E4;
 }
 
 @theme inline { 
@@ -88,3 +89,70 @@
 .swiper-customNav .swiper-button-next:hover {
   background-image: linear-gradient(to right, rgba(18, 18, 18, 0), rgba(18, 18, 18, 1));
 } */
+
+
+
+.mission-video .plyr {
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+/* Play / Pause button */
+.plyr__controls button[data-plyr="play"],
+.plyr__control--overlaid {
+  color: #BFE5E4 !important;
+}
+
+/* Optional hover */
+.plyr__controls button[data-plyr="play"]:hover {
+   color: #BFE5E4 !important;
+}
+
+
+
+.plyr--video .plyr__progress__filled {
+  background-color: #BFE5E4 !important;
+}
+
+/* Progress handle (dot) */
+.plyr__progress input[type="range"]::-webkit-slider-thumb {
+  background: #BFE5E4;
+}
+
+.plyr__progress input[type="range"]::-moz-range-thumb {
+  background: #BFE5E4;
+}
+
+
+
+
+
+.slide-video .plyr {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+   border-radius: 25px;
+  overflow: hidden;
+}
+
+
+
+/* Large screens (lg) */
+@media (min-width: 640px) {
+ .slide-video .plyr {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+   border-radius: 25px;
+  overflow: hidden;
+}
+
+}
+
+
+
+
+
+
+
+

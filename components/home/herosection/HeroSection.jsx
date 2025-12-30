@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect } from "react";
+import { useState, useEffect,useRef } from "react";
 import {  bison } from '@/components/fonts/fonts';
 import UnderlineSvg   from '@/assets/svg/UnderlineSvg.js'
 import ArrowUpSvg  from '@/assets/svg/ArrowUpSvg';
@@ -8,6 +8,7 @@ import  LeftPinkButterfullySvg   from  '@/assets/svg/LeftPinkButterfullySvg.js'
 import RightPinkButterfullysvg from "@/assets/svg/RightPinkButterfullysvg";
 import imggray from '@/assets/images/foundationboy.png';
 import ShapeheroSvg  from '@/assets/svg/ShapeheroSvg.js';
+import HeroShapeBottomSvg  from '@/assets/svg/HeroShapeBottomSvg';
 import DonateSvg   from '@/assets/svg/DonateSvg';
 import person from '@/assets/images/person.png'
 import StarSvg  from '@/assets/svg/StarSvg'
@@ -16,45 +17,50 @@ import { FaDonate, FaHandsHelping, FaMoneyBillWave, FaHeart } from 'react-icons/
 
 import Image from "next/image";
 
+const BOX_HEIGHT = 85;
+
 const HeroSection = () => {
 
-  const [numBoxes, setNumBoxes] = useState(60);
-       useEffect(() => {
-  const handleResize = () => {
-    if (window.innerWidth < 640) {
-      setNumBoxes(20); 
-    } else if (window.innerWidth < 1024) {
-      setNumBoxes(40); 
-    } else {
-      setNumBoxes(60); 
-    }
-  };
-
-  handleResize();
-  window.addEventListener("resize", handleResize);
-  return () => window.removeEventListener("resize", handleResize);
-}, []);
-
-       
-         const boxes = Array.from({ length: numBoxes });
+  const heroRef = useRef(null);
+    const [numBoxes, setNumBoxes] = useState(0);
+    const [cols, setCols] = useState(12);
+ useEffect(() => {
+     const calculateBoxes = () => {
+       if (!heroRef.current) return;
+ 
+       const height = heroRef.current.offsetHeight;
+ 
+       // columns based on screen width
+       let columns = 12;
+       if (window.innerWidth < 640) columns = 4;
+       else if (window.innerWidth < 1024) columns = 6;
+ 
+       const rows = Math.ceil(height / BOX_HEIGHT);
+       setCols(columns);
+       setNumBoxes(rows * columns);
+     };
+ 
+     calculateBoxes();
+     window.addEventListener("resize", calculateBoxes);
+     return () => window.removeEventListener("resize", calculateBoxes);
+   }, []);
 
   return (
-    <div className="flex flex-col gap-2 w-full h-auto  bg-gradient-to-b from-transparent to-white relative overflow-hidden  ">
+    <div 
+     ref={heroRef}
+    className="flex flex-col gap-2 w-full h-auto  bg-gradient-to-b from-transparent to-transparent relative overflow-hidden  ">
     {/* box background */}
-        <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 absolute left-0 top-5% z-0 w-full">
-          {boxes.map((_, index) => {
-      
-
-            return (
-              <div
-                key={index}
-                className={`h-[85px] flex items-center justify-center border-r border-b border-black/7`}
-              >
-              
-              </div>
-            );
-          })}
-        </div>
+         <div
+        className={`grid absolute left-0 top-[-80px] z-0 w-full mt-16`}
+        style={{ gridTemplateColumns: `repeat(${cols}, 1fr)` }}
+      >
+        {Array.from({ length: numBoxes }).map((_, index) => (
+          <div
+            key={index}
+            className="h-[85px] border-r border-b border-black/7"
+          />
+        ))}
+      </div>
 
        {/* main title */}
     <div className=" w-full  flex justify-center items-center">
@@ -70,7 +76,7 @@ const HeroSection = () => {
                 <h2
                 className={`
                     text-black
-                    text-[50px]   leading-14 lg:leading-tight lg:text-[60px] xl:text-[95px]  pt-9
+                    text-[50px]   leading-14 lg:leading-tight lg:text-[60px] xl:text-[80px]  pt-9
                     text-center
 
                     ${bison.className}
@@ -85,16 +91,16 @@ const HeroSection = () => {
                     </span>
                 </span>
                 </h2>
-                <div className="   w-full px-8  sm:px-0  sm:w-[80%]  lg:w-[70%] mx-auto      ">
-            <p className="text-black/80  text-sm sm:text-base md:text-lg xl:text-[20px] text-center font-thin  ">IAMGIFTED Foundation supports families and empowers youth to discover and grow their unique talents through sports, education, and mental health initiatives.</p>
+                <div className="   w-full px-8  sm:px-0  sm:w-[80%]  lg:w-[65%] mx-auto      ">
+            <p className="text-[#030F0CCC]  text-sm sm:text-base md:text-lg xl:text-[20px] text-center font-thin  ">IAMGIFTED Foundation supports families and empowers youth to discover and grow their unique talents through sports, education, and mental health initiatives.</p>
                 </div>
                 <div className="flex gap-0.5 w-full justify-center">
                 
-                  <div className="flex flex-row gap-0 group cursor-pointer">
+                  <div className="flex flex-row gap-0 group cursor-pointer pt-3">
                 
 
-                    <Link href="/">
-                      <button className="btn-donate group-hover:bg-lavender cursor-pointer">
+                    <Link href="/donate ">
+                      <button className="btn-donate group-hover:bg-lavender cursor-pointer     w-[198px] h-[50px] ">
                         <span className="btn-donate-hover group-hover:w-56 group-hover:h-56"></span>
                         <span className="btn-donate-text group-hover:text-black">
                         Join the Movement
@@ -102,7 +108,7 @@ const HeroSection = () => {
                       </button>
                     </Link>
                 
-                    <Link href="/">
+                    <Link href="/donate">
                       <button className="btn-icon group-hover:bg-lavender cursor-pointer">
                         <span className="btn-icon-hover group-hover:translate-y-0"></span>
                         <ArrowUpSvg className="text-white group-hover:text-black z-10" />
@@ -114,24 +120,22 @@ const HeroSection = () => {
                 </div>
 
                    {/*volunter section */}
-                    <div className=" flex  flex-col lg:flex-row gap-4 w-full pb-6    lg:px-10  items-end">
+                    <div className=" flex  flex-col lg:flex-row gap-4 w-full pb-6    lg:px-6  items-end">
                     {/* left section */}
                     <div className=" w-full lg:w-[70%]    flex flex-col sm:flex-row  sm:items-end gap-4 ">
                         {/* left section   first  section  */}
 
                     <div className=" flex flex-col w-full sm:w-[45%]   gap-8  ">
                     <div className=" flex flex-col gap-2">
-                    <h1 className="  font-thin text-black/80   text-[22px]  sm:text-[25px] lg:text-3xl">Volunteer with us to <br/> make a difference.</h1>
-                    <h2 className="  font-semibold  text-[22px]  sm:text-[25px] lg:text-3xl underline">Join the Foundation</h2>
-
-                 
+                    <h1 className="  font-thin text-black/80   text-[22px]  sm:text-[25px] ">Volunteer with us to <br/> make a difference.</h1>
+                    <h2 className="  font-semibold  text-[22px]  sm:text-[25px]  underline">Join the Foundation</h2>
 
                     </div>
 
-
-                       <div className="bg-grayblue-alt   rounded-[21px] flex flex-col gap-2.5 p-4">
+                     <div className=" pt-7">
+                      <div className="bg-grayblue-alt   rounded-[21px] flex flex-col gap-2.5 p-4">
                     <div className=" flex flex-row items-center  justify-between w-full">
-                    <h2 className="  font-semibold   text-3xl sm:text-[38px] lg:text-5xl">50k+</h2>
+                    <h2 className="  font-semibold   text-3xl sm:text-[38px] lg:text-[45px]">50k+</h2>
                     <Image
                        src={person}
                        alt="img"
@@ -141,28 +145,38 @@ const HeroSection = () => {
                     />
 
                     </div>
-                    <div className=" text-black/50 text-base lg:text-lg   pt-16">
+                    <div className=" text-[#030F0CCC] text-base lg:text-[17px]   pt-16">
                     <p>Join the generous people who have already Donated.</p>
                    </div>
                     </div>
 
+                     </div>
+
+                      
+
                     </div>
                       {/*  right section   first  section  */}
-                    <div className=" flex flex-col w-full sm:w-[55%]  h-[386px] mt-1.5   bg-light-cyan rounded-[21px] relative overflow-hidden ">
+                    <div className=" flex flex-col w-full sm:w-[55%]  h-[386px]    bg-light-cyan rounded-[21px] relative overflow-hidden ">
                     <div className=" absolute z-0">
                                   <ShapeheroSvg/>
                     </div>
+
+
+   <div className=" absolute z-0 bottom-0">
+                                  <HeroShapeBottomSvg/>
+                    </div>
+                   
                     <div className=" relative flex flex-row gap-2 z-5 w-full px-4 h-full py-4">
                     <div className=" w-full flex flex-col  h-full justify-between   ">
                     <div className=" w-[70%]">
-                       <p className="  text-[22px] sm:text-[25px] md:text-[28px]  font-semibold">Support sports, education, and mental health initiatives.</p>
+                       <p className="  text-[22px] sm:text-[25px] md:text-[27px]  font-semibold">Support sports, education, and mental health initiatives.</p>
 
                     </div>
                        
                             <div className="flex flex-row gap-0 group cursor-pointer ">
                             
 
-                                <Link href="/">
+                                <Link href="/donate">
                                 <button className="btn-donate group-hover:bg-lavender cursor-pointer">
                                     <span className="btn-donate-hover group-hover:w-56 group-hover:h-56"></span>
                                     <span className="btn-donate-text group-hover:text-black">
@@ -228,14 +242,14 @@ const HeroSection = () => {
                                    
                                         <DonateSvg className={'  hidden lg:block'}/>
                                         <div className="p-4 ">
-                                        <p className=" text-base sm:text-lg lg:text-[20px] text-white/70">Create meaningful impact by addressing the most pressing challenges of our time.</p>
+                                        <p className=" text-base sm:text-[17px]  text-white/70">Create meaningful impact by addressing the most pressing challenges of our time.</p>
 
                                         </div>
                                   </div>
                                 {/* bottom*/}
-                                   <div className=" flex flex-row items-center gap-1.5  bg-thistle p-4 rounded-[21px]">
+                                   <div className=" flex flex-row items-center gap-1.5  bg-thistle p-3 rounded-[21px]">
                                            <SmileSvg/>
-                                           <p className="  text-[22px]  md:text-[25px] lg:text-[28px]  font-semibold">Bring happiness to their Lives</p>
+                                           <p className="  text-[22px]  md:text-[25px] font-semibold">Bring happiness to their Lives</p>
                                    </div>
                           
 

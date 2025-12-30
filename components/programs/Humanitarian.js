@@ -6,12 +6,12 @@ const Humanitarian = () => {
     <div className="px-5 xl:px-12 mt-16">
       <div className="flex flex-col w-full items-center gap-10">
         <h2
-          className={`title-heading md:leading-tight text-center w-full md:w-11/12 ${bison.className}`}
+          className={`text-black text-4xl  sm:text-[46px] lg:text-[55px] text-center w-full  ${bison.className}`}
         >
-          Providing Humanitarian services to all people is What we do
+          Providing Humanitarian services to all <br/> people is What we do
         </h2>
 
-     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full lg:px-10 ">
+     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 space-y-0 md:space-y-5   gap-4 w-full lg:px-7 ">
   {teamServices.map((service, index) => {
     const Icon = service.image;
 
@@ -28,15 +28,15 @@ const Humanitarian = () => {
           duration-300
         `}
       >
-        <div className="w-[70px] h-[70px] bg-white rounded-full flex items-center justify-center">
-          <Icon />
+        <div className=" w-[60px] h-[60px] md:w-[70px] md:h-[70px] bg-white rounded-full flex items-center justify-center">
+          <Icon  className={'w-[40px] h-[40px] md:w-[50px] md:h-[50px]'}/>
         </div>
 
-        <h2 className="text-xl sm:text-2xl font-medium text-center">
+        <h2 className="text-xl sm:text-[22px] font-semibold text-center">
           {service.title}
         </h2>
 
-        <p className="px-8 text-center text-base sm:text-lg text-[#030F0CCC]">
+        <p className="px-8 text-center text-base  text-[#030F0CCC]">
           {service.paragraph}
         </p>
       </div>
@@ -45,7 +45,7 @@ const Humanitarian = () => {
     </div>
 
 
-        <button className="btn-seeMore border border-black/20">
+        <button className="btn-seeMore border ">
           See More
         </button>
       </div>

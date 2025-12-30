@@ -1,4 +1,5 @@
 'use client'
+import { useEffect, useState } from 'react'
 
 import LogoSvg from '@/assets/svg/LogoSvg'
 import Link from 'next/link'
@@ -10,11 +11,27 @@ import { usePathname } from 'next/navigation';
 
 const Navbar = () => {
          const {  setShowPannel } = usePannelContext();
+           const [scrolled, setScrolled] = useState(false);
+
          const pathname=usePathname();
+           useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 1);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <div className="flex items-center justify-center bg-[#D6EEF080] py-3  px-3 sm:px-6 w-full ">
-      <div className="w-full mx-auto flex items-center justify-between relative  bg-white h-[60px] lg:h-[80px] rounded-full border border-grayblue-alt px-5 xl:px-12">
+    <div 
+     className={`
+        flex items-center justify-center py-3 px-3 sm:px-6 w-full
+        transition-all duration-500 ease-out
+        ${scrolled ? '' : 'bg-[#D6EEF080]'}
+      `}
+    >
+      <div className="w-full mx-auto flex items-center justify-between relative  bg-white  h-[60px] md:h-[70px]  rounded-full border border-grayblue-alt px-8 xl:px-12">
 
         {/* Logo */}
         <Link href="/">
@@ -23,7 +40,7 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <div className="hidden lg:block">   
-          <ul className="flex space-x-2 lg:space-x-3 xl:space-x-5 font-medium text-sm lg:text-[15px] xl:text-[17px]">
+          <ul className="flex space-x-2 lg:space-x-3 xl:space-x-5 font-medium text-sm lg:text-[15px] ">
             {navLinks.map((link) => {
                         const isActive = pathname === link.path;
 
@@ -31,10 +48,10 @@ return(
    <li key={link.name}>
                 {link.path ? (
                   <Link href={link.path}>
-                    <span   className={`cursor-pointer py-3 px-2 rounded-md   text-black/80 hover:bg-black/15 transition-all duration-200
+                    <span   className={`cursor-pointer py-2.5 px-2 rounded-md    hover:bg-black/15 transition-all duration-200
                       ${isActive
-                        ? 'font-semibold'
-                        : 'font-normal'}
+                        ? 'font-semibold text-black'
+                        : 'font-normal text-black/80'}
                     `}>
                       {link.name}
                     </span>
@@ -54,12 +71,27 @@ return(
         {/* Desktop Buttons */}
         <div className="hidden lg:block">
           <div className="flex gap-2.5">
-            <button className="btn-primary">Account</button>
-            <button className="btn-secondary">
-              <Link href="/donate">
-                Donate Now
-              </Link>
-            </button>
+       <button className="btn-animated bg-polar-mist group cursor-pointer relative overflow-hidden">
+    {/* Expanding circle */}
+    <span className="btn-animated-hover bg-gray-200 group-hover:w-40 group-hover:h-40 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full"></span>
+
+    {/* Button text */}
+    <span className="btn-animated-text text-black group-hover:text-gray-900 relative z-10">
+      Account
+    </span>
+  </button>
+
+
+
+         <Link href="/donate">
+  <button className="btn-animated bg-mint-cyan border border-transparent group cursor-pointer relative overflow-hidden hover:border-[#8bc9c8]">
+    <span className="btn-animated-hover bg-[#9dd6d5] group-hover:w-44 group-hover:h-44"></span>
+    <span className="btn-animated-text text-gray-800 group-hover:text-gray-900 ">
+      Donate Now
+    </span>
+  </button>
+</Link>
+
           </div>
         </div>
 

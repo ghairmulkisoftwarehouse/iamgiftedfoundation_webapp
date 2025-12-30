@@ -52,10 +52,10 @@ const EventInformation = () => {
         </div>
 
       
-       <div className="grid grid-cols-1 lg:grid-cols-3 w-full lg:px-10  gap-6 relative z-5">
-       <div className='lg:col-span-2   flex flex-col gap-3.5   order-2 lg:order-1'>
+       <div className="grid grid-cols-1 lg:grid-cols-3 w-full lg:px-7  gap-6 relative z-5">
+       <div className='lg:col-span-2   flex flex-col gap-3.5   order-1 lg:order-1'>
 
-       <div className='flex flex-col gap-0.5'>
+       <div className='flex flex-col gap-2'>
           <Image
         src={img}
         alt={'img'}
@@ -67,13 +67,13 @@ const EventInformation = () => {
 
      <div className=' flex flex-row flex-warp gap-1.5'>
 
-       <div className="flex items-center gap-1.5">
-              <CalendarSvg className="w-4 h-4 text-black/60" />
-              <p className="font-normal text-xs md:text-sm text-black/60">21 Jun 12-3PM </p>
+       <div className="flex items-center gap-2">
+              <CalendarSvg className="w-4 h-4 text-black" />
+              <p className="font-normal text-xs md:text-base text-black">21 Jun 12-3PM </p>
             </div>
                <div className="flex items-center gap-1.5">
-              <DetailLocationSvg className="w-4 h-4  text-black/60" />
-              <p className="font-normal text-xs md:text-sm text-black/60">Contrary to popular belief, </p>
+              <DetailLocationSvg className="w-4 h-4  text-black" />
+              <p className="font-normal text-xs md:text-base text-black">Contrary to popular belief, </p>
             </div>
 
 
@@ -85,10 +85,10 @@ const EventInformation = () => {
 
 
 
-          <div className=' flex flex-col gap-1'>
-          <h3  className={`text-[28px] lg:text-[36px] ${bison.className}`}> Join Us for the IAMGIFTED Skills Camp June 21 at Kuna High School! </h3>
+          <div className=' flex flex-col gap-3'>
+          <h3  className={`text-[28px] lg:text-[34px] ${bison.className}`}> Join Us for the IAMGIFTED Skills Camp June 21 at Kuna High School! </h3>
 
-        <p className="text-black/50 text-sm lg:text-base leading-normal   lg:leading-[35px] ">
+        <p className="text-[#030F0CCC] text-sm lg:text-[15px] leading-normal   lg:leading-[35px] ">
   A one-day, high-impact experience focused on building life skills, leadership, and confidence—on and off the field. Arcu ultricies malesuada lectus nulla est nunc integer pellentesque magna. Egestas malesuada faucibus arcu nunc elit leo quis interdum. Ac vel in commodo accumsan mollis cras massa posuere eget. Condimentum posuere velit cras velit tortor ridiculus sit. Lectus augue libero etiam sed nisl.
         </p>
 
@@ -96,11 +96,11 @@ const EventInformation = () => {
      
 
       {eventSingleDetail.map((item, index) => (
-        <div key={index} className="flex flex-col gap-1">
-          <h3 className={`text-[28px] lg:text-[36px] ${bison.className}`}>
+        <div key={index} className="flex flex-col gap-3">
+          <h3 className={`text-[28px] lg:text-[34px] ${bison.className}`}>
             {item.title}
           </h3>
-          <p className="text-black/50 text-sm lg:text-base leading-normal">
+          <p className="text-[#030F0CCC] text-sm lg:text-[15px] leading-[24px]">
             {item.paragraph}
           </p>
         </div>
@@ -114,7 +114,7 @@ const EventInformation = () => {
 
 
 
-       <div className='flex flex-col gap-0.5'>
+       <div className='flex flex-col gap-0.5 pt-3.5'>
           <Image
         src={img2}
         alt={'img'}
@@ -127,7 +127,7 @@ const EventInformation = () => {
      <div className=' flex flex-row flex-warp gap-1.5'>
 
        <div className="flex items-center gap-1.5">
-              <p className="font-normal text-sm md:text-base text-black/50">Vivamus a dignissim nulla ornare sit aliquam elementum blandit. Leo in sem pellentesque viverra malesuada viverra eget aliquam: </p>
+              <p className="font-normal text-sm md:text-[15px] text-black/80">Vivamus a dignissim nulla ornare sit aliquam elementum blandit. Leo in sem pellentesque viverra malesuada viverra eget aliquam: </p>
             </div>
               
 
@@ -140,11 +140,11 @@ const EventInformation = () => {
 
        </div>
 
-  <div className="flex flex-col gap-2 w-full">
+  <div className="flex flex-col gap-4 w-full">
       {eventSingleList.map((item, index) => (
         <p
           key={index}
-          className="text-black/50 text-sm lg:text-base leading-normal flex items-start gap-1"
+          className="text-[#030F0CCC] text-sm lg:text-[15px] leading-normal flex items-start gap-1"
         >
           <span className="font-semibold text-black flex items-center pt-1 text-xl">
             <BsDot />
@@ -162,10 +162,10 @@ const EventInformation = () => {
 
 
        
-          <div className=' flex flex-col gap-1'>
+          <div className=' flex flex-col gap-3'>
           <h3  className={`text-[28px] lg:text-[36px] ${bison.className}`}> Libero etiam  </h3>
 
-        <p className="text-black/50 text-sm lg:text-base leading-normal    ">
+        <p className="text-[#030F0CCC] text-sm lg:text-base leading-normal    ">
         Arcu ultricies malesuada lectus nulla est nunc integer pellentesque magna. Egestas malesuada faucibus arcu nunc elit leo quis interdum. Ac vel in commodo accumsan mollis cras massa posuere eget. Condimentum posuere velit cras velit tortor ridiculus sit. Lectus augue libero etiam sed nisl.
         </p>
 
@@ -180,7 +180,7 @@ const EventInformation = () => {
        </div>
 
 
-         <div className='lg:col-span-1   order-1 lg:order-2'>
+         <div className='lg:col-span-1   order-2 lg:order-2'>
 
               <RecentEvent/>
        </div>

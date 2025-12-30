@@ -10,8 +10,9 @@ const Program = () => {
             <HeroSectionBanner
             title="Programs"
             subtitle="At IAMGIFTED, we believe that every child deserves the opportunity to discover their potential and thrive. That’s why we’re dedicated to providing kids in underserved communities with the resources, support, and mentorship they need to realize their unique gifts."
-             height=" h-[350px] sm:h-[320px] md:h-[380px]"
-            subtitleClass=" text-base  md:text-lg lg:text-xl  text-white/70"
+             height=" h-[300px] sm:h-[280px]"
+                   bannerSvgClass = 'w-[200px]  md:w-[180px]  lg:w-[250px] '   
+          subtitleClass=" text-base  md:text-[17px]   text-white/70"
             />
             <Fundrasing/>
             <Humanitarian/>

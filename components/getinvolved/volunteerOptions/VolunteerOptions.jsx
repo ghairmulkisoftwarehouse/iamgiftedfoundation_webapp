@@ -10,7 +10,7 @@ const VolunteerOptions = () => {
 
 
 
-   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full lg:px-10 gap-5">
+   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full lg:px-7 gap-5">
   {involvementData.map((item, index) => (
     <div
       key={index}

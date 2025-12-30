@@ -1,81 +1,79 @@
 'use client'
-import { useState, useEffect } from "react";
-import {  bison } from '@/components/fonts/fonts';
+import { useState, useEffect, useRef } from "react";
+import { bison } from '@/components/fonts/fonts';
+import Image from "next/image";
+import img1 from '@/assets/images/bannerimage.png';
+import PlayVideoSvg from '@/assets/svg/PlayVideoSvg';
 
-// import { Player, ControlBar, ProgressControl } from "video-react";
-// import "video-react/dist/video-react.css";
+const BOX_HEIGHT = 85;
+
 const MissionHero = () => {
-      const [numBoxes, setNumBoxes] = useState(60);
+  const containerRef = useRef(null);
+  const [numBoxes, setNumBoxes] = useState(0);
+  const [cols, setCols] = useState(12);
 
-       useEffect(() => {
-  const handleResize = () => {
-    if (window.innerWidth < 640) {
-      // Tailwind 'sm' breakpoint is 640px
-      setNumBoxes(20); 
-    } else if (window.innerWidth < 1024) {
-      setNumBoxes(40); 
-    } else {
-      setNumBoxes(60); 
-    }
-  };
+  useEffect(() => {
+    const calculateBoxes = () => {
+      if (!containerRef.current) return;
 
-  handleResize();
-  window.addEventListener("resize", handleResize);
-  return () => window.removeEventListener("resize", handleResize);
-}, []);
+      const height = containerRef.current.offsetHeight;
 
-       
-         const boxes = Array.from({ length: numBoxes });
+      // columns based on screen width
+      let columns = 12;
+      if (window.innerWidth < 640) columns = 4;
+      else if (window.innerWidth < 1024) columns = 6;
 
-    
+      const rows = Math.ceil(height / BOX_HEIGHT);
+      setCols(columns);
+      setNumBoxes(rows * columns);
+    };
+
+    calculateBoxes();
+    window.addEventListener("resize", calculateBoxes);
+    return () => window.removeEventListener("resize", calculateBoxes);
+  }, []);
+
   return (
- <div className="flex flex-col gap-2 w-full h-auto xl:h-[900px] bg-gradient-to-b from-light-cyan to-white relative">
 
-         <div className=" absolute    w-full h-full   z-20 left-0 flex flex-col gap-3.5 ">
-         <h2 className={`title-heading  md:leading-tight  text-center  pt-16 ${bison.className}`}>Our mission is to aid those in need </h2>
-         
-          <div className="px-5 xl:px-12 flex justify-center w-full">
-  <video  width={1200}   height={350}   controls>
-    <source 
-      src="https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4" 
-      type="video/mp4" 
-    />
-  </video>
-</div>
-          <div>
+    <div
+      ref={containerRef}
+      className="relative flex flex-col gap-2 w-full bg-gradient-to-b from-light-cyan  to-transparent px-5 xl:px-12 overflow-hidden"
+    >
+      {/* Grid Background */}
+      <div
+        className={`grid absolute left-0 top-[-90px] z-0 w-full mt-16`}
+        style={{ gridTemplateColumns: `repeat(${cols}, 1fr)` }}
+      >
+        {Array.from({ length: numBoxes }).map((_, index) => (
+          <div
+            key={index}
+            className="h-[85px] border-r border-b border-black/7"
+          />
+        ))}
+      </div>
 
- 
+      {/* Content */}
+      <div className="relative z-20 flex flex-col items-center  gap-8">
+        <h2 className={`text-black text-4xl  sm:text-[46px] lg:text-[55px] text-center pt-12 md:pt-16 ${bison.className}`}>
+          Our mission is to aid those in need
+        </h2>
+
+        <div className="w-full relative lg:px-7  h-auto lg:h-[600px]">
+            <div className="absolute inset-0 flex items-center justify-center z-20">
+      <PlayVideoSvg   className={' w-[63px] h-[63px] md:w-[110px] md:h-[110px]'}/>
     </div>
- 
-     
-
-         <div>
-
-         </div>
-
-
-   
-   </div>
-
-   <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 relative z-0">
-          {boxes.map((_, index) => {
-      
-
-            return (
-              <div
-                key={index}
-                className={`h-[85px] flex items-center justify-center border-r border-b border-black/7`}
-              >
-              
-              </div>
-            );
-          })}
+          <Image
+            className="w-full rounded-[25px] h-auto lg:h-[600px]  object-cover"
+            src={img1}
+            alt="Mission image"
+            width={1296}
+            height={604}
+        
+          />
         </div>
-       
-     
-
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default MissionHero
+export default MissionHero;

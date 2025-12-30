@@ -9,10 +9,12 @@ const Event = () => {
           <div className="flex  flex-col  w-full ">
             <HeroSectionBanner
             title="Events"
-                bannerSvgClass="w-[140px] xl:w-[200px]" 
+                  bannerSvgClass = 'w-[140px]  '   
             subtitle="The IAMGIFTED Foundation hosts a variety of empowering events aimed at supporting mental wellness and personal development, particularly for individuals facing challenges in underserved communities. These events include wellness weekends, therapy sessions, workshops, and community gatherings designed to foster self-discovery, healing, and growth."
-             height=" h-[380px] sm:h-[320px] md:h-[380px]"
-            subtitleClass=" text-base  md:text-lg lg:text-xl  text-white/70"
+              height=" h-[300px] sm:h-[280px]"
+                       subtitleClass=" text-base  md:text-[17px]   text-white/70"
+
+            
             />
            <FoundationEvents/>
             <OurteamMission/>

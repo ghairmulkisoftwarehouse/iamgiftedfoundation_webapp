@@ -46,7 +46,7 @@ const VolunteerCard = () => {
         </div>
 
                     {/*  */}
-     <div className="grid grid-cols-1 md:grid-cols-2 w-full lg:px-10 gap-5 relative z-5">
+     <div className="grid grid-cols-1 md:grid-cols-2 w-full lg:px-7 gap-5 relative z-5">
 
   {/* First Card */}
   <div className="flex flex-col w-full h-fit bg-light-cyan rounded-[21px] relative overflow-hidden
@@ -66,7 +66,7 @@ const VolunteerCard = () => {
         <h2 className={`text-[28px] lg:text-[41px] text-center ${bison.className}`}>
           Become a volunteer
         </h2>
-        <p className="text-black/50 text-base lg:text-lg text-center">
+        <p className="text-[#030F0CCC] text-base lg:text-lg text-center">
           Provide resources such as reports, infographics, and educational materials related to the charity's cause. Use a clear and intuitive navigation menu to help users find information quickly.
         </p>
 
@@ -107,10 +107,10 @@ const VolunteerCard = () => {
 
     <div className="relative flex flex-row gap-2 z-5 w-full px-4 h-full py-4">
       <div className="w-full flex flex-col items-center h-full px-4 gap-2 py-4">
-        <h2 className={`text-[28px] lg:text-[41px] text-center ${bison.className}`}>
+        <h2 className={`text-[28px] lg:text-[38px] text-center ${bison.className}`}>
           Join Us volunteer
         </h2>
-        <p className="text-black/50 text-base lg:text-lg text-center">
+        <p className="text-[#030F0CCC] text-base lg:text-[17px] text-center">
           Provide resources such as reports, infographics, and educational materials related to the charity's cause. Use a clear and intuitive navigation menu to help users find information quickly.
         </p>
 

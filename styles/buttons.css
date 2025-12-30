@@ -9,6 +9,29 @@
 @import "tailwindcss";
 
 @layer components {
+
+
+
+/* Base animated button */
+.btn-animated {
+  @apply relative inline-flex items-center justify-center
+         px-4 py-2.5 font-medium text-sm
+         rounded-full overflow-hidden tracking-tighter
+         transition-colors duration-300 ease-out  ;
+}
+
+/* Expanding circle */
+.btn-animated-hover {
+  @apply absolute w-0 h-0 rounded-full
+         transition-all duration-500 ease-out;
+}
+
+/* Button text */
+.btn-animated-text {
+  @apply relative z-10 transition-colors duration-300;
+}
+
+
  .btn-primary {
     @apply   px-4 lg:px-6  py-2 lg:py-3  text-sm lg:text-base  font-medium rounded-full cursor-pointer bg-polar-mist 
            hover:bg-gray-200 hover:text-gray-900
@@ -35,7 +58,7 @@
 
 
     .btn-donate {
-    @apply relative inline-flex items-center justify-center px-5 h-[41px] 
+    @apply relative inline-flex items-center font-medium justify-center  text-sm md:text-base    w-[180px]  md:w-[198px] h-[50px] 
            overflow-hidden tracking-tighter bg-black rounded-full 
            transition-colors duration-300;
   }
@@ -52,7 +75,7 @@
 
   /* Icon Button */
   .btn-icon {
-    @apply relative z-0 px-3 w-[41px] h-[41px] rounded-full flex 
+    @apply relative z-0 px-3 w-[50px] h-[50px] rounded-full flex 
            items-center justify-center overflow-hidden bg-black 
            transition-colors duration-300;
   }
@@ -68,6 +91,7 @@
 
 
 
+  
 
 
 
@@ -76,13 +100,15 @@
     position: relative;
     transition: all 0.2s ease-in-out;
     /* box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); */
-  padding: 6px 20px;
 
+ 
     border-radius: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    width: 196px;
+     height:40px;
     
     gap: 10px;
     font-weight: medium;

@@ -42,7 +42,7 @@ const HeroSectionBanner = ({
 
       {/* Title */}
       <h2
-        className={`text-thistle text-[60px] xl:text-[95px] text-center ${bison.className}`}
+        className={`text-thistle text-[60px] xl:text-[75px] text-center ${bison.className}`}
       >
         <span className="relative inline-block">
           <span className="relative z-10">{title}</span>
@@ -58,7 +58,7 @@ const HeroSectionBanner = ({
 
       {/* Subtitle */}
       {subtitle && (
-        <p className={`text-white text-center  lg:px-10 ${subtitleClass}`}>
+        <p className={`text-white text-center  lg:px-20 ${subtitleClass}`}>
           {subtitle}
         </p>
       )}

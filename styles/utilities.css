@@ -19,7 +19,7 @@
 @layer components {
 
   .title-heading{
-     @apply text-black text-4xl  xs:text-[46px] lg:text-[55px]  xl:text-[65px];
+     @apply text-black text-4xl  sm:text-[46px] lg:text-[55px]  xl:text-[2px];
   }
 }
 

@@ -51,14 +51,14 @@ const EventsSection = () => {
         </div>
          <div className="flex flex-col w-full items-center gap-10">
       <div className="  w-full    sm:w-[50%] lg:w-[60%] flex flex-col  gap-6">
-         <h2 className={`title-heading  text-center  ${bison.className}`}>
+         <h2 className={`text-black text-4xl  sm:text-[46px] lg:text-[55px] text-center  ${bison.className}`}>
               IAMGIFTED Foundation events
             </h2>
         </div>
-    <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-5 w-full lg:px-10 gap-5">
+    <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-5 w-full space-y-0 md:space-y-5    lg:px-7 gap-4">
       {eventDetail.map((event, index) => {
         const colSpan = colSpanPattern[index % colSpanPattern.length]; 
-        const img = (index % 2 === 0) ? img1 : img2; // alternate images
+        const img = (index % 2 === 0) ? img1 : img2; 
 
         return (
           <div
@@ -85,14 +85,20 @@ const EventsSection = () => {
               "
             >
               <p
-                className={`text-white text-[25px] lg:text-[30px] xl:text-[36px] lg:w-3/4 ${bison.className}`}
+                className={`text-white text-[25px] lg:text-[30px]  lg:w-3/4 ${bison.className}`}
               >
                 {event}
               </p>
              <div
               onClick={()=>router.push('/events/1')}
              >
-                    <ArrowRightSvg/>
+                    <ArrowRightSvg
+  className="
+    w-[50px] h-[50px] md:w-[70px] md:h-[70px]
+    transition-transform duration-500 ease-in-out
+    group-hover:rotate-45
+  "
+/>
              </div>
             
             </div>
@@ -100,7 +106,7 @@ const EventsSection = () => {
         );
       })}
     </div>
-     <button className='btn-seeMore  border border-black/20'>
+     <button className='btn-seeMore  border '>
            See More
         </button>
     </div>

@@ -1,7 +1,8 @@
 
-const MoneySvg = () => {
+const MoneySvg = ({className}) => {
   return (
     <svg
+    className={className}
       width="60"
       height="60"
       viewBox="0 0 80 80"

@@ -6,6 +6,7 @@ import ImpactStats   from '@/components/home/impactstats/ImpactStats';
 import Foundation   from '@/components/home/foundation/Foundation'
 import MissionHero   from '@/components/home/missionhero/MissionHero';
 import Fundrasing  from '@/components/home/fundrasing/Fundrasing';
+import ImpactNewsCarousel   from '@/components/home/impactNewsCarousel/ImpactNewsCarousel';
 
 export default function Home() {
   return (
@@ -13,7 +14,12 @@ export default function Home() {
   <HeroSection/>
     <ImpactStats/>
         <MissionHero/>
-    <Awareness/>
+     
+          <Awareness/>
+      
+    
+    <ImpactNewsCarousel/>
+
     <DonateBanner/>
         <Fundrasing/>
     <Foundation/>

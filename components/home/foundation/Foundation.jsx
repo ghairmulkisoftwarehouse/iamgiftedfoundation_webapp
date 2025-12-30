@@ -1,5 +1,6 @@
 'use client'
 
+import { useState,useEffect } from 'react'
 import foundation1img from '@/assets/images/foundation1.png'
 import foundation2img from '@/assets/images/foundation2.png'
 import foundation3img from '@/assets/images/foundation3.png'
@@ -17,6 +18,7 @@ import 'swiper/css/navigation'
 import Image from 'next/image'
 
 const Foundation = () => {
+   const [spaceBetween, setSpaceBetween] = useState(70);
   const foundationImages = [
     foundation1img,
     foundation2img,
@@ -26,18 +28,40 @@ const Foundation = () => {
   ]
 
 const sizes = [
-  { base: 'w-[150px] h-auto',    md: 'md:w-[200px]' },
-  { base: 'w-[100px] h-auto', md: 'md:w-[150px]' },
+  { base: 'w-[150px] h-auto',    md: 'md:w-auto' },
+  { base: 'w-[100px] h-auto', md: 'md:w-auto' },
   { base: 'w-[50px] h-[50px]', md: 'md:w-[75px] md:h-auto' },
   { base: 'w-[50px] h-[50px]', md: 'md:w-[70px] md:h-auto' },
   { base: 'w-[50px] h-[50px]', md: 'md:w-[75px] md:h-auto' },
+
+
+
+  
 ]
+
+
+ 
+
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width < 640) setSpaceBetween(20); // small screens
+      else if (width >= 640 && width < 768) setSpaceBetween(30); // sm
+      else setSpaceBetween(70); // md+
+    };
+
+    handleResize(); // set initial value
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+
 
   return (
     <div className="px-5 xl:px-12  swiper-customNav  mt-16 ">
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-7">
         <h2
-          className={`title-heading md:leading-tight text-center ${bison.className}`}
+          className={`text-black text-4xl  sm:text-[46px] lg:text-[55px]  text-center ${bison.className}`}
         >
           Foundation Partners
         </h2>
@@ -45,7 +69,8 @@ const sizes = [
         <div className=' mx-auto w-full flex justify-center '>
 <Swiper
   slidesPerView="auto"
-  spaceBetween={30}
+         spaceBetween={spaceBetween}
+
   freeMode={true}
   freeModeMomentum={false}   
   navigation={false}
@@ -56,7 +81,7 @@ const sizes = [
         {foundationImages.map((img, index) => (
           <SwiperSlide
             key={index}
-            className=" flex justify-center items-center cursor-pointer w-full"
+            className=" flex justify-center items-center cursor-pointer   w-full"
           >
            <Image
         src={img}

@@ -1,24 +1,39 @@
 import Awarnesimg from '@/assets/images/Awarness.png'
 import {  bison } from '@/components/fonts/fonts';
+import Link from 'next/link'
+
 
 const Awareness = () => {
   return (
-    <div className="px-5 xl:px-12 py-16">
+    <div className="mt-16 ">
 
-      <div className="flex flex-col  sm:flex-row items-center gap-4  md:gap-9 w-full lg:px-10 ">
+      <div className="w-full px-5 xl:px-12 bg-white py-14  ">
 
-        {/* Left side */}
-        <div className="  w-full    sm:w-[50%] lg:w-[60%] flex flex-col  gap-6">
-         <h2 className={`title-heading   ${bison.className}`}>
+
+      <div className='flex flex-col  sm:flex-row items-center gap-4  lg:px-7'>
+
+           {/* Left side */}
+        <div className="  w-full    sm:w-[50%] lg:w-[60%] flex flex-col gap-9">
+         <h2 className={`text-black text-4xl  sm:text-[46px] lg:text-[55px]   ${bison.className}`}>
               RAISING YOUTH MENTAL HEALTH AWARENESS TOGETHER
             </h2>
             <div className=' w-11/12'>
-                 <p className='text-black/70  text-sm sm:text-base  font-thin' >
+                 <p className='text-black/70  text-sm sm:text-[15px] font-thin' >
                 Empowering youth to speak openly about mental health, break the stigma, and understand that caring for the mind is just as vital as caring for the body. Together, we’re building a culture of empathy, awareness, and support.
             </p>
 
             </div>
-                <button className="btn-secondary w-fit ">Donate Now</button>
+
+   <Link href={'/donate'}>
+            <button className="btn-animated bg-mint-cyan w-[198px] h-[50px]   group cursor-pointer relative overflow-hidden hover:border-[#8bc9c8]">
+    <span className="btn-animated-hover bg-[#9dd6d5] group-hover:w-48 group-hover:h-44"></span>
+    <span className="btn-animated-text text-black group-hover:text-gray-900  text-sm lg:text-base  font-semibold">
+      Donate Now
+    </span>
+  </button>
+             
+              </Link>   
+               
        
         </div>
 
@@ -85,6 +100,10 @@ const Awareness = () => {
 
   </div>
 </div>
+
+      </div>
+
+   
 
       </div>
 
