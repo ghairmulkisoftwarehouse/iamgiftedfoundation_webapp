@@ -1,4 +1,4 @@
-import InvolvedPage from "./GetInvolved";
+import InvolvedPage from "./GetInvolved.jsx";
 
 export const metadata = {
   title: "Get Involved | Gifted Foundation",

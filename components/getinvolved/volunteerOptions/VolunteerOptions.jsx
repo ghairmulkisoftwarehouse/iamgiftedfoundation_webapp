@@ -1,3 +1,4 @@
+'use client'
 
 import { bison } from '@/components/fonts/fonts';
 import Image from 'next/image';

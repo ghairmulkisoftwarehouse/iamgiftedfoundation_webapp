@@ -2,7 +2,12 @@
 import  HeroSectionBanner  from '@/components/global/HeroSectionBanner'
 import  VolunteerCard   from '@/components/getinvolved/volunteerCard/VolunteerCard';
 import VolunteerOptions  from '@/components/getinvolved/volunteerOptions/VolunteerOptions';
-import Volunteervideo   from '@/components/getinvolved/voluntervideo/Volunteervideo';
+import dynamic from "next/dynamic"
+
+const Volunteervideo = dynamic(
+  () => import("@/components/getinvolved/voluntervideo/Volunteervideo"),
+  { ssr: false }
+)
 
 
 const GetInvolved = () => {
