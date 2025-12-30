@@ -1,4 +1,4 @@
-
+'use client'
 import  HeroSectionBanner  from '@/components/global/HeroSectionBanner'
 import  VolunteerCard   from '@/components/getinvolved/volunteerCard/VolunteerCard';
 import VolunteerOptions  from '@/components/getinvolved/volunteerOptions/VolunteerOptions';
