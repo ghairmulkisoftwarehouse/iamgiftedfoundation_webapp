@@ -2,8 +2,8 @@ import SearchSvg from '@/assets/svg/SearchSvg'
 
 const SearchBox = () => {
   return (
-    <div className="bg-black px-5 py-5 rounded-[22px] flex flex-col  gap-5">
-      <h2 className="text-lg md:text-xl  font-bold text-white">Search Here</h2>
+    <div className="bg-black px-5 pt-5 pb-8 rounded-[22px] flex flex-col  gap-5">
+      <h2 className="text-lg   font-bold text-white">Search Here</h2>
 
       <div className="border border-white relative h-[64px] rounded-[18px]">
         {/* Icon at right center */}

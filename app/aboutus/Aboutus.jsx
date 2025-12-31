@@ -9,14 +9,17 @@ const Aboutus = () => {
 <HeroSectionBanner
   title="About Us"
         subtitle="The Founder: Alexander Mattison"
-        height="h-[280px] "
-                       bannerSvgClass = ' w-[240px]  md:w-[180px]  lg:w-[230px] '   
+        height="h-[250px] "
+                       bannerSvgClass = 'w-[150px]   lg:w-[170px]   xl:w-[220px] '   
 
         subtitleClass="font-semibold md:text-2xl  text-white/80"
 />
   <TeamOverview/>
     <OurTeam/>
-    <OurteamMission/>
+    <div className='pb-5  lg:pb-10'>
+     <OurteamMission/>
+    </div>
+ 
 
 
   </div>

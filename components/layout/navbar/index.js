@@ -42,7 +42,9 @@ const Navbar = () => {
         <div className="hidden lg:block">   
           <ul className="flex space-x-2 lg:space-x-3 xl:space-x-5 font-medium text-sm lg:text-[15px] ">
             {navLinks.map((link) => {
-                        const isActive = pathname === link.path;
+                              const isActive =
+    pathname === link.path ||
+    (link.path !== '/' && pathname.startsWith(link.path + '/'));
 
 return(
    <li key={link.name}>

@@ -14,7 +14,7 @@ const DonateBanner = () => {
       Helping today helping tomorrow Charity
     </h2>
     <div className=' w-full px-6  md:px-0   md:w-4/5  lg:w-8/12'>
-        <p className='  text-sm sm:text-base md:text-lg  font-thin text-[#030F0CCC]' >
+        <p className='  text-sm sm:text-base md:text-lg  font-thin text-[#030F0CCC]  ' >
         Our mission is to provide critical support to those in need today, while also laying the groundwork for sustainable, long-term improvements.
     </p>
 

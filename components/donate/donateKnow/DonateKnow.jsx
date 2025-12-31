@@ -46,8 +46,8 @@ const DonateKnow = () => {
         </div>
 
       
-       <div className="grid grid-cols-1 lg:grid-cols-3 w-full lg:px-10  gap-6 relative z-5">
-       <div className='lg:col-span-2   flex flex-col gap-3.5   order-2 lg:order-1'>
+       <div className="grid grid-cols-1   lg:grid-cols-3 w-full lg:px-7  gap-6 relative z-5 pt-4">
+       <div className='lg:col-span-2   flex flex-col gap-3.5   order-1 lg:order-1'>
         <Image
         src={img}
         alt={'img'}
@@ -56,22 +56,24 @@ const DonateKnow = () => {
         className="w-full  object-cover rounded-[22px] h-[300px] lg:h-[451px]"
       />
 
-      <div className=' flex flex-col gap-1'>
-          <h3  className={`text-[28px] lg:text-[36px] ${bison.className}`}> Life Skills Camp — Building Confidence for the Future</h3>
+      <div className=' flex flex-col gap-2'>
+          <h3  className={`text-[28px] lg:text-[34px] ${bison.className}`}> Life Skills Camp — Building Confidence for the Future</h3>
 
-        <p className="text-black/50 text-sm lg:text-base leading-normal  sm:leading-[35px]">
+        <p className="text-[#030F0CCC] text-sm lg:text-[15px] leading-[35px]">
           A one-day, high-impact experience focused on building life skills, leadership, and confidence—on and off the field. Arcu ultricies malesuada lectus nulla est nunc integer pellentesque magna. Egestas malesuada faucibus arcu nunc elit leo quis interdum. Ac vel in commodo accumsan mollis cras massa posuere eget. Condimentum posuere velit cras velit tortor ridiculus sit. Lectus augue libero etiam sed nisl.
         </p>
 
       </div>
-
-      <DonateForm/>
+ <div className=' pt-6'>
+  <DonateForm/>
+ </div>
+      
   
 
        </div>
 
 
-         <div className='lg:col-span-1   order-1 lg:order-2'>
+         <div className='lg:col-span-1   order-2 lg:order-2'>
 
               <RecentDonate/>
        </div>

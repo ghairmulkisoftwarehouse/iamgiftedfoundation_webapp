@@ -11,32 +11,44 @@ const VolunteerOptions = () => {
 
 
 
-   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full lg:px-7 gap-5">
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full pt-4 lg:px-7 gap-5">
   {involvementData.map((item, index) => (
     <div
       key={index}
-      className="border border-black/10 rounded-[22px] px-4 py-4 flex flex-col gap-3.5 
-                 transform transition-transform duration-300 ease-in-out 
-             hover:shadow-lg"
+      className="group border border-black/10 rounded-[22px] px-4 py-4 flex flex-col gap-3.5
+       cursor-pointer
+                 transition-all duration-300 ease-in-out
+                 hover:shadow-lg"
     >
       <Image
         src={item.image}
         alt={item.title}
         width={370}
         height={236}
-        className="w-full h-[236px] object-cover rounded-2xl transition-transform duration-300 ease-in-out hover:scale-105"
+        className="w-full h-[236px] object-cover rounded-2xl
+                   transition-transform duration-300 ease-in-out
+                   group-hover:scale-105"
       />
-      <div className="flex flex-col gap-0.5">
-        <h2 className={`text-[27px] lg:text-[38px] ${bison.className}`}>
+
+      <div className="flex flex-col gap-0.5 transition-all duration-300">
+        <h2
+          className={`text-[27px]   lg:text-[30px] ${bison.className}
+                      transition-colors duration-300
+                      group-hover:text-black`}
+        >
           {item.title}
         </h2>
-        <p className="text-black/50 text-base lg:text-base text-justify">
+
+        <p className="text-[#030F0CCC] text-[13px] sm:text-sm lg:text-[15px] text-justify
+                      transition-colors duration-300
+                      group-hover:text-black/70">
           {item.description}
         </p>
       </div>
     </div>
   ))}
 </div>
+
 
                  
 

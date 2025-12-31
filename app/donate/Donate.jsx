@@ -8,9 +8,9 @@ const Donate = () => {
           <div className="flex  flex-col  w-full ">
             <HeroSectionBanner
             title="Donate now"
-             height=" h-[350px] sm:h-[320px] md:h-[380px]"
-               bannerSvgClass = '  w-[230px]  md:w-[250px] xl:w-auto'   
-            subtitleClass=" text-base  md:text-lg lg:text-xl  text-white/70"
+             height=" h-[200px] md:h-[250px] "
+               bannerSvgClass = '   w-[190px] lg:w-[210px]  xl:w-[280px] '   
+             subtitleClass=" text-sm sm:text-base  md:text-[17px]   text-white/70"
             />
             <DonateKnow/>
        

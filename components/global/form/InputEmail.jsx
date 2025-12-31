@@ -3,7 +3,7 @@ const InputEmail = ({ label, placeholder, value, onChange, name, error }) => {
     <div className="flex flex-col gap-1">
       <label
         htmlFor={name}
-        className="font-medium   text-base sm:text-lg px-1 text-[#252C62]"
+        className="font-medium   text-sm sm:text-[15px] px-1 text-[#252C62]"
       >
         {label}
       </label>

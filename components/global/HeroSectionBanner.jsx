@@ -41,9 +41,15 @@ const HeroSectionBanner = ({
       </div>
 
       {/* Title */}
-      <h2
-        className={`text-thistle text-[60px] xl:text-[75px] text-center ${bison.className}`}
-      >
+    
+<h2
+  className={`text-thistle
+   text-[50px]
+    lg:text-[56px]
+    xl:text-[72px]
+    text-center
+    ${bison.className}`}
+>      
         <span className="relative inline-block">
           <span className="relative z-10">{title}</span>
           <span className="absolute left-0 right-0 bottom-[-2px] z-0">

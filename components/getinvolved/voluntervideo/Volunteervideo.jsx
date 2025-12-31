@@ -2,10 +2,10 @@
 
 
 'use client'
-import Plyr from "plyr";
-import { useState, useEffect, useRef } from "react";
+// import Plyr from "plyr";
+// import { useState, useEffect, useRef } from "react";
 import { bison } from '@/components/fonts/fonts';
-import "plyr/dist/plyr.css";
+// import "plyr/dist/plyr.css";
 import PlayVideoSvg from '@/assets/svg/PlayVideoSvg';
 import img1 from '@/assets/images/bannerimage.png';
 import Image from "next/image";
@@ -81,7 +81,7 @@ const Volunteervideo = () => {
       className="flex flex-col gap-2 w-full  px-5 xl:px-12   mt-16  relative"
   
     >
-      <div className=" w-full h-full  flex flex-col gap-0 md:gap-3.5   ">
+      <div className=" w-full h-full  flex flex-col gap-0 md:gap-3.5   pb-5  lg:pb-20  ">
     
          <div className="w-full relative lg:px-7  h-auto lg:h-[600px]">
             <div className="absolute inset-0 flex items-center justify-center z-20">

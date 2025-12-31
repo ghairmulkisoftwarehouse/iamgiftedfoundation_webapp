@@ -73,7 +73,7 @@ const DonateForm = () => {
 
       {/* Donation */}
       <div className="md:col-span-2 flex flex-col gap-2.5">
-        <h2 className="font-medium text-xl">Your Donation:</h2>
+        <h2 className="font-medium text-lg ">Your Donation:</h2>
 
         <div className="relative h-[50px]">
           <div className="bg-black w-[40px] h-[40px] flex items-center justify-center rounded-full absolute top-[5px] left-2">
@@ -81,11 +81,11 @@ const DonateForm = () => {
           </div>
 
           <input
-            type="number"
+            type="text"
             value={amount}
             readOnly={!isCustom}
             onChange={(e) => isCustom && setAmount(e.target.value)}
-            className="outline-none w-full rounded-full pl-14 pr-3 h-full bg-light-cyan"
+            className="outline-none w-full rounded-full pl-14 pr-3 h-full bg-light-cyan  text-sm  sm:text-[15px]"
           />
         </div>
 
@@ -98,7 +98,7 @@ const DonateForm = () => {
             <button
               key={value}
               onClick={() => handlePresetClick(value)}
-              className={`border px-7 py-1 rounded-full transition-colors duration-500
+              className={`border px-7 py-1 rounded-full transition-colors duration-500  cursor-pointer  text-sm  sm:text-[15px]
                 ${amount === value && !isCustom
                   ? "bg-black text-white"
                   : "border-black text-black"
@@ -110,7 +110,8 @@ const DonateForm = () => {
 
           <button
             onClick={handleCustomClick}
-            className={`border px-7 py-1 rounded-full transition-colors duration-500
+            className={`border px-7 py-1 rounded-full transition-colors duration-500  cursor-pointer 
+            text-sm  sm:text-[15px]
               ${isCustom ? "bg-black text-white" : "border-black text-black"}`}
           >
             Custom
@@ -120,11 +121,11 @@ const DonateForm = () => {
 
       {/* Payment Method */}
       <div className="md:col-span-2 flex flex-col gap-2.5">
-        <h2 className="font-medium text-xl">Select Payment Method</h2>
+        <h2 className="font-medium text-lg ">Select Payment Method</h2>
 
         <div className="flex flex-wrap gap-4">
           {["paypal", "card", "wire"].map((method) => (
-            <label key={method} className="flex items-center gap-1.5 cursor-pointer">
+            <label key={method} className="flex items-center gap-1.5 cursor-pointer    text-sm  sm:text-[15px]">
               <input
                 type="radio"
                 name="payment"
@@ -150,7 +151,7 @@ const DonateForm = () => {
 
       {/* Personal Info */}
       <div className="md:col-span-2 flex flex-col gap-5">
-        <h2 className="font-medium text-xl">Personal Details</h2>
+        <h2 className="font-medium text-lg">Personal Details</h2>
 
         <div className="grid md:grid-cols-2 gap-5">
           <InputName label="First Name" value={formData.firstName} onChange={handleChange("firstName")} error={errors.firstName} />
@@ -167,7 +168,7 @@ const DonateForm = () => {
       {/* Actions */}
       <div className="md:col-span-2 flex justify-end gap-3 pt-6">
         <button
-          className="bg-black/40 px-7 py-1.5 rounded-full text-white"
+          className="bg-black/40 w-[144px] py-1.5 rounded-full text-white cursor-pointer"
           onClick={() => {
             setFormData({
               firstName: "",
@@ -182,12 +183,20 @@ const DonateForm = () => {
           Cancel
         </button>
 
-        <button
-          className="bg-black px-7 py-1.5 rounded-full text-white"
-          onClick={handleSubmit}
-        >
-          Donate Now
-        </button>
+
+
+ <button
+     onClick={handleSubmit}
+    className="btn-submit bg-black hover:bg-gray-200  w-[144px] group cursor-pointer relative overflow-hidden">
+    {/* Expanding circle */}
+    <span className="btn-submit-hover bg-gray-200 group-hover:w-40 group-hover:h-40 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full"></span>
+
+    {/* Button text */}
+    <span className="btn-submit-text text-white group-hover:text-black relative z-10  font-medium">
+      Donate Now
+    </span>
+  </button>
+      
       </div>
     </div>
   );

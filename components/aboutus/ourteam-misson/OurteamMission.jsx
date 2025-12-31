@@ -16,19 +16,19 @@ const OurteamMission = () => {
   return (
     <div 
  
-    className='bg-white   mt-16  w-full  relative '>
+    className='bg-white   mt-16  w-full  relative  '>
 
 
      {/* Grid Background */}
      
 
   
-    <div className='flex flex-col  space-y-20  sm:gap-3 px-5 lg:px-12 py-9'>
-    <div className='flex flex-col sm:flex-row items-center  gap-9 sm:gap-8  lg:gap-24   w-full   lg:px-7  '>
+    <div className='flex flex-col  space-y-10 sm:space-y-20  sm:gap-3 px-5 lg:px-12 py-9'>
+    <div className='flex flex-col sm:flex-row items-center  gap-4 sm:gap-8  lg:gap-24   w-full   lg:px-7  '>
 
       <div className=' w-full sm:w-1/2 lg:w-3/5 flex flex-col gap-2   '>
       <h2  className={`text-black text-4xl  sm:text-[46px] lg:text-[55px] ${bison.className}`}>From the Beginning</h2>
-      <div className='  pr-7 lg:pr-12    text-sm md:text-[15px] text-[#030F0CCC]  leading-7'>
+      <div className='  p-0 sm:pr-7 lg:pr-12  text-sm md:text-[15px] text-[#030F0CCC]  leading-7'>
            <p>From the start, we’ve been dedicated to empowering the next generation through our core programs—sports camps, financial literacy workshops, and mental health awareness discussions. We’ve seen firsthand how lives can be changed when young people discover their inner strength and tap into their unique gifts.</p>
       <p>As the need for Mental health support grows, we’re expanding our focus to offer comprehensive Mental health resources, workshops, and subsidized services to ensure that no one walks this journey alone. By addressing both mind and body, we’re helping to create a brighter future for our communities.</p>
       </div>
@@ -79,7 +79,7 @@ const OurteamMission = () => {
 
       <div className=' w-full  order-1 sm:order-2 sm:w-1/2 lg:w-3/5 flex flex-col gap-2   '>
       <h2  className={`text-black text-4xl  sm:text-[46px] lg:text-[55px] ${bison.className}`}>Join the movement</h2>
-        <div className='  pr-7 lg:pr-12   text-sm md:text-[15px] text-[#030F0CCC] leading-7'>
+        <div className='  p-0 sm:pr-7 lg:pr-12    text-sm md:text-[15px] text-[#030F0CCC] leading-7'>
            <p>This is more than a foundation; it’s a movement. A movement fueled by the belief that when we lift each other up, we all rise. Your support—whether through donations, volunteering, or sharing our story—directly impacts the lives of those who need it most.</p>
       <p>Join us in this mission. Together, we can inspire hope, foster growth, and create lasting change. Help us show the world that no matter where you come from or what challenges you face, you are gifted.</p>
       </div>

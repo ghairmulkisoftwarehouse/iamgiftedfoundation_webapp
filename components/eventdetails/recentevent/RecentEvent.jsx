@@ -14,8 +14,9 @@ const RecentEvent = () => {
    <div className="bg-light-cyan px-5 py-5 rounded-[22px] flex flex-col  gap-5 text-black">
       <h2 className="  text-lg md:text-[19px] font-bold ">Past Events</h2>
 
+<div className=' flex flex-col  gap-6'>
       {DonateItems.map((item, index) => (
-        <div key={index} className="flex flex-row items-center gap-2.5">
+        <div key={index} className="flex flex-row items-center gap-3">
           {/* Image */}
           <div className="w-[78px] h-[78px] flex-shrink-0">
             <Image
@@ -31,23 +32,32 @@ const RecentEvent = () => {
           <div className="flex flex-col gap-1">
             {/* Date */}
             <div className="flex items-center gap-1.5">
-              <CalendarSvg className="w-4 h-4 " />
+              <CalendarSvg className="w-4 h-4  text-black" />
               <p className="font-normal text-xs md:text-sm ">{item.date}</p>
             </div>
 
             {/* Title */}
-            <h2 className= " text-base md:text-[17px] font-semibold">{item.description}</h2>
+            <h2 
+               className="text-sm sm:text-base md:text-[17px]  cursor-pointer font-semibold 
+                     transition-all duration-300 ease-in-out
+                     hover:text-black/70 group-hover:translate-x-1"
+            >{item.description}</h2>
           </div>
         </div>
       ))}
+      </div>
 
     </div>
 
+
+<div className=' flex flex-col  gap-6'>
     <div className="bg-grayblue-alt px-5 py-5 rounded-[22px] flex flex-col  gap-5 text-black">
       <h2 className="  text-lg md:text-[19px] font-bold ">Future Events</h2>
 
+
+<div className=' flex flex-col  gap-6'>
       {DonateItems.map((item, index) => (
-        <div key={index} className="flex flex-row items-center gap-2.5">
+        <div key={index} className="flex flex-row items-center gap-3">
           {/* Image */}
           <div className="w-[78px] h-[78px] flex-shrink-0">
             <Image
@@ -68,11 +78,15 @@ const RecentEvent = () => {
             </div>
 
             {/* Title */}
-            <h2 className= " text-base md:text-lg font-semibold">{item.description}</h2>
+            <h2  className="text-sm sm:text-base md:text-[17px] font-semibold 
+                     transition-all duration-300 ease-in-out
+                     hover:text-black/70 group-hover:translate-x-1  cursor-pointer">{item.description}</h2>
           </div>
         </div>
       ))}
+      </div>
 
+    </div>
     </div>
 
        

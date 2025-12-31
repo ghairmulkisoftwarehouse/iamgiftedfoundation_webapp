@@ -32,6 +32,29 @@
 }
 
 
+
+
+
+
+/* Base animated button */
+.btn-submit {
+  @apply relative inline-flex items-center justify-center
+         px-4 py-2.5 font-medium text-sm md:text-[15pz]
+         rounded-full overflow-hidden tracking-tighter
+         transition-colors duration-300 ease-out  ;
+}
+
+/* Expanding circle */
+.btn-submit-hover {
+  @apply absolute w-0 h-0 rounded-full
+         transition-all duration-500 ease-out;
+}
+
+/* Button text */
+.btn-submit-text {
+  @apply relative z-10 transition-colors duration-300;
+}
+
  .btn-primary {
     @apply   px-4 lg:px-6  py-2 lg:py-3  text-sm lg:text-base  font-medium rounded-full cursor-pointer bg-polar-mist 
            hover:bg-gray-200 hover:text-gray-900
@@ -58,7 +81,7 @@
 
 
     .btn-donate {
-    @apply relative inline-flex items-center font-medium justify-center  text-sm md:text-base    w-[180px]  md:w-[198px] h-[50px] 
+    @apply relative inline-flex items-center font-medium justify-center  text-[13px] sm:text-sm sm:text-base    w-[180px]  h-[40px] sm:w-[198px] sm:h-[50px] 
            overflow-hidden tracking-tighter bg-black rounded-full 
            transition-colors duration-300;
   }
@@ -75,7 +98,7 @@
 
   /* Icon Button */
   .btn-icon {
-    @apply relative z-0 px-3 w-[50px] h-[50px] rounded-full flex 
+    @apply relative z-0 px-3  w-[40px] h-[40px] sm:w-[50px] sm:h-[50px] rounded-full flex 
            items-center justify-center overflow-hidden bg-black 
            transition-colors duration-300;
   }

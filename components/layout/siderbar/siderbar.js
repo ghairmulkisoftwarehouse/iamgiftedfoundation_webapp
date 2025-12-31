@@ -45,7 +45,9 @@ export default function Sidebar() {
           <ul className="flex flex-col space-y-1 font-medium text-base">
             {navLinks.map((link, index) => {
               
-                   const isActive = pathname === link.path; // check if active
+                       const isActive =
+    pathname === link.path ||
+    (link.path !== '/' && pathname.startsWith(link.path + '/'));
               return (
                 <li key={index} onClick={handleCloseSidebar}>
                   {link.path ? (

@@ -3,8 +3,8 @@ import { teamServices } from '@/constants/ProgramConstants';
 
 const Humanitarian = () => {
   return (
-    <div className="px-5 xl:px-12 mt-16">
-      <div className="flex flex-col w-full items-center gap-10">
+    <div className="px-5 xl:px-12 mt-16    pb-5  lg:pb-20">
+      <div className="flex flex-col w-full items-center gap-10 pt-0 lg:pt-2">
         <h2
           className={`text-black text-4xl  sm:text-[46px] lg:text-[55px] text-center w-full  ${bison.className}`}
         >

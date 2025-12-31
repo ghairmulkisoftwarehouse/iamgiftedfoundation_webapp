@@ -11,10 +11,11 @@ const RecentDonate = () => {
     <div className="flex flex-col gap-4">
     <SearchBox/>
     <div className="bg-grayblue-alt px-5 py-5 rounded-[22px] flex flex-col  gap-5 text-black">
-      <h2 className="  text-lg md:text-xl font-bold ">Recent Donations</h2>
+      <h2 className=" text-lg md:text-[19px] font-bold  ">Recent Donations</h2>
 
-      {DonateItems.map((item, index) => (
-        <div key={index} className="flex flex-row items-center gap-2.5">
+<div className=' flex flex-col  gap-6'>
+   {DonateItems.map((item, index) => (
+        <div key={index} className="flex flex-row items-center gap-3  cursor-pointer">
           {/* Image */}
           <div className="w-[78px] h-[78px] flex-shrink-0">
             <Image
@@ -35,10 +36,18 @@ const RecentDonate = () => {
             </div>
 
             {/* Title */}
-            <h2 className= " text-bse md:text-lg font-semibold">{item.description}</h2>
+            <h2
+          className="text-sm sm:text-base md:text-[17px] font-semibold 
+                     transition-all duration-300 ease-in-out
+                     hover:text-black/70 group-hover:translate-x-1"
+        >
+          {item.description}
+        </h2>
           </div>
         </div>
       ))}
+</div>
+     
 
     </div>
 

@@ -9,9 +9,9 @@ const Contact = () => {
             <HeroSectionBanner
             title="Contact"
             subtitle="Fill out the form below, and we’ll get back to you as soon as possible."
-             height=" h-[350px] sm:h-[320px] md:h-[380px]"
-               bannerSvgClass = 'w-[180px]   xl:w-[250px]'   
-            subtitleClass=" text-base  md:text-lg lg:text-xl  text-white/70"
+             height=" h-[250px] "
+               bannerSvgClass = '  w-[130px]  lg:w-[150px] xl:w-[190px]  '   
+           subtitleClass=" text-sm sm:text-base  md:text-[17px]   text-white/70"
             />
        
             

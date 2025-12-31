@@ -57,7 +57,7 @@ const TeamOverview = () => {
        height={604}
        className='w-full'
        />
-       <p className=" text-lg sm:text-[20px] ">The IAMGIFTED team is comprised of dedicated educators, mentors, and advocates committed to children and families through education, resources, and community-building programs. </p>
+       <p className=" text-base md:text-lg sm:text-[20px] ">The IAMGIFTED team is comprised of dedicated educators, mentors, and advocates committed to children and families through education, resources, and community-building programs. </p>
 
 
        </div>

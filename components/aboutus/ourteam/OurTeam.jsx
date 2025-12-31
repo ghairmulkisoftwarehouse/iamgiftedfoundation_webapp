@@ -42,10 +42,10 @@ const OurTeam = () => {
               </div>
 
               <div className="flex flex-col items-start gap-0.5 w-full pl-2.5">
-                <p className="font-semibold text-[20px] leading-tight">
+                <p className="font-semibold text-[17px] sm:text-lg md:text-[20px] leading-tight">
                   {member.name}
                 </p>
-                <p className="font-normal text-black/25 text-sm md:text-[15px]">
+                <p className="font-normal text-black/25 text-[13px] sm:text-sm md:text-[15px]">
                   {member.role}
                 </p>
               </div>

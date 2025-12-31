@@ -62,6 +62,8 @@ const EventsSection = () => {
 
         return (
           <div
+
+          onClick={()=>router.push('/events/1')}
             key={index}
             style={{
               backgroundImage: `url(${img.src})`,
@@ -76,7 +78,7 @@ const EventsSection = () => {
             <div
               className="
                cursor-pointer
-                absolute bottom-0 left-0 w-full h-[180px]
+                absolute bottom-[-20px] left-0 w-full h-[180px]
                 flex justify-between items-center px-4
                 bg-gradient-to-b from-transparent via-black/90 to-black
                 rounded-b-[22px]
