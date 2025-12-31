@@ -11,16 +11,13 @@ import ImpactNewsCarousel   from '@/components/home/impactNewsCarousel/ImpactNew
 export default function Home() {
   return (
     <div className="flex  flex-col  w-full ">
-  <HeroSection/>
-    <ImpactStats/>
-        <MissionHero/>
-     
-          <Awareness/>
-      
-    
-    <ImpactNewsCarousel/>
-
-    <DonateBanner/>
+ 
+    <HeroSection/>
+   <ImpactStats/>
+      <MissionHero/>
+      <Awareness/>
+       <ImpactNewsCarousel/>
+    <DonateBanner/> 
         <Fundrasing/>
     <Foundation/>
 

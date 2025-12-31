@@ -37,7 +37,7 @@ const MissionHero = () => {
 
     <div
       ref={containerRef}
-      className="relative flex flex-col gap-2 w-full bg-gradient-to-b from-light-cyan  to-transparent px-5 xl:px-12 overflow-hidden"
+      className="relative flex flex-col gap-2 w-full    bg-gradient-to-b from-light-cyan  to-[#F4F6F6]  overflow-hidden"
     >
       {/* Grid Background */}
       <div
@@ -53,12 +53,12 @@ const MissionHero = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-20 flex flex-col items-center  gap-8">
+      <div className="relative z-20 flex flex-col items-center  gap-8    container mx-auto  px-3.5  ">
         <h2 className={`text-black text-4xl  sm:text-[46px] lg:text-[55px] text-center pt-12 md:pt-16 ${bison.className}`}>
           Our mission is to aid those in need
         </h2>
 
-        <div className="w-full relative lg:px-7  h-auto lg:h-[600px]">
+        <div className="w-full relative  h-auto lg:h-[600px]">
             <div className="absolute inset-0 flex items-center justify-center z-20">
       <PlayVideoSvg   className={' w-[63px] h-[63px] md:w-[110px] md:h-[110px]'}/>
     </div>

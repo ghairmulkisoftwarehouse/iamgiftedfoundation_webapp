@@ -53,8 +53,8 @@ export default function Sidebar() {
                   {link.path ? (
                     <Link href={link.path} 
                         className={`
-                cursor-pointer block py-2 px-2 lg:px-2.5 rounded-md transition-all duration-200
-                ${isActive ? 'bg-black/10 font-semibold' : 'hover:bg-black/15'}
+                cursor-pointer block py-2 px-3 lg:px-2.5 rounded-full transition-all duration-200
+                ${isActive ? 'bg-mint-cyan font-semibold' : 'hover:bg-mint-cyan'}
               `}
                     >
                       {link.name}
@@ -74,8 +74,8 @@ export default function Sidebar() {
 
 
         <div className="flex flex-col gap-2.5 px-2.5 pt-3">
-            <button className="btn-primary">Account</button>
-            <button className="btn-secondary">
+            <button className="btn-primary h-[41px] text-sm sm:text-base">Account</button>
+            <button className="btn-secondary  h-[41px] text-sm sm:text-base">
                           <Link href="/donate"
                           onClick={handleCloseSidebar}>
 Donate Now

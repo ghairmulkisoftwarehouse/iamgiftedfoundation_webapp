@@ -18,13 +18,13 @@ import LeftArrowSvg from '@/assets/svg/LeftArrowSvg';
 
 const Fundrasing = () => {
 
-    const [isBeginning, setIsBeginning] = useState(false);
+    const [isBeginning, setIsBeginning] = useState(true);
 const [isEnd, setIsEnd] = useState(false);
   
   return (
-    <div className="px-5 xl:px-12 mt-16">
-      <div className="flex flex-col w-full gap-10 pt-3">
-        <div className="flex items-center justify-between w-full lg:px-7">
+    <div className=" mt-16">
+      <div className="flex flex-col w-full  container mx-auto  px-3.5 gap-10 pt-3">
+        <div className="flex items-center justify-between w-full ">
           <h2 className={`text-black text-4xl  sm:text-[46px] lg:text-[55px]   ${bison.className}`}>
             Peer-to-Peer Fundraising
           </h2>
@@ -33,27 +33,27 @@ const [isEnd, setIsEnd] = useState(false);
 
             {isBeginning && (
     <div className="w-[40px] h-[40px] md:w-[50px] md:h-[50px] rounded-full flex items-center justify-center bg-black/30 ">
-      <LeftArrowSvg className="'w-[15px]  h-[15px]  md:w-auto md:h-auto " />
+      <LeftArrowSvg className=" w-[12px]  h-[12px] sm:w-[15px] sm:h-[15px]  md:w-auto md:h-auto" />
     </div>
   )}
 
 
             <div className="design-prev w-[40px]  h-[40px]  md:w-[50px] md:h-[50px] rounded-full flex items-center justify-center bg-black cursor-pointer">
-              <LeftArrowSvg className={'w-[15px]  h-[15px]  md:w-auto md:h-auto'} />
+              <LeftArrowSvg className=" w-[12px]  h-[12px] sm:w-[15px] sm:h-[15px]  md:w-auto md:h-auto" />
             </div>
             <div className="design-next w-[40px]  h-[40px]  md:w-[50px] md:h-[50px] rounded-full flex items-center justify-center bg-black cursor-pointer">
-              <RightArrowSvg   className={'w-[15px]  h-[15px]  md:w-auto md:h-auto'}/>
+              <RightArrowSvg  className=" w-[12px]  h-[12px] sm:w-[15px] sm:h-[15px]  md:w-auto md:h-auto"/>
             </div>
 
          {isEnd && (
     <div className="design-next w-[40px] h-[40px] md:w-[50px] md:h-[50px] rounded-full flex items-center justify-center  bg-black/30 ">
-      <RightArrowSvg className="'w-[15px]  h-[15px]  md:w-auto md:h-auto" />
+      <RightArrowSvg className=" w-[12px]  h-[12px] sm:w-[15px] sm:h-[15px]  md:w-auto md:h-auto" />
     </div>
   )}
 
           </div>
         </div>
-  <div className=' mx-auto w-full flex justify-center  lg:px-7'>
+  <div className=' mx-auto w-full flex justify-center  '>
         <Swiper
           spaceBetween={20}
           loop={false}
@@ -86,11 +86,11 @@ const [isEnd, setIsEnd] = useState(false);
       flex flex-col gap-3 w-full
       transition-all duration-700 ease-out
        hover:shadow-2xl
-       lg:h-[450px]
+       h-auto
     "
   >
     {/* Image wrapper */}
-    <div className="w-full overflow-hidden rounded-[20px]">
+    <div className="w-full h-[236px] overflow-hidden rounded-[20px]">
       <Image
         src={item.image}
         width={370}

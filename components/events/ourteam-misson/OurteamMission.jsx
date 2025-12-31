@@ -8,8 +8,8 @@ import Image from 'next/image';
 const OurteamMission = () => {
   return (
 
-       <div className='flex flex-col  space-y-20  sm:gap-3 px-5 lg:px-12 py-9 bg-white  mt-16'>
-      <div className='flex flex-col sm:flex-row items-center  gap-9 sm:gap-8  lg:gap-24   w-full   lg:px-7  '>
+       <div className='flex flex-col  space-y-20  sm:gap-3 py-9 bg-white  mt-16'>
+      <div className='flex flex-col sm:flex-row items-center  gap-9 sm:gap-8  lg:gap-24   w-full  container mx-auto  px-3.5  '>
   
         <div className=' w-full sm:w-1/2 lg:w-3/5 flex flex-col gap-2   '>
         <h2  className={`text-black text-4xl  sm:text-[46px] lg:text-[55px] ${bison.className}`}>From the Beginning</h2>

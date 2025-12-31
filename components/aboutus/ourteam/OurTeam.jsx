@@ -13,7 +13,7 @@ const OurTeam = () => {
   return (
     <div
      
-     className="px-5 xl:px-12   mt-16 relative">
+     className="container mx-auto  px-3.5   mt-16 relative">
 
 
   
@@ -24,7 +24,7 @@ const OurTeam = () => {
         </h2>
 
         {/* our team grid */}
-        <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5   lg:px-7 ">
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5    ">
           {teamMembers.map((member) => (
             <div 
               key={member.id} 

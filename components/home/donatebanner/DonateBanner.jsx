@@ -6,8 +6,8 @@ import Link from 'next/link';
 
 const DonateBanner = () => {
   return (
-    <div className="px-5 xl:px-12    mt-16  ">
-    <div className='lg:px-7 pt-6'>
+    <div className="  mt-16  ">
+    <div className='container mx-auto px-3.5 pt-6'>
         <div className=" h-[400px] md:h-[453px]   bg-light-cyan  rounded-[25px] relative   flex items-center justify-center   w-full overflow-hidden   ">
     <div className="relative z-10 flex flex-col items-center  gap-12 text-center  ">
     <h2 className={`text-black text-4xl  sm:text-[46px] lg:text-[55px]  ${bison.className}`}>
@@ -58,6 +58,7 @@ const DonateBanner = () => {
   src={charityimg}
   width={1296}
   height={367}
+  alt='img'
  className='w-full object-cover absolute bottom-[-10px] md:bottom-[-40px] z-5'
  />
     </div>

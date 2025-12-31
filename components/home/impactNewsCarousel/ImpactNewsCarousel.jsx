@@ -30,38 +30,38 @@ const [isEnd, setIsEnd] = useState(false);
 
 
   return (
-     <div className="px-5 xl:px-12 mt-16">
-      <div className="flex flex-col w-full gap-10">
-        <div className="flex items-center justify-between w-full lg:px-7">
-          <h2 className={`text-black text-4xl  sm:text-[46px] lg:text-[55px]   ${bison.className}`}>
+     <div className=" mt-16">
+      <div className="flex flex-col w-full gap-10    container mx-auto  px-3.5">
+        <div className="flex items-center justify-between w-full ">
+          <h2 className={`text-black text-3xl sm:text-4xl  md:text-[46px] lg:text-[55px]   ${bison.className}`}>
            IAMGifted foundation Making <br className=' hidden  sm:block'/> Headlines with impact
           </h2>
 
           <div className="flex items-center gap-3.5">
 
             {isBeginning && (
-    <div className="w-[40px] h-[40px] md:w-[50px] md:h-[50px] rounded-full flex items-center justify-center bg-black/30 ">
-      <LeftArrowSvg className="'w-[15px]  h-[15px]  md:w-auto md:h-auto " />
+    <div className=" design-prev  w-[40px] h-[40px] md:w-[50px] md:h-[50px] rounded-full flex items-center justify-center bg-black/30 ">
+      <LeftArrowSvg className="'    w-[12px]  h-[12px] sm:w-[15px] sm:h-[15px]  md:w-auto md:h-auto" />
     </div>
   )}
 
 
             <div className="design-prev w-[40px]  h-[40px]  md:w-[50px] md:h-[50px] rounded-full flex items-center justify-center bg-black cursor-pointer">
-              <LeftArrowSvg className={'w-[15px]  h-[15px]  md:w-auto md:h-auto'} />
+              <LeftArrowSvg className={' w-[12px]  h-[12px] sm:w-[15px] sm:h-[15px]  md:w-auto md:h-auto'} />
             </div>
             <div className="design-next w-[40px]  h-[40px]  md:w-[50px] md:h-[50px] rounded-full flex items-center justify-center bg-black cursor-pointer">
-              <RightArrowSvg   className={'w-[15px]  h-[15px]  md:w-auto md:h-auto'}/>
+              <RightArrowSvg   className={'  w-[12px]  h-[12px] sm:w-[15px] sm:h-[15px]  md:w-auto md:h-auto'}/>
             </div>
 
          {isEnd && (
     <div className="design-next w-[40px] h-[40px] md:w-[50px] md:h-[50px] rounded-full flex items-center justify-center  bg-black/30 ">
-      <RightArrowSvg className="'w-[15px]  h-[15px]  md:w-auto md:h-auto" />
+      <RightArrowSvg className="  w-[12px]  h-[12px] sm:w-[15px] sm:h-[15px]  md:w-auto md:h-auto" />
     </div>
   )}
 
           </div>
         </div>
-  <div className=' mx-auto w-full flex justify-center items-center  lg:px-7'>
+  <div className=' mx-auto w-full flex justify-center items-center  '>
     <Swiper
   spaceBetween={15}
   loop={false}
@@ -100,7 +100,7 @@ const [isEnd, setIsEnd] = useState(false);
             {item.title}
           </div>
           <div className="pr-3.5 lg:pr-9 pt-10">
-            <p className="font-semibold text-lg  leading-[40px]">
+            <p className="font-semibold text-sm md:text-lg  leading-[40px]">
               {item.paragraph}
             </p>
           </div>

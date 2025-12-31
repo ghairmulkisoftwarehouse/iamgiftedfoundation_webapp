@@ -80,7 +80,7 @@ const handleSubmit = async () => {
   setFormData({ name: "", email: "", message: "" });
 };
   return (
-      <div className="px-5 xl:px-12 mt-16 w-full relative bg-[#F4F7F7]">
+      <div className=" mt-16 w-full relative bg-[#F4F7F7]">
          <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 absolute left-0 top-[-90px] z-0 w-full">
           {boxes.map((_, index) => {
       
@@ -97,7 +97,7 @@ const handleSubmit = async () => {
         </div>
 
 
-          <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-5 w-full lg:px-7 gap-5 relative z-5  pb-5  lg:pb-20">
+          <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-5 w-full lg:px-7 gap-5 relative z-5  pb-5  lg:pb-20  container mx-auto  px-3.5">
             <div className="  lg:col-span-2">
     
 

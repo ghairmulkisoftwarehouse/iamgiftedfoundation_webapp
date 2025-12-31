@@ -55,14 +55,14 @@ const Footer = () => {
   const specialCircleIndexes = [8, 21, 39, 53];
 
   return (
-    <div className='flex flex-col gap-2 w-full bg-black mt-4'>
+    <div className='flex flex-col gap-0 w-full bg-black mt-4'>
 
     
   
-      <div className="w-full relative h-auto overflow-hidden ">
+      <div className="w-full relative   h-auto  lg:h-[400px]  overflow-hidden   ">
 
 
-        <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12  absolute  w-full  left-0  z-0">
+        <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12  absolute  w-full  left-0  z-0  ">
           {boxes.map((_, index) => {
             const isSpecialBg = specialBgIndexes.includes(index);
             const isSpecialCircle = specialCircleIndexes.includes(index);
@@ -71,18 +71,18 @@ const Footer = () => {
               <div
                 key={index}
                 className={`h-[85px] flex items-center justify-center border-r border-b border-white/10
-                  ${isSpecialBg ? " bg-transparent md:bg-[#0A0A0A]" : ""} relative`}
+                  ${isSpecialBg ? " bg-transparent lg:bg-[#0A0A0A]" : ""} relative`}
               >
                 {isSpecialCircle && (
-                  <div className="absolute inset-0 w-full h-full bg-[#0A0A0A] rounded-full hidden md:block -z-10"></div>
+                  <div className="absolute inset-0 w-full h-full bg-[#0A0A0A] rounded-full hidden lg:block -z-10"></div>
                 )}
               </div>
             );
           })}
         </div>
-       <div className=" relative  w-full h-[400px]  z-20 left-0 ">
+       <div className=" relative  w-full h-full  z-20 left-0  pb-4  lg:pb-0 container mx-auto px-3.5 ">
       
-       <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-7 lg:gap-2.5 sm:justify-between pt-14 px-5 xl:px-12   ">
+       <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-7 lg:gap-2.5 sm:justify-between pt-14">
          <div className="  w-full sm:w-[50%] lg:w-[30%]    h-full flex flex-col  gap-2.5">
           <div className="flex  flex-col gap-2    ">
 <h2 className={`text-white text-4xl md:text-5xl  leading-snug md:leading-tight ${bison.className}`}>
@@ -90,7 +90,7 @@ const Footer = () => {
 </h2>
             <p className=" text-white/85  text-sm md:text-base font-normal">If there are questions you want to ask, we will answer all your question</p>
           </div>
-        <div className="w-full border-b relative h-[40px] border-white  mt-3.5 md:mt-[30%]">
+        <div className="w-full border-b relative h-[40px] border-white  mt-3.5  md:mt-[10%] lg:mt-[20%]">
         <input
           type="text"
           placeholder="Enter your email"
@@ -111,26 +111,32 @@ const Footer = () => {
           </div>
           <div className=" grid grid-cols-1 sm:grid-cols-2 w-full gap-4  sm:gap-2  ">
            <div>
-        <ul className="text-white flex flex-col items-start gap-4 text-sm md:text-base  lg:text-lg">
-          {firstColumnLinks.map((link) => (
-            <li key={link.name} >
-              {link.path ? (
-                <Link
-                  href={link.path}
-                  className={`hover:text-aqua transition-colors ${
-                    pathname === link.path ? " underline" : ""
-                  }`}
-                >
-                  {link.name}
-                </Link>
-              ) : (
-                <span className="cursor-pointer hover:text-aqua">
-                  {link.name}
-                </span>
-              )}
-            </li>
-          ))}
-        </ul>
+           <ul className="text-white flex flex-col items-start gap-4 text-sm md:text-base ">
+  {firstColumnLinks.map((link) => {
+    const isActive =
+      pathname === link.path ||
+      (link.path !== "/" && pathname.startsWith(link.path + "/"));
+
+    return (
+      <li key={link.name}>
+        {link.path ? (
+          <Link
+            href={link.path}
+            className={`transition-colors hover:text-aqua ${
+              isActive ? "underline text-aqua" : ""
+            }`}
+          >
+            {link.name}
+          </Link>
+        ) : (
+          <span className="cursor-pointer hover:text-aqua">
+            {link.name}
+          </span>
+        )}
+      </li>
+    );
+  })}
+</ul>
       </div>
 
 
@@ -180,12 +186,12 @@ const Footer = () => {
 
       
       </div>
-
-<div className="w-full h-[150px] relative  flex items-center justify-center overflow-hidden pb-2">
- <div className="absolute top-10  md:top-1/2  w-full z-10 px-5 xl:px-12 ">
+ 
+<div className="w-full h-auto md:h-[140px] xl:h-[150px] relative  flex items-center justify-center  pt-3.5 pb-3.5 sm:pt-2.5  sm:pb-2.5 md:pb-0   md:overflow-hidden    border-t border-white/10    ">
+ <div className="relative   w-full z-10 container mx-auto px-3.5 ">
     <div className="flex flex-col md:flex-row justify-between items-center px-3 ">
       
-      <div className='text-[14px] md:text-[16px] text-center md:text-left text-white'>
+      <div className='   text-[13px] sm:text-[14px] md:text-[16px] text-center md:text-left text-white'>
         © 2025 Copyright by IAMGIFTEDFOUNDATION | Developed By DevOptix Technologies
       </div>
 
@@ -205,7 +211,7 @@ const Footer = () => {
   </div>
   <h2
     className={`
-      w-full relative z-3 hidden md:block 
+      w-full absolute z-3 hidden md:block left-0   top-[-50px]  xl:top-[-70px] 
       text-white/10 text-center whitespace-nowrap font-bold tracking-wide
       ${bison.className}
 

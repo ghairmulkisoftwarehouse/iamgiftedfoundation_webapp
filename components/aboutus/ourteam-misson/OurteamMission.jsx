@@ -23,8 +23,8 @@ const OurteamMission = () => {
      
 
   
-    <div className='flex flex-col  space-y-10 sm:space-y-20  sm:gap-3 px-5 lg:px-12 py-9'>
-    <div className='flex flex-col sm:flex-row items-center  gap-4 sm:gap-8  lg:gap-24   w-full   lg:px-7  '>
+    <div className='flex flex-col  space-y-10 sm:space-y-20  sm:gap-3 container mx-auto  px-3.5 py-9'>
+    <div className='flex flex-col sm:flex-row items-center  gap-4 sm:gap-8  lg:gap-24   w-full    '>
 
       <div className=' w-full sm:w-1/2 lg:w-3/5 flex flex-col gap-2   '>
       <h2  className={`text-black text-4xl  sm:text-[46px] lg:text-[55px] ${bison.className}`}>From the Beginning</h2>
@@ -57,7 +57,7 @@ const OurteamMission = () => {
 
 
 
-  <div className='flex flex-col sm:flex-row items-center  gap-9 sm:gap-8 lg:gap-24   w-full  lg:px-7   '>
+  <div className='flex flex-col sm:flex-row items-center  gap-9 sm:gap-8 lg:gap-24   w-full     '>
 
 
     <div className='    order-2 sm:order-1    w-full  sm:w-1/2  lg:w-2/5 justify-center items-center'>

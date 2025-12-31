@@ -58,8 +58,8 @@ const sizes = [
 
 
   return (
-    <div className="px-5 xl:px-12  swiper-customNav  mt-16 ">
-      <div className="flex flex-col gap-7">
+    <div className="px-5 xl:px-12  swiper-customNav  mt-16 pb-12 ">
+      <div className="flex flex-col gap-7 pt-5">
         <h2
           className={`text-black text-4xl  sm:text-[46px] lg:text-[55px]  text-center ${bison.className}`}
         >
@@ -71,8 +71,10 @@ const sizes = [
   slidesPerView="auto"
          spaceBetween={spaceBetween}
 
-  freeMode={true}
-  freeModeMomentum={false}   
+  freeMode={{
+    enabled: true,
+    momentum: false,
+  }}  
   navigation={false}
   loop={false}
   modules={[FreeMode]}

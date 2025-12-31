@@ -78,10 +78,10 @@ const Volunteervideo = () => {
 
   return (
     <div 
-      className="flex flex-col gap-2 w-full  px-5 xl:px-12   mt-16  relative"
+      className="flex flex-col gap-2 w-full     mt-16  relative"
   
     >
-      <div className=" w-full h-full  flex flex-col gap-0 md:gap-3.5   pb-5  lg:pb-20  ">
+      <div className=" w-full h-full  flex flex-col gap-0 md:gap-3.5  container mx-auto  px-3.5   pb-5  lg:pb-20  ">
     
          <div className="w-full relative lg:px-7  h-auto lg:h-[600px]">
             <div className="absolute inset-0 flex items-center justify-center z-20">

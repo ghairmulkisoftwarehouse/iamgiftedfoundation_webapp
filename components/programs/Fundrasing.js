@@ -33,7 +33,7 @@ const Fundrasing = () => {
              
                const boxes = Array.from({ length: numBoxes });
   return (
-    <div className="px-5 xl:px-12 mt-16 relative">
+    <div className=" mt-16 relative">
 
 
        <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 absolute left-0   top-[-90px]  z-0 w-full">
@@ -58,7 +58,7 @@ const Fundrasing = () => {
            </h2>
 
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  space-y-0 md:space-y-5   gap-4 w-full lg:px-7  ">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  space-y-0 md:space-y-5   gap-4 w-full container mx-auto  px-3.5  ">
          {teamFundrasing.map((item, index) => (
   <div
     key={index} // Added key prop for React

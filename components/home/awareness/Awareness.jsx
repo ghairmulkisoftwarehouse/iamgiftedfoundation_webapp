@@ -7,10 +7,10 @@ const Awareness = () => {
   return (
     <div className="mt-16 ">
 
-      <div className="w-full px-5 xl:px-12 bg-white py-14  ">
+      <div className="w-full    bg-white py-14  ">
 
 
-      <div className='flex flex-col  sm:flex-row items-center gap-4  lg:px-7'>
+      <div className='flex flex-col  sm:flex-row items-center gap-4   container mx-auto  px-3.5 '>
 
            {/* Left side */}
         <div className="  w-full    sm:w-[50%] lg:w-[60%] flex flex-col gap-9">

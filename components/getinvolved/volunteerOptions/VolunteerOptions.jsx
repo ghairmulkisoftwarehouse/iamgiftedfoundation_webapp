@@ -6,12 +6,12 @@ import {involvementData} from '@/constants/InvolvedConstants'
 
 const VolunteerOptions = () => {
   return (
-   <div className="px-5 xl:px-12 mt-16 w-full relative bg-[#F4F7F7]">
+   <div className=" mt-16 w-full relative bg-[#F4F7F7]">
  
 
 
 
-<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full pt-4 lg:px-7 gap-5">
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full pt-4 container mx-auto  px-3.5  gap-5">
   {involvementData.map((item, index) => (
     <div
       key={index}

@@ -62,8 +62,8 @@
 }
 
 .btn-secondary {
-    @apply    px-4 lg:px-6   py-2 lg:py-3 text-sm lg:text-base font-medium rounded-full cursor-pointer bg-mint-cyan text-gray-800
-           hover:bg-[#9dd6d5] hover:text-gray-900 hover:shadow-md
+    @apply    px-4 lg:px-6   py-2 lg:py-3 text-sm lg:text-base font-medium rounded-full cursor-pointer bg-mint-cyan text-black
+           hover:bg-[#9dd6d5] hover:text-black hover:shadow-md
            duration-200 ease-in-out relative overflow-hidden border border-transparent hover:border-[#8bc9c8];
   }
 

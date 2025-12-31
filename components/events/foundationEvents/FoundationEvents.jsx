@@ -34,7 +34,7 @@ const EventsSection = () => {
 
   return (
 
- <div className="px-5 xl:px-12 mt-16 w-full relative">
+ <div className=" mt-16 w-full relative">
      <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 absolute left-0 top-[-90px] z-0 w-full">
           {boxes.map((_, index) => {
       
@@ -49,13 +49,13 @@ const EventsSection = () => {
             );
           })}
         </div>
-         <div className="flex flex-col w-full items-center gap-10">
+         <div className="flex flex-col w-full items-center gap-10 container mx-auto  px-3.5">
       <div className="  w-full    sm:w-[50%] lg:w-[60%] flex flex-col  gap-6">
          <h2 className={`text-black text-4xl  sm:text-[46px] lg:text-[55px] text-center  ${bison.className}`}>
               IAMGIFTED Foundation events
             </h2>
         </div>
-    <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-5 w-full space-y-0 md:space-y-5    lg:px-7 gap-4">
+    <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-5 w-full space-y-0 md:space-y-5     gap-4">
       {eventDetail.map((event, index) => {
         const colSpan = colSpanPattern[index % colSpanPattern.length]; 
         const img = (index % 2 === 0) ? img1 : img2; 

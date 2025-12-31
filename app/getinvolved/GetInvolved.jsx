@@ -16,7 +16,7 @@ const GetInvolved = () => {
             <HeroSectionBanner
             title="Get Involved"
             subtitle="Interested in volunteering, donating, or partnering with us? We’d love to have you join our efforts. Reach out for more information on how you can make a difference."
-             height=" h-[300px] sm:h-[280px] "
+          height=" h-[250px] "
                bannerSvgClass = ' w-[210px] lg:w-[230px]   xl:w-[300px]'   
                subtitleClass=" text-sm sm:text-base  md:text-[17px]   text-white/70"
             />

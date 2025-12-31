@@ -38,7 +38,7 @@ const EventInformation = () => {
        
          const boxes = Array.from({ length: numBoxes });
   return (
-   <div className="px-5 xl:px-12 mt-16 w-full relative bg-[#F4F7F7]">
+   <div className=" mt-16 w-full relative bg-[#F4F7F7]">
          <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 absolute left-0 top-[-90px] z-0 w-full">
           {boxes.map((_, index) => {
             return (
@@ -52,7 +52,7 @@ const EventInformation = () => {
         </div>
 
       
-       <div className="grid grid-cols-1 lg:grid-cols-3 w-full lg:px-7  gap-6 relative z-5">
+       <div className="grid grid-cols-1 lg:grid-cols-3 w-full container mx-auto  px-3.5  gap-6 relative z-5">
        <div className='lg:col-span-2   flex flex-col gap-3.5   order-1 lg:order-1'>
 
        <div className='flex flex-col gap-2'>

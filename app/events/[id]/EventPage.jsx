@@ -9,7 +9,7 @@ const EventPage = () => {
           <div className="flex  flex-col  w-full ">
             <HeroSectionBanner
             title="Events details"
-               height=" h-[280px]"
+                 height=" h-[250px] "
                 bannerSvgClass="w-[360px] " 
       
             />

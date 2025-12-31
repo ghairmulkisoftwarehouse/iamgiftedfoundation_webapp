@@ -29,7 +29,7 @@ const TeamOverview = () => {
              const boxes = Array.from({ length: numBoxes });
 
   return (
-       <div className="px-5 xl:px-12    mt-16 relative
+       <div className="   mt-16 relative
        
          ">
 
@@ -48,7 +48,7 @@ const TeamOverview = () => {
                    );
                  })}
                </div>
-       <div className=" flex flex-col gap-5 w-full lg:px-7 ">
+       <div className=" flex flex-col gap-5 w-full container mx-auto  px-3.5 ">
 
        <Image 
        src={Teamoverview}

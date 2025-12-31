@@ -28,7 +28,7 @@ export const teamServices = [
   {
 
     title: "Rush2give",
-    paragraph: "The Rush 2 Give Initiative is a key program of the IAMGIFTED Foundation, dedicated to uplifting students in underserved communities by providing essential resources for their academic and personal success.",
+    paragraph: "The Rush 2 Give Initiative is a key program of the IAMGIFTED Foundation, dedicated to uplifting students in underserved communities by providing essential resources for their academic and personal success.  ",
     image:  GiftSvg,
        bgColor: "bg-light-cyan",
 
@@ -78,7 +78,7 @@ export const teamServices = [
 
 export const teamFundrasing = [
   {
-    title: "Life Skills Camp — Building Confidence for the Future",
+    title: "Life Skills Camp — Building Confidence for the Future ",
      paragraph: "Helping youth develop confidence, teamwork, and leadership for life.",
     image: fundrasingimg,
  

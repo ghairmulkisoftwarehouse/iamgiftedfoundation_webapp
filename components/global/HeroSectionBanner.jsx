@@ -28,7 +28,8 @@ const HeroSectionBanner = ({
 
   return (
     <div
-      className={`w-full bg-black px-5 xl:px-12 relative ${height} flex flex-col gap-4 items-center justify-center overflow-hidden`}
+      className={`w-full bg-black relative ${height} flex flex-col gap-1 sm:gap-3 items-center justify-center overflow-hidden`}
+
     >
       {/* Left Butterfly */}
       <div className="absolute top-[20%] left-[-120px] sm:left-[-70px]">
@@ -63,11 +64,17 @@ const HeroSectionBanner = ({
       </h2>
 
       {/* Subtitle */}
-      {subtitle && (
-        <p className={`text-white text-center  lg:px-20 ${subtitleClass}`}>
+
+<div className=' px-1 sm:container mx-auto  px-3.5 '>
+{subtitle && (
+        <p className={`text-white text-center   ${subtitleClass}`}>
           {subtitle}
         </p>
       )}
+
+</div>
+
+      
     </div>
   );
 };

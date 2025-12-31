@@ -3,7 +3,7 @@ import { teamServices } from '@/constants/ProgramConstants';
 
 const Humanitarian = () => {
   return (
-    <div className="px-5 xl:px-12 mt-16    pb-5  lg:pb-20">
+    <div className=" mt-16    pb-5  lg:pb-20">
       <div className="flex flex-col w-full items-center gap-10 pt-0 lg:pt-2">
         <h2
           className={`text-black text-4xl  sm:text-[46px] lg:text-[55px] text-center w-full  ${bison.className}`}
@@ -11,7 +11,7 @@ const Humanitarian = () => {
           Providing Humanitarian services to all <br/> people is What we do
         </h2>
 
-     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 space-y-0 md:space-y-5   gap-4 w-full lg:px-7 ">
+     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 space-y-0 md:space-y-5   gap-4 w-full container mx-auto  px-3.5 ">
   {teamServices.map((service, index) => {
     const Icon = service.image;
 
