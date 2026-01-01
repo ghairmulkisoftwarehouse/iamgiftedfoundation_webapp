@@ -10,7 +10,7 @@ const Awareness = () => {
       <div className="w-full    bg-white py-14  ">
 
 
-      <div className='flex flex-col  sm:flex-row items-center gap-4   container mx-auto  px-3.5 '>
+      <div className='flex flex-col  sm:flex-row items-center gap-4   container mx-auto px-3.5 '>
 
            {/* Left side */}
         <div className="  w-full    sm:w-[50%] lg:w-[60%] flex flex-col gap-9">

@@ -54,7 +54,7 @@ export default function Sidebar() {
                     <Link href={link.path} 
                         className={`
                 cursor-pointer block py-2 px-3 lg:px-2.5 rounded-full transition-all duration-200
-                ${isActive ? 'bg-mint-cyan font-semibold' : 'hover:bg-mint-cyan'}
+                ${isActive ? 'bg-mint-cyan font-semibold' : 'hover:bg-mint-cyan/60'}
               `}
                     >
                       {link.name}

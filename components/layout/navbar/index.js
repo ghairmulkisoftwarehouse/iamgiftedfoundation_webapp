@@ -26,12 +26,13 @@ const Navbar = () => {
   return (
     <div 
      className={`
-        flex items-center justify-center py-3   px-3.5   w-full
+        flex items-center justify-center py-3       w-full
         transition-all duration-500 ease-out
         ${scrolled ? '' : 'bg-[#D6EEF080]'}
       `}
     >
-      <div className="  container   flex items-center justify-between relative  bg-white  rounded-full h-[60px] md:h-[70px]  rounded border border-grayblue-alt  px-8 xl:px-12">
+    <div className='  container  mx-auto  px-3.5'>
+    <div className=" w-full    flex items-center justify-between relative  bg-white  rounded-full h-[55px]  md:h-[70px]  rounded border border-grayblue-alt  px-8 xl:px-12">
 
         {/* Logo */}
         <Link href="/">
@@ -40,7 +41,7 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <div className="hidden lg:block">   
-          <ul className="flex space-x-2 lg:space-x-2 font-medium text-sm lg:text-[15px] ">
+          <ul className="flex space-x-1.5 font-medium text-sm lg:text-[15px] ">
             {navLinks.map((link) => {
                               const isActive =
     pathname === link.path ||
@@ -50,10 +51,10 @@ return(
    <li key={link.name}>
                 {link.path ? (
                   <Link href={link.path}>
-                    <span   className={`cursor-pointer  px-4 py-0 rounded-full    hover:bg-mint-cyan transition-all duration-200   py-3
+                    <span   className={`cursor-pointer  px-4  rounded-full  text-sm    transition-all duration-200   py-2.5
                       ${isActive
                         ? 'font-semibold text-black bg-mint-cyan'
-                        : 'font-normal text-black/80'}
+                        : 'font-normal text-black/80   hover:bg-mint-cyan/60'}
                     `}>
                       {link.name}
                     </span>
@@ -106,6 +107,9 @@ return(
         </button>
 
       </div>
+
+    </div>
+      
     </div>
   )
 }
