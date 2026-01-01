@@ -51,7 +51,7 @@
 
 
 .swiper-button-disabled {
-  display: none !important;
+    background-color: #ABACAC !important;
 }
 
 .swiper-fitContent .swiper-slide {

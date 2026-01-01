@@ -18,8 +18,7 @@ import LeftArrowSvg from '@/assets/svg/LeftArrowSvg';
 
 const Fundrasing = () => {
 
-    const [isBeginning, setIsBeginning] = useState(true);
-const [isEnd, setIsEnd] = useState(false);
+
   
   return (
     <div className=" mt-16">
@@ -31,12 +30,6 @@ const [isEnd, setIsEnd] = useState(false);
 
              <div className="flex items-center gap-3.5">
 
-            {isBeginning && (
-    <div className="w-[40px] h-[40px] md:w-[50px] md:h-[50px] rounded-full flex items-center justify-center bg-black/30 ">
-      <LeftArrowSvg className=" w-[12px]  h-[12px] sm:w-[15px] sm:h-[15px]  md:w-auto md:h-auto" />
-    </div>
-  )}
-
 
             <div className="design-prev w-[40px]  h-[40px]  md:w-[50px] md:h-[50px] rounded-full flex items-center justify-center bg-black cursor-pointer">
               <LeftArrowSvg className=" w-[12px]  h-[12px] sm:w-[15px] sm:h-[15px]  md:w-auto md:h-auto" />
@@ -45,12 +38,7 @@ const [isEnd, setIsEnd] = useState(false);
               <RightArrowSvg  className=" w-[12px]  h-[12px] sm:w-[15px] sm:h-[15px]  md:w-auto md:h-auto"/>
             </div>
 
-         {isEnd && (
-    <div className="design-next w-[40px] h-[40px] md:w-[50px] md:h-[50px] rounded-full flex items-center justify-center  bg-black/30 ">
-      <RightArrowSvg className=" w-[12px]  h-[12px] sm:w-[15px] sm:h-[15px]  md:w-auto md:h-auto" />
-    </div>
-  )}
-
+     
           </div>
         </div>
   <div className=' mx-auto w-full flex justify-center  '>
@@ -63,14 +51,14 @@ const [isEnd, setIsEnd] = useState(false);
             nextEl: '.design-next',
           }}
 
-     onSwiper={(swiper) => {
-    setIsBeginning(swiper.isBeginning);
-    setIsEnd(swiper.isEnd);
-  }}
-  onSlideChange={(swiper) => {
-    setIsBeginning(swiper.isBeginning);
-    setIsEnd(swiper.isEnd);
-  }}
+  //    onSwiper={(swiper) => {
+  //   setIsBeginning(swiper.isBeginning);
+  //   setIsEnd(swiper.isEnd);
+  // }}
+  // onSlideChange={(swiper) => {
+  //   setIsBeginning(swiper.isBeginning);
+  //   setIsEnd(swiper.isEnd);
+  // }}
           breakpoints={{
             0: { slidesPerView: 1 },
             640: { slidesPerView: 2 },
