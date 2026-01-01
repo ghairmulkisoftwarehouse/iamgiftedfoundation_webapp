@@ -10,7 +10,7 @@ const EventPage = () => {
             <HeroSectionBanner
             title="Events details"
                  height=" h-[250px] "
-                bannerSvgClass="w-[360px] " 
+                bannerSvgClass=" w-[240px] sm:w-[250px] lg:w-[280px] xl:w-[360px] " 
       
             />
             <EventInformation/>
