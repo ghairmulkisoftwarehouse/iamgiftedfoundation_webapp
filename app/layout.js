@@ -12,6 +12,7 @@ import { graphik, bison } from "@/components/fonts/fonts";
 
 
 
+
 const siteTitle = "Gifted Foundation";
 const siteDescription =
   "Gifted Foundation empowers individuals and communities through education, development, and impactful social initiatives that create lasting positive change.";

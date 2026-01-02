@@ -14,6 +14,8 @@ const Navbar = () => {
            const [scrolled, setScrolled] = useState(false);
 
          const pathname=usePathname();
+
+          const isAuthPage =    pathname?.startsWith('/auth/login') || pathname?.startsWith('/auth/register');
            useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 1);
@@ -24,6 +26,9 @@ const Navbar = () => {
   }, []);
 
   return (
+<>
+
+    {!isAuthPage && (
     <div 
      className={`
         flex items-center justify-center py-3       w-full
@@ -74,7 +79,11 @@ return(
         {/* Desktop Buttons */}
         <div className="hidden lg:block">
           <div className="flex gap-2.5">
-       <button className="btn-animated bg-polar-mist group cursor-pointer relative overflow-hidden">
+
+
+           <Link href="/auth/login">
+
+               <button className="btn-animated bg-polar-mist group cursor-pointer relative overflow-hidden">
     {/* Expanding circle */}
     <span className="btn-animated-hover bg-gray-200 group-hover:w-40 group-hover:h-40 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full"></span>
 
@@ -83,6 +92,8 @@ return(
       Account
     </span>
   </button>
+           </Link>  
+     
 
 
 
@@ -111,6 +122,10 @@ return(
     </div>
       
     </div>
+    )}
+
+</>
+
   )
 }
 

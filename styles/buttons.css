@@ -80,7 +80,7 @@
 
 
 
-    .btn-donate {
+.btn-donate {
     @apply relative inline-flex items-center font-medium justify-center  text-[13px] sm:text-sm sm:text-base    w-[180px]  h-[40px] sm:w-[198px] sm:h-[50px] 
            overflow-hidden tracking-tighter bg-black rounded-full 
            transition-colors duration-300;

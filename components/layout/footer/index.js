@@ -27,6 +27,9 @@ const Footer = () => {
  const pathname = usePathname();
 
 
+ const isAuthPage =    pathname?.startsWith('/auth/login') || pathname?.startsWith('/auth/register');
+
+
 
 
 
@@ -55,7 +58,11 @@ const Footer = () => {
   const specialCircleIndexes = [8, 21, 39, 53];
 
   return (
-    <div className='flex flex-col gap-0 w-full bg-black mt-4'>
+
+    <>
+
+     {!isAuthPage && (
+      <div className='flex flex-col gap-0 w-full bg-black mt-4'>
 
     
   
@@ -227,6 +234,12 @@ const Footer = () => {
 </div>
 
     </div>
+   
+
+     )}
+
+    </>
+ 
   );
 };
 
