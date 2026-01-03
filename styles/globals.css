@@ -50,6 +50,28 @@
 
 
 
+.custom-tablebody Tr:nth-child(odd) {
+    background-color:#F7F6FE  !important;
+  }
+  
+  .custom-tablebody   Tr:nth-child(even) {
+    background-color: white !important;
+  }
+
+
+
+  .custom-tablebody tr {
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .custom-tablebody tr:hover {
+    background-color: #e0e7ff !important; /* better contrast for hover */
+  }
+
+
+
+
 .swiper-button-disabled {
     background-color: #ABACAC !important;
 }

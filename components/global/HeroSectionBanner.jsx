@@ -23,6 +23,8 @@ const HeroSectionBanner = ({
   pathname.startsWith("/events/") && pathname !== "/events";
 
  const isInvolvedPage = pathname === "/getinvolved";
+ const isDonationPage = pathname === "/account/donation-history";
+  const isImpactPage = pathname === "/account/impactreport";
   // const isDonatePage = pathname === "/donate";
 
 
@@ -54,7 +56,7 @@ const HeroSectionBanner = ({
         <span className="relative inline-block">
           <span className="relative z-10">{title}</span>
           <span className="absolute left-0 right-0 bottom-[-2px] z-0">
-      {isEventDetailPage || isInvolvedPage    ? (
+      {isEventDetailPage || isInvolvedPage || isDonationPage  ||  isImpactPage   ? (
   <EventDetailSvg className={bannerSvgClass} />
 ) : (
   <BannerHeroSvg className={bannerSvgClass} />

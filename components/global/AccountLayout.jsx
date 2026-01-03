@@ -1,88 +1,104 @@
-import HeroSection from "../global/HeroSectionBanner";
+'use client'
+import {AccountLinks} from '@/constants/AccountConstants';
+import AccountArrowSvg from "@/assets/svg/AccountArrowSvg";
+import LogOutSvg   from '@/assets/svg/LogOutSvg';
+import { usePathname } from 'next/navigation';
+import Profileimg  from '@/assets/images/kevintaran.png';
+import Image from 'next/image';
+import Link from 'next/link';
+
+
 
 export default function Layout({ children }) {
+   const pathname=usePathname();
   return (
-    <div className="flex flex-col w-full">
+    <div className=" w-full ">
       
       {/* Hero Section */}
-      <HeroSection
-        title="Account"
-        height="h-[250px]"
-                bannerSvgClass = 'w-[150px]   lg:w-[160px]    xl:w-[200px] ' 
-      />
-
-      {/* Main Content */}
-      <div className="mt-16">
-        <div className="container mx-auto px-3.5">
+    
+           <div className="container mx-auto  mt-16 px-3.5">
           <div className="flex flex-col lg:flex-row gap-6">
 
             {/* Sidebar */}
             <div className="w-full lg:w-1/4 shadow-[0px_0px_5.6px_0px_#0000001F] bg-white border border-black/5 rounded-[16px] h-fit hidden lg:block">
+
               
-              {/* User Info */}
-              <div className="w-full flex flex-col items-center gap-2 mt-6">
-                <h1 className="text-primary text-xl font-medium">
-                  User Name
-                </h1>
-                <p className="text-primary/40 text-base">
-                  User ID: 123456
-                </p>
-              </div>
+                <div className="flex items-center  gap-2 px-3  pt-6">
+                <div className=" w-[70px] h-[70px]  rounded-full  overflow-hidden   ">
+                   <Image
+                   src={Profileimg}
+                   alt="img"
+                   width={78}
+                   height={78}
+                    className=" rounded-full w-full h-full object-cover "
+                />
+             
 
-              {/* Menu */}
-              <div className="flex flex-col gap-2 px-5 py-6">
+                </div>
+                <div className=" flex flex-col gap-0.5 ">
+                  <h2 className="text-sm lg:text-base  font-semibold">
+                      Kevin Tran
+                 </h2>
+                 <p className="text-[#A9ABB0]  text-xs lg:text-sm">user@gmail.com</p>
 
-                <div className="text-primary text-sm lg:text-base font-medium px-3 py-2 rounded-md cursor-pointer">
-                  Donation History
+                </div>
+                
+                
+               
+             
+
                 </div>
 
-                <div className="text-primary text-sm lg:text-base font-medium px-3 py-2 rounded-md cursor-pointer">
-                  Badges Earned
-                </div>
+          
+            <div className="flex flex-col gap-2 px-3 py-6">
+{AccountLinks.map((link, index) => {
+  const isActive =
+    link.path !== "/" &&
+    (pathname === link.path || pathname.startsWith(link.path + "/"));
 
-                <div className="text-primary text-sm lg:text-base font-medium px-3 py-2 rounded-md cursor-pointer">
-                  Impact Report
-                </div>
-
-                <div className="text-primary text-sm lg:text-base font-medium px-3 py-2 rounded-md cursor-pointer">
-                  Registered Programs
-                </div>
-
-                <div className="text-primary text-sm lg:text-base font-medium px-3 py-2 rounded-md cursor-pointer">
-                  Upcoming Events
-                </div>
-
-                <div className="text-primary text-sm lg:text-base font-medium px-3 py-2 rounded-md cursor-pointer">
-                  Check-in / Check-out
-                </div>
-
-                <div className="text-primary text-sm lg:text-base font-medium px-3 py-2 rounded-md cursor-pointer">
-                  Recognition Certificates
-                </div>
-
-                <div className="text-primary text-sm lg:text-base font-medium px-3 py-2 rounded-md cursor-pointer">
-                  Track Working Hours
-                </div>
-
-                {/* Divider */}
-                <div className="h-px bg-black/10 my-2" />
-
-                <div className="text-primary text-sm lg:text-base font-medium px-3 py-2 rounded-md cursor-pointer">
-                  Logout
-                </div>
-
-              </div>
-            </div>
-
-            {/* Page Content */}
-            <div className="w-full lg:w-3/4">
-              {children}
-            </div>
-
+  return (
+    <Link href={link.path} key={index}>
+      <div
+        className={`text-sm lg:text-base font-medium px-2 py-2 rounded-md cursor-pointer  text-[#030F0CCC] flex justify-between items-center transition 
+          ${isActive ? " bg-mint-cyan" : " hover:bg-mint-cyan/60"}`}
+      >
+        <div className="flex items-center gap-2">
+          <div className="w-[35px] h-[35px] rounded-full bg-[#F4F6F6] flex items-center justify-center">
+            {link.icon}
           </div>
+          {link.name}
         </div>
+        <AccountArrowSvg />
       </div>
+    </Link>
+  );
+})}
 
+
+  {/* Logout button */}
+  <div
+    className="text-[#FD5D69] text-sm lg:text-base font-semibold px-2 py-2 rounded-md cursor-pointer flex justify-between items-center hover:bg-mint-cyan/60 transition"
+  >
+    <div className="flex items-center gap-2">
+      <div className="w-[35px] h-[35px] rounded-full bg-[#E8414114] flex items-center justify-center">
+        <LogOutSvg />
+      </div>
+      Logout
     </div>
+  </div>
+</div>
+
+              </div>
+                      <div className="w-full lg:w-3/4 mt-1.5">
+              {children}
+              </div>
+          
+            </div>
+            </div>
+    
+        </div>
+  
+
+ 
   );
 }
