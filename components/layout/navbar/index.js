@@ -10,12 +10,16 @@ import { usePathname } from 'next/navigation';
 
 
 const Navbar = () => {
-         const {  setShowPannel } = usePannelContext();
+         const {  setShowPannel,setAccountPannel } = usePannelContext();
            const [scrolled, setScrolled] = useState(false);
 
          const pathname=usePathname();
 
-          const isAuthPage =    pathname?.startsWith('/auth/login') || pathname?.startsWith('/auth/register') || pathname?.startsWith('/auth/reset-password') || pathname?.startsWith('/auth/verify-otp')  || pathname?.startsWith('/auth/forgotpassword')         ;
+          const isAuthPage = pathname?.startsWith('/auth/login') || pathname?.startsWith('/auth/register') || pathname?.startsWith('/auth/reset-password') || pathname?.startsWith('/auth/verify-otp')  || pathname?.startsWith('/auth/forgotpassword');
+
+                const isAccountPage = pathname?.startsWith('/account');
+
+
            useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 1);
@@ -39,10 +43,26 @@ const Navbar = () => {
     <div className='  container  mx-auto  px-3.5'>
     <div className=" w-full    flex items-center justify-between relative  bg-white  rounded-full h-[55px]  md:h-[70px]  rounded border border-grayblue-alt  px-8 xl:px-12">
 
-        {/* Logo */}
-        <Link href="/">
+<div className=' flex  gap-2 items-center'>
+    {isAccountPage && (
+        <button
+        onClick={() => setAccountPannel(true)}
+         className="lg:hidden cursor-pointer">
+          <div>
+            <BarsSvg className="w-10 h-10" />
+          </div>
+        </button>
+      )}
+       <Link href="/">
           <LogoSvg className="w-[100px] h-[42px] xl:w-auto xl:h-auto" />
         </Link>
+
+</div>
+
+       
+
+        {/* Logo */}
+       
 
         {/* Desktop Menu */}
         <div className="hidden lg:block">   

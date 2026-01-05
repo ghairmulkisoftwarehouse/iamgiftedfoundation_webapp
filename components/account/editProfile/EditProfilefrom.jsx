@@ -4,15 +4,23 @@ import {ContactItems} from '@/constants/ContactConstants';
 import { validateContactForm } from "@/validations/contactValidation";
 import  InputName  from '@/components/global/form/InputName';
 import  InputEmail  from '@/components/global/form/InputEmail';
-import InputTextArea   from '@/components/global/form/InputextArea';
-
+import InputPassword from '@/components/global/form/InputPassword';
+// import InputTextArea   from '@/components/global/form/InputextArea';
+import GoogleSvg from '@/assets/svg/GoogleSvg';
+import ImageUpload   from '@/components/global/form/ImageUpload';
+import Profileimg from '@/assets/images/kevintaran.png';
+  
 
 const EditProfilefrom = () => {
+
+    const [imagePreview, setImagePreview] = useState(Profileimg); 
 
 
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone :'',
+    password:"",
    
   });
 
@@ -41,30 +49,43 @@ const EditProfilefrom = () => {
 
 
 
-const handleSubmit = async () => {
-  const validationErrors = validateContactForm(formData);
-  setErrors(validationErrors);
+ const handleSubmit = async () => {
+    const validationErrors = validateContactForm(formData);
+    setErrors(validationErrors);
+    if (Object.keys(validationErrors).length > 0) return;
 
-  if (Object.keys(validationErrors).length > 0) return;
+    // Payload to send
+    const payload = { ...formData };
+    console.log("Submitting:", payload);
 
- 
-  const payload = {
-    name: formData.name,
-    email: formData.email,
- 
+    // Reset form (optional)
+    setFormData({ name: "", email: "", phone: "", password: "" });
+    setImagePreview(Profileimg); // reset image if needed
   };
 
-
-
-  
-  setFormData({ name: "", email: "",  });
-};
+  const handleCancel = () => {
+    setFormData({ name: "", email: "", phone: "", password: "" });
+    setImagePreview(null);
+    setErrors({});
+  };
   return (
       <div className="  w-full relative bg-white  pb-5  pt-4      py-3.5  px-3.5 rounded-[15px]">
-      
+       
+             <p className="text-sm   text-black font-semibold md:text-base  lg:text-lg pt-3.5">
+    Update your profile information
+  </p>
 
 
-          <div className="grid  grid-cols-1 md:grid-cols-2 s w-full  gap-5 relative z-5  ">
+          <div className="grid  grid-cols-1 md:grid-cols-2  w-full  gap-3 relative z-5  ">
+         <div className=' md:col-span-2'>
+           <ImageUpload
+               label="Profile Image"
+
+               imagePreview={imagePreview} 
+               setImagePreview={setImagePreview}
+            />
+
+         </div>
         
       <InputName
         label="Name"
@@ -78,6 +99,13 @@ const handleSubmit = async () => {
         onChange={handleChange("email")}
         error={errors.email}
       />
+
+                <InputName label="Phone Number" value={formData.phoneNumber} onChange={handleChange("phoneNumber")} error={errors.phoneNumber} />
+                <InputPassword  label="Password" value={formData.password} onChange={handleChange("password")} error={errors.password} />
+
+
+                
+
     
 
     
@@ -90,7 +118,7 @@ const handleSubmit = async () => {
           "
         
 
-          onClick={() => setFormData({ name: "", email: "", message: "" })}
+          onClick={() => handleCancel()}
         >
 
         

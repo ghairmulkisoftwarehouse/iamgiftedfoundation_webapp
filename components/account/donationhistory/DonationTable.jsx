@@ -20,7 +20,7 @@ const DonationTable = () => {
 
   return (
     <div className="w-full flex flex-col gap-4">
-      <div className="rounded-lg overflow-x-auto border border-transparent sm:border-black/20 bg-white">
+      <div className="rounded-lg overflow-x-auto border border-transparent sm:border-black/20   bg-transparent sm:bg-white">
         <Table className="table-auto w-full text-left text-sm">
           <Thead className="text-left text-sm bg-light-cyan/50">
             <Tr>

@@ -6,6 +6,7 @@ import Providers from '@/redux/provider';
 import Footer   from '@/components/layout/footer'
 import Navbar from '@/components/layout/navbar';
 import Sidebar  from '@/components/layout/siderbar/siderbar';
+import AccountSidebar   from '@/components/layout/accountSidebar/AccountSidebar';
 import PannelContextProvider from '@/context/PannelContext';
 import { webAppBaseURL } from '@/config/api.js';
 import { graphik, bison } from "@/components/fonts/fonts";
@@ -53,6 +54,7 @@ export default function RootLayout({ children }) {
       >
         <Navbar />
       </nav>
+      <AccountSidebar/>
         <Sidebar/>
         {children}
         <div className="   mt-16">

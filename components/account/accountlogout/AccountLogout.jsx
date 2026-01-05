@@ -30,7 +30,7 @@ const AccountLogout = () => {
     <PopupLayout setShowPopup={setShowLogoutPopup} redux={true}>
       <div className="flex flex-col items-center gap-4 ">
         <h2 className="text-lg font-semibold text-primary">Log Out</h2>
-        <p className="text-sm text-primary/80 text-center">
+        <p className="text-sm text-[#030F0CCC] text-center">
           Are you sure you want to log out? You’ll   need to sign in again to access your account.
         </p>
         <div className="flex gap-4">

@@ -6,6 +6,8 @@ import LogoSvg from '@/assets/svg/LogoSvg';
 import { navLinks } from "@/constants/menuItem";
 import { usePathname } from 'next/navigation';
 
+
+
 export default function Sidebar() {
   const { showPannel, setShowPannel } = usePannelContext();
      const pathname=usePathname();
@@ -41,6 +43,7 @@ export default function Sidebar() {
           </div>
         </div>
 
+ 
         <div className="px-4 w-full pt-4">
           <ul className="flex flex-col space-y-1 font-medium text-base">
             {navLinks.map((link, index) => {
@@ -54,6 +57,7 @@ export default function Sidebar() {
                     <Link href={link.path} 
                         className={`
                 cursor-pointer block py-2 px-3 lg:px-2.5 rounded-full transition-all duration-200
+                text-sm  xl:text-[15px]
                 ${isActive ? 'bg-mint-cyan font-semibold' : 'hover:bg-mint-cyan/60'}
               `}
                     >
