@@ -15,7 +15,7 @@ const Navbar = () => {
 
          const pathname=usePathname();
 
-          const isAuthPage =    pathname?.startsWith('/auth/login') || pathname?.startsWith('/auth/register');
+          const isAuthPage =    pathname?.startsWith('/auth/login') || pathname?.startsWith('/auth/register') || pathname?.startsWith('/auth/reset-password') || pathname?.startsWith('/auth/verify-otp')  || pathname?.startsWith('/auth/forgotpassword')         ;
            useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 1);

@@ -1,8 +1,8 @@
 import "../styles/globals.css";
 import "../styles/utilities.css";
 import "../styles/buttons.css"
+import Providers from '@/redux/provider';
 
-// import localFont from "next/font/local";
 import Footer   from '@/components/layout/footer'
 import Navbar from '@/components/layout/navbar';
 import Sidebar  from '@/components/layout/siderbar/siderbar';
@@ -41,6 +41,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={` ${graphik.className}   bg-polar-mist relative  `}>
+           <Providers>
       <PannelContextProvider>
                <nav
         className="
@@ -59,6 +60,7 @@ export default function RootLayout({ children }) {
         </div>
        
          </PannelContextProvider>
+         </Providers>
       </body>
      
     </html>

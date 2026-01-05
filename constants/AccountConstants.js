@@ -5,6 +5,7 @@ import UpcomingEventSvg from "@/assets/svg/UpcomingEventSvg";
 import CheckInSvg from "@/assets/svg/CheckInSvg";
 import TrackingHoursSvg from "@/assets/svg/TrackingHoursSvg";
 import BadgesSvg   from '@/assets/svg/BadgesSvg'
+import EditProfileSvg from "@/assets/svg/EditProfileSvg";
 // Import more icons if you have them
 
 
@@ -55,6 +56,12 @@ export const AccountLinks = [
     name: "Track Working Hours",
     path: "/",
     icon: <TrackingHoursSvg />,
+  },
+
+    {
+    name: "Edit Profile",
+    path: "/account/editProfile",
+    icon: <EditProfileSvg />,
   },
 ];
 

@@ -104,7 +104,12 @@ const RegisterForm = () => {
   shadow-2xl lg:shadow-none
   sm:border border-black/10 lg:border-0
 ">
-        <FoundationSvg className="w-auto h-auto md:w-[230px] md:h-[60px] block lg:hidden mx-auto mb-10 sm:mb-3.5" />
+          <Link href={'/'}>
+
+        <FoundationSvg 
+          className="w-auto h-auto md:w-[230px] md:h-[60px] block lg:hidden mx-auto mb-10 sm:mb-3.5  cursor-pointer" 
+        />
+            </Link>
 
         <h2 className={`text-black text-4xl sm:text-[46px] lg:text-[55px] ${bison.className}`}>
           Sign Up

@@ -20,13 +20,15 @@ export default function SignUp() {
       </div>
  
 
+       <Link href={'/'}>
         <Image
           src={imgLogo}
           alt="Logo"
           width={180}
           height={212}
-          className="object-contain"
+          className="object-contain cursor-pointer"
         />
+        </Link>
 
      <div className=" absolute    bottom-0    left-3">
                <AuthButterfullyLeftSvg/>
