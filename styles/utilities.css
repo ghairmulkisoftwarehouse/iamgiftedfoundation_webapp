@@ -6,10 +6,9 @@
     --color-mint-cyan :#BFE5E4;
 
 
-      --breakpoint-tiny: 18rem;
-   --breakpoint-phone: 25.625rem;      
-  --breakpoint-tiny-normal: 22.375rem;
-  --breakpoint-xs: 30rem;
+  --breakpoint-xs: 480px;
+
+  
 }
 
 

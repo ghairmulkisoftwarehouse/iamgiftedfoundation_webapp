@@ -4,7 +4,11 @@
   --color-lavender: #E6E6FA;
     --color-polar-mist:#F4F6F6;
     --color-mint-cyan :#BFE5E4;
+     --breakpoint-xs: 480px;
 }
+
+
+
 
 @import "tailwindcss";
 
@@ -98,7 +102,7 @@
 
   /* Icon Button */
   .btn-icon {
-    @apply relative z-0 px-3  w-[40px] h-[40px] sm:w-[50px] sm:h-[50px] rounded-full flex 
+    @apply relative z-0 px-3  w-[50px] h-[50px] rounded-full flex 
            items-center justify-center overflow-hidden bg-black 
            transition-colors duration-300;
   }

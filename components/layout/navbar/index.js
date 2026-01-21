@@ -29,6 +29,7 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  
   return (
 <>
 
@@ -37,7 +38,7 @@ const Navbar = () => {
      className={`
         flex items-center justify-center py-3       w-full
         transition-all duration-500 ease-out
-        ${scrolled ? '' : 'bg-[#D6EEF080]'}
+        ${scrolled ? '' : ''}
       `}
     >
     <div className='  container  mx-auto  px-3.5'>

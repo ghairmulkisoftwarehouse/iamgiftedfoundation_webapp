@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
 
-
 :root {
     --aqua: #C9F2F2;
   --grayblue:  #BCC4CE;
@@ -14,9 +13,16 @@
    --thistle:#D8BFD8;
    --steel-mist:#B2BCC5;
     --plyr-color-main: #BFE5E4;
+
+
+ 
+
+
+
 }
 
 @theme inline { 
+  --breakpoint-xs: 30rem; 
  --color-aqua: var(--aqua);
   --color-light-cyan:var(--light-cyan);
   --color-grayblue:var(--grayblue);
@@ -29,17 +35,13 @@
           --color-steel-mist:var(--steel-mist);
 
 }
+@theme{
 
-@theme  {
-  --breakpoint-tiny: 18rem;
-   --breakpoint-phone: 25.625rem;     
-  --breakpoint-tiny-normal: 22.375rem;
-  --breakpoint-xs: 30rem;
-
- 
-
-
+    --breakpoint-xs: 480px;
 }
+
+
+
 
 
 .font-bison {

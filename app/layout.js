@@ -41,7 +41,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={` ${graphik.className}   bg-polar-mist relative  `}>
+      <body className={` ${graphik.className}   bg-[#F8F9F9] relative  `}>
            <Providers>
       <PannelContextProvider>
                <nav
