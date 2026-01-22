@@ -1,6 +1,6 @@
 
 
-const UserPillarsSvg = () => {
+const UserPillarsSvg = ({className}) => {
   return (
     <svg
       width="50"
@@ -8,6 +8,7 @@ const UserPillarsSvg = () => {
       viewBox="0 0 50 50"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+       className={className}
     >
       <path
         d="M32.2917 22.9167C32.2917 18.8896 29.0271 15.625 25 15.625C20.973 15.625 17.7084 18.8896 17.7084 22.9167C17.7084 26.9437 20.973 30.2083 25 30.2083C29.0271 30.2083 32.2917 26.9437 32.2917 22.9167Z"

@@ -10,6 +10,9 @@ const Humanitarian = () => {
         >
           Providing Humanitarian services to all <br/> people is What we do
         </h2>
+        <p>
+          
+        </p>
 
      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 space-y-0 md:space-y-5   gap-4 w-full container mx-auto  px-3.5 ">
   {teamServices.map((service, index) => {

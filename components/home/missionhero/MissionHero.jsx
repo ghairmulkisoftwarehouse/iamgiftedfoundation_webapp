@@ -58,7 +58,7 @@ const MissionHero = () => {
                </div>
 
       {/* Content */}
-      <div className="relative z-20 flex flex-col items-center  gap-8    container mx-auto  px-3.5  ">
+      <div className="relative z-20 flex flex-col items-center  gap-8     px-5 md:px-3.5  md:container mx-auto ">
       <div className=" flex flex-col  items-center  gap-2  pt-12 md:pt-16">
           <h2 className={`text-black text-4xl  sm:text-[46px] lg:text-[55px] text-center  ${bison.className}`}>
           Our mission is to aid those in need
@@ -73,7 +73,7 @@ const MissionHero = () => {
 
         {/*  */}
     
-     <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-3.5 lg:space-y-4 w-full  pt-11">
+     <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3.5 lg:space-y-4 w-full  pt-11">
           {imapactData.map((item, index) => (
             <div
               key={index}
@@ -100,20 +100,26 @@ const MissionHero = () => {
                 <>
                   {/* Count */}
                   <div className="flex justify-end">
-                    <h2 className="text-white  text-xl  sm:text-2xl  md:text-4xl font-semibold">
+                    <h2 className="text-white  text-xl  sm:text-2xl  md:text-3xl font-semibold">
                       {item.count}
                     </h2>
                   </div>
 
                   {/* Text */}
-                  <div className="flex flex-col gap-1">
-                    <h3 className="text-thistle text-base sm:text-lg md:text-[24px] font-semibold">
-                      {item.title}
-                    </h3>
-                    <p className=" text-sm sm:text-base text-white/80">
-                      {item.paragraph}
-                    </p>
-                  </div>
+                <div className="flex flex-col gap-1">
+  <h3 className="text-thistle text-base sm:text-lg md:text-[24px] font-semibold
+                 transition-colors duration-300
+                 group-hover:text-white">
+    {item.title}
+  </h3>
+
+  <p className="text-sm sm:text-base text-white/80
+                transition-colors duration-300
+                group-hover:text-white">
+    {item.paragraph}
+  </p>
+</div>
+
                 </>
               )}
             </div>

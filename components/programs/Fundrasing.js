@@ -8,6 +8,9 @@ import  img2  from '@/assets/images/donateperson2.png'
 import  img3  from '@/assets/images/donateperson3.png'
 import Link from 'next/link';
 import Image from 'next/image';
+import DotSvg   from '@/assets/svg/DotSvg'
+import { GoDotFill } from "react-icons/go";
+
 
 const Fundrasing = () => {
 
@@ -33,7 +36,7 @@ const Fundrasing = () => {
              
                const boxes = Array.from({ length: numBoxes });
   return (
-    <div className=" mt-16 relative">
+    <div className=" mt-16 relative   ">
 
 
        <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 absolute left-0   top-[-90px]  z-0 w-full">
@@ -51,11 +54,21 @@ const Fundrasing = () => {
                  })}
                </div>
          <div className="flex flex-col w-full items-center gap-10">
-           <h2
+
+         <div className=' flex flex-col gap-2'>
+                <h2
              className={`text-black text-4xl  sm:text-[46px] lg:text-[55px]  text-center  ${bison.className}`}
            >
-            Peer-to-Peer Fundraising
+          Programs That Turn Belief Into Action
            </h2>
+         <div className=' w-full px-6  md:px-0   md:w-4/5  lg:w-8/12 mx-auto'>
+        <p className='  text-sm sm:text-base md:text-lg  font-thin text-[#030F0CCC]/80  text-center ' >
+            IAMGIFTED Foundation programs are designed to create real-world outcomes for youth and families while aligning under our Four Pillars.
+            </p>
+            </div>
+       
+         </div>
+         
 
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  space-y-0 md:space-y-5   gap-4 w-full container mx-auto  px-3.5  ">
@@ -64,15 +77,16 @@ const Fundrasing = () => {
     key={index} // Added key prop for React
     className="
       group
+       cursor-pointer
       border border-black/20 rounded-[20px] p-3
       flex flex-col gap-3 w-full
       transition-all duration-700 ease-out
       hover:shadow-2xl
-      lg:h-[450px]
+      
     "
   >
     {/* Image wrapper */}
-    <div className="w-full overflow-hidden rounded-[20px]">
+    <div className="w-full   h-[250px]     overflow-hidden rounded-[20px]">
       <Image
         src={item.image}
         width={370}
@@ -81,38 +95,38 @@ const Fundrasing = () => {
         className="
           w-full object-cover rounded-[20px]
           transition-transform duration-700 ease-out
-          group-hover:scale-110
+          group-hover:scale-110 h-full
         "
       />
     </div>
-
-    <h1 className="font-semibold text-lg md:text-[22px]">
+     <h1 className="font-semibold text-lg md:text-[22px]">
       {item.title}
     </h1>
+    
+      <div className='flex flex-row gap-1'>
+       <span className=' font-semibold'>Pillar Tag:</span>
+       <div className=' flex items-center gap-0.5 bg-[#E5D5E5] rounded-full px-2.5 py-1.5'>
+       <DotSvg/>
+        <span className=' text-xs sm:text-xs  font-semibold'>Empowerment & Life Skills</span>
+       </div>
+       
+      </div>
+
+   
 
     <p className="text-sm md:text-[15px] text-black/70">
       {item.paragraph}
     </p>
 
-    {/* Progress Bar */}
-    <div className="flex flex-col">
-      <div className="w-full bg-[#B2BCC599] rounded-full h-2 overflow-hidden">
-        <div
-          className="bg-light-cyan h-2 rounded-full transition-all duration-700 ease-out"
-          style={{ width: `60%` }}
-        />
-      </div>
+   <div className=' flex flex-row items-center gap-1 text-sm'>
+   <h2 className='text-[#000000] '>Impact Stat:</h2>
+   <div className=' flex flex-row items-center gap-1'>
+      <span className=' pt-0.5 '><GoDotFill/></span>
+      <p className='  font-semibold'> 2,219+ youth served</p>
+   </div>
 
-      <div className="flex justify-between w-full">
-        <p className="text-[10px] xs:text-xs md:text-sm text-black font-medium">
-          Raised: $8,000
-        </p>
-        <p className="text-[10px] xs:text-xs md:text-sm text-black/70">
-          Goal: $18,000
-        </p>
-      </div>
-    </div>
-
+   </div>
+  
     <div className="border-b border-black/10 w-full"></div>
 
     {/* Donors + Button */}

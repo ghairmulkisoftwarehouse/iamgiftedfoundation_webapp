@@ -15,7 +15,7 @@ const Program = () => {
           subtitleClass=" text-sm sm:text-base  md:text-[17px]   text-white/70"
             />
             <Fundrasing/>
-            <Humanitarian/>
+            {/* <Humanitarian/> */}
             
 
 

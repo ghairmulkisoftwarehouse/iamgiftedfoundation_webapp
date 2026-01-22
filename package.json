@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.11.2",
+    "@tailwindcss/line-clamp": "^0.4.4",
     "next": "16.0.8",
     "plyr": "^3.8.3",
     "query-string": "^9.3.1",

@@ -41,7 +41,7 @@ const Navbar = () => {
         ${scrolled ? '' : ''}
       `}
     >
-    <div className='  container  mx-auto  px-3.5'>
+    <div className='   w-full px-5 md:px-3.5  md:container mx-auto'>
     <div className=" w-full    flex items-center justify-between relative  bg-white  rounded-full h-[55px]  md:h-[70px]  rounded border border-grayblue-alt  px-8 xl:px-12">
 
 <div className=' flex  gap-2 items-center'>

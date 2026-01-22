@@ -1,5 +1,7 @@
 export const navLinks = [
   { name: "Home", path: "/" },     
+     { name: "Pillars", path: "/pillars" },
+ { name: "Impact", path: "/impact" },
   { name: "About Us", path: "/aboutus" },       
   { name: "Programs" ,path:"/programs" },        
   { name: "Events" ,  path:"/events" || "/events/ " },     
