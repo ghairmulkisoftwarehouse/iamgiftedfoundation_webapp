@@ -1,58 +1,108 @@
-import { bison } from '@/components/fonts/fonts';
-import {pillarsData} from '@/constants/homeConstants'
+'use client'
+
+import { useState,useEffect } from 'react'
+import foundation1img from '@/assets/images/foundation1.png'
+import foundation2img from '@/assets/images/foundation2.png'
+import foundation3img from '@/assets/images/foundation3.png'
+import foundation4img from '@/assets/images/foundation4.png'
+import foundation5img from '@/assets/images/foundation5.png'
+
+import { bison } from '@/components/fonts/fonts'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { FreeMode, Navigation } from 'swiper/modules'
+
+import 'swiper/css'
+import 'swiper/css/free-mode'
+import 'swiper/css/navigation'
+
+import Image from 'next/image'
+
+const Recongniztion = () => {
+   const [spaceBetween, setSpaceBetween] = useState(70);
+  const foundationImages = [
+    foundation1img,
+    foundation2img,
+    foundation3img,
+    foundation4img,
+    foundation5img,
+  ]
+
+const sizes = [
+  { base: 'w-[150px] h-auto',    md: 'md:w-auto' },
+  { base: 'w-[100px] h-auto', md: 'md:w-auto' },
+  { base: 'w-[50px] h-[50px]', md: 'md:w-[75px] md:h-auto' },
+  { base: 'w-[50px] h-[50px]', md: 'md:w-[70px] md:h-auto' },
+  { base: 'w-[50px] h-[50px]', md: 'md:w-[75px] md:h-auto' },
 
 
-const PillarsSection = () => {
+
+  
+]
+
+
+ 
+
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width < 640) setSpaceBetween(20); // small screens
+      else if (width >= 640 && width < 768) setSpaceBetween(30); // sm
+      else setSpaceBetween(70); // md+
+    };
+
+    handleResize(); // set initial value
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+
+
   return (
-    <div className="mt-16">
-        <div className="flex flex-col w-full gap-10   px-5  md:px-3.5  md:container mx-auto  ">
-        <h2 className={`text-black text-4xl  sm:text-[46px] lg:text-[55px]  ${bison.className}`}>
-                FOUR PILLARS 
+    <div className="px-5  md:px-3.5  md:container mx-auto  swiper-customNav   mt-20  ">
+      <div className="flex flex-col  gap-10">
+        <h2
+          className={`text-black text-4xl  sm:text-[46px] lg:text-[55px]  text-center ${bison.className}`}
+        >
+          Foundation Partners
         </h2>
-          <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-3.5 lg:space-y-4 w-full cursor-pointer">
-          {pillarsData.map((pillar, index) => {
-            const Icon = pillar?.icon; 
 
-            return (
-              <div
-                key={index}
-                className=" h-[250px] sm:h-[300px] border border-black/25 rounded-[24px] flex flex-col justify-between px-5 py-5 bg-transparent hover:bg-white hover:shadow-lg transition-all duration-300 group"
-              >
-                <div className="flex flex-col gap-1 pr-3 xl:pr-8">
-                  <h2 className="font-semibold text-lg md:text-xl text-black group-hover:text-gray-800">
-                    {pillar.title}
-                  </h2>
-                  <p className="text-[#030F0CCC]/80 text-sm md:text-[15px] group-hover:text-gray-800">
-                    {pillar.paragraph}
-                  </p>
-                </div>
+        <div className=' mx-auto w-full flex justify-center '>
+<Swiper
+  slidesPerView="auto"
+         spaceBetween={spaceBetween}
 
-                <div className="flex justify-end w-full">
-                  <div className="w-[50px] h-[50px] sm:w-[70px] sm:h-[70px] bg-[#B6E2E2] rounded-full flex justify-center items-center group-hover:bg-[#9BDADA] transition-colors duration-300">
-              
-                    <Icon className="w-[40px]  sm:w-auto h-[40px] sm:h-auto" />
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-        <div className=' flex justify-center items-center'>
-        <button className='btn-seeMore  border '>
-                  Explore Our 
-                </button>
+  freeMode={{
+    enabled: true,
+    momentum: false,
+  }}  
+  navigation={false}
+  loop={false}
+  modules={[FreeMode]}
+  className="  mx-auto"
+>
+        {foundationImages.map((img, index) => (
+          <SwiperSlide
+            key={index}
+            className=" flex justify-center items-center cursor-pointer   w-full"
+          >
+           <Image
+        src={img}
+        alt={`foundation-${index}`}
+        width={200}             
+        height={99}
+        className={`object-contain ${sizes[index].base} ${sizes[index].md}`}
+      />
+          </SwiperSlide>
+        ))}
+      </Swiper>
 
-        </div>
-    
+</div>
+      </div>
 
 
-
-        </div>
-        
-
-   
+     
     </div>
   )
 }
 
-export default PillarsSection
+export default Recongniztion;

@@ -1,6 +1,11 @@
 
 import  HeroSectionBanner  from '@/components/global/HeroSectionBanner'
 import Partner   from  '@/components/impact/partner/Partner';
+import Recongniztion   from '@/components/impact/recongniztion/Recongniztion';
+import ImpactSummary   from  '@/components/impact/impactSummary/ImpactSummary';
+import HighlightCards   from '@/components/impact/highlightCards/HighlightCards';
+import  GeographicReach   from '@/components/impact/geographicReach/GeographicReach';
+import ImpactPillars   from '@/components/impact/impactPillars/ImpactPillars';
 const Impact = () => {
   return (
         <div className="flex  flex-col  w-full ">
@@ -10,7 +15,19 @@ const Impact = () => {
                    bannerSvgClass = 'w-[170px]  sm:w-[180px]   '   
           subtitleClass=" text-sm sm:text-base  md:text-[17px]   text-white/70"
             />
-            <Partner/>
+             <ImpactSummary/>
+               <HighlightCards/>
+               <ImpactPillars/>
+                              <GeographicReach/>
+             <Recongniztion/>
+             <div  className='  pb-10'>
+                     <Partner/>
+             </div>
+      
+
+          
+           
+           
        
 
             

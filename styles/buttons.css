@@ -5,6 +5,7 @@
     --color-polar-mist:#F4F6F6;
     --color-mint-cyan :#BFE5E4;
      --breakpoint-xs: 480px;
+          --breakpoint-phone: 25.625rem; 
 }
 
 

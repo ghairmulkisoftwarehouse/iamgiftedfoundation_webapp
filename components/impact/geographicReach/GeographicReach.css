@@ -1,0 +1,19 @@
+/* thin horizontal scrollbar */
+.countryScroll::-webkit-scrollbar {
+  height: 5px; /* horizontal scrollbar height */
+   width: 2px;
+}
+
+.countryScroll::-webkit-scrollbar-track {
+  background-color: #0000002E;
+  border-radius: 10px;
+}
+
+.countryScroll::-webkit-scrollbar-thumb {
+  background-color: gray;
+  border-radius: 10px;
+}
+
+.countryScroll::-webkit-scrollbar-thumb:hover {
+  background-color: var(--lavender);
+}
