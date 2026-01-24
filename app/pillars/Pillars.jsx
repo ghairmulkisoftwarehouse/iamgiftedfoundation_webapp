@@ -10,7 +10,10 @@ const Pillars = () => {
                    bannerSvgClass = 'w-[170px]  sm:w-[180px]  xl:w-[250px] '   
           subtitleClass=" text-sm sm:text-base  md:text-[17px]   text-white/70"
             />
-            <Empowerment/>
+            <div className=' mb-9'>
+                 <Empowerment/>
+            </div>
+      
 
             
 

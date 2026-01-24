@@ -85,7 +85,7 @@ const HeroSection = () => {
                     <Link href="/donate ">
                       <button className="btn-donate group-hover:bg-lavender cursor-pointer  z-5    w-[198px] h-[50px] ">
                         <span className="btn-donate-hover group-hover:w-56 group-hover:h-56"></span>
-                        <span className="btn-donate-text group-hover:text-black text-[13px] sm:text-sm sm:text-base">
+                        <span className="btn-donate-text group-hover:text-black text-[13px] xs:text-sm sm:text-base ">
                        Open the App
                         </span>
                       </button>

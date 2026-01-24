@@ -10,6 +10,9 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { footerNavLinks } from "@/constants/menuItem";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import GoogleplaySvg  from '@/assets/svg/GoogleplaySvg';
+import AppleStoreSvg  from '@/assets/svg/AppleStoreSvg';
+
 
 
 
@@ -99,7 +102,8 @@ const Footer = () => {
 </h2>
             <p className=" text-white/85  text-sm md:text-base font-normal">If there are questions you want to ask, we will answer all your question</p>
           </div>
-        <div className="w-full border-b relative h-[40px] border-white  mt-3.5  md:mt-[10%] lg:mt-[20%]">
+
+        <div className="w-full border-b relative h-[40px] border-white  mt-3.5 ">
         <input
           type="text"
           placeholder="Enter your email"
@@ -109,6 +113,18 @@ const Footer = () => {
           <FaArrowRightLong className="text-white" />
         </div>
             </div>
+        <div className="flex flex-row gap-2 w-full mt-6">
+ <div className="transition-transform transition-opacity duration-300 ease-out
+                hover:opacity-80 hover:scale-105 active:scale-95 cursor-pointer">
+  <GoogleplaySvg />
+</div>
+
+<div className="transition-transform transition-opacity duration-300 ease-out
+                hover:opacity-80 hover:scale-105 active:scale-95 cursor-pointer">
+  <AppleStoreSvg />
+</div>
+</div>
+
 
           
           </div>
@@ -120,7 +136,7 @@ const Footer = () => {
           </div>
           <div className=" grid grid-cols-1 sm:grid-cols-2 w-full gap-4  sm:gap-2  ">
            <div>
-           <ul className="text-white flex flex-col items-start gap-4 text-sm md:text-base ">
+           <ul className="text-white flex flex-col items-start gap-4  text-sm lg:text-[15px]     ">
   {firstColumnLinks.map((link) => {
     const isActive =
       pathname === link.path ||
@@ -150,7 +166,7 @@ const Footer = () => {
 
 
             <div>
-        <ul className="text-white flex flex-col gap-4 items-start text-sm md:text-base  lg:text-lg">
+        <ul className="text-white flex flex-col gap-4 items-start  text-sm lg:text-[15px]">
           {secondColumnLinks.map((link) => (
             <li key={link.name}>
               {link.path ? (

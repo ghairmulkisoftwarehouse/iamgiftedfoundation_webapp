@@ -1,13 +1,23 @@
 import { bison } from '@/components/fonts/fonts';
 import { involvedData } from '@/constants/homeConstants';
 
+
 const GetInvolved = () => {
   return (
-    <div className="mt-16">
+    <div className="mt-20">
       <div className="flex flex-col w-full gap-10 px-5  md:px-3.5  md:container mx-auto">
+      <div className=' flex flex-col  gap-0.5'>
         <h2 className={`text-black text-4xl sm:text-[46px] lg:text-[55px] ${bison.className}`}>
           GET INVOLVED
         </h2>
+              <div className=' w-full    md:w-4/5  lg:w-8/12'>
+             <p className='text-sm sm:text-base md:text-lg  font-thin text-[#030F0CCC]/80  '>
+              Whether you donate, volunteer, partner, or advocate, your involvement helps build pathways for youth to thrive.
+              </p>
+           </div>
+      
+      </div>
+       
 
         {/* INVOLVED cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3.5 w-full cursor-pointer">
@@ -36,6 +46,9 @@ const GetInvolved = () => {
             );
           })}
         </div>
+     
+       
+
       </div>
     </div>
   );

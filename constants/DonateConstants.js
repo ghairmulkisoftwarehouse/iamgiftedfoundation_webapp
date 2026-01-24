@@ -36,3 +36,15 @@ export  const DonateItems = [
   },
 
 ];
+
+
+
+
+export const programlist = [
+  "Women’s Empowerment",
+  "Housing Assistance",
+  "Youth Leadership Program",
+  "Volunteer Engagement",
+  "Youth Leadership Program",
+  "Housing Assistance",
+];

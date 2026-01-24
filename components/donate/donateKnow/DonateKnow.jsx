@@ -5,6 +5,7 @@ import   img from '@/assets/images/donateimge.png';
 import { bison } from '@/components/fonts/fonts';
 import DonateForm   from '../donatefrom/DonateForm';
 import RecentDonate  from '../recentdonate/RecentDonate';
+import ProgramList   from '../programlist/ProgramList';
 
 
 
@@ -46,8 +47,13 @@ const DonateKnow = () => {
         </div>
 
       
-       <div className="grid grid-cols-1   lg:grid-cols-3 w-full container mx-auto  px-3.5  gap-6 relative z-5 pt-4">
-       <div className='lg:col-span-2   flex flex-col gap-3.5   order-1 lg:order-1'>
+       <div className="grid grid-cols-1   lg:grid-cols-3 w-full px-5  md:px-3.5  md:container mx-auto   gap-6 relative z-5 pt-4">
+
+           <div className='lg:col-span-1   '>
+
+              <ProgramList/>
+       </div>
+       <div className='lg:col-span-2   flex flex-col gap-3.5   '>
         <Image
         src={img}
         alt={'img'}
@@ -73,10 +79,7 @@ const DonateKnow = () => {
        </div>
 
 
-         <div className='lg:col-span-1   order-2 lg:order-2'>
-
-              <RecentDonate/>
-       </div>
+     
 
 
        </div>

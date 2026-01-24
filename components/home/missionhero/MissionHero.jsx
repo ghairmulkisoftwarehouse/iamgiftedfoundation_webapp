@@ -59,13 +59,13 @@ const MissionHero = () => {
 
       {/* Content */}
       <div className="relative z-20 flex flex-col items-center  gap-8     px-5 md:px-3.5  md:container mx-auto ">
-      <div className=" flex flex-col  items-center  gap-2  pt-12 md:pt-16">
+      <div className=" flex flex-col  items-center  gap-2  pt-12 md:pt-20">
           <h2 className={`text-black text-4xl  sm:text-[46px] lg:text-[55px] text-center  ${bison.className}`}>
-          Our mission is to aid those in need
+         Our Impact at a Glance
         </h2>
           <div className=' w-full px-6  md:px-0   md:w-4/5  lg:w-8/12'>
         <p className='  text-sm sm:text-base md:text-lg  font-thin text-[#030F0CCC]/80  text-center ' >
-        Our mission is to provide critical support to those in need today, while also laying the groundwork for sustainable, long-term improvements.
+       (Lifetime Impact)
     </p>
     </div>
 

@@ -33,7 +33,7 @@ const Empowerment = () => {
   return (
      <div 
       ref={containerRef}
-      className="relative flex flex-col gap-2 w-full    bg-gradient-to-b from-white  via-white to-transparent   overflow-hidden"
+      className="relative flex flex-col gap-2 w-full     bg-white   overflow-hidden"
      >
            {/* Grid Background */}
      <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 absolute left-0   top-0  z-0 w-full">
@@ -56,7 +56,7 @@ const Empowerment = () => {
                    );
                  })}
                </div>
-        <div className="relative z-20 flex flex-col items-center  gap-8     px-5 md:px-3.5  md:container mx-auto ">
+        <div className="relative z-20 flex flex-col gap-10 items-center   w-full pb-20    px-5 md:px-3.5  md:container mx-auto ">
             <div className=" flex flex-col  items-center  gap-2  pt-12 md:pt-16">
                 <h2 className={`text-black text-4xl  sm:text-[46px] lg:text-[55px] text-center  ${bison.className}`}>
                A Holistic Approach to Youth Empowerment
@@ -70,7 +70,7 @@ const Empowerment = () => {
             </div>
 
 
-           <div className="w-full grid grid-cols-1 sm:grid-cols-2  gap-4  ">
+           <div className="w-full grid grid-cols-1 sm:grid-cols-2  gap-4  pt-6 ">
 
                
              {pillarData.map((pillar, index) => {
@@ -91,19 +91,19 @@ group"
       </div>
 
       {/* title */}
-      <h2 className="   text-[22px]   xs:text-[25px]  lg:text-[27px] font-semibold">{pillar.title}</h2>
+      <h2 className="    text-xl   sm:text-[22px]  lg:text-[25px] font-semibold">{pillar.title}</h2>
 
       {/* subtitle + paragraph */}
       <div className="flex flex-col gap-0.5">
-        <h3 className="   text-sm  xs:text-[15px]  lg:text-base font-semibold">{pillar.firstSubtitle}</h3>
-        <p className="text-[#030F0CCC]/80  text-xs  xs:text-sm lg:text-[15px]">
+        <h3 className="   text-[13px]  xs:text-sm  lg:text-[15px] font-semibold">{pillar.firstSubtitle}</h3>
+        <p className="text-[#030F0CCC]/80  text-xs  xs:text-xs lg:text-sm">
           {pillar.firstParagraph}
         </p>
       </div>
 
       {/* programs */}
       <div className="flex flex-col gap-1.5">
-        <h3 className=" text-sm  xs:text-[15px]  lg:text-base font-semibold">Programs Include:</h3>
+        <h3 className="  text-[13px]  xs:text-sm  lg:text-[15px] font-semibold">Programs Include:</h3>
 
         <div className="flex flex-row flex-wrap gap-1.5">
           {pillar.ProgramsInclude.map((program, i) => (
@@ -127,10 +127,10 @@ group"
 
       {/* donor section */}
       <div className="flex flex-col gap-0.5 border-b border-black/35 pb-4">
-        <h2 className=" text-sm  xs:text-[15px]  lg:text-base font-semibold">
+        <h2 className="  text-[13px]  xs:text-sm  lg:text-[15px] font-semibold">
           {pillar.secondSubtitle}
         </h2>
-        <p className="text-[#030F0CCC]/80  text-xs  xs:text-sm lg:text-[15px]">
+        <p className="text-[#030F0CCC]/80  text-xs  xs:text-xs lg:text-sm">
           {pillar.secondParagraph}
         </p>
       </div>

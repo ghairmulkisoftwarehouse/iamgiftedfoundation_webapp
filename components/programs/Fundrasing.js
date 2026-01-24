@@ -10,10 +10,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 import DotSvg   from '@/assets/svg/DotSvg'
 import { GoDotFill } from "react-icons/go";
+import { useRouter } from 'next/navigation';
 
 
 const Fundrasing = () => {
 
+  const router=useRouter();
 
   
      const [numBoxes, setNumBoxes] = useState(60);
@@ -84,6 +86,7 @@ const Fundrasing = () => {
       hover:shadow-2xl
       
     "
+ onClick={() => router.push("/programs/1")}
   >
     {/* Image wrapper */}
     <div className="w-full   h-[250px]     overflow-hidden rounded-[20px]">

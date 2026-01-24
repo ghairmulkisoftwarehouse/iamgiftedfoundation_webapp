@@ -4,6 +4,8 @@ import MissionHero   from '@/components/home/missionhero/MissionHero';
 import PillarsSection   from '@/components/home/PillarsSection/PillarsSection';
 import GetInvolved   from '@/components/home/getInvolved/GetInvolved';
 import Fundrasing  from '@/components/home/fundrasing/Fundrasing';
+import TrackImpact   from '@/components/global/trackImpact/TrackImpact';
+
 // import DonateBanner   from '@/components/home/donatebanner/DonateBanner';
 // import Awareness   from '@/components/home/awareness/Awareness';
 // import ImpactStats   from '@/components/home/impactstats/ImpactStats';
@@ -18,8 +20,12 @@ export default function Home() {
     <HeroSection/>
           <MissionHero/>
           <PillarsSection/>
-          <GetInvolved/>
+         
               <Fundrasing/>
+               <GetInvolved/>
+                  <div className=' pb-11 mt-10'>
+         <TrackImpact/>
+        </div>
 
    {/* <ImpactStats/> */}
       {/* <Awareness/> */}

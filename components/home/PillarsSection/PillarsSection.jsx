@@ -4,11 +4,18 @@ import {pillarsData} from '@/constants/homeConstants'
 
 const PillarsSection = () => {
   return (
-    <div className="mt-16">
+    <div className="mt-20">
         <div className="flex flex-col w-full gap-10   px-5  md:px-3.5  md:container mx-auto  ">
+            <div className=' flex flex-col  gap-0.5'>
         <h2 className={`text-black text-4xl  sm:text-[46px] lg:text-[55px]  ${bison.className}`}>
-                FOUR PILLARS 
+             Our Four Pillars of Impact
         </h2>
+            <div className=' w-full    md:w-4/5  lg:w-8/12'>
+             <p className='text-sm sm:text-base md:text-lg  font-thin text-[#030F0CCC]/80  '>
+              IAMGIFTED Foundation programs are guided by four strategic pillars designed to support the whole child—and the environment that shapes them.
+              </p>
+           </div>
+        </div>
           <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-3.5 lg:space-y-4 w-full cursor-pointer">
           {pillarsData.map((pillar, index) => {
             const Icon = pillar?.icon; 
@@ -38,8 +45,8 @@ const PillarsSection = () => {
           })}
         </div>
         <div className=' flex justify-center items-center'>
-        <button className='btn-seeMore  border '>
-                  Explore Our 
+        <button className='btn-seeMore  border w-fit px-4 '>
+                Learn More About Our Pillars
                 </button>
 
         </div>
