@@ -5,7 +5,8 @@ export const navLinks = [
   // { name: "About Us", path: "/aboutus" },       
   { name: "Programs" ,path:"/programs" },        
   // { name: "Events" ,  path:"/events" || "/events/ " },     
-  { name: "Donate/Get Involved" , path:'/getinvolved'},     
+  { name: "Donate/Get Involved" , path:'/getinvolved'},    
+  { name: "Contact",path:"/contact" }, 
   // { name: "Contact" ,path:"/contact"},             
 ];
 

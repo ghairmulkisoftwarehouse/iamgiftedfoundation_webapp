@@ -83,7 +83,7 @@ const HeroSection = () => {
                   <div className=" flex flex-row justify-center  xs:justify-normal  gap-0 group cursor-pointer w-full xs:w-auto  ">
               
                      <a
-    href="https://play.google.com/store" // link to Google Play
+    href="https://play.google.com/store" 
     target="_blank"
     rel="noopener noreferrer"
   >

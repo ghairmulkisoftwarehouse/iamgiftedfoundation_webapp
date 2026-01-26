@@ -118,7 +118,7 @@ const Foundationgurdian = () => {
           transition-shadow
            cursor-pointer
           duration-300
-          hover:shadow-[0_12px_40px_rgba(0,0,0,0.6)]
+          hover:shadow-2xl
         "
       >
         <p
@@ -128,7 +128,7 @@ const Foundationgurdian = () => {
             ${bison.className}
             transition-colors
             duration-300
-            group-hover:text-yellow-400
+           group-hover:text-light-cyan
           `}
         >
           {text}
