@@ -8,10 +8,13 @@ import AmericanSvg   from '@/assets/svg/AmericanSvg';
 import DotSvg   from '@/assets/svg/DotSvg'
 import ArrowLeftSvg  from '@/assets/svg/ArrowleftSvg';
 import {pillarData} from '@/constants/PillarsConstants'
+import { useRouter } from "next/navigation";
 const STAR_BOXES = [0, 21];
 
 const Empowerment = () => {
       const containerRef = useRef(null);
+   const router=useRouter();
+
      const [numBoxes, setNumBoxes] = useState(60);
            useEffect(() => {
       const handleResize = () => {
@@ -78,6 +81,8 @@ const Empowerment = () => {
 
   return (
     <div
+
+
       key={index}
   className="border border-black/20 w-full flex flex-col gap-2 px-5 py-2.5 relative bg-white z-5 rounded-[20px]
 transition-all duration-300 ease-out
@@ -137,7 +142,9 @@ group"
 
       {/* button */}
       <div className="w-full pt-2 pb-3.5  mt-auto">
-        <div className="btn-animated bg-[#B6E2E2] group cursor-pointer relative overflow-hidden w-full rounded-full flex justify-center items-center h-[50px] gap-1.5 ">
+        <div 
+             onClick={()=>router.push('/donate')}
+        className="btn-animated bg-[#B6E2E2] group cursor-pointer relative overflow-hidden w-full rounded-full flex justify-center items-center h-[50px] gap-1.5 ">
           <span className="btn-animated-hover bg-[#9dd6d5] group-hover:w-full group-hover:h-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full"></span>
 
           <div className="btn-animated-text text-black group-hover:text-gray-900 text-sm sm:text-[17px] font-semibold flex flex-row items-center gap-3">

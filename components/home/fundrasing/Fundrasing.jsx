@@ -12,8 +12,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 import RightArrowSvg from '@/assets/svg/RightArrowSvg';
 import LeftArrowSvg from '@/assets/svg/LeftArrowSvg';
+import { useRouter } from 'next/navigation';
 
 const Fundrasing = () => {
+
+const router=useRouter();
+
 
 
   
@@ -57,6 +61,8 @@ const Fundrasing = () => {
           {featuredData.map((item, index) => (
          <SwiperSlide key={index}>
   <div
+
+   onClick={()=>router.push('/donate')}
     className="
       group
       border border-black/20 rounded-[20px] p-3

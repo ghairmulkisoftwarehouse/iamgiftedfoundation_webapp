@@ -25,17 +25,18 @@ const Partner = () => {
 
 
 <div className="flex  flex-col items-center  gap-1.5  phone:flex-row  phone:gap-0.5 w-full justify-center">
-
+       <Link href="/donate">
        <button className="btn-animated   bg-white  w-[190px]  phone:w-[160px] h-[50px]   group cursor-pointer relative overflow-hidden hover:border-[#8bc9c8]">
               <span className="btn-animated-hover bg-black group-hover:w-48 group-hover:h-44"></span>
               <span className="btn-animated-text text-black group-hover:text-white  text-[13px] xs:text-sm sm:text-base   font-semibold">
                 Donate 
               </span>
             </button>
+            </Link>
   <div className="flex flex-row gap-0 group cursor-pointer">
 
     {/* Donate Button */}
-    <Link href="/donate">
+    <Link href="/contact">
       <button className="btn-donate group-hover:bg-lavender  w-[200px] phone:w-[160px] sm:w-[196px]  h-[50px] cursor-pointer">
         <span className="btn-donate-hover group-hover:w-56 group-hover:h-56"></span>
         <span className="btn-donate-text group-hover:text-black text-[13px] xs:text-sm sm:text-base   font-semibold">

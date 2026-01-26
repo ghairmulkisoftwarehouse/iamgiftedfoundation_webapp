@@ -14,6 +14,7 @@ const Navbar = () => {
            const [scrolled, setScrolled] = useState(false);
 
          const pathname=usePathname();
+         const isHome = pathname === "/";
 
           const isAuthPage = pathname?.startsWith('/auth/login') || pathname?.startsWith('/auth/register') || pathname?.startsWith('/auth/reset-password') || pathname?.startsWith('/auth/verify-otp')  || pathname?.startsWith('/auth/forgotpassword');
 
@@ -34,13 +35,19 @@ const Navbar = () => {
 <>
 
     {!isAuthPage && (
-    <div 
-     className={`
-        flex items-center justify-center py-3       w-full
-        transition-all duration-500 ease-out
-        ${scrolled ? '' : ''}
-      `}
-    >
+  <div
+  className={`
+    flex items-center justify-center py-3 w-full
+    transition-all duration-500 ease-out
+    ${
+      scrolled
+        ? ''
+        : isHome
+          ? 'bg-transparent'
+          : 'bg-[#E7F3F4]'
+    }
+  `}
+>
     <div className='   w-full px-5 md:px-3.5  md:container mx-auto'>
     <div className=" w-full    flex items-center justify-between relative  bg-white  rounded-full h-[55px]  md:h-[70px]  rounded border border-grayblue-alt  px-8 xl:px-12">
 

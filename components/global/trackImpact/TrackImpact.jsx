@@ -25,21 +25,29 @@ const TrackImpact = () => {
         </h2>
         <div className=" flex flex-row justify-center  xs:justify-normal  gap-0 group cursor-pointer w-full xs:w-auto  ">
               
-                    <Link href="/donate ">
+                               <a
+    href="https://play.google.com/store" // link to Google Play
+    target="_blank"
+    rel="noopener noreferrer"
+  >
                       <button className="btn-donate group-hover:bg-lavender cursor-pointer  z-5    w-[198px] h-[40px] md:h-[50px] ">
                         <span className="btn-donate-hover group-hover:w-56 group-hover:h-56"></span>
                         <span className="btn-donate-text group-hover:text-black text-[13px] sm:text-sm md:text-base">
                        Open the App
                         </span>
                       </button>
-                    </Link>
+                    </a>
                 
-                    <Link href="/donate">
+                                       <a
+    href="https://play.google.com/store" // link to Google Play
+    target="_blank"
+    rel="noopener noreferrer"
+  >
                       <button className="btn-icon group-hover:bg-lavender cursor-pointer z-5  w-[40px] h-[40px] md:h-[50px] md:w-[50px]  ">
                         <span className="btn-icon-hover group-hover:translate-y-0"></span>
                         <ArrowUpSvg className="text-white group-hover:text-black z-10 w-[30px] md:w-auto" />
                       </button>
-                    </Link>
+                    </a>
                 
                   </div> 
     </div>

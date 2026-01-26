@@ -34,7 +34,7 @@ const ImpactSummary = () => {
 
     <div
       ref={containerRef}
-      className="relative flex flex-col gap-2 w-full    bg-gradient-to-b from-white  via-white to-transparent   overflow-hidden   "
+      className="relative flex flex-col gap-2 w-full    bg-gradient-to-b from-white  via-white to-[#FBFFFF]   overflow-hidden   "
     >
       {/* Grid Background */}
      <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 absolute left-0   top-0  z-0 w-full">
@@ -102,7 +102,7 @@ Cumulative impact across all IAMGIFTED Foundation programs    </p>
               </Link>   
    <div className=" flex flex-row gap-0 group cursor-pointer   ">
               
-                    <Link href="/donate ">
+                    <Link href="/impact ">
                       <button className="btn-donate group-hover:bg-lavender cursor-pointer  z-5    w-[190px]  phone:w-[150px]  sm:w-[198px] h-[50px] ">
                         <span className="btn-donate-hover group-hover:w-56 group-hover:h-56"></span>
                         <span className="btn-donate-text group-hover:text-black text-[13px] xs:text-sm sm:text-base   font-semibold">
@@ -111,7 +111,7 @@ Cumulative impact across all IAMGIFTED Foundation programs    </p>
                       </button>
                     </Link>
                 
-                    <Link href="/donate">
+                    <Link href="/impact">
                       <button className="btn-icon group-hover:bg-lavender cursor-pointer z-5       ">
                         <span className="btn-icon-hover group-hover:translate-y-0"></span> 
                         <ArrowUpSvg className="text-white group-hover:text-black z-10" />

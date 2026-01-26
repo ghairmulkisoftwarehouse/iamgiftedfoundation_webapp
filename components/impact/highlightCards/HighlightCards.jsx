@@ -6,7 +6,7 @@ import BookedChart  from './charts/BookedChart';
 
 const HighlightCards = () => {
   return (
-    <div className=" mt-20 w-full ">
+    <div className=" pt-20 w-full  bg-[#FBFFFF] pb-12 ">
         <div className="flex flex-col w-full gap-10   px-5  md:px-3.5  md:container mx-auto  ">
         <h2 className={`text-black text-4xl  sm:text-[46px] lg:text-[55px]  ${bison.className}`}>
                2025 HIGHLIGHTS

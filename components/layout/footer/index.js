@@ -114,15 +114,26 @@ const Footer = () => {
         </div>
             </div>
         <div className="flex flex-row gap-2 w-full mt-6">
+                      <a
+    href="https://play.google.com/store"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
  <div className="transition-transform transition-opacity duration-300 ease-out
                 hover:opacity-80 hover:scale-105 active:scale-95 cursor-pointer">
   <GoogleplaySvg />
 </div>
-
+</a>
+   <a
+  href="https://www.apple.com/app-store/" // link to Apple Store
+  target="_blank"
+  rel="noopener noreferrer"
+>
 <div className="transition-transform transition-opacity duration-300 ease-out
                 hover:opacity-80 hover:scale-105 active:scale-95 cursor-pointer">
   <AppleStoreSvg />
 </div>
+</a>
 </div>
 
 

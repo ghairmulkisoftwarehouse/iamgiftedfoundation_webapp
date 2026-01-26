@@ -6,7 +6,7 @@ import DotSvg from '@/assets/svg/DotSvg';
 
 const DonationTiers = () => {
   return (
-    <div className=" mt-20 w-full ">
+<div className="mt-16 pt-8 w-full bg-gradient-to-b from-white to-white/80 pb-9">
         <div className="flex flex-col w-full gap-10   px-5  md:px-3.5  md:container mx-auto  ">
         <h2 className={`text-black text-4xl  sm:text-[46px] lg:text-[55px]  ${bison.className}`}>
                OTHER DONATION TIERS

@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef } from "react";
 import { bison } from '@/components/fonts/fonts';
 import Image from "next/image";
-import {imapactData} from '@/constants/homeConstants'
+import {imapactData,imapactsData} from '@/constants/homeConstants'
 import StarikSvg  from '@/assets/svg/StarikSvg'
 
 
@@ -33,7 +33,8 @@ const MissionHero = () => {
 
     <div
       ref={containerRef}
-      className="relative flex flex-col gap-2 w-full    bg-gradient-to-b from-white  via-white to-transparent   overflow-hidden"
+      className="relative flex flex-col gap-2 w-full    bg-gradient-to-b from-white  via-white to-[#FBFFFE]
+   overflow-hidden"
     >
       {/* Grid Background */}
      <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 absolute left-0   top-0  z-0 w-full">
@@ -73,7 +74,12 @@ const MissionHero = () => {
 
         {/*  */}
     
-     <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3.5 lg:space-y-4 w-full  pt-11">
+
+
+
+     <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3.5 lg:space-y-4 w-full  pt-11  ">
+         
+
           {imapactData.map((item, index) => (
             <div
               key={index}

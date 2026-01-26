@@ -12,7 +12,7 @@ const Impact = () => {
             <HeroSectionBanner
             title="IMPACT"
              height="h-[250px] "
-                   bannerSvgClass = 'w-[170px]  sm:w-[180px]   '   
+                   bannerSvgClass = '  w-[110px] lg:w-[120px] xl:w-[160px]     '   
           subtitleClass=" text-sm sm:text-base  md:text-[17px]   text-white/70"
             />
              <ImpactSummary/>

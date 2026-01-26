@@ -80,6 +80,37 @@ export const imapactData = [
 ];
 
 
+
+export const imapactsData = [
+  { imge: img },
+  {
+    count: "4,209",
+    title: "Individuals Served",
+    paragraph: "Across all IAMGIFTED Foundation programs",
+  },
+  { imge: img2 },
+  {
+    count: "98+",
+    title: "Scholarships Awarded",
+    paragraph: "Supporting academic success",
+  },
+
+  { imge: img3 },
+    {
+    count: "2,219+",
+    title: "Youth Served Through Camps",
+    paragraph: "Life skills & empowerment programs",
+  },
+  { imge: img4 },
+  {
+    count: "4,3,464+",
+    title: "Supported Through Rush 2 Give",
+    paragraph: "Community & emergency support",
+  },
+  
+];
+
+
 export const pillarsData = [
   {
     title: "Empowerment & Life Skills",

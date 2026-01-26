@@ -40,14 +40,14 @@ const AccountLogout = () => {
           >
             Cancel
           </button>
-  <button
-  onClick={handleLogout}
-  className="px-4 py-2 z-10 bg-red-600 cursor-pointer text-white rounded-[6px] text-sm flex items-center justify-center gap-2 min-w-[120px]"
->
- 
-    Yes, Log Out
+            <button
+            onClick={handleLogout}
+            className="px-4 py-2 z-10 bg-red-600 cursor-pointer text-white rounded-[6px] text-sm flex items-center justify-center gap-2 min-w-[120px]"
+          >
+          
+              Yes, Log Out
 
-</button>
+          </button>
 
         </div>
       </div>

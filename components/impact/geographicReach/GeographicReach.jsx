@@ -36,7 +36,7 @@ const GeographicReach = () => {
                             ))}
                 </div>
              </div>
-                          <div className=' w-full lg:w-[60%]  border border-[#0000002E]  h-[300px] sm:h-[400px] lg:h-[500px]  rounded-[15px] overflow-hidden p-7 '>
+                          <div className=' w-full lg:w-[60%]  border border-[#0000002E]   h-auto sm:h-[400px] lg:h-[500px]  rounded-[15px] overflow-hidden p-7 '>
                           <Image
                           src={img}
                           alt='img'

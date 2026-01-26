@@ -1,6 +1,7 @@
 
 import ArrowLeftSvg  from '@/assets/svg/ArrowleftSvg';
 import {programlist} from '@/constants/DonateConstants'
+import Link from 'next/link';
 
 
 const ProgramList = () => {
@@ -17,6 +18,7 @@ const ProgramList = () => {
   {programlist.map((program, index) => (
     <div
       key={index}
+       onClick={()=>router.push('/programs/1')}
       className="group border border-[#0000002E] px-3 py-3.5 flex justify-between items-center
                  text-[15px] rounded-[15px] cursor-pointer
                  transition-all duration-300
@@ -39,6 +41,9 @@ const ProgramList = () => {
 </div>
 
 <div className=" w-full px-3.5">
+<Link href={'/donate'}>
+
+
 <div className="btn-animated bg-[#B6E2E2] group cursor-pointer relative overflow-hidden w-full rounded-full flex justify-center items-center h-[50px] gap-1.5 ">
           <span className="btn-animated-hover bg-[#9dd6d5] group-hover:w-full group-hover:h-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full"></span>
 
@@ -47,6 +52,7 @@ Donate Now
             <ArrowLeftSvg />
           </div>
         </div>
+        </Link>
         </div>
 
   

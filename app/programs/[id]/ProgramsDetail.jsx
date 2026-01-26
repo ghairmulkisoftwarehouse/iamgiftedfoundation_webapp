@@ -10,7 +10,7 @@ const ProgramsDetail = () => {
             <HeroSectionBanner
             title="PROGRAM DETAIL"
                  height=" h-[250px] "
-                bannerSvgClass=" w-[240px] sm:w-[250px] lg:w-[280px] xl:w-[360px] " 
+                bannerSvgClass=" w-[260px] lg:w-[290px] xl:w-[370px] " 
       
             />
          

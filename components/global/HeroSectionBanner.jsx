@@ -7,6 +7,7 @@ import BannerHeroSvg from '@/assets/svg/BannerHeroshapeSvg';
 import { bison } from '@/components/fonts/fonts';
 import { usePathname } from 'next/navigation';
 import   EventDetailSvg  from '@/assets/svg/EventdeatilSvg'
+import UnderLineProgramSvg   from '@/assets/svg/UnderLineProgramSvg';
 
 const HeroSectionBanner = ({
   title,
@@ -25,6 +26,11 @@ const HeroSectionBanner = ({
  const isInvolvedPage = pathname === "/getinvolved";
  const isDonationPage = pathname === "/account/donation-history";
   const isImpactPage = pathname === "/account/impactreport";
+
+
+  const isProgramPage = pathname.startsWith('/programs/');
+  const isPillars=pathname.startsWith('/pillars');
+
   // const isDonatePage = pathname === "/donate";
 
 
@@ -56,11 +62,15 @@ const HeroSectionBanner = ({
         <span className="relative inline-block">
           <span className="relative z-10">{title}</span>
           <span className="absolute left-0 right-0 bottom-[-2px] z-0">
-      {isEventDetailPage || isInvolvedPage || isDonationPage  ||  isImpactPage   ? (
-  <EventDetailSvg className={bannerSvgClass} />
-) : (
-  <BannerHeroSvg className={bannerSvgClass} />
-)}
+ {
+  isEventDetailPage || isInvolvedPage || isDonationPage || isImpactPage ? (
+    <EventDetailSvg className={bannerSvgClass} />
+  ) : isProgramPage  || isPillars ? (
+    <UnderLineProgramSvg  className={bannerSvgClass}/>
+  ) : (
+    <BannerHeroSvg className={bannerSvgClass} />
+  )
+}
           </span>
         </span>
       </h2>

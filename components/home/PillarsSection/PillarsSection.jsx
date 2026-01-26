@@ -1,10 +1,11 @@
 import { bison } from '@/components/fonts/fonts';
 import {pillarsData} from '@/constants/homeConstants'
+import Link from 'next/link';
 
 
 const PillarsSection = () => {
   return (
-    <div className="mt-20">
+    <div className="pt-20 w-full bg-[#FBFFFF] pb-12">
         <div className="flex flex-col w-full gap-10   px-5  md:px-3.5  md:container mx-auto  ">
             <div className=' flex flex-col  gap-0.5'>
         <h2 className={`text-black text-4xl  sm:text-[46px] lg:text-[55px]  ${bison.className}`}>
@@ -45,9 +46,12 @@ const PillarsSection = () => {
           })}
         </div>
         <div className=' flex justify-center items-center'>
+             <Link href={'/pillars'}>
         <button className='btn-seeMore  border w-fit px-4 '>
                 Learn More About Our Pillars
                 </button>
+                </Link>
+                
 
         </div>
     
