@@ -9,14 +9,8 @@ import sampleImg from '@/assets/images/fundrasingimg.png';
 import TealPagination from '@/components/global/TealPagination';
 
 const DonationTable = () => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const recordsPerPage = 5; // Optional: change as needed
 
-  // Pagination logic
-  const indexOfLastRecord = currentPage * recordsPerPage;
-  const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
-  const currentRecords = donationRecords.slice(indexOfFirstRecord, indexOfLastRecord);
-  const totalPages = Math.ceil(donationRecords.length / recordsPerPage);
+  
 
   return (
     <div className="w-full flex flex-col gap-4">
@@ -32,15 +26,15 @@ const DonationTable = () => {
             </Tr>
           </Thead>
           <Tbody className="custom-tablebody">
-            {currentRecords.length > 0 ? (
-              currentRecords.map((item, index) => (
+            {donationRecords.length > 0 ? (
+              donationRecords.map((item, index) => (
                 <Tr
                   key={item.id}
                   className={`text-[13px] ${
-                    index === currentRecords.length - 1 ? '' : 'border-b border-gray-300'
+                    index === donationRecords.length - 1 ? '' : 'border-b border-gray-300'
                   }`}
                 >
-                  <Td className="px-5 py-4">{indexOfFirstRecord + index + 1}</Td>
+                  <Td className="px-5 py-4">{index + 1}</Td>
                   <Td className="px-5 py-4 flex items-center gap-3">
                     <div className="w-12 h-12 rounded-md overflow-hidden flex-shrink-0">
                       <Image
@@ -69,11 +63,10 @@ const DonationTable = () => {
 
         <div className="flex flex-col gap-4 sm:flex-row sm:justify-between sm:items-center w-full px-3 py-3 flex-wrap-none">
           <TealPagination
-            totalPages={totalPages}
-            currentPage={currentPage}
-            setCurrentPage={setCurrentPage}
+            totalPages={1}
+            currentPage={1}
+            setCurrentPage={1}
           />
-          {/* You can add a Limit Dropdown here if needed */}
         </div>
       </div>
     </div>

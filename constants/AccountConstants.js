@@ -106,30 +106,8 @@ export const donationRecords = [
     date: "May 6, 2024",
     donated: "$90",
   },
-  {
-    id: 7,
-    title: "Environmental Awareness Drive",
-    date: "May 7, 2024",
-    donated: "$110",
-  },
-  {
-    id: 8,
-    title: "Community Health Camp",
-    date: "May 8, 2024",
-    donated: "$130",
-  },
-  {
-    id: 9,
-    title: "Education for All — Winter Program",
-    date: "May 9, 2024",
-    donated: "$140",
-  },
-  {
-    id: 10,
-    title: "Life Skills Camp — Advanced Workshop",
-    date: "May 10, 2024",
-    donated: "$180",
-  },
+ 
+ 
 ];
 
 

@@ -1,5 +1,5 @@
 
-'use client'
+// 'use client'
 import HeroSection from "@/components/global/HeroSectionBanner";
 import  Layout  from '@/components/global/AccountLayout';
 import  DonationTable   from '@/components/account/donationhistory/DonationTable';
