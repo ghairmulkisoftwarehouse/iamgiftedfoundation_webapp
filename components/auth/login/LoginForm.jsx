@@ -8,6 +8,8 @@ import EnvolpeSvg from '@/assets/svg/EnvolpeSvg';
 import LockSvg from '@/assets/svg/LockSvg';
 import GoogleSvg from '@/assets/svg/GoogleSvg';
 import FoundationSvg from '@/assets/svg/FoundationSvg';
+import NewGiftedFoundationlogoSvg  from '@/assets/svg/NewGiftedFoundationlogoSvg';
+
 import { validateLoginForm } from "@/validations/loginValidation";
 import Link from "next/link";
 

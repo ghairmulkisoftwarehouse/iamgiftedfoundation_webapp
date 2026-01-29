@@ -4,6 +4,8 @@ import imgLogo from '@/assets/images/ImageLogo.png';
 import AuthButterfullyLeftSvg   from '@/assets/svg/AuthButterfullyLeftSvg';
 import AuthButterfullySvg   from '@/assets/svg/AuthButterfullySvg';
 import ResetPasswordForm   from '@/components/auth/resetpassword/ResetPasswordForm';
+import MainlogoSvg  from '@/assets/svg/MainlogoSvg'
+
 
 export default function ResetPassword() {
   return (
@@ -20,14 +22,9 @@ export default function ResetPassword() {
       </div>
  
 
-        <Link href={'/'}>
-        <Image
-          src={imgLogo}
-          alt="Logo"
-          width={180}
-          height={212}
-          className="object-contain cursor-pointer"
-        />
+      
+           <Link href={'/'}>
+         <MainlogoSvg className={'  w-[180px] h-[212px]   relative z-10'}/>
         </Link>
 
      <div className=" absolute    bottom-0    left-3">

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import LogoSvg from '@/assets/svg/LogoSvg';
 import { navLinks } from "@/constants/menuItem";
 import { usePathname } from 'next/navigation';
+import NewGiftedFoundationlogoSvg  from '@/assets/svg/NewGiftedFoundationlogoSvg';
 
 
 
@@ -32,7 +33,7 @@ export default function Sidebar() {
       >
         <div className="flex justify-between items-center w-full px-4">
           <Link href="/">
-            <LogoSvg className="w-[100px] h-[42px] xl:w-auto xl:h-auto" />
+            <NewGiftedFoundationlogoSvg className="w-[100px] h-[42px] xl:w-auto xl:h-auto" />
           </Link>
 
           <div

@@ -21,10 +21,9 @@ const Partner = () => {
    const [spaceBetween, setSpaceBetween] = useState(70);
   const foundationImages = [
     foundation1img,
-    foundation2img,
+  
     foundation3img,
-    foundation4img,
-    foundation5img,
+  
   ]
 
 const sizes = [

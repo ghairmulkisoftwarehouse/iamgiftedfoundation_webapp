@@ -61,11 +61,11 @@ const Fundrasing = () => {
                 <h2
              className={`text-black text-4xl  sm:text-[46px] lg:text-[55px]  text-center  ${bison.className}`}
            >
-          Programs That Turn Belief Into Action
+      Programs That Transform Belief Into Action
            </h2>
          <div className=' w-full px-6  md:px-0   md:w-4/5  lg:w-8/12 mx-auto'>
         <p className='  text-sm sm:text-base md:text-lg  font-thin text-[#030F0CCC]/80  text-center ' >
-            IAMGIFTED Foundation programs are designed to create real-world outcomes for youth and families while aligning under our Four Pillars.
+           IAMGIFTED Foundation programs are designed to deliver real-world outcomes for youth and families while following our Four Pillars.
             </p>
             </div>
        
@@ -73,7 +73,7 @@ const Fundrasing = () => {
          
 
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  space-y-0 md:space-y-5   gap-4 w-full container mx-auto  px-3.5  ">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  space-y-0 md:space-y-5 w-full   gap-4 px-5 md:px-3.5  md:container mx-auto  ">
          {teamFundrasing.map((item, index) => (
   <div
     key={index} // Added key prop for React

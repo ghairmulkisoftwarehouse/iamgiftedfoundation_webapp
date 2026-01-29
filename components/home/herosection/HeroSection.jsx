@@ -42,8 +42,9 @@ const HeroSection = () => {
                     ${bison.className}
                 `}
                 >
+             
                 
-                Empowering Youth to Discover <br /> Their Gifts and{" "}
+                Empowering Youth to Discover <br  className=" hidden xs:block"/> Their Talents and{" "}
                 <span className="relative inline-block">
                     <span className="relative z-10">Thrive</span>
 
@@ -53,7 +54,8 @@ const HeroSection = () => {
                 </span>
                 </h2>
                 <div className="   w-full px-3  sm:px-0  sm:w-[80%]  lg:w-[65%] mx-auto      ">
-            <p className="text-white  text-sm sm:text-base md:text-lg  text-center  font-light  text-white/70 ">Every child is born with potential. The IAMGIFTED Foundation exists to help youth recognize their gifts, build confidence, and develop the skills needed to succeed—in school, in their communities, and in life</p>
+            <p className="text-white  text-sm sm:text-base md:text-lg  text-center  font-light  text-white/70 ">
+          Every child is born with potential. The IAMGIFTED Foundation exists to help young people recognize their strengths, build confidence, and develop the skills they need to succeed—in school, in their communities, and in life.</p>
                 </div>
                 <div className="  grid grid-cols-2 xs:grid-cols-none xs:flex  xs:flex-wrap xs:flex-row items-center  gap-2 w-full   xs:justify-center">
                     

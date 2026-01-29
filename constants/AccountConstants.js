@@ -43,7 +43,7 @@ export const AccountLinks = [
     icon: <UpcomingEventSvg />,
   },
   {
-    name: "Check-in / Check-out",
+    name: "Check-In / Check-Out",
  path: "/",
     icon: <CheckInSvg />,
   },
@@ -53,7 +53,7 @@ export const AccountLinks = [
     icon: <ImpactReportSvg />, // replace with actual Recognition Certificates SVG
   },
   {
-    name: "Track Working Hours",
+    name: "Work Hours Tracking",
     path: "/",
     icon: <TrackingHoursSvg />,
   },

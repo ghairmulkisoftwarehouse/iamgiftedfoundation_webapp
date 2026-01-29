@@ -16,7 +16,8 @@ import { graphik, bison } from "@/components/fonts/fonts";
 
 const siteTitle = "Gifted Foundation";
 const siteDescription =
-  "Gifted Foundation empowers individuals and communities through education, development, and impactful social initiatives that create lasting positive change.";
+  "Gifted Foundation empowers individuals and communities through education, personal growth, and meaningful social initiatives that create lasting positive impact.";
+
 
 export const metadata = {
   title: {

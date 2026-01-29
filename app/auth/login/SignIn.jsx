@@ -4,6 +4,7 @@ import imgLogo from '@/assets/images/ImageLogo.png';
 import AuthButterfullyLeftSvg   from '@/assets/svg/AuthButterfullyLeftSvg';
 import AuthButterfullySvg   from '@/assets/svg/AuthButterfullySvg';
 import LoginForm   from '@/components/auth/login/LoginForm';
+import MainlogoSvg  from '@/assets/svg/MainlogoSvg'
 
 
 export default function SignIn() {
@@ -19,15 +20,9 @@ export default function SignIn() {
       <div className=" absolute   top-6    right-3">
                <AuthButterfullySvg/>
       </div>
- 
+     
       <Link href={'/'}>
-        <Image
-          src={imgLogo}
-          alt="Logo"
-          width={180}
-          height={212}
-          className="object-contain cursor-pointer"
-        />
+         <MainlogoSvg className={'  w-[180px] h-[212px]   relative z-10'}/>
         </Link>
 
      <div className=" absolute    bottom-0    left-3">

@@ -100,7 +100,7 @@ const Footer = () => {
 <h2 className={`text-white text-4xl md:text-5xl  leading-snug md:leading-tight ${bison.className}`}>
   Ready to get <br className=" hidden md:block"/> started ?
 </h2>
-            <p className=" text-white/85  text-sm md:text-base font-normal">If there are questions you want to ask, we will answer all your question</p>
+            <p className=" text-white/85  text-sm md:text-base font-normal">If you have any questions, we will gladly provide answers</p>
           </div>
 
         <div className="w-full border-b relative h-[40px] border-white  mt-3.5 ">

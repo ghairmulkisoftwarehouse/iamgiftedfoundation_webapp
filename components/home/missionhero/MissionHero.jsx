@@ -59,14 +59,14 @@ const MissionHero = () => {
                </div>
 
       {/* Content */}
-      <div className="relative z-20 flex flex-col items-center  gap-8     px-5 md:px-3.5  md:container mx-auto ">
+      <div className="relative z-20 flex flex-col items-center  gap-8  w-full    px-5 md:px-3.5  md:container mx-auto ">
       <div className=" flex flex-col  items-center  gap-2  pt-12 md:pt-20">
           <h2 className={`text-black text-4xl  sm:text-[46px] lg:text-[55px] text-center  ${bison.className}`}>
-         Our Impact at a Glance
+         Our Impact in Numbers
         </h2>
           <div className=' w-full px-6  md:px-0   md:w-4/5  lg:w-8/12'>
         <p className='  text-sm sm:text-base md:text-lg  font-thin text-[#030F0CCC]/80  text-center ' >
-       (Lifetime Impact)
+       (Impact That Lasts a Lifetime)
     </p>
     </div>
 
@@ -83,10 +83,10 @@ const MissionHero = () => {
           {imapactData.map((item, index) => (
             <div
               key={index}
-              className={`group relative rounded-[32px] h-[200px] sm:h-[270px] overflow-hidden transition-all duration-500 cursor-pointer ease-out hover:shadow-2xl ${
+              className={`group relative rounded-[32px] h-[200px] sm:h-[270px] overflow-hidden transition-all duration-500 cursor-pointer ease-out hover:shadow-xl ${
                 item.imge
                   ? "bg-black/5"
-                  : "bg-black px-5 py-5 flex flex-col justify-between"
+                  : "bg-mint-cyan  group-hover:bg-[#9dd6d5]  px-5 py-5 flex flex-col justify-between"
               }`}
             >
               {item.imge ? (
@@ -106,22 +106,23 @@ const MissionHero = () => {
                 <>
                   {/* Count */}
                   <div className="flex justify-end">
-                    <h2 className="text-white  text-xl  sm:text-2xl  md:text-3xl font-semibold">
+                    <h2 className=" text-black    group-hover:text-black/90 text-xl  sm:text-2xl  md:text-3xl font-semibold">
                       {item.count}
                     </h2>
                   </div>
 
                   {/* Text */}
                 <div className="flex flex-col gap-1">
-  <h3 className="text-thistle text-base sm:text-lg md:text-[24px] font-semibold
+  <h3 className=" text-black  text-base sm:text-lg md:text-[24px] font-semibold
+   group-hover:text-black/90
                  transition-colors duration-300
-                 group-hover:text-white">
+                ">
     {item.title}
   </h3>
 
-  <p className="text-sm sm:text-base text-white/80
+  <p className="text-sm sm:text-base text-black   group-hover:text-black/80
                 transition-colors duration-300
-                group-hover:text-white">
+                ">
     {item.paragraph}
   </p>
 </div>

@@ -78,62 +78,33 @@ export const teamServices = [
 
 export const teamFundrasing = [
   {
-    title: "Life Skills Camp — Building Confidence for the Future ",
-     paragraph: "Helping youth develop confidence, teamwork, and leadership for life.",
+    title: "Life Skills Camp — Building Confidence for the Future",
+    paragraph: "Helping youth build confidence, teamwork, and lifelong leadership skills.",
     image: fundrasingimg,
- 
-
-    
   },
-
-   {
+  {
     title: "Life Skills Camp — Building Confidence for the Future",
-     paragraph: "Helping youth develop confidence, teamwork, and leadership for life.",
+    paragraph: "Helping youth build confidence, teamwork, and lifelong leadership skills.",
     image: fundrasingimg2,
- 
-
-    
   },
-
-     {
+  {
     title: "Financial Literacy — Teaching Smart Money Habits",
-     paragraph: "Teaching smart money habits for stability, growth, and success.",
+    paragraph: "Teaching youth smart money habits to promote stability, growth, and success.",
     image: fundrasingimg3,
- 
-
-    
   },
-
-
-
-   {
+  {
     title: "Life Skills Camp — Building Confidence for the Future",
-     paragraph: "Helping youth develop confidence, teamwork, and leadership for life.",
+    paragraph: "Helping youth build confidence, teamwork, and lifelong leadership skills.",
     image: fundrasingimg,
- 
-
-    
   },
-
-   {
+  {
     title: "Life Skills Camp — Building Confidence for the Future",
-     paragraph: "Helping youth develop confidence, teamwork, and leadership for life.",
+    paragraph: "Helping youth build confidence, teamwork, and lifelong leadership skills.",
     image: fundrasingimg2,
- 
-
-    
   },
-
-     {
+  {
     title: "Financial Literacy — Teaching Smart Money Habits",
-     paragraph: "Teaching smart money habits for stability, growth, and success.",
+    paragraph: "Teaching youth smart money habits to promote stability, growth, and success.",
     image: fundrasingimg3,
- 
-
-    
   },
-
-
-
- 
 ];

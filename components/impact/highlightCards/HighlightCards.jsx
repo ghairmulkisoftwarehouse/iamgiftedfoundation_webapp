@@ -43,7 +43,7 @@ const HighlightCards = () => {
                 {item.title}
               </h2>
               <p className="text-[#030F0CCC]/80  text-xs sm:text-sm lg:text-[15px] font-medium   ">
-                {item.paragrph}
+                {item.paragraph}
               </p>
             </div>
 

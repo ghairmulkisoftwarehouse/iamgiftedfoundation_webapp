@@ -27,7 +27,7 @@ export default function Layout({ children }) {
           {showLogoutPopup &&   <AccountLogout/> }  
 
     <div className="w-full">
-      <div className="container mx-auto mt-16 px-3.5">
+      <div className="w-full    px-5 md:px-3.5  md:container mx-auto mt-16 ">
         <div className="flex flex-col lg:flex-row gap-6">
           {/* Sidebar */}
           <div className="hidden lg:block w-full lg:w-[30%] xl:w-1/4 h-fit bg-white rounded-[16px] border border-black/5 shadow-[0px_0px_5.6px_0px_#0000001F]">

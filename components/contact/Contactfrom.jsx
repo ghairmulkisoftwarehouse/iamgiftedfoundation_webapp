@@ -97,7 +97,7 @@ const handleSubmit = async () => {
         </div>
 
 
-          <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-5 w-full  gap-5 relative z-5  pb-5  lg:pb-20  container mx-auto  px-3.5">
+          <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-5 w-full  gap-5 relative z-5  pb-5  lg:pb-20  px-5 md:px-3.5  md:container mx-auto">
             <div className="  lg:col-span-2">
     
 

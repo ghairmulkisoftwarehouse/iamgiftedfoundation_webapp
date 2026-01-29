@@ -63,10 +63,11 @@ const DonateKnow = () => {
       />
 
       <div className=' flex flex-col gap-2'>
-          <h3  className={`text-[28px] lg:text-[34px] ${bison.className}`}> Life Skills Camp — Building Confidence for the Future</h3>
+          <h3  className={`text-[28px] lg:text-[34px] ${bison.className}`}> Life Skills Camp — Empowering Confidence for the Future</h3>
 
         <p className="text-[#030F0CCC] text-sm lg:text-[15px] leading-[35px]">
-          A one-day, high-impact experience focused on building life skills, leadership, and confidence—on and off the field. Arcu ultricies malesuada lectus nulla est nunc integer pellentesque magna. Egestas malesuada faucibus arcu nunc elit leo quis interdum. Ac vel in commodo accumsan mollis cras massa posuere eget. Condimentum posuere velit cras velit tortor ridiculus sit. Lectus augue libero etiam sed nisl.
+A one-day, high-impact experience focused on building life skills, leadership, and confidence—both on and off the field. Participants engage in hands-on activities designed to strengthen teamwork, communication, and self-belief, creating skills they can carry into everyday life.
+
         </p>
 
       </div>

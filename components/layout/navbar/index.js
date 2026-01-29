@@ -7,6 +7,7 @@ import { navLinks } from "@/constants/menuItem";
 import BarsSvg from '@/assets/svg/barsSvg';
 import { usePannelContext } from '@/context/PannelContext';
 import { usePathname } from 'next/navigation';
+import NewGiftedFoundationlogoSvg  from  '@/assets/svg/NewGiftedFoundationlogoSvg';
 
 
 const Navbar = () => {
@@ -62,7 +63,7 @@ const Navbar = () => {
         </button>
       )}
        <Link href="/">
-          <LogoSvg className="w-[100px] h-[42px] xl:w-auto xl:h-auto" />
+          <NewGiftedFoundationlogoSvg className="w-[100px] h-[42px] xl:w-auto xl:h-[45px]" />
         </Link>
 
 </div>

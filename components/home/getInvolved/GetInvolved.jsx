@@ -12,7 +12,7 @@ const GetInvolved = () => {
         </h2>
               <div className=' w-full    md:w-4/5  lg:w-8/12'>
              <p className='text-sm sm:text-base md:text-lg  font-thin text-[#030F0CCC]/80  '>
-              Whether you donate, volunteer, partner, or advocate, your involvement helps build pathways for youth to thrive.
+Whether you donate, volunteer, partner, or advocate, your support helps create opportunities for youth to thrive.
               </p>
            </div>
       

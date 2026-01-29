@@ -74,7 +74,7 @@ const ProgramInformation = () => {
 
        <div className="flex items-center gap-2">
               <CalendarSvg className="w-4 h-4 text-black" />
-              <p className="font-normal text-xs md:text-base text-black">21 Jun 12-3PM </p>
+       <p className="font-normal text-xs md:text-base text-black">June 21, 12–3 PM</p>
             </div>
                <div className="flex items-center gap-1.5">
               <DetailLocationSvg className="w-4 h-4  text-black" />
@@ -94,7 +94,7 @@ const ProgramInformation = () => {
           <h3  className={`text-[28px] lg:text-[34px] ${bison.className}`}> Program Purpose </h3>
 
         <p className="text-[#030F0CCC] text-sm lg:text-[15px] leading-normal   lg:leading-[35px] ">
-  A one-day, high-impact experience focused on building life skills, leadership, and confidence—on and off the field. Arcu ultricies malesuada lectus nulla est nunc integer pellentesque magna. Egestas malesuada faucibus arcu nunc elit leo quis interdum. Ac vel in commodo accumsan mollis cras massa posuere eget. Condimentum posuere velit cras velit tortor ridiculus sit. Lectus augue libero etiam sed nisl.
+  A one-day, high-impact experience focused on building life skills, leadership, and confidence—both on and off the field. Participants engage in hands-on activities designed to strengthen teamwork, communication, and self-belief, creating skills they can carry into everyday life.
         </p>
 
       </div>
@@ -112,7 +112,7 @@ const ProgramInformation = () => {
                <span  className='text-[14px]  pt-0.5'><GoDotFill/></span>    <span>Sessions delivered</span> 
               </li>
               <li className=' text-[17px] font-semibold flex gap-1 items-center'>
-               <span  className='text-[14px]  pt-0.5'><GoDotFill/></span>    <span>Scholarships / events held</span> 
+               <span  className='text-[14px]  pt-0.5'><GoDotFill/></span>     <span>Scholarships and events held</span>
               </li>
              </ul>
 
@@ -122,7 +122,7 @@ const ProgramInformation = () => {
           <h3  className={`text-[28px] lg:text-[36px] ${bison.className}`}> Outcomes & Stats </h3>
 
         <p className="text-[#030F0CCC] text-sm lg:text-base leading-normal    ">
-     Urna velit pharetra pellentesque magna eget. Ut egestas est id netus. Facilisis mollis morbi ultrices ac tellus vitae pulvinar. Egestas sagittis nec et arcu enim ac. Vivamus a dignissim nulla ornare sit aliquam elementum blandit. Leo in sem pellentesque viverra malesuada viverra eget aliquam. Diam mi dolor adipiscing pellentesque nec at. Ut nisi faucibus ultrices etiam tortor vitae eros. Nec laoreet felis egestas ultrices a quis turpis sit. Eget semper commodo pellentesque eget orci tincidunt commodo facilisi ultricies. Nec mi in augue dolor sit convallis habitant ut accumsan. Ultrices neque diam id aliquam lobortis est faucibus sed. Dolor nibh arcu ornare mi donec suspendisse nisl nullam.
+    Our programs are designed to create meaningful, real-world impact for youth and families across our communities. Through engaging activities, mentorship, and hands-on learning, participants build confidence, leadership, and essential life skills. We focus on meeting immediate needs while also supporting long-term growth and resilience. By partnering with families, schools, and community organizations, we ensure access to resources, guidance, and opportunities that help young people succeed academically, socially, and emotionally. Every initiative is guided by clear goals, measurable outcomes, and a commitment to equity, empowerment, and sustainable change that lasts well beyond each program experience for future generations and stronger, healthier communities nationwide today and tomorrow together.
         </p>
 
       </div>

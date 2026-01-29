@@ -17,6 +17,8 @@ import SmileSvg  from '@/assets/svg/SmileSvg';
 import ShadowSvg  from '@/assets/svg/ShadowSvg';
 import { FaDonate, FaHandsHelping, FaMoneyBillWave, FaHeart } from 'react-icons/fa';
 import StarikSvg  from '@/assets/svg/StarikSvg'
+import FullbutterfullyleftSvg  from '@/assets/svg/FullbutterfullyleftSvg'
+import  FullbutterfullyrightSvg  from '@/assets/svg/FullbutterfullyrightSvg';
 
 import Image from "next/image";
 
@@ -76,7 +78,7 @@ const Foundationgurdian = () => {
       </div>
 
        {/* main title */}
-    <div className=" w-full  flex justify-center items-center pt-12    px-5  md:px-3.5  md:container mx-auto">
+    <div className=" w-full  flex justify-center items-center pt-12      px-5  md:px-3.5  md:container mx-auto">
             <div className="flex flex-col gap-12  w-full relative    ">
             <div className=" flex flex-col gap-8  ">
 
@@ -89,20 +91,25 @@ const Foundationgurdian = () => {
                     ${bison.className}
                 `}
                 >
-                FOUNDATION GIFTING GUARDIAN <br className=" hidden md:block" />  $10,000+
+                Foundation Gift Guardian <br className=" hidden md:block" />  $10,000+
               
                
                 </h2>
                 <div className="   w-full px-3  sm:px-0  sm:w-[80%]  lg:w-[65%] mx-auto      ">
-            <p className="text-[#030F0CCC]  text-sm sm:text-base md:text-lg xl:text-[20px] text-center font-thin  ">Gifting Guardians help sustain long-term impact, fund innovation, and ensure youth programming reaches those who need it most.</p>
+            <p className="text-[#030F0CCC]  text-sm sm:text-base md:text-lg xl:text-[20px] text-center font-thin  ">
+              Gifting Guardians help sustain long-term impact, fuel innovation, and ensure youth programming reaches those who need it most
+            </p>
                 </div>
              
 
             </div>
 
-          <div className="grid grid-cols-1 xs:grid-cols-2 xl:grid-cols-4 gap-2.5 w-full">
+          <div className="grid grid-cols-1 xs:grid-cols-2 xl:grid-cols-4 gap-2.5 w-full relative z-5">
   
-  {["Public Recognition", "App Badge", "Event Access", "Impact Reporting"].map(
+  {[ "Public Recognition",
+  "App Badge",
+  "Event Access",
+  "Impact Reports"].map(
     (text, index) => (
       <div
         key={index}
@@ -167,10 +174,10 @@ const Foundationgurdian = () => {
 
                     
                     <div className="absolute  top-[15%]  left-[-15px] sm:left-[-20px] ">
-                        <LeftPinkButterfullySvg  className=' w-[120px] h-[150px] sm:w-[200px] sm:h-[200px] z-0 '/>
+                        <FullbutterfullyleftSvg  className=' w-[120px] h-[150px] sm:w-[200px] sm:h-[200px] z-0 '/>
                         </div>
                         <div className="absolute  top-[15%]     right-[-15px] sm:right-[-20px]   z-0 ">
-                        <RightPinkButterfullysvg  className='  w-[120px] h-[150px] sm:w-[200px] sm:h-[200px] z-0 '/>
+                        <FullbutterfullyrightSvg  className='  w-[120px] h-[150px] sm:w-[200px] sm:h-[200px] z-0 '/>
                         </div>
 
               

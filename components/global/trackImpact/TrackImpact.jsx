@@ -21,7 +21,10 @@ const TrackImpact = () => {
 
     <div className=' w-full flex flex-col gap-3 md:gap-0 md:flex-row  md:justify-between   px-6  items-center relative z-10'>
    <h2 className={`text-black  text-[28px]  sm:text-3xl md:text-4xl xl:text-[38px] text-center md:text-start   ${bison.className}`}>
-               Track your impact. See your <br/> contribution in action.
+
+Track your impact and  see <br className=' hidden md:block'/> your contribution work
+
+               
         </h2>
         <div className=" flex flex-row justify-center  xs:justify-normal  gap-0 group cursor-pointer w-full xs:w-auto  ">
               

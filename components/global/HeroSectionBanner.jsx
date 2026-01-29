@@ -8,6 +8,8 @@ import { bison } from '@/components/fonts/fonts';
 import { usePathname } from 'next/navigation';
 import   EventDetailSvg  from '@/assets/svg/EventdeatilSvg'
 import UnderLineProgramSvg   from '@/assets/svg/UnderLineProgramSvg';
+import FullbutterfullyleftSvg  from '@/assets/svg/FullbutterfullyleftSvg'
+import  FullbutterfullyrightSvg  from '@/assets/svg/FullbutterfullyrightSvg';
 
 const HeroSectionBanner = ({
   title,
@@ -40,13 +42,13 @@ const HeroSectionBanner = ({
 
     >
       {/* Left Butterfly */}
-      <div className="absolute top-[20%] left-[-120px] sm:left-[-70px]">
-        <ButterfullySvg className="w-[200px] h-[200px]" />
+      <div className="absolute top-[30%] md:top-[20%] left-0">
+        <FullbutterfullyleftSvg className=" w-[100px] h-[100px] xs:w-[120px] xs:h-[120px]  sm:w-[150px] md:h-[150px]  lg:w-[200px] lg:h-[200px]" />
       </div>
 
       {/* Right Butterfly */}
-      <div className="absolute top-[20%] right-[-120px] sm:right-[-70px]">
-        <ButterfullyrightSvg className="w-[200px] h-[200px]" />
+      <div className="absolute  top-[30%] md:top-[20%] right-0">
+        <FullbutterfullyrightSvg className="  w-[100px] h-[100px] xs:w-[120px] xs:h-[120px]  sm:w-[150px] md:h-[150px]  lg:w-[200px] lg:h-[200px]" />
       </div>
 
       {/* Title */}

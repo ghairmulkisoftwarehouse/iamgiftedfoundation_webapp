@@ -14,7 +14,7 @@ const ReportList = () => {
           "
         >
           <div
-            className={`w-[45px] h-[45px] rounded-full flex justify-center items-center ${item.bg}`}
+            className={`w-[45px] h-[45px] rounded-full flex justify-center items-center flex-shrink-0  ${item.bg}`}
           >
             {item.icon}
           </div>

@@ -13,7 +13,7 @@ const PillarsSection = () => {
         </h2>
             <div className=' w-full    md:w-4/5  lg:w-8/12'>
              <p className='text-sm sm:text-base md:text-lg  font-thin text-[#030F0CCC]/80  '>
-              IAMGIFTED Foundation programs are guided by four strategic pillars designed to support the whole child—and the environment that shapes them.
+            IAMGIFTED Foundation programs are built around four key pillars designed to support the whole child and the environments that shape their growth.
               </p>
            </div>
         </div>

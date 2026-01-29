@@ -11,7 +11,7 @@ const ProgramList = () => {
   return (
     <div className=' bg-white  border border-[#0000002E] rounded-[22px] flex flex-col gap-3.5  h-fit pb-6'>
     <div className=' h-[70px] bg-black rounded-[22px] flex items-center   px-4'>
-    <p className=' text-thistle   font-bold  text-xl '>Programmes List</p>
+    <p className=' text-thistle   font-bold  text-xl '>Programs List</p>
 
 
 

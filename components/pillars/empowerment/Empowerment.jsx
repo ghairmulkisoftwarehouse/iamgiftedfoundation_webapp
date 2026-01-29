@@ -66,7 +66,7 @@ const Empowerment = () => {
               </h2>
                 <div className=' w-full px-6  md:px-0   md:w-4/5  lg:w-8/12'>
               <p className='  text-sm sm:text-base md:text-lg  font-thin text-[#030F0CCC]/80  text-center ' >
-             Every IAMGIFTED program aligns under one of four strategic pillars, ensuring clarity, accountability, and measurable outcomes for donors, partners, and communities.
+        All IAMGIFTED programs are guided by four strategic pillars, providing clarity, accountability, and measurable impact for donors, partners, and communities.
           </p>
           </div>
       
