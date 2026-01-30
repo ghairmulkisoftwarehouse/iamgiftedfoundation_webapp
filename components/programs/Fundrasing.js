@@ -11,9 +11,28 @@ import Image from 'next/image';
 import DotSvg   from '@/assets/svg/DotSvg'
 import { GoDotFill } from "react-icons/go";
 import { useRouter } from 'next/navigation';
+import DisplayError from '@/components/global/DisplayError';
+import ItemNotFound from '../global/ItemNotFound';
+import { useSelector } from 'react-redux';
+import ProgramCardShimmer   from  '@/components/global/effect/ProgramCardShimmer';
+import fallbackimg  from '@/assets/images/img2.jpg'
+import DOMPurify from "dompurify";
+
+import { baseURL } from '@/config/api';
 
 
-const Fundrasing = () => {
+
+const Fundrasing = ({
+  isFetching,
+  setCurrentPage,
+  currentPage,
+  isLoading,
+  isError,
+  error,
+}) => {
+
+
+     const { docs,pages } = useSelector(state => state.program);
 
   const router=useRouter();
 
@@ -71,17 +90,20 @@ const Fundrasing = () => {
        
          </div>
          
-
+   {isLoading ? (
+          <ProgramCardShimmer />
+        ) : isError ? (
+          <DisplayError message={error?.message || 'Something went wrong'} />
+        ) :docs?.length > 0 ? (
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  space-y-0 md:space-y-5 w-full   gap-4 px-5 md:px-3.5  md:container mx-auto  ">
-         {teamFundrasing.map((item, index) => (
+         {docs.map((item) => (
   <div
-    key={index} // Added key prop for React
+    key={item?._id} 
     className="
-      group
-       cursor-pointer
+        group cursor-pointer
       border border-black/20 rounded-[20px] p-3
-      flex flex-col gap-3 w-full
+      flex flex-col gap-3 w-full h-full
       transition-all duration-700 ease-out
       hover:shadow-2xl
       
@@ -91,10 +113,10 @@ const Fundrasing = () => {
     {/* Image wrapper */}
     <div className="w-full   h-[250px]     overflow-hidden rounded-[20px]">
       <Image
-        src={item.image}
+        src={item?.featuredImage?.relativeAddress ? `${baseURL}/${item?.featuredImage?.relativeAddress}` : fallbackimg}
         width={370}
         height={236}
-        alt={item.title}
+        alt={item?.title}
         className="
           w-full object-cover rounded-[20px]
           transition-transform duration-700 ease-out
@@ -102,30 +124,37 @@ const Fundrasing = () => {
         "
       />
     </div>
-     <h1 className="font-semibold text-lg md:text-[22px]">
-      {item.title}
+     <h1 className="font-semibold text-lg md:text-[22px]  capitalize">
+      {item?.title}
     </h1>
     
-      <div className='flex flex-row gap-1'>
-       <span className=' font-semibold'>Pillar Tag:</span>
+
+    {item?.piller  &&  (
+          <div className='flex flex-row gap-1'>
+       <span className=' font-semibold cap'>Pillar Tag:</span>
        <div className=' flex items-center gap-0.5 bg-[#E5D5E5] rounded-full px-2.5 py-1.5'>
        <DotSvg/>
-        <span className=' text-xs sm:text-xs  font-semibold'>Empowerment & Life Skills</span>
+        <span className=' text-xs sm:text-xs  font-semibold'>{item?.piller?.title}</span>
        </div>
        
       </div>
+    )}
+     
+
+         <div
+      dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(item?.body) }}
+      className="text-sm md:text-[15px] text-black/70"
+    />
+
 
    
 
-    <p className="text-sm md:text-[15px] text-black/70">
-      {item.paragraph}
-    </p>
-
    <div className=' flex flex-row items-center gap-1 text-sm'>
    <h2 className='text-[#000000] '>Impact Stat:</h2>
+   
    <div className=' flex flex-row items-center gap-1'>
       <span className=' pt-0.5 '><GoDotFill/></span>
-      <p className='  font-semibold'> 2,219+ youth served</p>
+      <p className='  font-semibold'>{item?.impactAmount}</p>
    </div>
 
    </div>
@@ -151,22 +180,25 @@ const Fundrasing = () => {
         ))}
 
         <div className="w-[30px] h-[30px] rounded-full border-2 border-white ml-[-5px] bg-black text-white text-[10px] flex items-center justify-center font-semibold">
-          +124
+          {item?.impactAmount}
         </div>
       </div>
 
-     
+      <div  className=' mt-auto '>
+
         <button
         onClick={(e) => {
           e.stopPropagation(); // stop card click
           router.push('/donate'); // navigate to donate page
         }}
-         className="btn-animated bg-mint-cyan border border-transparent group cursor-pointer w-[146px] h-[40px] rounded-full relative overflow-hidden hover:border-[#8bc9c8]">
+         className="  mt-auto btn-animated  bg-mint-cyan border border-transparent group cursor-pointer w-[146px] h-[40px] rounded-full relative overflow-hidden hover:border-[#8bc9c8] ">
           <span className="btn-animated-hover bg-[#9dd6d5] absolute top-1/2 left-1/2 w-0 h-0 rounded-full -translate-x-1/2 -translate-y-1/2 group-hover:w-44 group-hover:h-44 transition-all duration-500 ease-out"></span>
           <span className="btn-animated-text text-black font-semibold group-hover:text-gray-900 relative z-10">
             Donate Now
           </span>
         </button>
+      </div>
+     
     
     </div>
   </div>
@@ -174,13 +206,27 @@ const Fundrasing = () => {
                 
             
            </div>
+                ) : (
+          <ItemNotFound message="No  Program found." />
+        )}
    
   
    
    
-           <button className="btn-seeMore border ">
-             See More
-           </button>
+
+   {currentPage < pages && (
+            <div className="">
+              <button
+                disabled={isFetching}
+                onClick={() => setCurrentPage(prev => prev + 1)}
+                className={`btn-seeMore border
+                  ${isFetching ? 'opacity-50 cursor-not-allowed' : 'hover:bg-black hover:text-white'}`}
+              >
+                {isFetching ? 'Loading...' : 'See More'}
+              </button>
+            </div>
+          )}
+          
          </div>
        </div>
   )

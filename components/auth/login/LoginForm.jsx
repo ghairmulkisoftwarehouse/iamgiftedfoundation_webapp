@@ -9,12 +9,17 @@ import LockSvg from '@/assets/svg/LockSvg';
 import GoogleSvg from '@/assets/svg/GoogleSvg';
 import FoundationSvg from '@/assets/svg/FoundationSvg';
 import NewGiftedFoundationlogoSvg  from '@/assets/svg/NewGiftedFoundationlogoSvg';
+import { useDispatch,useSelector } from "react-redux";
 
 import { validateLoginForm } from "@/validations/loginValidation";
+import  {login}  from '@/redux/actions/authActions';
+
 import Link from "next/link";
 
 const LoginForm = () => {
       const router = useRouter();
+      const dispatch=useDispatch();
+ const { loading, error } = useSelector((state) => state.auth);
 
      const [formData, setFormData] = useState({
   
@@ -40,25 +45,24 @@ const LoginForm = () => {
       };
 
 
-      const handleSubmit = async () => {
-        const validationErrors = validateLoginForm(formData);
-        setErrors(validationErrors);
-      
-        if (Object.keys(validationErrors).length > 0) return;
-      
-       
-        const payload = {
-          email: formData.email,
-          password: formData.password,
-        };
-      
-        
-        console.log("Form submitted:", payload);
-      
-          router.push("/account/donation-history");
+      const handleSubmit = (e) => {
+    e.preventDefault();
 
-        setFormData({ email: "", password: "",  });
-      };
+    const validationErrors = validateLoginForm(formData);
+    setErrors(validationErrors);
+
+    if (Object.keys(validationErrors).length > 0) return;
+
+    const payload = {
+      identifier: formData.email,
+      password: formData.password,
+    };
+
+    dispatch(login(payload, router));
+
+    setFormData({ email: "", password: "" });
+  };
+
   return (
     <div className="flex flex-col justify-center gap-1.5 w-full md:h-screen  px-3.5 sm:px-0">
 

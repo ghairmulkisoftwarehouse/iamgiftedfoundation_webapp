@@ -9,9 +9,29 @@ import DotSvg   from '@/assets/svg/DotSvg'
 import ArrowLeftSvg  from '@/assets/svg/ArrowleftSvg';
 import {pillarData} from '@/constants/PillarsConstants'
 import { useRouter } from "next/navigation";
+import { useSelector } from "react-redux";
 const STAR_BOXES = [0, 21];
+import PillarShimmer from '@/components/global/effect/PillarCardShimmer';
+import ItemNotFound from '@/components/global/ItemNotFound.jsx';
+import DisplayError from '@/components/global/DisplayError';
+import devLog from "@/utils/logsHelper";
 
-const Empowerment = () => {
+const Empowerment = ({isLoading,isFetching,isError,error,setCurrentPage,currentPage}) => {
+
+   const { pillarWithPrograms } = useSelector(state => state.pillar);
+
+  // Safely log
+  if (pillarWithPrograms?.docs) {
+    devLog('pillarWithPrograms', pillarWithPrograms?.docs);
+  }
+
+  if (pillarWithPrograms?.pages) {
+    devLog('pillarWithPrograms', pillarWithPrograms?.pages);
+  }
+
+    const  totalPages=pillarWithPrograms?.pages;
+  const pillarProgram=pillarWithPrograms?.docs;
+
       const containerRef = useRef(null);
    const router=useRouter();
 
@@ -73,11 +93,16 @@ const Empowerment = () => {
             </div>
 
 
-           <div className="w-full grid grid-cols-1 sm:grid-cols-2  gap-4  pt-6 ">
+                  {isLoading ? (
+          <PillarShimmer />
+        ) : isError ? (
+          <DisplayError message={error?.message || 'Something went wrong'} />
+        ) : pillarWithPrograms?.docs?.length > 0 ? (
+              <div className="w-full grid grid-cols-1 sm:grid-cols-2  gap-4  pt-6 ">
 
                
-             {pillarData.map((pillar, index) => {
-  const Icon = pillar.icon
+             {pillarProgram.map((pillar, index) => {
+  {/* const Icon = pillar.icon */}
 
   return (
     <div
@@ -92,51 +117,55 @@ group"
     >
       {/* icon */}
       <div className="w-[60px] h-[60px] bg-[#B6E2E2] rounded-full flex justify-center items-center">
-        <Icon className="w-[40px] h-[40px]" />
+        <SupportSvg className="w-[40px] h-[40px]" />
       </div>
 
       {/* title */}
-      <h2 className="    text-xl   sm:text-[22px]  lg:text-[25px] font-semibold">{pillar.title}</h2>
+      <h2 className="    text-xl   sm:text-[22px]  lg:text-[25px] font-semibold">{pillar?.title}</h2>
 
       {/* subtitle + paragraph */}
       <div className="flex flex-col gap-0.5">
-        <h3 className="   text-[13px]  xs:text-sm  lg:text-[15px] font-semibold">{pillar.firstSubtitle}</h3>
+        <h3 className="   text-[13px]  xs:text-sm  lg:text-[15px] font-semibold">
+          {pillar?.subTitle}
+        </h3>
         <p className="text-[#030F0CCC]/80  text-xs  xs:text-xs lg:text-sm">
-          {pillar.firstParagraph}
+           {pillar?.description}
         </p>
       </div>
 
       {/* programs */}
-      <div className="flex flex-col gap-1.5">
-        <h3 className="  text-[13px]  xs:text-sm  lg:text-[15px] font-semibold">Programs Include:</h3>
-
-        <div className="flex flex-row flex-wrap gap-1.5">
-          {pillar.ProgramsInclude.map((program, i) => (
-            <div
-              key={i}
-              className="px-3 py-1 flex flex-row text-xs xs:text-[13px] items-center gap-1.5 bg-[#E5D5E5] rounded-full"
-            >
-              <span>
-                <DotSvg />
-              </span>
-              <span className="font-semibold">{program}</span>
-            </div>
-          ))}
+    {Array.isArray(pillar?.programs) && pillar.programs.length > 0 && (
+        <div className="flex flex-col gap-1.5">
+          <h3 className="text-[13px] xs:text-sm lg:text-[15px] font-semibold">
+            Programs Include:
+          </h3>
+          <div className="flex flex-row flex-wrap gap-1.5">
+            {pillar.programs.map((program, idx) => (
+              <div
+                key={idx}
+                className="px-3 py-1 flex flex-row text-xs xs:text-[13px] items-center gap-1.5 bg-[#E5D5E5] rounded-full"
+              >
+                <span>
+                  <DotSvg />
+                </span>
+                <span className="font-semibold">{program?.title}</span>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
 
       {/* paragraph */}
       <p className="text-[#030F0CCC]/80  text-xs  xs:text-sm lg:text-[15px]">
-        {pillar.paragraph}
       </p>
 
       {/* donor section */}
       <div className="flex flex-col gap-0.5 border-b border-black/35 pb-4">
         <h2 className="  text-[13px]  xs:text-sm  lg:text-[15px] font-semibold">
-          {pillar.secondSubtitle}
+          Why Donors Support This
         </h2>
         <p className="text-[#030F0CCC]/80  text-xs  xs:text-xs lg:text-sm">
-          {pillar.secondParagraph}
+        {pillar?.description2}
         </p>
       </div>
 
@@ -159,14 +188,25 @@ group"
 
 
            </div> 
-      
-          
-     
-          
-                
-      
+                 ) : (
+          <ItemNotFound message="No pillars found." />
+        )}
       
               
+
+
+           {currentPage < totalPages && (
+            <div className="mt-10">
+              <button
+                disabled={isFetching}
+                onClick={() => setCurrentPage(prev => prev + 1)}
+                className={`btn-seeMore border
+                  ${isFetching ? 'opacity-50 cursor-not-allowed' : 'hover:bg-black hover:text-white'}`}
+              >
+                {isFetching ? 'Loading...' : 'See More Pillars'}
+              </button>
+            </div>
+          )}
             </div>
             
     

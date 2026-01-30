@@ -10,6 +10,7 @@ import AccountSidebar   from '@/components/layout/accountSidebar/AccountSidebar'
 import PannelContextProvider from '@/context/PannelContext';
 import { webAppBaseURL } from '@/config/api.js';
 import { graphik, bison } from "@/components/fonts/fonts";
+import { Toaster } from 'react-hot-toast';
 
 
 
@@ -39,12 +40,20 @@ export const metadata = {
 };
 
 
+ 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={` ${graphik.className}   bg-polar-mist relative  `}>
            <Providers>
       <PannelContextProvider>
+
+
+           <Toaster
+              position="top-center"
+              reverseOrder={false}
+              className='z-[9999]'
+            />
                <nav
         className="
           sticky top-0 z-50 w-full
