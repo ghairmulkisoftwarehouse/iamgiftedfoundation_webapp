@@ -14,7 +14,7 @@ const Pillars = () => {
   const dispatch = useDispatch();
   const { pillarWithPrograms } = useSelector(state => state.pillar);
    const [currentPage, setCurrentPage] = useState(1);
-const [limit, setLimit] = useState(10);
+const [limit, setLimit] = useState(4);
 
   // Safely log
   if (pillarWithPrograms?.docs) {

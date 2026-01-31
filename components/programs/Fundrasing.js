@@ -96,7 +96,7 @@ const Fundrasing = ({
           <DisplayError message={error?.message || 'Something went wrong'} />
         ) :docs?.length > 0 ? (
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  space-y-0 md:space-y-5 w-full   gap-4 px-5 md:px-3.5  md:container mx-auto  ">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  space-y-0 md:space-y-5 w-full   gap-4 px-5 md:px-3.5  md:container mx-auto   relative z-10">
          {docs.map((item) => (
   <div
     key={item?._id} 
@@ -108,7 +108,7 @@ const Fundrasing = ({
       hover:shadow-2xl
       
     "
- onClick={() => router.push("/programs/1")}
+ onClick={() => router.push(`/programs/${item?._id}`)}
   >
     {/* Image wrapper */}
     <div className="w-full   h-[250px]     overflow-hidden rounded-[20px]">
@@ -162,7 +162,7 @@ const Fundrasing = ({
     <div className="border-b border-black/10 w-full"></div>
 
     {/* Donors + Button */}
-    <div className="flex justify-between items-center">
+    <div className="flex justify-between items-center mt-auto pb-4">
       <div className="flex items-center">
         {[img1, img2, img3].map((img, i) => (
           <div
@@ -184,9 +184,8 @@ const Fundrasing = ({
         </div>
       </div>
 
-      <div  className=' mt-auto '>
 
-        <button
+  <button
         onClick={(e) => {
           e.stopPropagation(); // stop card click
           router.push('/donate'); // navigate to donate page
@@ -197,7 +196,7 @@ const Fundrasing = ({
             Donate Now
           </span>
         </button>
-      </div>
+    
      
     
     </div>
