@@ -11,6 +11,7 @@ import ItemNotFound from "../global/ItemNotFound";
 
 export async function generateMetadata({ params }) {
   const { id } = params;
+    const programId=id;
 
   try {
     const { responsePayload } = await get(`/program/${id}`);
@@ -31,9 +32,52 @@ export async function generateMetadata({ params }) {
 
 const ProgramsDetail = async ({ params }) => {
   const { id } = await params;
+      const programId =id;
+  let loading = true;
+  let error = null;
+  let program = null;
 
-    const { responsePayload } = await get(`/program/${id}`);
-  const program = responsePayload?.data?.doc;
+  let allProgramLoading = true;
+  let allProgramError = null;
+  let allProgram = [];
+
+  // Fetch all programs
+  try {
+    const response = await get(`/program`);
+    if (!`${response.statusCode}`.startsWith("2")) {
+      allProgramError =
+        response?.responsePayload?.data?.message ||
+        "Failed to load programs";
+    } else {
+      allProgram = response?.responsePayload?.data?.docs || [];
+      if (allProgram.length === 0) {
+        allProgramError = "Programs list not found";
+      }
+    }
+  } catch (err) {
+    allProgramError = "Something went wrong";
+  } finally {
+    allProgramLoading = false;
+  }
+
+  // Fetch single program
+  try {
+    const response = await get(`/program/${id}`);
+    if (!`${response.statusCode}`.startsWith("2")) {
+      error =
+        response?.responsePayload?.data?.message ||
+        "Failed to load program";
+    } else {
+      program = response?.responsePayload?.data?.doc;
+      if (!program) {
+        error = "Program not found";
+      }
+    }
+  } catch (err) {
+    error = "Something went wrong";
+  } finally {
+    loading = false;
+  }
 
 
   return     <div className="flex flex-col w-full">
@@ -43,7 +87,15 @@ const ProgramsDetail = async ({ params }) => {
         bannerSvgClass="w-[260px] lg:w-[290px] xl:w-[370px]"
       />
 
-      <ProgramInformation />
+      <ProgramInformation 
+            programId={programId}
+            loading={loading}
+        error={error}
+        program={program}
+        allProgram={allProgram}
+        allProgramLoading={allProgramLoading}
+        allProgramError={allProgramError}
+      />
       <Partner />
     </div>;
 };  

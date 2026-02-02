@@ -5,6 +5,7 @@ import   img from '@/assets/images/eventsimg1.png';
 import   img2 from '@/assets/images/blurimage.png'; 
 import { bison } from '@/components/fonts/fonts';
 import RecentEvent  from '../recentevent/RecentEvent';
+import EventList   from '../eventList/EventList';
 import DetailLocationSvg   from '@/assets/svg/DetailLocationSvg';
 import CalendarSvg from '@/assets/svg/CalendarSvg';
 import {eventSingleDetail,eventSingleList }  from '@/constants/EventConstants'
@@ -52,8 +53,12 @@ const EventInformation = () => {
         </div>
 
       
-       <div className="grid grid-cols-1 lg:grid-cols-3 w-full container mx-auto  px-3.5  gap-6 relative z-5">
-       <div className='lg:col-span-2   flex flex-col gap-3.5   order-1 lg:order-1'>
+       <div className="grid grid-cols-1 lg:grid-cols-3 w-full px-5 md:px-3.5  md:container mx-auto  gap-6 relative z-5">
+             <div className='lg:col-span-1    order-1 lg:order-1 '>
+
+              <EventList/>
+       </div>
+       <div className='lg:col-span-2   flex flex-col gap-3.5     order-2 lg:order-2 '>
 
        <div className='flex flex-col gap-2'>
           <Image
@@ -95,7 +100,7 @@ const EventInformation = () => {
       </div>
      
 
-      {eventSingleDetail.map((item, index) => (
+      {/* {eventSingleDetail.map((item, index) => (
         <div key={index} className="flex flex-col gap-3">
           <h3 className={`text-[28px] lg:text-[34px] ${bison.className}`}>
             {item.title}
@@ -104,7 +109,7 @@ const EventInformation = () => {
             {item.paragraph}
           </p>
         </div>
-      ))}
+      ))} */}
 
 
 
@@ -114,7 +119,7 @@ const EventInformation = () => {
 
 
 
-       <div className='flex flex-col gap-0.5 pt-3.5'>
+       {/* <div className='flex flex-col gap-0.5 pt-3.5'>
           <Image
         src={img2}
         alt={'img'}
@@ -138,9 +143,9 @@ const EventInformation = () => {
      
 
 
-       </div>
+       </div> */}
 
-  <div className="flex flex-col gap-4 w-full">
+  {/* <div className="flex flex-col gap-4 w-full">
       {eventSingleList.map((item, index) => (
         <p
           key={index}
@@ -155,21 +160,21 @@ const EventInformation = () => {
           </span>
         </p>
       ))}
-    </div>
+    </div> */}
        
 
 
 
 
        
-          <div className=' flex flex-col gap-3'>
+          {/* <div className=' flex flex-col gap-3'>
           <h3  className={`text-[28px] lg:text-[36px] ${bison.className}`}> Libero etiam  </h3>
 
         <p className="text-[#030F0CCC] text-sm lg:text-base leading-normal    ">
         Arcu ultricies malesuada lectus nulla est nunc integer pellentesque magna. Egestas malesuada faucibus arcu nunc elit leo quis interdum. Ac vel in commodo accumsan mollis cras massa posuere eget. Condimentum posuere velit cras velit tortor ridiculus sit. Lectus augue libero etiam sed nisl.
         </p>
 
-      </div>
+      </div> */}
 
 
 
@@ -180,10 +185,7 @@ const EventInformation = () => {
        </div>
 
 
-         <div className='lg:col-span-1   order-2 lg:order-2'>
-
-              <RecentEvent/>
-       </div>
+   
 
 
        </div>

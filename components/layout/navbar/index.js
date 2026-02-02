@@ -74,7 +74,7 @@ const Navbar = () => {
        
 
         {/* Desktop Menu */}
-        <div className="hidden lg:block">   
+        <div className="hidden xl:block">   
           <ul className="flex space-x-1.5 font-medium text-sm lg:text-[15px] ">
             {navLinks.map((link) => {
                               const isActive =
@@ -106,7 +106,7 @@ return(
         </div>
 
         {/* Desktop Buttons */}
-        <div className="hidden lg:block">
+        <div className="hidden xl:block">
           <div className="flex gap-2.5">
 
 
@@ -139,7 +139,7 @@ return(
         </div>
 
        
-        <button className="lg:hidden  cursor-pointer">
+        <button className="xl:hidden  cursor-pointer">
         <div onClick={() => setShowPannel(true)}>
                <BarsSvg  className="w-10 h-10 " />
         </div>

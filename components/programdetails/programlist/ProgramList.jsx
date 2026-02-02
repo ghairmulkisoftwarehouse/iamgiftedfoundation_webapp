@@ -2,9 +2,24 @@
 import ArrowLeftSvg  from '@/assets/svg/ArrowleftSvg';
 import {programlist} from '@/constants/DonateConstants'
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 
-const ProgramList = () => {
+const ProgramList = ({ allProgram, allProgramLoading, allProgramError,programId }) => {
+
+ const router=useRouter();
+
+  if (allProgramLoading) {
+    return <div>Loading programs...</div>;
+  }
+
+  if (allProgramError) {
+    return <div className="text-red-500">{allProgramError}</div>;
+  }
+
+  if (!allProgram || allProgram.length === 0) {
+    return <div>No programs found.</div>;
+  }
   return (
     <div className=' bg-white  border border-[#0000002E] rounded-[22px] flex flex-col gap-3.5  h-fit pb-6'>
     <div className=' h-[70px] bg-black rounded-[22px] flex items-center   px-4'>
@@ -15,17 +30,21 @@ const ProgramList = () => {
     </div>
 
 <div className="flex flex-col gap-2 w-full px-3.5">
-  {programlist.map((program, index) => (
-    <div
-      key={index}
-       onClick={()=>router.push('/programs/1')}
-      className="group border border-[#0000002E] px-3 py-3.5 flex justify-between items-center
+  {allProgram.map((program) => {
+     const isActive = programId === program?._id;
+      return(
+      <div
+      key={program?._id}   
+       onClick={()=>router.push(`/programs/${program?._id}`)}
+      className={`group border border-[#0000002E] px-3 py-3.5 flex justify-between items-center
                  text-[15px] rounded-[15px] cursor-pointer
                  transition-all duration-300
-                 hover:bg-black/5 "
+                 hover:bg-black/5         
+                    ${isActive ? 'bg-black/10 font-semibold' : 'border-[#0000002E] hover:bg-black/5'}`}
+
     >
-      <p className="transition-colors duration-300">
-        {program}
+      <p className="transition-colors duration-300 capitalize">
+        {program?.title}
       </p>
 
     <ArrowLeftSvg
@@ -35,10 +54,14 @@ const ProgramList = () => {
              group-hover:translate-x-1"
 />
     </div>
-  ))}
+      )
+    
+  })}
 
   
 </div>
+
+{allProgram.length >0   && (
 
 <div className=" w-full px-3.5">
 <Link href={'/donate'}>
@@ -54,6 +77,9 @@ Donate Now
         </div>
         </Link>
         </div>
+)
+}
+
 
   
 

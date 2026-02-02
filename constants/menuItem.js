@@ -4,7 +4,7 @@ export const navLinks = [
  { name: "Impact", path: "/impact" },
   // { name: "About Us", path: "/aboutus" },       
   { name: "Programs" ,path:"/programs" },        
-  // { name: "Events" ,  path:"/events" || "/events/ " },     
+  { name: "Events" ,  path:"/events" || "/events/ " },     
   { name: "Donate/Get Involved" , path:'/getinvolved'},    
   { name: "Contact",path:"/contact" }, 
   // { name: "Contact" ,path:"/contact"},             

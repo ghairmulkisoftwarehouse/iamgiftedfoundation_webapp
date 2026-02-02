@@ -1,4 +1,4 @@
-import EventPage from "./EventPage";
+import EventPage from "@/components/eventdetails/EventPage";
 
 
 

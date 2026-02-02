@@ -6,6 +6,8 @@ import authSlice from './reducers/authSlice';
 import  profileSlice   from './reducers/profileSlice';
 import  pillarSlice   from './reducers/pillarSlice';
 import programSlice   from './reducers/programSlice';
+import impactSlice   from './reducers/impactSlice';
+import eventSlice   from './reducers/eventSlice';
 
 
 export const store = configureStore({
@@ -15,6 +17,8 @@ export const store = configureStore({
             profile:profileSlice,
             pillar:pillarSlice,
             program:programSlice,
+            impact:impactSlice,
+            event:eventSlice,
             
   },
 });

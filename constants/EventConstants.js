@@ -15,6 +15,83 @@ export const eventDetail = [
 
 
 
+export  const eventsList = [
+  {
+    title: "Event 1 Title",
+    location: "Office# 418 Patton Lane, Garner, NC 27529, FL 33169",
+    date: "Mon 23 Dec",
+    time: "1:00 to 1:30",
+    status: "Waitlist",
+  },
+  {
+    title: "Event 2 Title",
+    location: "Office# 123 Main Street, NY 10001",
+    date: "Tue 24 Dec",
+    time: "2:00 to 3:00",
+    status: "Open",
+  },
+   {
+    title: "Event 3 Title",
+    location: "Office# 418 Patton Lane, Garner, NC 27529, FL 33169",
+    date: "Mon 23 Dec",
+    time: "1:00 to 1:30",
+    status: "Waitlist",
+  },
+  {
+    title: "Event 4 Title",
+    location: "Office# 123 Main Street, NY 10001",
+    date: "Tue 24 Dec",
+    time: "2:00 to 3:00",
+    status: "Open",
+  },
+
+ {
+    title: "Event 5 Title",
+    location: "Office# 418 Patton Lane, Garner, NC 27529, FL 33169",
+    date: "Mon 23 Dec",
+    time: "1:00 to 1:30",
+    status: "Waitlist",
+  },
+  {
+    title: "Event 6 Title",
+    location: "Office# 123 Main Street, NY 10001",
+    date: "Tue 24 Dec",
+    time: "2:00 to 3:00",
+    status: "Open",
+  },
+
+   {
+    title: "Event 7 Title",
+    location: "Office# 418 Patton Lane, Garner, NC 27529, FL 33169",
+    date: "Mon 23 Dec",
+    time: "1:00 to 1:30",
+    status: "Waitlist",
+  },
+  {
+    title: "Event 8 Title",
+    location: "Office# 123 Main Street, NY 10001",
+    date: "Tue 24 Dec",
+    time: "2:00 to 3:00",
+    status: "Open",
+  },
+
+   {
+    title: "Event 9 Title",
+    location: "Office# 418 Patton Lane, Garner, NC 27529, FL 33169",
+    date: "Mon 23 Dec",
+    time: "1:00 to 1:30",
+    status: "Waitlist",
+  },
+  {
+    title: "Event 10 Title",
+    location: "Office# 123 Main Street, NY 10001",
+    date: "Tue 24 Dec",
+    time: "2:00 to 3:00",
+    status: "Open",
+  },
+
+
+];
 
 
 
