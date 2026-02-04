@@ -8,6 +8,7 @@ import  pillarSlice   from './reducers/pillarSlice';
 import programSlice   from './reducers/programSlice';
 import impactSlice   from './reducers/impactSlice';
 import eventSlice   from './reducers/eventSlice';
+import categorySlice   from './reducers/categorySlice';
 
 
 export const store = configureStore({
@@ -19,6 +20,7 @@ export const store = configureStore({
             program:programSlice,
             impact:impactSlice,
             event:eventSlice,
+            category:categorySlice,
             
   },
 });

@@ -1,6 +1,6 @@
 'use client';
 
-
+import { useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { AccountLinks } from '@/constants/AccountConstants';
 import AccountArrowSvg from '@/assets/svg/AccountArrowSvg';
@@ -11,7 +11,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import AccountLogout  from '@/components/account/accountlogout/AccountLogout'
 import {setShowLogoutPopup} from '@/redux/reducers/appSlice';
-
+import fallbackImg from "@/assets/images/img2.jpg";
+import { baseURL } from "@/config/api";
+import SidebarProfileShimmer  from '@/components/global/effect/SiderbarProfileShimmer';
 
 
 
@@ -19,6 +21,18 @@ export default function Layout({ children }) {
   const pathname = usePathname();
    const dispatch=useDispatch();
     const {showLogoutPopup} = useSelector(state => state.app);
+
+        const { user,loading } = useSelector((state) => state.auth);
+
+
+         const fullname =user?.username;
+         const firstLetter = fullname?.split(" ")[0]?.[0]?.toUpperCase() || "";
+
+  const email = user?.email;
+  const myrole = user?.roles?.[0];
+const profileImage = user?.image?.relativeAddress 
+  ? `${baseURL}/${user?.image.relativeAddress}` 
+  : fallbackImg;
 
 
 
@@ -32,26 +46,48 @@ export default function Layout({ children }) {
           {/* Sidebar */}
           <div className="hidden lg:block w-full lg:w-[30%] xl:w-1/4 h-fit bg-white rounded-[16px] border border-black/5 shadow-[0px_0px_5.6px_0px_#0000001F]">
             {/* Profile */}
-            <div className="flex items-center gap-2 px-3 pt-6">
-              <div className="w-[70px] h-[70px] rounded-full overflow-hidden">
+   {
+    loading  ? (
+    <SidebarProfileShimmer/>
+    ) :(
+   <div className="flex items-center gap-2 px-3 pt-6">
+            {
+               user?.image?.relativeAddress  ?(
+               <div className="w-[70px] h-[70px] rounded-full overflow-hidden">
                 <Image
-                  src={Profileimg}
+                  src={profileImage}
                   alt="img"
                   width={78}
                   height={78}
                   className="w-full h-full rounded-full object-cover"
+                     
                 />
               </div>
+               )
+             
+              :(
+
+                   <div className="w-[70px] h-[70px]   text-xl xl:text-2xl rounded-full overflow-hidden  flex justify-center items-center  capitalize   bg-[#DFE5EF]">
+                  
+                    {firstLetter}
+              </div> 
+              )
+            }
+              
 
               <div className="flex flex-col gap-0.5">
-                <h2 className="text-sm lg:text-base font-semibold">
-                  Kevin Tran
+                <h2 className="text-sm lg:text-base font-semibold capitalize">
+                  {fullname}
                 </h2>
                 <p className="text-xs lg:text-sm text-[#A9ABB0]">
-                  user@gmail.com
+                   {email}
                 </p>
               </div>
             </div>
+    )
+   }
+
+           
 
             {/* Links */}
             <div className="flex flex-col gap-2 px-3 py-6">

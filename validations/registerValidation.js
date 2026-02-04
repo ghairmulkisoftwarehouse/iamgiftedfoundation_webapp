@@ -19,10 +19,21 @@ export const validateRegisterForm = (data) => {
   }
 
   // Password validation
-  if (!data.password) {
+  const password = data.password || "";
+  if (!password.trim()) {
     errors.password = "Password is required";
-  } else if (data.password.length < 6) {
-    errors.password = "Password must be at least 6 characters";
+  } else if (password.length < 6) {
+    errors.password = "Password must be at least 6 characters long";
+  } else if (password.length > 72) {
+    errors.password = "Password must be at most 72 characters long";
+  } else if (!/[a-z]/.test(password)) {
+    errors.password = "Password must include at least one lowercase letter";
+  } else if (!/[A-Z]/.test(password)) {
+    errors.password = "Password must include at least one uppercase letter";
+  } else if (!/[0-9]/.test(password)) {
+    errors.password = "Password must include at least one number";
+  } else if (!/[!@#$%^&*(),.?":{}|<>~`+\-=\[\]\\';\/]/.test(password)) {
+    errors.password = "Password must include at least one special character";
   }
 
   // Confirm Password validation
@@ -39,7 +50,8 @@ export const validateRegisterForm = (data) => {
 
   // Accept terms validation
   if (!data.acceptTerms) {
-    errors.acceptTerms = "You must accept the Terms of Service and Privacy Policy";
+    errors.acceptTerms =
+      "You must accept the Terms of Service and Privacy Policy";
   }
 
   return errors;

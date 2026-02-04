@@ -3,16 +3,19 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { bison } from "@/components/fonts/fonts";
 import InputEmail from '@/components/global/form/InputEmail';
-// import InputPassword from '@/components/global/form/InputPassword';
 import EnvolpeSvg from '@/assets/svg/EnvolpeSvg';
-// import LockSvg from '@/assets/svg/LockSvg';
-// import GoogleSvg from '@/assets/svg/GoogleSvg';
 import FoundationSvg from '@/assets/svg/FoundationSvg';
 import { validateForgetPasswordForm } from "@/validations/forgetPasswordValidation";
 import Link from "next/link";
+import {forget_Password} from '@/redux/actions/authActions'
+import { useSelector,useDispatch } from "react-redux";
+import ButtonClipLoader from "@/components/global/buttonClipLoader/ButtonClipLoader";
 
 const ForgetPasswordForm = () => {
       const router = useRouter();
+    const dispatch=useDispatch();
+
+     const { loading  } = useSelector((state) => state.auth);
 
      const [formData, setFormData] = useState({
   
@@ -52,9 +55,9 @@ const ForgetPasswordForm = () => {
         
         console.log("Form submitted:", payload);
       
-          router.push("/auth/verify-otp");
 
-        setFormData({ email: "",   });
+         dispatch(forget_Password(payload, router));
+     
       };
   return (
     <div className="flex flex-col justify-center gap-1.5 w-full md:h-screen  px-3.5 sm:px-0">
@@ -92,14 +95,31 @@ const ForgetPasswordForm = () => {
 
       
 
-          <button
-            onClick={handleSubmit}
-           className="btn-submit bg-black hover:bg-gray-200 w-full group cursor-pointer h-[50px] text-sm sm:text-[17px] relative overflow-hidden">
-            <span className="btn-submit-hover bg-gray-200 group-hover:w-40 group-hover:h-40 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full"></span>
-            <span className="btn-submit-text text-white group-hover:text-black relative z-10 font-medium">
-              Reset Password
-            </span>
-          </button>
+
+
+
+     <button
+  onClick={handleSubmit}
+  disabled={loading} 
+  className={`btn-submit bg-black hover:bg-gray-200 w-full group h-[50px] text-sm sm:text-[17px] relative overflow-hidden ${
+    loading ? "cursor-not-allowed bg-gray-200 " : "cursor-pointer"
+  }`}
+>
+  {/* Hover effect */}
+  <span className="btn-submit-hover bg-gray-200 group-hover:w-40 group-hover:h-40 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full"></span>
+
+  {/* Button text or loader */}
+  <span className={`btn-submit-text  ${loading ? ' text-black font-semibold' :'text-white'}  group-hover:text-black relative z-10 font-medium flex items-center justify-center gap-2`}>
+    {loading ? (
+      <>
+        Resetting password <ButtonClipLoader size={10} color="#000000" />
+      </>
+    ) : (
+      "Reset Password"
+    )}
+  </span>
+</button>
+         
 
          
         </div>

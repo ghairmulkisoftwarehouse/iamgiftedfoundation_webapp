@@ -1,7 +1,5 @@
 'use client'
 import { useState } from "react";
-
-
 import { bison } from "@/components/fonts/fonts";
 import InputName from '@/components/global/form/InputName';
 import InputEmail from "@/components/global/form/InputEmail";
@@ -13,14 +11,22 @@ import FoundationSvg from '@/assets/svg/FoundationSvg';
 import { validateRegisterForm } from "@/validations/registerValidation";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useDispatch,useSelector } from "react-redux";
+
+import  {registerUser}  from '@/redux/actions/authActions';
+import ButtonClipLoader   from '@/components/global/buttonClipLoader/ButtonClipLoader';
 
 const options = ["Donor", "Participants/Parents", "Volunteer"];
 
 const RegisterForm = () => {
           const router = useRouter();
+           const { loading,  } = useSelector((state) => state.auth);
+      const dispatch=useDispatch();
     
-  const [selected, setSelected] = useState("Donor"); // user type
+  const [selected, setSelected] = useState("Donor"); 
   const [acceptTerms, setAcceptTerms] = useState(false);
+
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -43,6 +49,19 @@ const RegisterForm = () => {
     }
   };
 
+
+  const mapUserType = (selected) => {
+  switch (selected) {
+    case "Donor":
+      return "donor";
+    case "Participants/Parents":
+      return "participant";
+    case "Volunteer":
+      return "volunteer";
+    default:
+      return "";
+  }
+};
 
   const handleUserType = (value) => {
     setSelected(value);
@@ -69,30 +88,40 @@ const RegisterForm = () => {
     }
   };
 
-  const handleSubmit = () => {
-    const dataToValidate = {
-      ...formData,
-      userType: selected,
-      acceptTerms,
-    };
-
-    const validationErrors = validateRegisterForm(dataToValidate);
-    setErrors(validationErrors);
-
-    if (Object.keys(validationErrors).length > 0) return;
-
-    const payload = {
-      ...formData,
-      userType: selected,
-      acceptTerms,
-    };
-
-    console.log("Form submitted:", payload);
-    router.push("/account/donation-history");
-    setFormData({ name: "", email: "", password: "", confirmPassword: "" });
-    setSelected("");
-    setAcceptTerms(false);
+ const handleSubmit = () => {
+  const dataToValidate = {
+    ...formData,
+    userType: selected,
+    acceptTerms,
   };
+
+  // Validate form
+  const validationErrors = validateRegisterForm(dataToValidate);
+  setErrors(validationErrors);
+  if (Object.keys(validationErrors).length > 0) return;
+
+  // Map selected to backend userType
+  const userType = mapUserType(selected);
+
+  // Prepare payload
+  const payload = {
+    username: formData.name,
+    email: formData.email,
+    password: formData.password,
+    confirmPassword: formData.confirmPassword,
+  };
+
+  console.log("Submitting payload:", payload, "userType:", userType);
+
+  // Dispatch the registerUser action
+  dispatch(registerUser(userType, payload, router));
+
+  // Reset form
+  setFormData({ name: "", email: "", password: "", confirmPassword: "" });
+  setSelected("Donor");
+  setAcceptTerms(false);
+};
+
 
   return (
     <div className="flex flex-col justify-center gap-1.5 w-full    pb-5 px-3.5 sm:px-0">
@@ -197,15 +226,39 @@ const RegisterForm = () => {
           {errors.acceptTerms && <p className="text-xs xs:text-[13px] text-red-500">{errors.acceptTerms}</p>}
 
           {/* Submit Button */}
-          <button
+
+
+                <button
+            onClick={handleSubmit}
+            disabled={loading} 
+            className={`btn-submit bg-black hover:bg-gray-200 w-full group h-[50px] text-sm sm:text-[17px] relative overflow-hidden ${
+              loading ? "cursor-not-allowed bg-gray-200 " : "cursor-pointer"
+            }`}
+          >
+            {/* Hover effect */}
+            <span className="btn-submit-hover bg-gray-200 group-hover:w-40 group-hover:h-40 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full"></span>
+          
+            {/* Button text or loader */}
+            <span className={`btn-submit-text  ${loading ? ' text-black font-semibold' :'text-white'}  group-hover:text-black relative z-10 font-medium flex items-center justify-center gap-2`}>
+             {loading ? (
+      <>
+        Signing Up <ButtonClipLoader size={14} color="#000000" />
+      </>
+    ) : (
+      "Sign Up"
+    )}
+            </span>
+          </button>
+          
+          {/* <button
             onClick={handleSubmit}
             className="btn-submit bg-black hover:bg-gray-200 w-full group cursor-pointer h-[50px] text-sm sm:text-[17px] relative overflow-hidden"
           >
             <span className="btn-submit-hover bg-gray-200 group-hover:w-40 group-hover:h-40 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full"></span>
             <span className="btn-submit-text text-white group-hover:text-black relative z-10 font-medium">
-              Sign Up
+              
             </span>
-          </button>
+          </button> */}
 
           <div className="flex justify-center text-xs sm:text-sm mt-2">
             <p className="text-[#030F0CCC]">

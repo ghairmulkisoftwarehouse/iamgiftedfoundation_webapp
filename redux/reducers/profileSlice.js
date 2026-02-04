@@ -4,13 +4,13 @@ import { createSlice } from '@reduxjs/toolkit';
 const profileSlice = createSlice({
   name: 'profile',
   initialState: {
-    docs: null,
+    doc: null,
     loading: false,
     error: null,
   },
   reducers: {
-    setDocs(state, action) {
-      state.docs = action.payload;
+    setDoc(state, action) {
+      state.doc = action.payload;
     },
     setLoading(state, action) {
       state.loading = action.payload;
@@ -21,5 +21,5 @@ const profileSlice = createSlice({
   },
 });
 
-export const { setDocs, setLoading, setError } = profileSlice.actions;
+export const { setDoc, setLoading, setError } = profileSlice.actions;
 export default profileSlice.reducer;

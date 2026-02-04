@@ -13,6 +13,7 @@ import { useDispatch,useSelector } from "react-redux";
 
 import { validateLoginForm } from "@/validations/loginValidation";
 import  {login}  from '@/redux/actions/authActions';
+import ButtonClipLoader   from '@/components/global/buttonClipLoader/ButtonClipLoader';
 
 import Link from "next/link";
 
@@ -119,14 +120,27 @@ const LoginForm = () => {
             </Link>
           </div>
 
-          <button
-            onClick={handleSubmit}
-           className="btn-submit bg-black hover:bg-gray-200 w-full group cursor-pointer h-[50px] text-sm sm:text-[17px] relative overflow-hidden">
-            <span className="btn-submit-hover bg-gray-200 group-hover:w-40 group-hover:h-40 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full"></span>
-            <span className="btn-submit-text text-white group-hover:text-black relative z-10 font-medium">
-                Login
-            </span>
-          </button>
+       <button
+  onClick={handleSubmit}
+  disabled={loading} 
+  className={`btn-submit bg-black hover:bg-gray-200 w-full group h-[50px] text-sm sm:text-[17px] relative overflow-hidden ${
+    loading ? "cursor-not-allowed bg-gray-200 " : "cursor-pointer"
+  }`}
+>
+  {/* Hover effect */}
+  <span className="btn-submit-hover bg-gray-200 group-hover:w-40 group-hover:h-40 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full"></span>
+
+  {/* Button text or loader */}
+  <span className={`btn-submit-text  ${loading ? ' text-black font-semibold' :'text-white'}  group-hover:text-black relative z-10 font-medium flex items-center justify-center gap-2`}>
+    {loading ? (
+      <>
+        Logging in <ButtonClipLoader size={10} color="#000000" />
+      </>
+    ) : (
+      "Login"
+    )}
+  </span>
+</button>
 
           <div className="flex items-center w-full my-1">
             <div className="flex-grow border-t border-dashed border-[#A1A8B0]"></div>

@@ -1,12 +1,12 @@
-import EventPage from "@/components/eventdetails/EventPage";
+import Eventdetails from "@/components/eventdetails/EventPage";
+
+
+export default Eventdetails;
 
 
 
-export const metadata = {
-  title: "Events Detail | Gifted Foundation",
-  description: `Discover our upcoming events Join us to learn, grow, and make a difference in the community.`,
-};
+// import Eventdetails, {generateMetadata} from "@/components/eventdetails/EventPage";
 
-export default function Page() {
-  return <EventPage />;
-}
+// export { generateMetadata };
+// export default Eventdetails;
+

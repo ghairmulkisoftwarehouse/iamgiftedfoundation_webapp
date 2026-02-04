@@ -3,7 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setShowLogoutPopup } from '@/redux/reducers/appSlice';
 import PopupLayout from '@/components/layout/popup';
 import { useRouter } from 'next/navigation';
+ import ButtonClipLoader   from '@/components/global/buttonClipLoader/ButtonClipLoader';
 
+import { logout } from "@/redux/actions/authActions";
+import toast from "react-hot-toast";
 
 const AccountLogout = () => {
  
@@ -12,13 +15,19 @@ const AccountLogout = () => {
   const dispatch = useDispatch();
 
 
+  const { loading } = useSelector((state) => state.auth);
 
 
-  const handleLogout = () => {
-
-    dispatch(setShowLogoutPopup(false));
-    router.push("/auth/login")
-  };
+ 
+ const handleLogout = async () => {
+  try {
+    await dispatch(logout(router));
+       dispatch(setShowLogoutPopup(false));
+  } catch (err) {
+    console.error("Logout failed:", err);
+     toast.error(err?.message || "Logout failed. Please try again.");
+  }
+};
 
 
 
@@ -34,18 +43,31 @@ const AccountLogout = () => {
           Are you sure you want to log out? You’ll   need to sign in again to access your account.
         </p>
         <div className="flex gap-4">
-          <button
-            onClick={handleCancel}
-            className="px-4 py-2 bg-lightmist cursor-pointer text-primary rounded-[6px] text-sm"
-          >
+        
+         <button
+          type="button"
+              onClick={handleCancel}
+          className="bg-black/40 w-[140px] rounded-full text-white py-2 cursor-pointer
+           text-sm sm:text-base 
+          "
+         >
             Cancel
           </button>
             <button
             onClick={handleLogout}
-            className="px-4 py-2 z-10 bg-red-600 cursor-pointer text-white rounded-[6px] text-sm flex items-center justify-center gap-2 min-w-[120px]"
+                  disabled={loading} 
+
+            className="px-4 py-2 z-10 bg-red-500  cursor-pointer text-white rounded-full text-sm flex items-center justify-center gap-2 min-w-[120px]"
           >
           
-              Yes, Log Out
+           {loading ? (
+                <div className=" flex  items-center gap-1">
+                  Logging Out <ButtonClipLoader size={12} color="#ffffff" />
+                </div>
+              ) : (
+                " Yes, Log Out"
+              )}
+             
 
           </button>
 

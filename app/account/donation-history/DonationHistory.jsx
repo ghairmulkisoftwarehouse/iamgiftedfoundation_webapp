@@ -6,20 +6,20 @@ import  Layout  from '@/components/global/AccountLayout';
 import  DonationTable   from '@/components/account/donationhistory/DonationTable';
 import { useSelector,useDispatch } from "react-redux";
 
-import { getMyProfile } from "@/redux/actions/profileActions";
+// import { getMyProfile } from "@/redux/actions/profileActions";
 const DonationHistory = () => {
 
-  const dispatch=useDispatch();
-   const { docs, loading, error } = useSelector((state) => state.profile);
+  // const dispatch=useDispatch();
+  //  const { docs, loading, error } = useSelector((state) => state.profile);
 
-   console.log('docs',docs);
+  //  console.log('docs',docs);
 
-  useEffect(() => {
-    dispatch(getMyProfile());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getMyProfile());
+  // }, [dispatch]);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p className="text-red-500">{error}</p>;
+  // if (loading) return <p>Loading...</p>;
+  // if (error) return <p className="text-red-500">{error}</p>;
 
   return (
        <div className="flex flex-col w-full ">

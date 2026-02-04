@@ -12,6 +12,8 @@ import { setStats } from '@/redux/reducers/impactSlice';
 import { useQuery } from 'react-query';
 import Axios from '@/config/api';
 import devLog from '@/utils/logsHelper';
+import IAMGIFTEDimg  from '@/assets/svg/IAMGIFTED-8.svg'
+import Image from 'next/image';
 
 const Impact = () => {
 
@@ -27,7 +29,7 @@ const [limit, setLimit] = useState(10);
   const { isLoading,isFetching, isError, error } = useQuery(
     queryKey,
     () => {
-      const url = `/impact`; 
+      const url = `/impact/public`; 
       return Axios.get(url);
     },
     {
@@ -41,6 +43,8 @@ const [limit, setLimit] = useState(10);
 
   return (
         <div className="flex  flex-col  w-full ">
+
+      
             <HeroSectionBanner
             title="IMPACT"
              height="h-[250px] "

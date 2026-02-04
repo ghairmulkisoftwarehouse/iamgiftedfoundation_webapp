@@ -8,9 +8,42 @@ import BarsSvg from '@/assets/svg/barsSvg';
 import { usePannelContext } from '@/context/PannelContext';
 import { usePathname } from 'next/navigation';
 import NewGiftedFoundationlogoSvg  from  '@/assets/svg/NewGiftedFoundationlogoSvg';
-
+import Usermenu   from './Usermenu';
+import { useSelector,useDispatch } from 'react-redux';
+import  {setUser}  from '@/redux/reducers/authSlice'
+import devLog from '@/utils/logsHelper';
+import fetcher from '@/utils/fetcher';
+import { useQuery } from 'react-query';
+import { useRouter } from 'next/navigation';
+import { getTokenCookie } from "@/utils/authCookies";
+import { ClipLoader } from 'react-spinners';
+import { baseURL } from '@/config/api';
+import img from "@/assets/images/img2.jpg";
 
 const Navbar = () => {
+     const dispatch=useDispatch();
+     const router=useRouter();
+        const { user } = useSelector((state) => state.auth);
+        const token = getTokenCookie();
+            devLog(' this is  a  user',user); 
+  
+
+   
+  
+
+   const { isLoading, isError, data, error } = useQuery({
+  queryKey: ["my-user-profile"],
+  queryFn: () => fetcher("/user/my-profile"),
+  enabled: !!token, 
+  onSuccess: (res) => {
+    if (res?.status === "success" && res?.data?.doc) {
+      dispatch(setUser(res.data.doc));
+    }
+  },
+  onError: (err) => {
+    console.error("Profile API failed:", err);
+  },
+});
          const {  setShowPannel,setAccountPannel } = usePannelContext();
            const [scrolled, setScrolled] = useState(false);
 
@@ -31,7 +64,14 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const fullname =user?.username;
+  const email = user?.email;
+  const myrole = user?.roles?.[0];
   
+const profileImage = (user?.image?.relativeAddress) 
+  ? `${baseURL}/${user?.image.relativeAddress}` 
+  : img;
+
   return (
 <>
 
@@ -107,22 +147,43 @@ return(
 
         {/* Desktop Buttons */}
         <div className="hidden xl:block">
-          <div className="flex gap-2.5">
+          <div className="flex gap-2.5 h-full">
+                  
+ {!token ? (
+  // No token: show login button
+  <Link href="/auth/login">
+    <button className="btn-animated bg-polar-mist group relative overflow-hidden">
+      <span className="btn-animated-hover bg-gray-200 group-hover:w-40 group-hover:h-40 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full"></span>
+      <span className="btn-animated-text text-black group-hover:text-gray-900 relative z-10">
+        Account
+      </span>
+    </button>
+  </Link>
+) : isLoading || !user ? (
+  <div className='   w-fit      flex justify-center items-center'>
+  <ClipLoader size={20} color="#000000" />
+  </div>
+) : (
+  <Usermenu   
+   fullname={fullname}
+   email={email}
+myrole={myrole}
+profileImage={profileImage}
+  />
+)}
 
-
-           <Link href="/auth/login">
-
-               <button className="btn-animated bg-polar-mist group cursor-pointer relative overflow-hidden">
-    {/* Expanding circle */}
-    <span className="btn-animated-hover bg-gray-200 group-hover:w-40 group-hover:h-40 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full"></span>
-
-    {/* Button text */}
-    <span className="btn-animated-text text-black group-hover:text-gray-900 relative z-10">
-      Account
-    </span>
-  </button>
-           </Link>  
+           
      
+
+       {/* <Link href="/auth/login">
+        <button className="btn-animated bg-polar-mist group cursor-pointer relative overflow-hidden">
+          <span className="btn-animated-hover bg-gray-200 group-hover:w-40 group-hover:h-40 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full"></span>
+
+          <span className="btn-animated-text text-black group-hover:text-gray-900 relative z-10">
+            Account
+          </span>
+        </button>
+      </Link> */}
 
 
 

@@ -13,15 +13,20 @@ import FoundationSvg from '@/assets/svg/FoundationSvg';
 import { validateResetPasswordForm } from "@/validations/resetPasswordValidation";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import {reset_Password} from '@/redux/actions/authActions';
+import { useDispatch,useSelector } from "react-redux";
+import ButtonClipLoader  from '@/components/global/buttonClipLoader/ButtonClipLoader'
 
 
 const ResetPasswordForm = () => {
-          const router = useRouter();
-    
+    const router = useRouter();
+  const dispatch = useDispatch();
+  const { loading, registerEmail, resetOtp } = useSelector((state) => state.auth);
 
+  const email = registerEmail || (typeof window !== "undefined" ? localStorage.getItem("verify_email") : null);
+  const otpReset = resetOtp || (typeof window !== "undefined" ? localStorage.getItem("reset_otp") : null);
 
   const [formData, setFormData] = useState({
-  
     password: "",
     confirmPassword: "",
   });
@@ -32,6 +37,7 @@ const ResetPasswordForm = () => {
     const value = e.target.value;
     setFormData((prev) => ({ ...prev, [field]: value }));
 
+    // Clear error for the field as user types
     if (errors[field]) {
       setErrors((prev) => {
         const updated = { ...prev };
@@ -41,29 +47,24 @@ const ResetPasswordForm = () => {
     }
   };
 
-
-
-
   const handleSubmit = () => {
-    const dataToValidate = {
-      ...formData,
- 
-    };
+    if (!otpReset || !email) {
+      toast.error("Invalid request. Please try again.");
+      return;
+    }
 
-    const validationErrors = validateResetPasswordForm(dataToValidate);
+    const validationErrors = validateResetPasswordForm(formData);
     setErrors(validationErrors);
 
     if (Object.keys(validationErrors).length > 0) return;
-
     const payload = {
-      ...formData,
-
+      newPassword: formData.password,
+      confirmPassword: formData.confirmPassword,
+      email,
+      otp: otpReset,
     };
-
-    console.log("Form submitted:", payload);
-    router.push("/auth/login");
-    setFormData({  password: "", confirmPassword: "" });
-
+    dispatch(reset_Password(payload, router));
+    setFormData({ password: "", confirmPassword: "" });
   };
 
   return (
@@ -115,15 +116,36 @@ Create your new password to login
 
        
 
-          <button
-            onClick={handleSubmit}
-            className="btn-submit bg-black hover:bg-gray-200 w-full group cursor-pointer h-[50px] text-sm sm:text-[17px] relative overflow-hidden"
-          >
-            <span className="btn-submit-hover bg-gray-200 group-hover:w-40 group-hover:h-40 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full"></span>
-            <span className="btn-submit-text text-white group-hover:text-black relative z-10 font-medium">
-            Create Password
-            </span>
-          </button>
+
+
+      <button
+  onClick={handleSubmit}
+  disabled={loading}
+  className={`btn-submit bg-black hover:bg-gray-200 w-full h-[50px] text-sm sm:text-[17px] relative overflow-hidden ${
+    loading ? "cursor-not-allowed bg-gray-200" : "cursor-pointer"
+  }`}
+>
+  {/* Hover effect */}
+  <span className="btn-submit-hover bg-gray-200 group-hover:w-40 group-hover:h-40 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full"></span>
+
+  {/* Button text or loader */}
+  <span
+    className={`btn-submit-text ${
+      loading ? "text-black font-semibold" : "text-white"
+    } group-hover:text-black relative z-10 font-medium flex items-center justify-center gap-2`}
+  >
+    {loading ? (
+      <>
+        Resetting... <ButtonClipLoader size={14} color="#000000" />
+      </>
+    ) : (
+      "Reset Password"
+    )}
+  </span>
+</button>
+
+
+       
 
         
         </div>
