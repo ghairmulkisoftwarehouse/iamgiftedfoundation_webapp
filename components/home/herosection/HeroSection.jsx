@@ -42,9 +42,10 @@ const HeroSection = () => {
                     ${bison.className}
                 `}
                 >
-             
+          
+
                 
-                Empowering Youth to Discover <br  className=" hidden xs:block"/> Their Talents and{" "}
+                Everyone was born with a gift, <br  className=" hidden xs:block"/>let it shine...{" "}
                 <span className="relative inline-block">
                     <span className="relative z-10">Thrive</span>
 

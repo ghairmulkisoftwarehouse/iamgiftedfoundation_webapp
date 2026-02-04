@@ -72,7 +72,7 @@ export const imapactData = [
   },
   { imge: img3 },
   {
-    count: "43,464+",
+    count: "4,464+",
     title: "Assisted via Rush 2 Give",
     paragraph: "Providing community and emergency support",
   },

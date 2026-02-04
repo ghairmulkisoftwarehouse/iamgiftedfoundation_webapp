@@ -86,7 +86,7 @@ const MissionHero = () => {
               className={`group relative rounded-[32px] h-[200px] sm:h-[270px] overflow-hidden transition-all duration-500 cursor-pointer ease-out hover:shadow-xl ${
                 item.imge
                   ? "bg-black/5"
-                  : "bg-mint-cyan  group-hover:bg-[#9dd6d5]  px-5 py-5 flex flex-col justify-between"
+                  : "bg-mint-cyan  group-hover:bg-[#9dd6d5]  px-5 py-5 flex flex-col "
               }`}
             >
               {item.imge ? (
@@ -105,14 +105,14 @@ const MissionHero = () => {
               ) : (
                 <>
                   {/* Count */}
-                  <div className="flex justify-end">
-                    <h2 className=" text-black    group-hover:text-black/90 text-xl  sm:text-2xl  md:text-3xl font-semibold">
+                  <div className="flex justify-center items-center h-full">
+                    <h2 className=" text-black    group-hover:text-black/90 text-xl  sm:text-2xl  md:text-3xl lg:text-4xl font-semibold">
                       {item.count}
                     </h2>
                   </div>
 
                   {/* Text */}
-                <div className="flex flex-col gap-1">
+                <div className="flex flex-col gap-1 mt-auto">
   <h3 className=" text-black  text-base sm:text-lg md:text-[24px] font-semibold
    group-hover:text-black/90
                  transition-colors duration-300
