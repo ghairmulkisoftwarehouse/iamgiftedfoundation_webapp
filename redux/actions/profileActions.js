@@ -1,25 +1,72 @@
-// import Axios from "@/config/api";
-// import {
-//   setDocs,
-//   setLoading,
-//   setError,
-// } from "../reducers/profileSlice";
 
-// export const getMyProfile = () => async (dispatch) => {
-//   dispatch(setLoading(true));
 
-//   try {
-//     const res = await Axios.get("/user/my-profile");
-//     dispatch(setDocs(res.data.data)); 
-//     dispatch(setError(null));
-//   } catch (err) {
-//     const msg =
-//       err?.response?.data?.message ||
-//       err?.message ||
-//       "Failed to load profile";
+import Axios from "@/config/api";
 
-//     dispatch(setError(msg));
-//   } finally {
-//     dispatch(setLoading(false));
-//   }
-// };
+import toast from "react-hot-toast";
+import { setError, setLoading} from "../reducers/profileSlice";
+import {getTokenCookie } from "@/utils/authCookies";
+
+export const updateProfile = (data) => async (dispatch, getState) => {
+  const token = getTokenCookie();
+  try {
+    dispatch(setLoading(true));
+    dispatch(setError(null));
+
+    const {
+      data: {
+        data: { doc, message },
+      },
+    } = await Axios.patch('/user/update-my-profile', data, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    toast.success(message);
+
+  } catch (err) {
+    const errorMsg =
+      err?.response?.data?.data?.message ||
+      err?.response?.data?.message ||
+      err.message ||
+      'Something went wrong.';
+    dispatch(setError(errorMsg));
+    toast.error(errorMsg);
+  } finally {
+    dispatch(setLoading(false));
+  }
+};
+
+
+
+
+export const updateImageProfile = (data) => async (dispatch, getState) => {
+  const token = getTokenCookie();
+  try {
+    dispatch(setLoading(true));
+    dispatch(setError(null));
+
+    const {
+      data: {
+        data: { doc, message },
+      },
+    } = await Axios.patch('/user/update-my-profile-image', data, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    toast.success(message);
+
+  } catch (err) {
+    const errorMsg =
+      err?.response?.data?.data?.message ||
+      err?.response?.data?.message ||
+      err.message ||
+      'Something went wrong.';
+    dispatch(setError(errorMsg));
+    toast.error(errorMsg);
+  } finally {
+    dispatch(setLoading(false));
+  }
+};

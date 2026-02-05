@@ -29,6 +29,14 @@ const Empowerment = ({isLoading,isFetching,isError,error,setCurrentPage,currentP
     devLog('pillarWithPrograms', pillarWithPrograms?.pages);
   }
 
+
+  //  const handleClick = (pillar) => {
+  //   // Make sure pillar?._id exists
+  //   if (!pillar?._id) return;
+
+  //   router.push(`/donate?piller=${pillar._id}`);
+  // };
+
     const  totalPages=pillarWithPrograms?.pages;
   const pillarProgram=pillarWithPrograms?.docs;
 
@@ -108,7 +116,7 @@ const Empowerment = ({isLoading,isFetching,isError,error,setCurrentPage,currentP
     <div
 
 
-      key={index}
+      key={pillar?._id}
   className="border border-black/20 w-full flex flex-col gap-2 px-5 py-2.5 relative bg-white z-5 rounded-[20px]
 transition-all duration-300 ease-out
 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)]
@@ -172,7 +180,8 @@ group"
       {/* button */}
       <div className="w-full pt-2 pb-3.5  mt-auto">
         <div 
-             onClick={()=>router.push('/donate')}
+         onClick={() => router.push(`/donate?piller=${pillar?._id}`)}
+
         className="btn-animated bg-[#B6E2E2] group cursor-pointer relative overflow-hidden w-full rounded-full flex justify-center items-center h-[50px] gap-1.5 ">
           <span className="btn-animated-hover bg-[#9dd6d5] group-hover:w-full group-hover:h-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full"></span>
 

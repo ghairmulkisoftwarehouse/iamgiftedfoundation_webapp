@@ -97,7 +97,7 @@ export const verify_OTP = (data, router) => async (dispatch) => {
       }
 
       if (data?.type === "forgotPassword") {
-        dispatch(setResetOtp(data.email));
+        dispatch(setResetOtp(data.otp));
       localStorage.setItem("reset_otp", data.otp);
          localStorage.removeItem("forget_password");
           dispatch(setRegisterEmail(data.email));
@@ -163,9 +163,6 @@ export const resend_OTP = (data) => async (dispatch) => {
   }
 };
 
-
-
-
 export const forget_Password = (data, router) => async (dispatch) => {
   dispatch(setLoading(true));
 
@@ -205,10 +202,6 @@ export const forget_Password = (data, router) => async (dispatch) => {
     dispatch(setLoading(false));
   }
 };
-
-
-
-
 
 export const reset_Password = (data, router) => async (dispatch) => {
   dispatch(setLoading(true));

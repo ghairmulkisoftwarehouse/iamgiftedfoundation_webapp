@@ -10,7 +10,7 @@ export function middleware(req) {
     "/auth/reset-password",
   ];
 
-  const isPublicPath = publicPaths.includes(pathname);
+  // const isPublicPath = publicPaths.includes(pathname);
 
   const isProtectedPath = pathname.startsWith("/account");
 

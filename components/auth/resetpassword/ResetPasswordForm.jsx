@@ -22,6 +22,7 @@ const ResetPasswordForm = () => {
     const router = useRouter();
   const dispatch = useDispatch();
   const { loading, registerEmail, resetOtp } = useSelector((state) => state.auth);
+   console.log( ' this is a resetOtp',resetOtp)
 
   const email = registerEmail || (typeof window !== "undefined" ? localStorage.getItem("verify_email") : null);
   const otpReset = resetOtp || (typeof window !== "undefined" ? localStorage.getItem("reset_otp") : null);
@@ -63,6 +64,8 @@ const ResetPasswordForm = () => {
       email,
       otp: otpReset,
     };
+
+    console.log(' this is payload',payload)
     dispatch(reset_Password(payload, router));
     setFormData({ password: "", confirmPassword: "" });
   };

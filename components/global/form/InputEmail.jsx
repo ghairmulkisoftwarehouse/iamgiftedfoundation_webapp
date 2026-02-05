@@ -8,8 +8,10 @@ const InputEmail = ({
   icon, 
   background = "bg-[#E5E7E7]",
   border = "border-transparent",
+   readonly = false,
     
 }) => {
+   const inputBackground = readonly ? "  bg-[#E5E7E7]/50  text-black/40 cursor-not-allowed" : background;
   return (
     <div className="flex flex-col gap-2">
       <label
@@ -40,10 +42,12 @@ const InputEmail = ({
           value={value}
           onChange={onChange}
           placeholder={placeholder}
+             readOnly={readonly}
           className={`
             outline-none w-full h-full rounded-full text-sm
                 placeholder:text-[#B2BCC5]
-            ${background}
+           ${inputBackground}
+
             ${icon ? "pl-14 pr-4" : "px-4"}
           `}
         />

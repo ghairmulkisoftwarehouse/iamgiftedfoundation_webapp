@@ -186,10 +186,10 @@ const Fundrasing = ({
 
 
   <button
-        onClick={(e) => {
-          e.stopPropagation(); // stop card click
-          router.push('/donate'); // navigate to donate page
-        }}
+      onClick={(e) => {
+        e.stopPropagation(); // stop parent card click
+        router.push(`/donate?program=${item?._id}`);
+      }}
          className="  mt-auto btn-animated  bg-mint-cyan border border-transparent group cursor-pointer w-[146px] h-[40px] rounded-full relative overflow-hidden hover:border-[#8bc9c8] ">
           <span className="btn-animated-hover bg-[#9dd6d5] absolute top-1/2 left-1/2 w-0 h-0 rounded-full -translate-x-1/2 -translate-y-1/2 group-hover:w-44 group-hover:h-44 transition-all duration-500 ease-out"></span>
           <span className="btn-animated-text text-black font-semibold group-hover:text-gray-900 relative z-10">

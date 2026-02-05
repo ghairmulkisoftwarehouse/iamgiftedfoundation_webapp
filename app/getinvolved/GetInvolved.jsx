@@ -11,6 +11,7 @@ import TrackImpact   from '@/components/global/trackImpact/TrackImpact';
 import Foundationgurdian  from '@/components/getinvolved/foundationgurdian/Foundationgurdian';
 import { useDispatch, useSelector } from 'react-redux';
 import { setPillarWithPrograms } from '@/redux/reducers/pillarSlice';
+import ContributionCounts  from '@/components/getinvolved/contributionCounts/ContributionCounts';
 
 import { useQuery } from 'react-query';
 import Axios from '@/config/api';
@@ -53,6 +54,7 @@ const GetInvolved = () => {
             />
 
           <Foundationgurdian/>
+          <ContributionCounts/>
 
             <DonationTiers 
              isLoading={isLoading} 

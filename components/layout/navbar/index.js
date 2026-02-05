@@ -37,7 +37,7 @@ const Navbar = () => {
   enabled: !!token, 
   onSuccess: (res) => {
     if (res?.status === "success" && res?.data?.doc) {
-      dispatch(setUser(res.data.doc));
+      dispatch(setUser(res.data));
     }
   },
   onError: (err) => {
@@ -64,12 +64,16 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const fullname =user?.username;
-  const email = user?.email;
-  const myrole = user?.roles?.[0];
+  const fullname = user?.profile?.fullName || user?.doc?.username;
+  console.log('  this is a fullname',fullname)
+
+  console.log(' user?.profile?.fullName', user?.profile?.fullName)
+
+  const email = user?.doc?.email;
+  const myrole = user?.doc?.roles?.[0];
   
-const profileImage = (user?.image?.relativeAddress) 
-  ? `${baseURL}/${user?.image.relativeAddress}` 
+const profileImage = (user?.doc?.image?.relativeAddress) 
+  ? `${baseURL}/${user?.doc?.image.relativeAddress}` 
   : img;
 
   return (

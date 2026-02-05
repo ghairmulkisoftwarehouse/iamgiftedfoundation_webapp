@@ -10,35 +10,10 @@ export const validateDonateForm = (data) => {
   if (!data.paymentMethod) {
     errors.paymentMethod = "Please select a payment method";
   }
-
-  // First Name
-  if (!data.firstName.trim()) {
-    errors.firstName = "First name is required";
+if (data.paymentMethod === "STRIPE") {
+    errors.paymentMethod = "Stripe is not available yet. Coming soon!";
   }
 
-  // Last Name
-  if (!data.lastName.trim()) {
-    errors.lastName = "Last name is required";
-  }
-
-  // Email
-  if (!data.email.trim()) {
-    errors.email = "Email is required";
-  } else if (!/\S+@\S+\.\S+/.test(data.email)) {
-    errors.email = "Invalid email address";
-  }
-
-  // Phone
-  if (!data.phoneNumber.trim()) {
-    errors.phoneNumber = "Phone number is required";
-  } else if (!/^\+?\d{7,15}$/.test(data.phoneNumber)) {
-    errors.phoneNumber = "Invalid phone number";
-  }
-
-  // Address
-  if (!data.address.trim()) {
-    errors.address = "Address is required";
-  }
 
   return errors;
 };

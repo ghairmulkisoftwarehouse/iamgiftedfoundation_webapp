@@ -25,13 +25,13 @@ export default function Layout({ children }) {
         const { user,loading } = useSelector((state) => state.auth);
 
 
-         const fullname =user?.username;
+         const fullname = user?.profile?.fullName||user?.doc?.username ;
          const firstLetter = fullname?.split(" ")[0]?.[0]?.toUpperCase() || "";
 
-  const email = user?.email;
-  const myrole = user?.roles?.[0];
-const profileImage = user?.image?.relativeAddress 
-  ? `${baseURL}/${user?.image.relativeAddress}` 
+  const email = user?.doc?.email;
+  const myrole = user?.doc?.roles?.[0];
+const profileImage = user?.doc?.image?.relativeAddress 
+  ? `${baseURL}/${user?.doc?.image.relativeAddress}` 
   : fallbackImg;
 
 
@@ -52,10 +52,10 @@ const profileImage = user?.image?.relativeAddress
     ) :(
    <div className="flex items-center gap-2 px-3 pt-6">
             {
-               user?.image?.relativeAddress  ?(
+               user?.doc?.image.relativeAddress  ?(
                <div className="w-[70px] h-[70px] rounded-full overflow-hidden">
                 <Image
-                  src={profileImage}
+                  src={`${baseURL}/${user?.doc?.image.relativeAddress}`}
                   alt="img"
                   width={78}
                   height={78}

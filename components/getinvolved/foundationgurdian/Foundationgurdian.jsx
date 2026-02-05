@@ -1,25 +1,12 @@
 'use client'
 import { useState, useEffect,useRef } from "react";
 import {  bison } from '@/components/fonts/fonts';
-import UnderlineSvg   from '@/assets/svg/UnderlineSvg.js'
 import ArrowUpSvg  from '@/assets/svg/ArrowUpSvg';
-import Link from 'next/link';
-import  LeftPinkButterfullySvg   from  '@/assets/svg/LeftPinkButterfullySvg.js'
-import RightPinkButterfullysvg from "@/assets/svg/RightPinkButterfullysvg";
-import imggray from '@/assets/images/foundationboy.png';
-import ShapeheroSvg  from '@/assets/svg/ShapeheroSvg.js';
-import HeroShapeBottomSvg  from '@/assets/svg/HeroShapeBottomSvg';
-import DonateSvg   from '@/assets/svg/DonateSvg';
-import HeroWavesShapeSvg   from '@/assets/svg/HeroWavesShapeSvg'
-import person from '@/assets/images/person.png'
-import StarSvg  from '@/assets/svg/StarSvg'
-import SmileSvg  from '@/assets/svg/SmileSvg';
-import ShadowSvg  from '@/assets/svg/ShadowSvg';
 import { FaDonate, FaHandsHelping, FaMoneyBillWave, FaHeart } from 'react-icons/fa';
 import StarikSvg  from '@/assets/svg/StarikSvg'
 import FullbutterfullyleftSvg  from '@/assets/svg/FullbutterfullyleftSvg'
 import  FullbutterfullyrightSvg  from '@/assets/svg/FullbutterfullyrightSvg';
-
+import Link from "next/link";
 import Image from "next/image";
 
 const BOX_HEIGHT = 85;
@@ -106,13 +93,11 @@ const Foundationgurdian = () => {
 
           <div className="grid grid-cols-1 xs:grid-cols-2 xl:grid-cols-4 gap-2.5 w-full relative z-5">
   
-  {[ "Public Recognition",
-  "App Badge",
-  "Event Access",
-  "Impact Reports"].map(
-    (text, index) => (
+
+{["Public Recognition", "App Badge", "Event Access", "Impact Reports"].map(
+  (text, index) => {
+    const cardContent = (
       <div
-        key={index}
         className="
           group
           h-[140px]
@@ -123,7 +108,7 @@ const Foundationgurdian = () => {
           items-center
           text-white
           transition-shadow
-           cursor-pointer
+          cursor-pointer
           duration-300
           hover:shadow-2xl
         "
@@ -135,14 +120,26 @@ const Foundationgurdian = () => {
             ${bison.className}
             transition-colors
             duration-300
-           group-hover:text-light-cyan
+            group-hover:text-light-cyan
           `}
         >
           {text}
         </p>
       </div>
-    )
-  )}
+    );
+
+    
+    if (text === "App Badge") {
+      return (
+        <Link key={index} href="/app-badge">
+          {cardContent}
+        </Link>
+      );
+    }
+
+    return <div key={index}>{cardContent}</div>;
+  }
+)}
 
 </div>
 
