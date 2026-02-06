@@ -14,7 +14,7 @@ import DisplayError from '@/components/global/DisplayError';
 import { baseURL } from '@/config/api';
 import fallbackimg   from '@/assets/images/img2.jpg';
 import DOMPurify from "dompurify";
-
+import { Suspense } from "react";
 
 
 const DonateKnow = ({
@@ -29,7 +29,7 @@ const DonateKnow = ({
 }) => {
 
  const { docs,doc } = useSelector(state => state.program);
-
+const [safeHtml, setSafeHtml] = useState("");
   console.log(' tis is a  doc',doc)
 
      const [numBoxes, setNumBoxes] = useState(60);
@@ -49,8 +49,17 @@ const DonateKnow = ({
   return () => window.removeEventListener("resize", handleResize);
 }, []);
 
+
+
        
          const boxes = Array.from({ length: numBoxes });
+
+// useEffect(() => {
+//   if (doc?.body) {
+//     const DOMPurify = require("dompurify");
+//     setSafeHtml(DOMPurify.sanitize(doc.body));
+//   }
+// }, [doc]);
   return (
    <div className=" mt-16 w-full relative bg-[#F4F7F7]">
          <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 absolute left-0 top-[-90px] z-0 w-full">
@@ -126,10 +135,13 @@ const DonateKnow = ({
           </h3>
 
 
-  <div
-      dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(doc?.body) }}
-      className="text-[#030F0CCC] text-sm lg:text-[15px] leading-[35px]"
-    />
+<div
+
+  className="text-[#030F0CCC] text-sm lg:text-[15px] leading-normal lg:leading-[35px]">
+     A one-day, high-impact experience focused on building life skills, leadership, and confidence—both on and off the field. Participants engage in hands-on activities designed to strengthen teamwork, communication, and self-belief, creating skills they can carry into everyday life.
+  </div>
+
+        
      
 
       </div>
@@ -139,9 +151,9 @@ const DonateKnow = ({
     <ItemNotFound message="No Program found." />
   )}
      
- <div className=' pt-6'>
-  <DonateForm/>
- </div>
+  <Suspense fallback={<div>Loading…</div>}>
+      <DonateForm />
+    </Suspense>
       
   
 
