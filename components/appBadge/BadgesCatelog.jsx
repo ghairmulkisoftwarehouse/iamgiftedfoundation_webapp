@@ -4,17 +4,18 @@ import { bison } from '@/components/fonts/fonts';
 import bafgesimg from '@/assets/svg/IAMGIFTED-1 1.svg';
 import Image from 'next/image';
 import { useSelector } from 'react-redux';
-import SeedSuppter25Svg   from '@/assets/badges/SeedSuppter25Svg';
-import WingGiver50Svg   from '@/assets/badges/WingGiver50Svg';
-import Growth100Svg  from '@/assets/badges/Growth100Svg'
-import Hope250Svg   from '@/assets/badges/Hope250Svg';
-import Empower500Svg    from '@/assets/badges/Empower500Svg';
-import PatnerShip1000Svg   from '@/assets/badges/PatnerShip1000Svg';
-import Legacy2500Svg   from '@/assets/badges/Legacy2500Svg';
-import Vision5000Svg   from  '@/assets/badges/Vision5000Svg';
-import Founders10000   from '@/assets/badges/Founders10000';
+// import SeedSuppter25Svg   from '@/assets/badges/SeedSuppter25Svg';
+// import WingGiver50Svg   from '@/assets/badges/WingGiver50Svg';
+// import Growth100Svg  from '@/assets/badges/Growth100Svg'
+// import Hope250Svg   from '@/assets/badges/Hope250Svg';
+// import Empower500Svg    from '@/assets/badges/Empower500Svg';
+// import PatnerShip1000Svg   from '@/assets/badges/PatnerShip1000Svg';
+// import Legacy2500Svg   from '@/assets/badges/Legacy2500Svg';
+// import Vision5000Svg   from  '@/assets/badges/Vision5000Svg';
+// import Founders10000   from '@/assets/badges/Founders10000';
 import { motion } from "framer-motion";
 import { badgeSvgMap } from '@/constants/badgeConstants';
+import devLog from '@/utils/logsHelper';
 
 
 
@@ -22,19 +23,19 @@ const BadgesCatelog = () => {
 
        const { publicBadge } = useSelector((state) => state.badge);
 
-  console.log('publicBadge',publicBadge);
+  devLog('publicBadge',publicBadge);
 
-const badges = [
-  { title: "Seed Supporter", Svg: SeedSuppter25Svg },
-  { title: "Wing Giver", Svg: WingGiver50Svg },
-  { title: "Growth", Svg: Growth100Svg },
-  { title: "Hope", Svg: Hope250Svg },
-  { title: "Empower", Svg: Empower500Svg },
-  { title: "Partnership", Svg: PatnerShip1000Svg },
-  { title: "Legacy", Svg: Legacy2500Svg },
-  { title: "Vision", Svg: Vision5000Svg },
-  { title: "Founders", Svg: Founders10000 },
-];
+// const badges = [
+//   { title: "Seed Supporter", Svg: SeedSuppter25Svg },
+//   { title: "Wing Giver", Svg: WingGiver50Svg },
+//   { title: "Growth", Svg: Growth100Svg },
+//   { title: "Hope", Svg: Hope250Svg },
+//   { title: "Empower", Svg: Empower500Svg },
+//   { title: "Partnership", Svg: PatnerShip1000Svg },
+//   { title: "Legacy", Svg: Legacy2500Svg },
+//   { title: "Vision", Svg: Vision5000Svg },
+//   { title: "Founders", Svg: Founders10000 },
+// ];
   
      const [numBoxes, setNumBoxes] = useState(60);
              useEffect(() => {

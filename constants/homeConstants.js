@@ -147,7 +147,7 @@ export const  involvedData = [
     title: "Partner",
     paragraph: "The IAMGIFTED Foundation's Life Skills Camp offers a transformative experience, helping young people develop both athletic skills and essential life skills.",
     icon: PartnerSvg,
-      color:"#000000",
+      color:"#BFE5E4",
   },
 
     {
