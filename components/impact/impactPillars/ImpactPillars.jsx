@@ -8,9 +8,29 @@ import DotSvg   from '@/assets/svg/DotSvg'
 import ArrowLeftSvg  from '@/assets/svg/ArrowleftSvg';
 import {pillarData} from '@/constants/ImpactConstants'
 import { useRouter } from "next/navigation";
+import { useSelector } from "react-redux";
+import devLog from "@/utils/logsHelper";
 
-const ImpactPillars = () => {
+import PillarShimmer from '@/components/global/effect/PillarCardShimmer';
+import ItemNotFound from '@/components/global/ItemNotFound.jsx';
+import DisplayError from '@/components/global/DisplayError';
+import SupportSvg   from '@/assets/svg/SupportSvg';
+
+
+const ImpactPillars = ({
+   isLoadingPillar,isErrorPillar,
+                 errorPillar
+}) => {
   const router=useRouter('');
+
+     const { pillarWithPrograms } = useSelector(state => state.pillar);
+
+  // Safely log
+  if (pillarWithPrograms?.docs) {
+    devLog('pillarWithPrograms', pillarWithPrograms?.docs);
+  }
+  const pillarProgram=pillarWithPrograms?.docs;
+
 
   return (
      <div 
@@ -25,15 +45,20 @@ const ImpactPillars = () => {
             </div>
 
 
+     {isLoadingPillar ? (
+          <PillarShimmer />
+        ) : isErrorPillar ? (
+          <DisplayError message={errorPillar?.message || 'Something went wrong'} />
+        ) : pillarWithPrograms?.docs?.length > 0 ? (
+
            <div className="w-full grid grid-cols-1 sm:grid-cols-2  gap-4  ">
 
                
-             {pillarData.map((pillar, index) => {
-  const Icon = pillar.icon
+             {pillarProgram.map((pillar, index) => {
 
   return (
     <div
-      key={index}
+      key={pillar?._id}
   className="border border-black/20 w-full flex flex-col gap-2 px-5 py-2.5 relative    cursor-pointer hover:bg-white z-5 rounded-[20px]
 transition-all duration-300 ease-out
 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)]
@@ -42,24 +67,25 @@ group"
     >
       {/* icon */}
       <div className="w-[60px] h-[60px] bg-[#B6E2E2] rounded-full flex justify-center items-center">
-        <Icon className="w-[40px] h-[40px]" />
+        <SupportSvg className="w-[40px] h-[40px]" />
       </div>
 
       {/* title */}
-      <h2 className="   text-xl   sm:text-[22px]  lg:text-[25px] font-semibold">{pillar.title}</h2>
+      <h2 className="   text-xl   sm:text-[22px]  lg:text-[25px] font-semibold">{pillar?.title}</h2>
 
       {/* subtitle + paragraph */}
       <div className="flex flex-col gap-0.5">
-        <h3 className="  text-[13px]  xs:text-sm  lg:text-[15px] font-semibold">{pillar.firstSubtitle}</h3>
+        <h3 className="  text-[13px]  xs:text-sm  lg:text-[15px] font-semibold">    {pillar?.subTitle}</h3>
        
       </div>
 
       {/* programs */}
+          {Array.isArray(pillar?.programs) && pillar.programs.length > 0 && (
       <div className="flex flex-col gap-1.5">
         <h3 className=" text-[13px]  xs:text-sm  lg:text-[15px] font-semibold">Programs in this Pillar</h3>
 
         <div className="flex flex-row flex-wrap gap-1.5">
-          {pillar.ProgramsInclude.map((program, i) => (
+          {pillar?.programs.map((program, i) => (
             <div
               key={i}
               className="px-3 py-1 flex flex-row text-xs xs:text-[13px] items-center gap-1.5 bg-[#E5D5E5] rounded-full"
@@ -67,22 +93,24 @@ group"
               <span>
                 <DotSvg />
               </span>
-              <span className="font-semibold">{program}</span>
+              <span className="font-semibold">{program?.title}</span>
             </div>
           ))}
         </div>
-        <div className=" flex flex-row gap-0.5 pt-2.5">
+    
+
+      </div>
+          )}
+              <div className=" flex flex-row gap-0.5 pt-2.5">
            <p className=" text-[#000000]/90">Stats:</p>
            <div className=" flex flex-row  text-[13px]  xs:text-sm  lg:text-[15px]  ">
            <div className=" text-2xl   pt-0.5">
             <LuDot/>
            </div>
-            <span className=" font-semibold   ">{pillar.stats}</span>
+            <span className=" font-semibold   ">{pillar?.impactAmount}</span>
            </div>
            
         </div>
-
-      </div>
 
  
 
@@ -107,7 +135,9 @@ group"
 
 
            </div> 
-      
+           ) : (
+          <ItemNotFound message="No Pillars Impact found ." />
+        )}
           
      
           

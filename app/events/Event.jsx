@@ -15,21 +15,42 @@ const Event = () => {
   const { docs } = useSelector(state => state.event);
     const { docs:docsCategory } = useSelector(state => state.category);
   const [currentPage, setCurrentPage] = useState(1);
+  const [activeTab, setActiveTab] = useState("All"); 
+
+
   const [limit] = useState(10);
 
   devLog(' this is a docs:', docsCategory);
 
-  const eventsQueryKey = ['event',currentPage, limit];
+     const eventsQueryKey = ["event", currentPage, limit, activeTab];
   const categoriesQueryKey = ['category',];
 
-  // Fetch events
-  const { isLoading: eventsLoading, isFetching: eventsFetching, isError: eventsError, error: eventsErrorObj } = useQuery(
+
+
+  const {
+    isLoading: eventsLoading,
+    isFetching: eventsFetching,
+    isError: eventsError,
+    error: eventsErrorObj,
+  } = useQuery(
     eventsQueryKey,
-    () => Axios.get(`/event?pageSize=${limit}&page=${currentPage}`),
+    () => {
+      // Build URL dynamically
+      let url = `/event?pageSize=${limit}&page=${currentPage}`;
+      if (activeTab !== "All") {
+        url += `&category=${activeTab}`;
+      }
+      return Axios.get(url);
+    },
     {
       refetchOnWindowFocus: false,
-      onSuccess: (data) => {
-        const { data: { data: { docs, pages, docsCount, page } } } = data;
+      onSuccess: (res) => {
+        const {
+          data: {
+            data: { docs, pages, docsCount, page },
+          },
+        } = res;
+
         dispatch(setEventStats({ docs, pages, docsCount, page }));
       },
     }
@@ -59,6 +80,7 @@ const Event = () => {
       />
 
       <EventList
+      setCategory={setActiveTab}
         isFetching={eventsFetching}
         setCurrentPage={setCurrentPage}
         currentPage={currentPage}

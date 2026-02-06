@@ -17,8 +17,10 @@ const Program = () => {
   const [currentPage, setCurrentPage] = useState(1);
 const [limit, setLimit] = useState(10);
 
+
+
   // Safely log
-  devLog(' this is a    devLog',docs);
+  devLog(' this is a   program',docs);
 
   const queryKey = ['program',currentPage, limit,];
 

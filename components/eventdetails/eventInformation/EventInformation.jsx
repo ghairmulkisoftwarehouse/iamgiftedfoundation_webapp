@@ -9,6 +9,9 @@ import EventList   from '../eventList/EventList';
 import DetailLocationSvg   from '@/assets/svg/DetailLocationSvg';
 import CalendarSvg from '@/assets/svg/CalendarSvg';
 import {eventSingleDetail,eventSingleList }  from '@/constants/EventConstants'
+import { motion } from "framer-motion";
+import { GoDotFill } from "react-icons/go";
+
 import devlog from '@/utils/logsHelper';
 import DetailShimmer   from '@/components/global/effect/DetailShimmer';
 import ItemNotFound from '@/components/global/ItemNotFound';
@@ -20,6 +23,8 @@ import moment from 'moment';
 
 import { baseURL } from '@/config/api';
 import  fallbackimg from '@/assets/images/img2.jpg'
+import Status  from '@/components/global/Status';
+import { useRouter } from 'next/navigation';
 
 
 
@@ -29,8 +34,12 @@ const EventInformation = ({ eventId, loading, error, event,
         allEventLoading,
         allEventError, }) => {
 
+
+          const router=useRouter();
    const [activeIndex, setActiveIndex] = useState(-1); 
     devLog('EventInformation props:', { eventId, loading, error, event });
+    const now = moment();
+    
 
      devLog('EventInformation event:',event );
       const mainImage =
@@ -60,15 +69,31 @@ const EventInformation = ({ eventId, loading, error, event,
          const boxes = Array.from({ length: numBoxes });
 
 
-  const eventDateTime = event?.startDate
-    ? moment(event?.startDate).format('MMM DD, YYYY · h:mm A')
+  const eventDateTime = event?.eventDate
+    ? moment(event?.eventDate).format('MMM DD, YYYY · h:mm A')
     : 'Date not available';
 
      const location = [event?.address, event?.city, event?.state]
     .filter(Boolean)
     .join(', ');
 
+ // Registration Status
+  const isRegistrationOpen =
+    event?.registrationStartDate &&
+    event?.registrationEndDate &&
+    now.isBetween(
+      moment(event.registrationStartDate),
+      moment(event.registrationEndDate),
+      null,
+      "[]"
+    );
 
+  const isRegistrationClosed = event?.registrationEndDate && now.isAfter(moment(event.registrationEndDate));
+  const isRegistrationUpcoming = event?.registrationStartDate && now.isBefore(moment(event.registrationStartDate));
+
+  // Motion variants for buttons
+  const buttonVariants = { hover: { scale: 1.05 }, tap: { scale: 0.95 } };
+  const rippleVariants = { hover: { width: "999px", height: "44rem" } };
 
   return (
    <div className=" mt-16 w-full relative bg-[#F4F7F7]">
@@ -198,12 +223,82 @@ const EventInformation = ({ eventId, loading, error, event,
       className="text-[#030F0CCC] text-sm lg:text-[15px] leading-normal lg:leading-[35px]"
     />
      
-
-         {/* Registration button */}
+<div className="flex flex-row items-center gap-2 text-sm mt-[-30px]">
+              <h2 className="font-semibold  text-lg capitalize">status:</h2>
+           <div className="flex flex-row items-center gap-1">
+                <span className="pt-0.5 text-[10px]">
+                  <GoDotFill
+                    className={
+                      isRegistrationOpen
+                        ? "text-green-600"
+                        : isRegistrationUpcoming
+                        ? "text-yellow-500"
+                        : "text-red-600"
+                    }
+                  />
+                </span>
+                <p className="font-semibold text-black/60">
+                  {isRegistrationOpen
+                    ? "Open"
+                    : isRegistrationUpcoming
+                    ? "Upcoming"
+                    : "Closed"}
+                </p>
+              </div>
+        </div>
       
 
       </div>
-     
+
+ 
+        {/* Buttons */}
+        <div className=" w-full  flex  justify-end gap-3 ">
+          {/* Register */}
+          {isRegistrationOpen && !event?.waitlistEnabled && (
+            <motion.button
+              onClick={() => router.push("/auth/register")}
+              variants={buttonVariants}
+              whileHover="hover"
+              whileTap="tap"
+              className="relative w-[197px] h-[50px]  cursor-pointer  rounded-full bg-mint-cyan text-black font-semibold overflow-hidden border border-transparent"
+            >
+              <motion.span
+                variants={rippleVariants}
+                className="absolute top-1/2 left-1/2 w-0 h-0 bg-[#9dd6d5] rounded-full -translate-x-1/2 -translate-y-1/2 transition-all duration-500 ease-out"
+              />
+              <span className="relative z-10">Register</span>
+            </motion.button>
+          )}
+
+          {/* Waitlist */}
+          {event?.waitlistEnabled && (
+            <motion.button
+              variants={buttonVariants}
+              whileHover="hover"
+              whileTap="tap"
+              className="relative w-[197px]  h-[50px] cursor-pointer  rounded-full bg-mint-cyan text-black font-semibold overflow-hidden border border-transparent"
+            >
+              <motion.span
+                variants={rippleVariants}
+                className="absolute top-1/2 left-1/2 w-0 h-0 bg-[#9dd6d5] rounded-full -translate-x-1/2 -translate-y-1/2 transition-all duration-500 ease-out"
+              />
+              <span className="relative z-10">Waitlist</span>
+            </motion.button>
+          )}
+
+          {/* Disabled */}
+          {isRegistrationClosed && (
+            <motion.button
+              disabled
+              className="relative w-[197px]  h-[50px]    cursor-pointer rounded-full bg-mint-cyan text-black font-semibold opacity-50 cursor-not-allowed"
+            >
+              <motion.span
+                className="absolute top-1/2 left-1/2 w-0 h-0 bg-[#9dd6d5] rounded-full -translate-x-1/2 -translate-y-1/2 transition-all duration-500 ease-out"
+              />
+              <span className="relative z-10">Disabled</span>
+            </motion.button>
+          )}
+        </div>
 
     
 

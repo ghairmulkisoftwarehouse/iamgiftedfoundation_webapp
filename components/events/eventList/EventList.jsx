@@ -27,6 +27,7 @@ import { baseURL } from '@/config/api';
 
 const EventList = (  
 {
+  setCategory,
  isFetching,
   setCurrentPage,
   currentPage,
@@ -120,7 +121,10 @@ const now = moment();
     <div className="flex flex-row flex-wrap gap-1.5 w-full px-5 md:px-3.5 md:container mx-auto relative z-10">
           <div
       key="all"
-      onClick={() => setActiveTab('All')}
+        onClick={() => {
+      setActiveTab('All');
+      setCategory('All');
+    }}
       className={`
         w-fit px-5 h-[41px] flex items-center justify-center
         border border-[#0000001F] rounded-[50px] cursor-pointer
@@ -133,7 +137,11 @@ const now = moment();
       {docsCategory.map((item) => (
         <div
           key={item?._id}
-          onClick={() => setActiveTab(item?._id)}
+          onClick={() => {
+        setActiveTab(item?._id);
+        setCategory(item?._id);
+      }}
+        
           className={`
             w-fit px-5 h-[41px] flex items-center justify-center 
             border border-[#0000001F] rounded-[50px] cursor-pointer
@@ -216,11 +224,11 @@ const now = moment();
               <div className="flex flex-row flex-wrap gap-4 w-full">
                 <p className="flex items-center gap-1.5 text-sm md:text-[15px]">
                   <DateSvg />
-                  <span className="text-black/70">
-                    {item?.eventDate
-                      ? moment(item.eventDate).format("ddd DD MMM")
-                      : "Date not available"}
-                  </span>
+                 <span className="text-black/70">
+  {item?.eventDate
+    ? moment(item.eventDate).format("MMM DD YYYY, h:mm A") 
+    : "Date not available"}
+</span>
                 </p>
               </div>
             </div>
@@ -251,7 +259,7 @@ const now = moment();
           </div>
   {
 
-    isRegistrationOpen && (
+    isRegistrationOpen    &&  !item?.waitlistEnabled && (
     <button
           
             onClick={(e) => {
@@ -263,6 +271,21 @@ const now = moment();
             <span className="btn-animated-hover bg-[#9dd6d5] absolute top-1/2 left-1/2 w-0 h-0 rounded-full -translate-x-1/2 -translate-y-1/2 group-hover:w-[999px] group-hover:h-44 transition-all duration-500 ease-out"></span>
             <span className="btn-animated-text text-black font-semibold relative z-10">
               Register
+            </span>
+          </button>
+    )
+  }
+
+  {
+    item?.waitlistEnabled
+    && (
+    <button
+         
+            className="mt-auto btn-animated cursor-pointer bg-mint-cyan border border-transparent w-full rounded-full relative overflow-hidden hover:border-[#8bc9c8]"
+          >
+            <span className="btn-animated-hover bg-[#9dd6d5] absolute top-1/2 left-1/2 w-0 h-0 rounded-full -translate-x-1/2 -translate-y-1/2 group-hover:w-[999px] group-hover:h-44 transition-all duration-500 ease-out"></span>
+            <span className="btn-animated-text text-black font-semibold relative z-10">
+              Waitlist
             </span>
           </button>
     )

@@ -7,6 +7,8 @@ const programSlice = createSlice({
       page: 1,
       pages: 1,
       docsCount: 0,
+
+      doc:{},
   },
 
   reducers: {
@@ -23,12 +25,17 @@ const programSlice = createSlice({
 
       
         } ,
+           setDoc(state, action) {
+      state.doc = action.payload;
+    },
+  
+
 
 
   },
 });
 
-export const {  setStats 
+export const {  setStats ,setDoc
 } = programSlice.actions;
 export default programSlice.reducer;
 
