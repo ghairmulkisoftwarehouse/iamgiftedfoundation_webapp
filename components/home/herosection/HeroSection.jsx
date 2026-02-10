@@ -3,7 +3,7 @@ import { useRef } from "react";
 import {  bison } from '@/components/fonts/fonts';
 import UnderlineSvg   from '@/assets/svg/UnderlineSvg.js'
 import ArrowUpSvg  from '@/assets/svg/ArrowUpSvg';
-import homeimg  from '@/assets/images/homehero.jpg';
+import homeimg  from '@/assets/images/homehero.webp';
 import Image from "next/image";
 
 import Link from 'next/link';

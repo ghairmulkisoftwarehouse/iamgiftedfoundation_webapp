@@ -29,7 +29,7 @@ const PillarsSection = () => {
 const { isLoading, isError, error } = useQuery(
   queryKey,
   async () => {
-    const url = `/piller?pageSize=${limit}&page=${currentPage}&sortBy=createdAt_descending`;
+    const url = `/piller?pageSize=${limit}&page=${currentPage}`;
          return Axios.get(url);
   },
 
