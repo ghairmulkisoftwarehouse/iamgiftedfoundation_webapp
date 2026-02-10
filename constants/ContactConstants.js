@@ -1,7 +1,7 @@
 
 
 import AnyQuestionSvg  from '@/assets/svg/AnyQuestionSvg';
-import LocationSvg   from '@/assets/svg/LocationSvg';
+import ContactLocationSvg   from '@/assets/svg/ContactLoactionSvg';
 import PhoneSvg   from '@/assets/svg/PhoneSvg';
 import EmailSvg   from '@/assets/svg/EmailSvg';
 
@@ -11,7 +11,7 @@ export const ContactItems = [
     id: 1,
     title: "Address",
     description: "Make a one-time contribution of",
-    icon: LocationSvg,
+    icon: ContactLocationSvg,
   },
   {
     id: 2,

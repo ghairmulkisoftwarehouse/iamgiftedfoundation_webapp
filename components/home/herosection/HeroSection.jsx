@@ -45,9 +45,9 @@ const HeroSection = () => {
           
 
                 
-                Everyone was born with a gift, <br  className=" hidden xs:block"/>let it shine...{" "}
+                Everyone was born with a gift, <br  className=" hidden xs:block"/>let it {" "}
                 <span className="relative inline-block">
-                    <span className="relative z-10">Thrive</span>
+                    <span className="relative z-10">shine...</span>
 
                     <span className="absolute left-0 right-0 bottom-[-5px] md:bottom-[-10px] z-0">
                     <UnderlineSvg className="w-[110px] lg:w-[130px]  xl:w-[180px] " />

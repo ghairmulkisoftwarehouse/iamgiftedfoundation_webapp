@@ -8,6 +8,11 @@ const nextConfig = {
         port: '4750',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'iamgfserver.devoptixtech.com',
+        pathname: '/**',
+      },
     ],
   },
 };

@@ -25,7 +25,7 @@ const Navbar = () => {
      const router=useRouter();
         const { user } = useSelector((state) => state.auth);
         const token = getTokenCookie();
-            devLog(' this is  a  user',user); 
+            // devLog(' this is  a  user',user); 
   
 
    
@@ -66,9 +66,9 @@ const Navbar = () => {
   }, []);
 
   const fullname = user?.profile?.fullName || user?.doc?.username;
-  console.log('  this is a fullname',fullname)
+  // console.log('  this is a fullname',fullname)
 
-  console.log(' user?.profile?.fullName', user?.profile?.fullName)
+  // console.log(' user?.profile?.fullName', user?.profile?.fullName)
 
   const email = user?.doc?.email;
   const myrole = user?.doc?.roles?.[0];
