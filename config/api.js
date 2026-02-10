@@ -10,7 +10,7 @@ export const webAppBaseURL = "http://iamgiftedfoundation.vercel.app/"
 // export const apiBaseURL = "http://localhost:5500"
 
 
-export const baseURL = 'http://54.162.89.235:4750';  
+export const baseURL = 'https://iamgfserver.devoptixtech.com';  
 const Axios = axios.create({
    baseURL: `${baseURL}/api`,
   timeout: 10000,
