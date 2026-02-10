@@ -6,6 +6,7 @@ import ArrowUpSvg  from '@/assets/svg/ArrowUpSvg';
 import {initiateDonation} from '@/redux/actions/donateActions'
 import { useDispatch,useSelector } from "react-redux";
 import ButtonClipLoader   from '@/components/global/buttonClipLoader/ButtonClipLoader';
+import { webAppBaseURL } from "@/config/api";
 
 
 import Image from "next/image";
@@ -27,8 +28,10 @@ const [active, setActive] = useState('one-time');
     targetType: 'standalone',
     donationType: active === 'one-time' ? 'one_time' : 'recurring',
     amount: activeAmount,
-    anonymous: false,
+    anonymous: true,
     paymentProvider: 'PAYPAL',
+        successURL: `${webAppBaseURL}/success`,
+    cancelURL: `${webAppBaseURL}/cancel`, 
   };
 
   dispatch(initiateDonation(payload));

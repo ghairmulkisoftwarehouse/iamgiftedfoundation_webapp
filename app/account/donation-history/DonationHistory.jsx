@@ -5,21 +5,40 @@ import HeroSection from "@/components/global/HeroSectionBanner";
 import  Layout  from '@/components/global/AccountLayout';
 import  DonationTable   from '@/components/account/donationhistory/DonationTable';
 import { useSelector,useDispatch } from "react-redux";
+import { setStats } from "@/redux/reducers/donateSlice";
+import fetcher from "@/utils/fetcher";
+import { getTokenCookie } from "@/utils/authCookies";
+import { useQuery } from 'react-query';
 
-// import { getMyProfile } from "@/redux/actions/profileActions";
 const DonationHistory = () => {
+ const { docs } = useSelector(state => state.donate);
 
-  // const dispatch=useDispatch();
-  //  const { docs, loading, error } = useSelector((state) => state.profile);
+ console.log('docs  donete ',docs)
 
-  //  console.log('docs',docs);
+  const dispatch = useDispatch();
+  const token = getTokenCookie();
 
-  // useEffect(() => {
-  //   dispatch(getMyProfile());
-  // }, [dispatch]);
+ const { isLoading, isError, data, error } = useQuery(
+  ["my-donate-me"],
+  () => fetcher("/donation/me"),
+  {
+    enabled: !!token, 
+    onSuccess: (res) => {
+      console.log("Donation API response:", res); 
 
-  // if (loading) return <p>Loading...</p>;
-  // if (error) return <p className="text-red-500">{error}</p>;
+      if (res?.data?.data) {
+        const { docs, pages, docsCount, page } = res.data.data;
+        dispatch(setStats({ docs, pages, docsCount, page }));
+      } else {
+        console.warn("Unexpected response structure:", res);
+      }
+    },
+    onError: (err) => {
+      console.error("Donation API failed:", err);
+    },
+  }
+);
+
 
   return (
        <div className="flex flex-col w-full ">

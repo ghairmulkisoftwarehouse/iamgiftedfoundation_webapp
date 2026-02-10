@@ -1,31 +1,31 @@
 import Axios from "@/config/api";
-
 import toast from "react-hot-toast";
-import { setError,setCreateLoading} from "../reducers/donateSlice";
+import { setError, setCreateLoading } from "../reducers/donateSlice";
 
-export const initiateDonation  = (data, router) => async (dispatch) => {
+export const initiateDonation = (data) => async (dispatch) => {
   dispatch(setCreateLoading(true));
 
   try {
     const response = await Axios.post("/donation/initiate", data);
+
     const {
-      data: {
-        data: { message, doc },
-        status,
-        success,
-      },
+      data: { status, success, data: donationData },
     } = response;
 
     if (status === "success" && success) {
-     
-      toast.success(message);
+      toast.success(donationData.message || "Donation initiated");
+
+      if (donationData?.approvalUrl) {
+        window.location.href = donationData.approvalUrl;
+      } else {
+        throw new Error("Payment approval URL not found");
+      }
     } else {
-      throw new Error("Login failed");
+      throw new Error(donationData?.message || "Donation initiation failed");
     }
   } catch (error) {
     const errorMsg =
       error?.response?.data?.message ||
-   
       error?.message ||
       "Something went wrong";
 

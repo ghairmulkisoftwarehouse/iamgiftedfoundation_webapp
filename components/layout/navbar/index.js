@@ -50,10 +50,11 @@ const Navbar = () => {
          const pathname=usePathname();
          const isHome = pathname === "/";
 
-          const isAuthPage = pathname?.startsWith('/auth/login') || pathname?.startsWith('/auth/register') || pathname?.startsWith('/auth/reset-password') || pathname?.startsWith('/auth/verify-otp')  || pathname?.startsWith('/auth/forgotpassword');
+          const isAuthPage = pathname?.startsWith('/auth/login') || pathname?.startsWith('/auth/register') || pathname?.startsWith('/auth/reset-password') || pathname?.startsWith('/auth/verify-otp')  || pathname?.startsWith('/auth/forgotpassword') || pathname?.startsWith('/success')  ||  pathname?.startsWith('/cancel') ;
 
                 const isAccountPage = pathname?.startsWith('/account');
 
+              
 
            useEffect(() => {
     const handleScroll = () => {

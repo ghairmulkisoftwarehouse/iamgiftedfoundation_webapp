@@ -11,7 +11,7 @@ import Link from "next/link";
 import {initiateDonation} from '@/redux/actions/donateActions';
 import devLog from '@/utils/logsHelper';
 import ButtonClipLoader   from '@/components/global/buttonClipLoader/ButtonClipLoader';
-
+import { webAppBaseURL } from "@/config/api";
 
 
 
@@ -69,16 +69,17 @@ const [active, setActive] = useState('one-time');
       targetRef = pillerId;
     }
 
-    const payload = {
-      donation: amount,
-          donationType: active === 'one-time' ? 'one_time' : 'recurring',
+     const payload = {
+   amount,
+    donationType: active === "one-time" ? "one_time" : "recurring",
+    paymentMethod,
+    anonymous: anonymous,
+    targetType,
+    ...(targetRef && { targetRef }),
+    successURL: `${webAppBaseURL}/success`,
+    cancelURL: `${webAppBaseURL}/cancel`, 
+  };
 
-
-      paymentMethod,
-      anonymous: anonymous,
-      targetType, 
-         ...(targetRef && { targetRef }),
-    };
 
     
 

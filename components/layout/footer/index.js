@@ -31,7 +31,7 @@ const Footer = () => {
 
 
           const isAuthPage =    pathname?.startsWith('/auth/login') || pathname?.startsWith('/auth/register') ||  pathname?.startsWith('/auth/verify-otp')  || pathname?.startsWith('/auth/forgotpassword') 
-          || pathname?.startsWith('/auth/reset-password')
+          || pathname?.startsWith('/auth/reset-password') || pathname?.startsWith('/success') || pathname?.startsWith('/cancel')
           ;
 
 
