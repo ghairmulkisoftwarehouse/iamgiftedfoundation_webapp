@@ -15,11 +15,13 @@ import { webAppBaseURL } from "@/config/api";
 
 
 
+
 const DonateForm = () => { 
   const { user } = useSelector((state) => state.auth);    
    const dispatch=useDispatch();
     
      const token = getTokenCookie();
+    //  const token = getTokenCookie();
        const searchParams = useSearchParams();
   const programId = searchParams.get("program");
   const pillerId = searchParams.get("piller");
@@ -85,7 +87,7 @@ const [active, setActive] = useState('one-time');
 
     console.log("Form submitted:", payload);
 
-    dispatch(initiateDonation(payload));
+    dispatch(initiateDonation(payload,token));
     // Reset
     setAmount(100);
     setPaymentMethod("");

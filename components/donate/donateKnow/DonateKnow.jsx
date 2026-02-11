@@ -29,8 +29,9 @@ const DonateKnow = ({
 }) => {
 
  const { docs,doc } = useSelector(state => state.program);
+
+ 
 const [safeHtml, setSafeHtml] = useState("");
-  console.log(' tis is a  doc',doc)
 
      const [numBoxes, setNumBoxes] = useState(60);
        useEffect(() => {

@@ -12,11 +12,15 @@ import { useQuery } from 'react-query';
 
 const DonationHistory = () => {
  const { docs } = useSelector(state => state.donate);
+   const dispatch = useDispatch();
+  const token = getTokenCookie();
+
+
+//  console.log('this is a  ',docs)
 
  console.log('docs  donete ',docs)
 
-  const dispatch = useDispatch();
-  const token = getTokenCookie();
+
 
  const { isLoading, isError, data, error } = useQuery(
   ["my-donate-me"],
@@ -33,6 +37,7 @@ const DonationHistory = () => {
         console.warn("Unexpected response structure:", res);
       }
     },
+    
     onError: (err) => {
       console.error("Donation API failed:", err);
     },
@@ -49,7 +54,13 @@ const DonationHistory = () => {
       />
     <Layout>
 
-   <DonationTable/>
+   <DonationTable
+
+  isLoading={isLoading} 
+           isError={isError} 
+           error={error}
+
+   />
 
 </Layout>
 </div>

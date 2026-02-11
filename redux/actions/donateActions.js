@@ -2,11 +2,19 @@ import Axios from "@/config/api";
 import toast from "react-hot-toast";
 import { setError, setCreateLoading } from "../reducers/donateSlice";
 
-export const initiateDonation = (data) => async (dispatch) => {
+export const initiateDonation = (data,token) => async (dispatch) => {
   dispatch(setCreateLoading(true));
 
   try {
-    const response = await Axios.post("/donation/initiate", data);
+    const response = await Axios.post(
+      "/donation/initiate",
+      data,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
 
     const {
       data: { status, success, data: donationData },
