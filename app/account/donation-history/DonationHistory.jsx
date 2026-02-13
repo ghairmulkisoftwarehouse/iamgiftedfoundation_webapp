@@ -1,6 +1,6 @@
 
 'use client'
-import { useEffect } from "react";
+import { useState,useEffect } from "react";
 import HeroSection from "@/components/global/HeroSectionBanner";
 import  Layout  from '@/components/global/AccountLayout';
 import  DonationTable   from '@/components/account/donationhistory/DonationTable';
@@ -9,6 +9,7 @@ import { setStats } from "@/redux/reducers/donateSlice";
 import fetcher from "@/utils/fetcher";
 import { getTokenCookie } from "@/utils/authCookies";
 import { useQuery } from 'react-query';
+import devLog from "@/utils/logsHelper";
 
 const DonationHistory = () => {
  const { docs } = useSelector(state => state.donate);
@@ -18,26 +19,28 @@ const DonationHistory = () => {
 
 //  console.log('this is a  ',docs)
 
- console.log('docs  donete ',docs)
+// devLog('docs  donete ',docs)
 
 
+const [currentPage, setCurrentPage] = useState(1);
+const [limit] = useState(10);
 
- const { isLoading, isError, data, error } = useQuery(
-  ["my-donate-me"],
-  () => fetcher("/donation/me"),
+const { isLoading, isError, data, error } = useQuery(
+  ["my-donate-me", currentPage, limit], 
+  () =>
+    fetcher(
+      `/donation/me?pageSize=${limit}&page=${currentPage}`
+    ),
   {
     enabled: !!token, 
     onSuccess: (res) => {
-      console.log("Donation API response:", res); 
-
-      if (res?.data?.data) {
-        const { docs, pages, docsCount, page } = res.data.data;
+      if (res?.data) {
+        const { docs, pages, docsCount, page } = res.data;
         dispatch(setStats({ docs, pages, docsCount, page }));
       } else {
         console.warn("Unexpected response structure:", res);
       }
     },
-    
     onError: (err) => {
       console.error("Donation API failed:", err);
     },
@@ -55,7 +58,8 @@ const DonationHistory = () => {
     <Layout>
 
    <DonationTable
-
+setCurrentPage={setCurrentPage}
+currentPage={currentPage}
   isLoading={isLoading} 
            isError={isError} 
            error={error}

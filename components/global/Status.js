@@ -1,4 +1,4 @@
-'use client'
+
 import React, { memo } from 'react'
 
 
@@ -8,18 +8,17 @@ const Status = ({ status }) => {
         <div
         className={`
             ${
-                status === 'pending' || status === 'running'  || status === 'Upcoming'
+                status === 'pending' || status === 'running' ||  status === 'Pending' 
                 ? 
-                    'bg-yellow-500 bg-opacity-30 text-[#FFE500]'
+                    'bg-thistle'
                 : 
-                status === 'completed' || status === 'approved' || status === 'claimed' || status === 'active' || status === 'accepted'
-                ||    status === 'Open'
+                status === 'completed' || status === 'approved' || status === 'claimed' || status === 'active' || status === 'Active'  || status === 'accepted' || status === 'Successful' || status === 'Going'
                 ?
-                    ' bg-green-600/15  text-green-900'
+                    'bg-[#ECF8F0CC]  text-[#1C8C6E]'
                 : 
                 status === 'declined' || status === 'cancelled' || status === 'rejected' || 'expired'
                 ? 
-                    'bg-red-500 bg-opacity-30 text-[#FF0000]'
+                    'bg-[#DB000026] text-[#DB0000]'
                 : 
                 status === 'dispatched'
                 ? 
@@ -31,10 +30,10 @@ const Status = ({ status }) => {
                 :
                     ''
             }
-            text-sm px-2 rounded-md flex items-center gap-1 py-1 pb-1.5 font-medium w-fit capitalize
+            text-xs sm:text-sm px-2 rounded-md flex items-center gap-1 py-1 pb-1.5 font-normal w-fit capitalize
         `}
         >
-          
+            
             <span>
                 {status}
             </span>

@@ -8,6 +8,7 @@ import { setStats as setCategoryStats } from '@/redux/reducers/categorySlice';
 import { useQuery } from 'react-query';
 import Axios from '@/config/api';
 import devLog from '@/utils/logsHelper';
+import moment from 'moment';
 
 const Event = () => {
   const dispatch = useDispatch();
@@ -16,13 +17,22 @@ const Event = () => {
     const { docs:docsCategory } = useSelector(state => state.category);
   const [currentPage, setCurrentPage] = useState(1);
   const [activeTab, setActiveTab] = useState("All"); 
+  const [startDate, setStartDate] = useState(moment().toDate()); // today
+const [endDate, setEndDate] = useState(null);
 
 
   const [limit] = useState(10);
 
   devLog(' this is a docs:', docsCategory);
 
-     const eventsQueryKey = ["event", currentPage, limit, activeTab];
+    const eventsQueryKey = [
+  "event",
+  currentPage,
+  limit,
+  activeTab,
+  startDate,
+  endDate,
+];
   const categoriesQueryKey = ['category',];
 
 
@@ -35,11 +45,15 @@ const Event = () => {
   } = useQuery(
     eventsQueryKey,
     () => {
-      // Build URL dynamically
       let url = `/event?pageSize=${limit}&page=${currentPage}`;
       if (activeTab !== "All") {
         url += `&category=${activeTab}`;
       }
+   if (endDate ) {
+  const from = moment(startDate).format("YYYY-MM-DD");
+  const to = moment(endDate).format("YYYY-MM-DD");
+  url += `&from=${from}&to=${to}`;
+}
       return Axios.get(url);
     },
     {
@@ -90,9 +104,11 @@ const Event = () => {
         categoriesLoading={categoriesLoading}
         categoriesError={categoriesError}
         categoriesErrorObj={categoriesErrorObj}
+        setEndDate={setEndDate}
       />
     </div>
   );
 };
 
 export default Event;
+

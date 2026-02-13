@@ -11,10 +11,20 @@ import {setShowLogoutPopup} from '@/redux/reducers/appSlice';
 import { useDispatch } from 'react-redux';
 import Profileimg from '@/assets/images/kevintaran.png';
 import Image from 'next/image';
+import { useSelector } from 'react-redux';
+import fallbackImg from "@/assets/images/img2.jpg";
+import { baseURL } from "@/config/api";
+import SidebarProfileShimmer  from '@/components/global/effect/SiderbarProfileShimmer';
+
 
 
 export default function Sidebar() {
   const { accountPannel, setAccountPannel } = usePannelContext();
+ const { user,loading } = useSelector((state) => state.auth);
+
+//  console.log(' thisi  is a user',user)
+
+
   const dispatch=useDispatch();
 
      const pathname=usePathname();
@@ -22,6 +32,15 @@ export default function Sidebar() {
   const handleCloseSidebar = () => {
     setAccountPannel(false);
   };
+    const fullname = user?.profile?.fullName||user?.doc?.username ;
+         const firstLetter = fullname?.split(" ")[0]?.[0]?.toUpperCase() || "";
+
+  const email = user?.doc?.email;
+  const myrole = user?.doc?.roles?.[0];
+const profileImage = user?.doc?.image?.relativeAddress 
+  ? `${baseURL}/${user?.doc?.image.relativeAddress}` 
+  : fallbackImg;
+
 
   return (
     <>
@@ -51,29 +70,52 @@ export default function Sidebar() {
         </div>
 
 
-        <div className="flex items-center gap-2 px-3 ">
-                 <div className="w-[50px] h-[50px] rounded-full overflow-hidden">
+
+   {
+    loading  ? (
+    <SidebarProfileShimmer/>
+    ) :(
+   <div className="flex items-center gap-2 px-3 pt-2">
+            {
+               user?.doc?.image.relativeAddress  ?(
+               <div className="w-[50px] h-[50px] rounded-full overflow-hidden">
                 <Image
-                  src={Profileimg}
+                  src={`${baseURL}/${user?.doc?.image.relativeAddress}`}
                   alt="img"
                   width={78}
                   height={78}
                   className="w-full h-full rounded-full object-cover"
+                     
                 />
+              </div>
+               )
+             
+              :(
+
+                   <div className="w-[70px] h-[70px]   text-xl xl:text-2xl rounded-full overflow-hidden  flex justify-center items-center  capitalize   bg-[#DFE5EF]">
+                  
+                    {firstLetter}
               </div> 
+              )
+            }
+              
 
               <div className="flex flex-col gap-0.5">
-                <h2 className="text-sm lg:text-base font-semibold">
-                  Kevin Tran
+                <h2 className="text-sm lg:text-base font-semibold capitalize">
+                  {fullname}
                 </h2>
                 <p className="text-xs lg:text-sm text-[#A9ABB0]">
-                  user@gmail.com
+                   {email}
                 </p>
               </div>
             </div>
+    )
+   }
+
+      
 
             <div className="px-3 w-full pt-4 pb-10">
-           <div className="flex flex-col space-y-1 font-medium text-base ">
+           <div className="flex flex-col space-y-1.5  ">
               {AccountLinks.map((link, index) => {
                 const isActive =
                   link.path !== '/' &&
@@ -84,7 +126,11 @@ export default function Sidebar() {
                   <Link href={link.path} key={index}>
                     <div
                     onClick={handleCloseSidebar}
-                      className={`flex items-center justify-between px-2 py-2 rounded-full cursor-pointer text-sm  xl:text-[15px] font-medium text-[#030F0CCC] transition
+                      className={`flex items-center justify-between 
+
+
+                      cursor-pointer  py-2 px-3 lg:px-2.5 rounded-full transition-all duration-200
+                text-sm  xl:text-[15px]
                         ${
                           isActive
                             ? 'bg-mint-cyan'
@@ -92,7 +138,7 @@ export default function Sidebar() {
                         }`}
                     >
                       <div className="flex items-center gap-2">
-                        <div className="w-[35px] h-[35px] rounded-full bg-[#F4F6F6] flex items-center justify-center">
+                        <div className="w-[25px] h-[25px] rounded-full bg-[#F4F6F6] flex items-center justify-center">
                           {link.icon}
                         </div>
                         {link.name}

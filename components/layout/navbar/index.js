@@ -19,6 +19,7 @@ import { getTokenCookie } from "@/utils/authCookies";
 import { ClipLoader } from 'react-spinners';
 import { baseURL } from '@/config/api';
 import img from "@/assets/images/img2.jpg";
+import AccountMenu   from './AccountMenu';
 
 const Navbar = () => {
      const dispatch=useDispatch();
@@ -150,6 +151,14 @@ return(
           </ul>
         </div>
 
+
+
+
+
+ 
+
+        
+
         {/* Desktop Buttons */}
         <div className="hidden xl:block">
           <div className="flex gap-2.5 h-full">
@@ -204,13 +213,58 @@ profileImage={profileImage}
           </div>
         </div>
 
+<div className=' flex flex-row '>
+ <div className="block xl:hidden">
+          <div className="flex gap-2.5 h-full">
+                  
+ {!token ? (
+    <AccountMenu/>
+) : isLoading || !user ? (
+  <div className='   w-fit      flex justify-center items-center'>
+  <ClipLoader size={20} color="#000000" />
+  </div>
+) : (
+  <Usermenu   
+   fullname={fullname}
+   email={email}
+myrole={myrole}
+profileImage={profileImage}
+  />
+)}
+
+           
+     
+
+       {/* <Link href="/auth/login">
+        <button className="btn-animated bg-polar-mist group cursor-pointer relative overflow-hidden">
+          <span className="btn-animated-hover bg-gray-200 group-hover:w-40 group-hover:h-40 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full"></span>
+
+          <span className="btn-animated-text text-black group-hover:text-gray-900 relative z-10">
+            Account
+          </span>
+        </button>
+      </Link> */}
+
+
+
        
+
+          </div>
+        </div>
+
         <button className="xl:hidden  cursor-pointer">
+
+        
         <div onClick={() => setShowPannel(true)}>
                <BarsSvg  className="w-10 h-10 " />
         </div>
           
         </button>
+
+</div>
+
+
+
 
       </div>
 

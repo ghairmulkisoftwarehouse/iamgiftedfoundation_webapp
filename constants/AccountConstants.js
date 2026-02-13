@@ -16,6 +16,13 @@ import PersonSvg from "@/assets/svg/PersonSvg";
 import WorkShopSvg from "@/assets/svg/WorkShopSvg";
 
 export const AccountLinks = [
+
+
+   {
+    name: "Edit Profile",
+    path: "/account/editProfile",
+    icon: <EditProfileSvg />,
+  },
   {
     name: "Donation History",
     path: "/account/donation-history",
@@ -29,41 +36,40 @@ export const AccountLinks = [
   },
   {
     name: "Impact Report",
- path:"/account/impactreport",
+ path:"/impact",
     icon: <ImpactReportSvg />,
   },
   {
     name: "Registered Programs",
-    path: "/",
-    icon: <ImpactReportSvg />, // replace with actual Registered Programs SVG if you have
+    path: "/programs",
+    icon: <ImpactReportSvg />, 
   },
   {
     name: "Upcoming Events",
-    path: "/",
+    path: "/events",
     icon: <UpcomingEventSvg />,
   },
-  {
-    name: "Check-In / Check-Out",
- path: "/",
-    icon: <CheckInSvg />,
-  },
-  {
-    name: "Recognition Certificates",
-    path: "/",
-    icon: <ImpactReportSvg />, // replace with actual Recognition Certificates SVG
-  },
-  {
-    name: "Work Hours Tracking",
-    path: "/",
-    icon: <TrackingHoursSvg />,
-  },
 
-    {
-    name: "Edit Profile",
-    path: "/account/editProfile",
-    icon: <EditProfileSvg />,
-  },
+
+   
 ];
+
+
+//   {
+//     name: "Check-In / Check-Out",
+//  path: "/",
+//     icon: <CheckInSvg />,
+//   },
+//   {
+//     name: "Recognition Certificates",
+//     path: "/",
+//     icon: <ImpactReportSvg />, // replace with actual Recognition Certificates SVG
+//   },
+//   {
+//     name: "Work Hours Tracking",
+//     path: "/",
+//     icon: <TrackingHoursSvg />,
+//   },
 
 
 //    donation  account 

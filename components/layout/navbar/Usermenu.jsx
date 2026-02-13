@@ -44,9 +44,9 @@ export default function Usermenu(
       ref={menuRef}
     >
     
-      <div className=" hidden xl:block">
-         <div className=" flex flex-row gap-1 text-sm font-semibold ">
-      <h4 className=" ">Hi,</h4>
+      <div className=" block">
+         <div className=" flex flex-row gap-1 text-xs sm:text-sm font-semibold ">
+      <h4 className="  hidden   sm:block  ">Hi,</h4>
        <h4 className=" capitalize">{fullname}</h4>
 
 

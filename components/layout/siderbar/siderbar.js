@@ -29,7 +29,7 @@ export default function Sidebar() {
       <div
         className={`sidebar ${
           showPannel ? 'right-0' : 'right-[-200%]'
-        } fixed top-0 w-[300px] lg:w-0 bg-white min-h-screen overflow-auto pt-4 z-[60] shadow-lg pb-60 transition-all duration-300 ease-in-out`}
+        } fixed top-0 w-[300px] xl:w-0 bg-white min-h-screen overflow-auto pt-4 z-[60] shadow-lg pb-60 transition-all duration-300 ease-in-out`}
       >
         <div className="flex justify-between items-center w-full px-4">
           <Link href="/">

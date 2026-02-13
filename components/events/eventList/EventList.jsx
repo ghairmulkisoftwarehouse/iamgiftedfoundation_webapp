@@ -22,6 +22,7 @@ import ItemNotFound from '@/components/global/ItemNotFound';
 import fallbackimg  from '@/assets/images/img2.jpg'
 import moment from 'moment';
 import CategoryShimmer  from '@/components/global/effect/CategoryShimmer';
+import MyCalendar   from '@/components/global/mycalendar/MyCalendar';
 
 import { baseURL } from '@/config/api';
 
@@ -37,6 +38,7 @@ const EventList = (
     categoriesLoading,
       categoriesError,
     categoriesErrorObj,
+    setEndDate,
 }
   
  
@@ -103,11 +105,17 @@ const now = moment();
       Be part of IAMGIFTED Foundations engaging events, designed to empower youth and families while creating meaningful experiences through our Four Pillars.
             </p>
             </div>
+            
        
          </div>
          
 
 <div className=' w-full flex flex-col gap-4'>
+
+<div className='w-full px-5 md:px-3.5 md:container mx-auto'>
+<MyCalendar  setEndDate={setEndDate}/>
+</div>
+
 
  {categoriesLoading ? (
     <CategoryShimmer />
@@ -262,10 +270,10 @@ const now = moment();
     isRegistrationOpen    &&  !item?.waitlistEnabled && (
     <button
           
-            onClick={(e) => {
-              e.stopPropagation();
-              router.push("/auth/register");
-            }}
+           onClick={(e) => {
+  e.stopPropagation();
+  router.push(`/register-event/${item?._id}`);
+}}
             className="mt-auto btn-animated bg-mint-cyan border border-transparent w-full rounded-full relative overflow-hidden hover:border-[#8bc9c8]"
           >
             <span className="btn-animated-hover bg-[#9dd6d5] absolute top-1/2 left-1/2 w-0 h-0 rounded-full -translate-x-1/2 -translate-y-1/2 group-hover:w-[999px] group-hover:h-44 transition-all duration-500 ease-out"></span>
@@ -280,6 +288,10 @@ const now = moment();
     item?.waitlistEnabled
     && (
     <button
+            onClick={(e) => {
+  e.stopPropagation();
+  router.push(`/register-event/${item?._id}`);
+}}
          
             className="mt-auto btn-animated cursor-pointer bg-mint-cyan border border-transparent w-full rounded-full relative overflow-hidden hover:border-[#8bc9c8]"
           >
