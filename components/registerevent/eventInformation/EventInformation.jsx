@@ -25,6 +25,7 @@ import { baseURL } from '@/config/api';
 import  fallbackimg from '@/assets/images/img2.jpg'
 import Status  from '@/components/global/Status';
 import { useRouter } from 'next/navigation';
+import Registerfrom   from './Registerfrom';
 
 
 
@@ -36,16 +37,18 @@ const EventInformation = ({ eventId, loading, error, event,
 
 
           const router=useRouter();
-   const [activeIndex, setActiveIndex] = useState(-1); 
-    devLog('EventInformation props:', { eventId, loading, error, event });
     const now = moment();
     
 
-     devLog('EventInformation event:',event );
-      const mainImage =
-    activeIndex === -1
-      ? event?.featuredImage?.relativeAddress
-      : event?.images?.[activeIndex]?.relativeAddress;
+    console.log(' this is a  event',event)
+
+    //  devLog('EventInformation event:',event );
+    //   const mainImage =
+    // activeIndex === -1
+    //   ? event?.featuredImage?.relativeAddress
+    //   : event?.images?.[activeIndex]?.relativeAddress;
+        // devLog('EventInformation props:', { eventId, loading, error, event });
+
 
 
      const [numBoxes, setNumBoxes] = useState(60);
@@ -94,122 +97,78 @@ const EventInformation = ({ eventId, loading, error, event,
         </div>
 
       
-       <div className="grid grid-cols-1 lg:grid-cols-3 w-full px-5 md:px-3.5  md:container mx-auto  gap-6 relative z-5">
+       <div className=" w-full  flex  flex-col lg:flex-row    px-5 md:px-3.5  md:container mx-auto  gap-5 relative z-5">
           
 
 
-        {loading ? (
+<div className="   w-full  lg:w-2/4  flex flex-col gap-3.5 ">
+  {loading ? (
     <DetailShimmer />
   ) : error ? (
     <DisplayError message={error?.message || "Something went wrong"} />
   ) : event ? (
     <>
-   <div className='lg:col-span-2   flex flex-col gap-3.5     order-2 lg:order-2 '>
-
-     <div className="flex flex-col gap-0.5">
-             {/* Main Image */}
-         <Image
-           src={mainImage ? `${baseURL}/${mainImage}` : fallbackimg}
-           alt="Program Image"
-           width={794}
-           height={451}
-           className="w-full object-cover rounded-[22px] h-[300px] lg:h-[451px]"
-         />
-   
-         {/* Thumbnail Gallery */}
-         
-  {event?.images?.length > 0 && (
-         <div className="grid grid-cols-2 sm:flex sm:flex-row sm:flex-wrap gap-3 pt-3.5">
-           {/* Featured image thumbnail */}
-           <div
-             onClick={() => setActiveIndex(-1)}
-             className={`sm:w-[140px] h-[90px] rounded-[10px] overflow-hidden relative cursor-pointer border-2 ${
-               activeIndex === -1 ? "border-light-cyan" : "border-transparent"
-             }`}
-           >
-             <Image
-               src={`${baseURL}/${event?.featuredImage?.relativeAddress}`}
-               alt="featured"
-                   width={140}
-                  height={90}
-               className="w-full h-full object-cover transition-transform duration-500 ease-in-out hover:scale-110"
-             />
-           </div>
-   
-
-  {event?.images?.length > 0 && (
-  <div className="flex flex-row gap-2  items-center ">
-    {event.images.map((img, index) => (
-      <div
-        key={index}
-        onClick={() => setActiveIndex(index)}
-        className={`sm:w-[140px] h-[90px] rounded-[10px] overflow-hidden relative cursor-pointer border-2 ${
-          activeIndex === index ? "border-light-cyan" : "border-transparent"
-        }`}
-      >
+      {/* Event Main Image & Info */}
+      <div className="flex flex-col gap-0.5">
         <Image
-          src={`${baseURL}/${img?.relativeAddress}`}
-          alt={`img-${index + 1}`}
-          width={140}
-          height={90}
-          className="w-full h-full object-cover transition-transform duration-500 ease-in-out hover:scale-110"
+          src={
+            event?.featuredImage?.relativeAddress
+              ? `${baseURL}/${event?.featuredImage?.relativeAddress}`
+              : fallbackimg
+          }
+          alt="Program Image"
+          width={794}
+          height={451}
+          className="w-full object-cover rounded-[22px] h-[300px] lg:h-[451px]"
         />
-        <div className="absolute inset-0 bg-black/20 opacity-0 hover:opacity-100 transition-opacity duration-500 rounded-[10px]" />
-      </div>
-    ))}
-  </div>
-)}
 
-         </div>
-  )}
-
-  
-   <div className="flex flex-row flex-wrap gap-1.5">
+        {/* Event Details (Date & Location) */}
+        <div className="flex flex-row flex-wrap gap-1.5 mt-2">
           <div className="flex items-center gap-2">
             <CalendarSvg className="w-4 h-4 text-black" />
             <p className="font-normal text-xs md:text-base text-black">
-                {eventDateTime}
+              {eventDateTime}
             </p>
           </div>
 
           <div className="flex items-center gap-1.5">
             <DetailLocationSvg className="w-4 h-4 text-black" />
             <p className="font-normal text-xs md:text-base text-black">
-             
-              {location || 'Location not available'}
+              {location || "Location not available"}
             </p>
           </div>
-        </div> 
-   
-       
-         </div>
-
-
-
-          <div className=' flex flex-col gap-3'>
-          <h3  className={`text-[28px] lg:text-[34px] ${bison.className}`}> 
-          
-          {event?.title} 
-          </h3>
-
-
-<div
-      dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(event?.body) }}
-      className="text-[#030F0CCC] text-sm lg:text-[15px] leading-normal lg:leading-[35px]"
-    />
-
-
+        </div>
       </div>
 
- 
-     
-    
+      {/* Event Title & Body */}
+      <div className="flex flex-col gap-3 mt-4">
+        <h3 className={`text-[28px] lg:text-[34px] ${bison.className}`}>
+          {event?.title}
+        </h3>
 
-       </div>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: DOMPurify.sanitize(event?.body),
+          }}
+          className="text-[#030F0CCC] text-sm lg:text-[15px] leading-normal lg:leading-[35px]"
+        />
+      </div>
     </>
-  ): (
+  ) : (
     <ItemNotFound message="No Event found." />
   )}
+</div>
+
+
+<div className=" w-full  lg:w-2/4  flex flex-col gap-3.5 ">
+<Registerfrom eventId={eventId}/>
+
+</div>
+   
+
+
+
+
        
 
 

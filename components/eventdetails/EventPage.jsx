@@ -32,7 +32,7 @@ const EventPage = async({ params }) => {
 
     const { id } = await params;
       const eventId =id;
-       console.log(' this is a eventId',eventId)
+      //  console.log(' this is a eventId',eventId)
   let loading = true;
   let error = null;
   let event = null;

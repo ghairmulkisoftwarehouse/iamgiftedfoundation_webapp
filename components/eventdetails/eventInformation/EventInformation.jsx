@@ -11,6 +11,7 @@ import CalendarSvg from '@/assets/svg/CalendarSvg';
 import {eventSingleDetail,eventSingleList }  from '@/constants/EventConstants'
 import { motion } from "framer-motion";
 import { GoDotFill } from "react-icons/go";
+import { FaRegClock } from 'react-icons/fa';
 
 import devlog from '@/utils/logsHelper';
 import DetailShimmer   from '@/components/global/effect/DetailShimmer';
@@ -41,7 +42,7 @@ const EventInformation = ({ eventId, loading, error, event,
     const now = moment();
     
 
-     devLog('EventInformation event:',event );
+    //  devLog('EventInformation event:',event );
       const mainImage =
     activeIndex === -1
       ? event?.featuredImage?.relativeAddress
@@ -92,6 +93,20 @@ const EventInformation = ({ eventId, loading, error, event,
   const isRegistrationUpcoming = event?.registrationStartDate && now.isBefore(moment(event.registrationStartDate));
 
   // Motion variants for buttons
+
+
+
+   const daysLeft =
+    event?.eventDate && moment(event?.eventDate).isAfter(moment())
+      ? moment(event?.eventDate).diff(moment(), 'days')
+      : 0;
+
+const registeredCount = event?.registeredCount || 0;
+const capacity = event?.capacity; 
+const progress = capacity ? (registeredCount / capacity) * 100 : 100; 
+
+
+
   const buttonVariants = { hover: { scale: 1.05 }, tap: { scale: 0.95 } };
   const rippleVariants = { hover: { width: "999px", height: "44rem" } };
 
@@ -222,30 +237,67 @@ const EventInformation = ({ eventId, loading, error, event,
       dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(event?.body) }}
       className="text-[#030F0CCC] text-sm lg:text-[15px] leading-normal lg:leading-[35px]"
     />
+
+
+
      
-<div className="flex flex-row items-center gap-2 text-sm mt-[-30px]">
-              <h2 className="font-semibold  text-lg capitalize">status:</h2>
-           <div className="flex flex-row items-center gap-1">
-                <span className="pt-0.5 text-[10px]">
-                  <GoDotFill
-                    className={
-                      isRegistrationOpen
-                        ? "text-green-600"
-                        : isRegistrationUpcoming
-                        ? "text-yellow-500"
-                        : "text-red-600"
-                    }
-                  />
-                </span>
-                <p className="font-semibold text-black/60">
-                  {isRegistrationOpen
-                    ? "Open"
-                    : isRegistrationUpcoming
-                    ? "Upcoming"
-                    : "Closed"}
-                </p>
-              </div>
-        </div>
+
+     
+<div className="flex flex-col gap-0.5 w-full">
+  {/* Progress Bar */}
+  <div className="w-full bg-black/20 rounded-full h-2">
+    <div
+      className="bg-[#9BD6F6] h-2 rounded-full transition-all duration-500"
+      style={{
+        width: `${Math.min(progress, 100)}%`, 
+      }}
+    />
+  </div>
+
+  {/* Count & Days Left */}
+  <div className="flex justify-between items-center mt-1">
+    <p className="text-sm">
+      <span className="font-medium">{registeredCount}</span>
+      <span className="text-xs text-black/60">
+        {capacity ? `/${capacity}` : "/∞"}
+      </span>
+    </p>
+
+    <div className="flex items-center gap-1">
+      <FaRegClock />
+      {/* Uncomment below if you have daysLeft */}
+      <p className="text-xs">
+        {daysLeft} <span className="font-medium text-black/80">days left</span>
+      </p>
+    </div>
+  </div>
+</div>
+
+
+
+            {event?.hostedBy && event.hostedBy?.title && (
+      <div className="flex flex-row items-center gap-2 text-sm">
+        <h2 className="font-semibold text-base">Hosted By:</h2>
+        <p className="text-black/80">{event?.hostedBy?.title}</p>
+      </div>
+    )}
+
+{event?.sponsoredBy && event?.sponsoredBy.length > 0 && (
+  <div className="flex flex-row items-center gap-2 text-sm flex-wrap">
+    <h2 className="font-semibold text-base">Supported By:</h2>
+    <p className="text-black/80">
+      {event?.sponsoredBy.map((sponsor, index) => (
+        <span key={sponsor?._id}>
+          {sponsor.title}
+          {index < event.sponsoredBy.length - 1 ? ", " : ""}
+        </span>
+      ))}
+    </p>
+  </div>
+)}
+
+
+
       
 
       </div>
@@ -255,36 +307,37 @@ const EventInformation = ({ eventId, loading, error, event,
         <div className=" w-full  flex  justify-end gap-3 ">
           {/* Register */}
           {isRegistrationOpen && !event?.waitlistEnabled && (
-            <motion.button
-              onClick={() => router.push("/auth/register")}
-              variants={buttonVariants}
-              whileHover="hover"
-              whileTap="tap"
-              className="relative w-[197px] h-[50px]  cursor-pointer  rounded-full bg-mint-cyan text-black font-semibold overflow-hidden border border-transparent"
-            >
-              <motion.span
-                variants={rippleVariants}
-                className="absolute top-1/2 left-1/2 w-0 h-0 bg-[#9dd6d5] rounded-full -translate-x-1/2 -translate-y-1/2 transition-all duration-500 ease-out"
-              />
-              <span className="relative z-10">Register</span>
-            </motion.button>
-          )}
+  <motion.button
+    onClick={() => router.push(`/register-event/${eventId}`)}
+    variants={buttonVariants}
+    whileHover="hover"
+    whileTap="tap"
+    className="relative w-[197px] h-[50px] cursor-pointer rounded-full bg-mint-cyan text-black font-semibold overflow-hidden border border-transparent"
+  >
+    <motion.span
+      variants={rippleVariants}
+      className="absolute top-1/2 left-1/2 w-0 h-0 bg-[#9dd6d5] rounded-full -translate-x-1/2 -translate-y-1/2 transition-all duration-500 ease-out"
+    />
+    <span className="relative z-10">Register</span>
+  </motion.button>
+)}
 
-          {/* Waitlist */}
-          {event?.waitlistEnabled && (
-            <motion.button
-              variants={buttonVariants}
-              whileHover="hover"
-              whileTap="tap"
-              className="relative w-[197px]  h-[50px] cursor-pointer  rounded-full bg-mint-cyan text-black font-semibold overflow-hidden border border-transparent"
-            >
-              <motion.span
-                variants={rippleVariants}
-                className="absolute top-1/2 left-1/2 w-0 h-0 bg-[#9dd6d5] rounded-full -translate-x-1/2 -translate-y-1/2 transition-all duration-500 ease-out"
-              />
-              <span className="relative z-10">Waitlist</span>
-            </motion.button>
-          )}
+{   (isRegistrationOpen||isRegistrationUpcoming) 
+ && event?.waitlistEnabled && (
+  <motion.button
+    onClick={() => router.push(`/register-event/${eventId}`)}
+    variants={buttonVariants}
+    whileHover="hover"
+    whileTap="tap"
+    className="relative w-[197px] h-[50px] cursor-pointer rounded-full bg-mint-cyan text-black font-semibold overflow-hidden border border-transparent"
+  >
+    <motion.span
+      variants={rippleVariants}
+      className="absolute top-1/2 left-1/2 w-0 h-0 bg-[#9dd6d5] rounded-full -translate-x-1/2 -translate-y-1/2 transition-all duration-500 ease-out"
+    />
+    <span className="relative z-10">Register for Waitlist</span>
+  </motion.button>
+)}
 
           {/* Disabled */}
           {isRegistrationClosed && (

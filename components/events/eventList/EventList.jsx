@@ -47,7 +47,7 @@ const now = moment();
 
     const { docs ,pages} = useSelector(state => state.event);
        const { docs:docsCategory } = useSelector(state => state.category);
-  devLog('devLog',docsCategory);
+  // devLog('devLog',docsCategory);
 
   const [activeTab, setActiveTab] = useState('All'); 
   const tabs = ['All', 'Programs', 'Community', 'Fundraisers'];
@@ -283,25 +283,21 @@ const now = moment();
           </button>
     )
   }
+{(isRegistrationUpcoming || isRegistrationOpen) && item?.waitlistEnabled && (
+  <button
+    onClick={(e) => {
+      e.stopPropagation();
+      router.push(`/register-event/${item._id}`);
+    }}
+    className="mt-auto btn-animated group cursor-pointer bg-mint-cyan border border-transparent w-full rounded-full relative overflow-hidden hover:border-[#8bc9c8]"
+  >
+    <span className="btn-animated-hover bg-[#9dd6d5] absolute top-1/2 left-1/2 w-0 h-0 rounded-full -translate-x-1/2 -translate-y-1/2 group-hover:w-[999px] group-hover:h-44 transition-all duration-500 ease-out"></span>
+    <span className="btn-animated-text text-black font-semibold relative z-10">
+      Register for Waitlist
+    </span>
+  </button>
+)}
 
-  {
-    item?.waitlistEnabled
-    && (
-    <button
-            onClick={(e) => {
-  e.stopPropagation();
-  router.push(`/register-event/${item?._id}`);
-}}
-         
-            className="mt-auto btn-animated cursor-pointer bg-mint-cyan border border-transparent w-full rounded-full relative overflow-hidden hover:border-[#8bc9c8]"
-          >
-            <span className="btn-animated-hover bg-[#9dd6d5] absolute top-1/2 left-1/2 w-0 h-0 rounded-full -translate-x-1/2 -translate-y-1/2 group-hover:w-[999px] group-hover:h-44 transition-all duration-500 ease-out"></span>
-            <span className="btn-animated-text text-black font-semibold relative z-10">
-              Waitlist
-            </span>
-          </button>
-    )
-  }
 
   {
 
