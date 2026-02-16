@@ -61,7 +61,7 @@ const LoginForm = () => {
 
     dispatch(login(payload, router));
 
-    setFormData({ email: "", password: "" });
+    // setFormData({ email: "", password: "" });
   };
 
   return (

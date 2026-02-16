@@ -10,9 +10,7 @@ export const validateDonateForm = (data) => {
   if (!data.paymentMethod) {
     errors.paymentMethod = "Please select a payment method";
   }
-if (data.paymentMethod === "STRIPE") {
-    errors.paymentMethod = "Stripe is not available yet. Coming soon!";
-  }
+
 
 
   return errors;

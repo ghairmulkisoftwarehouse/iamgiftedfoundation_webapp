@@ -49,6 +49,16 @@
 }
 
 
+.custom-tablebody tr {
+  transition: background-color 0.3s ease;
+  font-size: 0.75rem; /* text-xs by default */
+}
+
+@media (min-width: 640px) {
+  .custom-tablebody tr {
+    font-size: 0.875rem; /* sm:text-sm on larger screens */
+  }
+}
 
 
 
@@ -77,8 +87,8 @@
 
 
   .custom-tablebody tr {
-    cursor: pointer;
     transition: background-color 0.3s ease;
+  
   }
   
   .custom-tablebody tr:hover {

@@ -28,6 +28,7 @@ const HeroSectionBanner = ({
  const isInvolvedPage = pathname === "/getinvolved";
  const isDonationPage = pathname === "/account/donation-history";
   const isImpactPage = pathname === "/account/impactreport";
+    const isProgramRegister = pathname === "/account/register-program";
 
 
   const isProgramPage = pathname.startsWith('/programs/');
@@ -65,7 +66,7 @@ const HeroSectionBanner = ({
           <span className="relative z-10">{title}</span>
           <span className="absolute left-0 right-0 bottom-[-2px] z-0">
  {
-  isEventDetailPage || isInvolvedPage || isDonationPage || isImpactPage ? (
+  isEventDetailPage || isInvolvedPage || isDonationPage || isImpactPage || isProgramRegister ? (
     <EventDetailSvg className={bannerSvgClass} />
   ) : isProgramPage  || isPillars ? (
     <UnderLineProgramSvg  className={bannerSvgClass}/>

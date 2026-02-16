@@ -41,7 +41,7 @@ export const AccountLinks = [
   },
   {
     name: "Registered Programs",
-    path: "/programs",
+    path: "/account/register-program",
     icon: <ImpactReportSvg />, 
   },
   {

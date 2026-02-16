@@ -22,7 +22,7 @@ const [selectProgram, setSelectProgram] = useState(null);
 
 
   // Safely log
-  devLog(' this is a    devLog',doc);
+  // devLog(' this is a    devLog',doc);
 
  useEffect(() => {
   if (docs.length > 0 && !selectProgram) {
@@ -67,7 +67,7 @@ const {
     enabled: !!selectProgram,
     refetchOnWindowFocus: false,
     onSuccess: (res) => {
-        devLog("Single program response:", res);
+        // devLog("Single program response:", res);
       const {
         data: {
           data: { doc },

@@ -12,6 +12,7 @@ import categorySlice   from './reducers/categorySlice';
 import donateSlice   from './reducers/donateSlice';
 import badgeSlice   from './reducers/badgeSlice';
 import teamSlice    from './reducers/teamSlice';
+import registerEventSlice   from './reducers/registerEventSlice';
 
 
 export const store = configureStore({
@@ -27,6 +28,7 @@ export const store = configureStore({
             donate:donateSlice,
             badge:badgeSlice,
             team:teamSlice,
+            registerEvent:registerEventSlice,
             
   },
 });

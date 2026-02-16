@@ -12,6 +12,11 @@ import {initiateDonation} from '@/redux/actions/donateActions';
 import devLog from '@/utils/logsHelper';
 import ButtonClipLoader   from '@/components/global/buttonClipLoader/ButtonClipLoader';
 import { webAppBaseURL } from "@/config/api";
+import paypalimg   from  '@/assets/images/paypalimg.png'
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+
+
 
 
 
@@ -19,22 +24,23 @@ import { webAppBaseURL } from "@/config/api";
 const DonateForm = () => { 
   const { user } = useSelector((state) => state.auth);    
    const dispatch=useDispatch();
-    
+      const router=useRouter();
      const token = getTokenCookie();
     //  const token = getTokenCookie();
        const searchParams = useSearchParams();
   const programId = searchParams.get("program");
   const pillerId = searchParams.get("piller");
 
+const [accountType, setAccountType] = useState("");
 
-
+const [isGuest, setIsGuest] = useState(false);
    const { createLoading,  } = useSelector((state) => state.donate);
   const isLoggedIn = !!user || !!token;
-  const [anonymous, setAnonymous] = useState(!isLoggedIn);
+  // const [anonymous, setAnonymous] = useState(!isLoggedIn);
 const [active, setActive] = useState('one-time');
   const [amount, setAmount] = useState(100);
   const [isCustom, setIsCustom] = useState(false);
-  const [paymentMethod, setPaymentMethod] = useState("");
+  const [paymentMethod, setPaymentMethod] = useState("PAYPAL");
   const [errors, setErrors] = useState({});
 
   const handlePresetClick = (value) => {
@@ -75,7 +81,8 @@ const [active, setActive] = useState('one-time');
    amount,
     donationType: active === "one-time" ? "one_time" : "recurring",
     paymentMethod,
-    anonymous: anonymous,
+        anonymous: isGuest,
+
     targetType,
     ...(targetRef && { targetRef }),
     successURL: `${webAppBaseURL}/success`,
@@ -85,12 +92,12 @@ const [active, setActive] = useState('one-time');
 
     
 
-    console.log("Form submitted:", payload);
+    // console.log("Form submitted:", payload);
 
     dispatch(initiateDonation(payload,token));
     // Reset
     setAmount(100);
-    setPaymentMethod("");
+    // setPaymentMethod("");
     setIsCustom(false);
     setErrors({});
   };
@@ -179,48 +186,128 @@ const [active, setActive] = useState('one-time');
       </div>
        
       {/* Payment Method */}
-      <div className="md:col-span-2 flex flex-col gap-2.5">
-        <h2 className="font-medium text-lg">Select Payment Method</h2>
+<div className="md:col-span-2 flex flex-col gap-2.5">
+  <h2 className="font-medium text-lg">Select Payment Method</h2>
 
-        <div className="flex flex-wrap gap-4">
-          {["PAYPAL", "STRIPE"].map((method) => (
-            <label key={method} className="flex items-center gap-1.5 cursor-pointer text-sm sm:text-[15px]">
-              <input
-                type="radio"
-                name="payment"
-                value={method}
-                checked={paymentMethod === method}
-                onChange={(e) => {
-                  setPaymentMethod(e.target.value);
-                  setErrors((prev) => ({ ...prev, paymentMethod: undefined }));
-                }}
-                className="accent-black"
-              />
-              {method === "PAYPAL" ? "PayPal" : "Stripe"}
-            </label>
-          ))}
-        </div>
+  <label
+    className={`flex items-center justify-between border rounded-md h-[60px] px-4 cursor-pointer transition
+      ${paymentMethod === "PAYPAL" ? "border-black" : "border-gray-300"}
+    `}
+  >
+    {/* Left side */}
+    <div className="flex items-center gap-3">
+      {/* Hidden native radio */}
+      <input
+        type="radio"
+        name="payment"
+        value="PAYPAL"
+        checked={paymentMethod === "PAYPAL"}
+        onChange={(e) => {
+          setPaymentMethod(e.target.value);
+          setErrors((prev) => ({ ...prev, paymentMethod: undefined }));
+        }}
+        className="hidden"
+      />
 
-        {errors.paymentMethod && (
-          <p className="text-xs text-red-500">{errors.paymentMethod}</p>
+      {/* Custom radio */}
+      <div
+        className={`w-[20px] h-[20px] rounded-full border-2 flex items-center justify-center
+          ${paymentMethod === "PAYPAL" ? "border-black" : "border-gray-400"}
+        `}
+      >
+        {paymentMethod === "PAYPAL" && (
+          <div className="w-3 h-3 bg-black   rounded-full ml-[0.5px] mt-[1]" />
         )}
       </div>
 
+      <span className="text-sm font-medium">PayPal</span>
+    </div>
+
+    {/* Right side */}
+    <Image
+      src={paypalimg}
+      alt="PayPal"
+      className="w-[100px] object-contain"
+    />
+  </label>
+
+  {errors.paymentMethod && (
+    <p className="text-xs text-red-500">{errors.paymentMethod}</p>
+  )}
+</div>
 
 
-      {/* Anonymous Toggle */}
-      {!isLoggedIn && (
-        <div className="md:col-span-2 flex items-center gap-2 ">
-          <input
-            type="checkbox"
-            checked={anonymous}
-            onChange={(e) => setAnonymous(e.target.checked)}
-            className="accent-black"
-          />
-          <span className="text-sm sm:text-[15px]">Donate anonymously</span>
-        </div>
-      )}
 
+
+<div className="md:col-span-2 flex flex-col gap-2.5">
+  <h2 className="font-medium text-lg">Account Type</h2>
+
+  <div className=" rounded-md overflow-hidden flex flex-col gap-2">
+    {/* Donate as Guest */}
+<label
+  className={`flex items-center gap-3 px-4 h-[60px] rounded-md cursor-pointer border transition
+        ${isGuest ? "border-black" : "border-gray-300"}
+  `}
+>
+  <input
+    type="checkbox" // Changed to checkbox
+    checked={isGuest}     
+    onChange={() => setIsGuest(!isGuest)} // Single source of truth
+    className="hidden"
+  />
+
+  {/* Custom UI remains the same */}
+  <div className={`w-[20px] h-[20px] rounded-full border-2 flex items-center justify-center
+          ${isGuest ? "border-black" : "border-gray-400"}
+    `}>
+    {isGuest &&           <div className="w-3 h-3 bg-black   rounded-full ml-[0.5px] mt-[1]" />
+}
+  </div>
+
+  <span className="text-sm font-medium">Donate as guest</span>
+</label>
+
+
+    {/* Create New Account */}
+
+    {!isLoggedIn && (
+
+    <label
+      className={`flex items-center gap-3 px-4 h-[60px] rounded-md  border cursor-pointer transition
+        ${accountType === "ACCOUNT" ? "border-black" : "border-gray-300"}
+      `}
+      onClick={() => {
+        setAccountType("ACCOUNT");
+        router.push("/auth/register");
+      }}
+    >
+      <input
+        type="radio"
+        name="accountType"
+        value="ACCOUNT"
+        checked={accountType === "ACCOUNT"}
+        readOnly
+        className="hidden"
+      />
+
+      <div
+        className={`w-[20px] h-[20px] rounded-full border-2 flex items-center justify-center
+          ${accountType === "ACCOUNT" ? "border-black" : "border-gray-400"}
+        `}
+      >
+        {accountType === "ACCOUNT" && (
+          <div className="w-3 h-3 bg-black rounded-full ml-[0.5px] mt-[1px]" />
+        )}
+      </div>
+
+      <span className="text-sm font-medium">Create a new account</span>
+    </label>
+    )}
+  </div>
+</div>
+
+
+    
       {/* Actions */}
       <div className="md:col-span-2 flex justify-end gap-3 pt-6">
         <button
@@ -235,19 +322,6 @@ const [active, setActive] = useState('one-time');
             
        
 
-  {!isLoggedIn && (
-    <Link href={'/auth/login'}>
-      <button
-         
-          className="btn-animated bg-mint-cyan border border-transparent group cursor-pointer w-[170px] text-[13px] sm:text-sm  relative overflow-hidden hover:border-[#8bc9c8]"
-        >
-          <span className="btn-animated-hover bg-[#9dd6d5] group-hover:w-[1000px] group-hover:h-[44px]"></span>
-          <span className="btn-animated-text text-black font-semibold group-hover:text-gray-900 flex items-center justify-center gap-2">
-          Register / Login
-        </span>
-      </button>
-    </Link>
-  )}
 
 
 

@@ -53,7 +53,7 @@ const profileImage = user?.doc?.image?.relativeAddress
    <div className="flex items-center gap-2 px-3 pt-6">
             {
                user?.doc?.image.relativeAddress  ?(
-               <div className="w-[70px] h-[70px] rounded-full overflow-hidden">
+               <div className="w-[70px] h-[70px] rounded-full overflow-hidden flex-shrink-0">
                 <Image
                   src={`${baseURL}/${user?.doc?.image.relativeAddress}`}
                   alt="img"
@@ -76,10 +76,10 @@ const profileImage = user?.doc?.image?.relativeAddress
               
 
               <div className="flex flex-col gap-0.5">
-                <h2 className="text-sm lg:text-base font-semibold capitalize">
+                <h2 className="text-sm xl:text-base font-semibold capitalize">
                   {fullname}
                 </h2>
-                <p className="text-xs lg:text-sm text-[#A9ABB0]">
+                <p className="text-xs xl:text-sm text-[#A9ABB0]">
                    {email}
                 </p>
               </div>

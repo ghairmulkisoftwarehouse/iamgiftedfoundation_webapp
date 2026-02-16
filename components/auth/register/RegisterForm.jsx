@@ -111,15 +111,15 @@ const RegisterForm = () => {
     confirmPassword: formData.confirmPassword,
   };
 
-  console.log("Submitting payload:", payload, "userType:", userType);
+  // console.log("Submitting payload:", payload, "userType:", userType);
 
   // Dispatch the registerUser action
   dispatch(registerUser(userType, payload, router));
 
   // Reset form
-  setFormData({ name: "", email: "", password: "", confirmPassword: "" });
-  setSelected("Donor");
-  setAcceptTerms(false);
+  // setFormData({ name: "", email: "", password: "", confirmPassword: "" });
+  // setSelected("Donor");
+  // setAcceptTerms(false);
 };
 
 
