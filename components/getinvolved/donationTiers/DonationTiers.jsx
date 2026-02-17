@@ -60,9 +60,9 @@ const DonationTiers = ({ isLoading, isError, error }) => {
         </div>
 
         {/* Pillar Tag */}
-        <div className="flex flex-row gap-1">
+        <div className="flex flex-col gap-1">
           <span className="font-semibold">Pillar Tag:</span>
-          <div className="flex items-center gap-0.5 bg-[#E5D5E5] rounded-full px-2.5 py-1.5">
+          <div className="flex items-center gap-0.5 bg-[#E5D5E5] w-fit rounded-full px-2.5 py-1.5">
             <DotSvg />
             <span className="text-xs font-semibold">
               {item?.title}

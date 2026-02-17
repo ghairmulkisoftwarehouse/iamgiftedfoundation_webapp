@@ -92,7 +92,7 @@ const Footer = () => {
             );
           })}
         </div>
-       <div className=" relative  w-full h-full  z-20 left-0  pb-4  lg:pb-0 container mx-auto px-3.5 ">
+       <div className=" relative   h-full  z-20 left-0  pb-4  lg:pb-0  w-full px-5 md:px-3.5  md:container mx-auto">
       
        <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-7 lg:gap-2.5 sm:justify-between pt-14">
          <div className="  w-full sm:w-[50%] lg:w-[30%]    h-full flex flex-col  gap-2.5">

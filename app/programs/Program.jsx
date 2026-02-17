@@ -20,7 +20,7 @@ const [limit, setLimit] = useState(10);
 
 
   // Safely log
-  devLog(' this is a   program',docs);
+  // devLog(' this is a   program',docs);
 
   const queryKey = ['program',currentPage, limit,];
 

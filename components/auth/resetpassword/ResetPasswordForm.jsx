@@ -65,7 +65,7 @@ const ResetPasswordForm = () => {
       otp: otpReset,
     };
 
-    console.log(' this is payload',payload)
+    // console.log(' this is payload',payload)
     dispatch(reset_Password(payload, router));
     setFormData({ password: "", confirmPassword: "" });
   };

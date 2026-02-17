@@ -40,7 +40,7 @@ const EventInformation = ({ eventId, loading, error, event,
     const now = moment();
     
 
-    console.log(' this is a  event',event)
+    // console.log(' this is a  event',event)
 
     //  devLog('EventInformation event:',event );
     //   const mainImage =

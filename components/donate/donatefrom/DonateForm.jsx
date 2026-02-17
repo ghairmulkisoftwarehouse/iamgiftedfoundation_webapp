@@ -216,7 +216,7 @@ const [active, setActive] = useState('one-time');
         `}
       >
         {paymentMethod === "PAYPAL" && (
-          <div className="w-3 h-3 bg-black   rounded-full ml-[0.5px] mt-[1]" />
+          <div className="w-3 h-3 bg-black   rounded-full ml-0 sm:ml-[0.5px] mt-0 sm:mt-[1]" />
         )}
       </div>
 
@@ -260,7 +260,7 @@ const [active, setActive] = useState('one-time');
   <div className={`w-[20px] h-[20px] rounded-full border-2 flex items-center justify-center
           ${isGuest ? "border-black" : "border-gray-400"}
     `}>
-    {isGuest &&           <div className="w-3 h-3 bg-black   rounded-full ml-[0.5px] mt-[1]" />
+    {isGuest &&           <div className="w-3 h-3 bg-black   rounded-full ml-0 sm:ml-[0.5px] mt-0 sm:mt-[1]" />
 }
   </div>
 

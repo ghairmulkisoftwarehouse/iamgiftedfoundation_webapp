@@ -38,7 +38,7 @@ const EventInformation = ({ eventId, loading, error, event,
 
           const router=useRouter();
    const [activeIndex, setActiveIndex] = useState(-1); 
-    devLog('EventInformation props:', { eventId, loading, error, event });
+    // devLog('EventInformation props:', { eventId, loading, error, event });
     const now = moment();
     
 
@@ -306,7 +306,7 @@ const progress = capacity ? (registeredCount / capacity) * 100 : 100;
         {/* Buttons */}
         <div className=" w-full  flex  justify-end gap-3 ">
           {/* Register */}
-          {isRegistrationOpen && !event?.waitlistEnabled && (
+          {isRegistrationOpen  && (
   <motion.button
     onClick={() => router.push(`/register-event/${eventId}`)}
     variants={buttonVariants}
@@ -322,8 +322,7 @@ const progress = capacity ? (registeredCount / capacity) * 100 : 100;
   </motion.button>
 )}
 
-{   (isRegistrationOpen||isRegistrationUpcoming) 
- && event?.waitlistEnabled && (
+{   (isRegistrationUpcoming) && item?.waitlistEnabled && (
   <motion.button
     onClick={() => router.push(`/register-event/${eventId}`)}
     variants={buttonVariants}

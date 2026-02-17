@@ -16,7 +16,7 @@ const Donate = () => {
 const [limit, setLimit] = useState(10);
 
  const  intialId=docs[0]?._id;
-  console.log( 'selectProgram  in s',intialId)
+  // console.log( 'selectProgram  in s',intialId)
 
 const [selectProgram, setSelectProgram] = useState(null);
 

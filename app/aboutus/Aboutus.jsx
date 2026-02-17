@@ -14,7 +14,7 @@ const Aboutus = () => {
   const { docs } = useSelector(state => state.team);
   const [currentPage, setCurrentPage] = useState(1);
 const [limit, setLimit] = useState(10);
-   console.log('docs',docs)
+  //  console.log('docs',docs)
 
 
   const queryKey = ['team',currentPage,limit];

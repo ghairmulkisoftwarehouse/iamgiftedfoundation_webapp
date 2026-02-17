@@ -22,6 +22,8 @@ export default function Usermenu(
   const [imgSrc, setImgSrc] = useState(profileImage);
   const [showMenu, toggleShowMenu] = useToggle();
   useClickOutside(menuRef, () => toggleShowMenu(false));
+const firstWord = fullname.split(" ")[0]; // "Inzamam"
+
 
   // const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -39,15 +41,25 @@ export default function Usermenu(
 
   return (
     <div
-      className="flex items-center gap-3 cursor-pointer relative"
+      className="flex items-center gap-2 xl:gap-3 cursor-pointer relative px-1.5"
       onClick={toggleShowMenu}
       ref={menuRef}
     >
     
-      <div className=" block">
+        <div className="w-[35px] h-[35px] xl:w-[40px] xl:h-[41px] rounded-full overflow-hidden   flex-shrink-0 block  xl:hidden  ">
+       <Image
+        src={imgSrc}
+        alt="Profile"
+        className="h-full w-full object-cover"
+        width={40}
+        height={40}
+        onError={() => setImgSrc(fallbackImg)}
+      />
+      </div>
+      <div className="   hidden xl:block">
          <div className=" flex flex-row gap-1 text-xs sm:text-sm font-semibold ">
       <h4 className="  hidden   sm:block  ">Hi,</h4>
-       <h4 className=" capitalize">{fullname}</h4>
+       <h4 className=" capitalize">{firstWord}</h4>
 
 
       </div>
@@ -56,7 +68,11 @@ export default function Usermenu(
      
 
       {/* Optional arrow */}
-      <IoIosArrowDown className=" text-sm text-foreground/50" />
+  <IoIosArrowDown
+  className={`text-sm text-foreground/50 transition-transform duration-200 ${
+    showMenu ? "rotate-180" : "rotate-0"
+  }`}
+/>
 
       {/* Dropdown */}
       <div

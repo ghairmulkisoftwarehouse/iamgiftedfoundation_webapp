@@ -55,12 +55,12 @@ const [safeHtml, setSafeHtml] = useState("");
        
          const boxes = Array.from({ length: numBoxes });
 
-// useEffect(() => {
-//   if (doc?.body) {
-//     const DOMPurify = require("dompurify");
-//     setSafeHtml(DOMPurify.sanitize(doc.body));
-//   }
-// }, [doc]);
+useEffect(() => {
+  if (doc?.body) {
+    const DOMPurify = require("dompurify");
+    setSafeHtml(DOMPurify.sanitize(doc.body));
+  }
+}, [doc]);
   return (
    <div className=" mt-16 w-full relative bg-[#F4F7F7]">
          <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 absolute left-0 top-[-90px] z-0 w-full">
@@ -135,13 +135,10 @@ const [safeHtml, setSafeHtml] = useState("");
           {doc?.title}
           </h3>
 
-
-<div
-
-  className="text-[#030F0CCC] text-sm lg:text-[15px] leading-normal lg:leading-[35px]">
-     A one-day, high-impact experience focused on building life skills, leadership, and confidence—both on and off the field. Participants engage in hands-on activities designed to strengthen teamwork, communication, and self-belief, creating skills they can carry into everyday life.
-  </div>
-
+ <div
+      className="text-[#030F0CCC] text-sm lg:text-[15px] leading-normal lg:leading-[35px]"
+      dangerouslySetInnerHTML={{ __html: safeHtml }}
+    />
         
      
 

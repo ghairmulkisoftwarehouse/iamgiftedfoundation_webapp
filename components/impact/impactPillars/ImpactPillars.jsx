@@ -26,9 +26,9 @@ const ImpactPillars = ({
      const { pillarWithPrograms } = useSelector(state => state.pillar);
 
   // Safely log
-  if (pillarWithPrograms?.docs) {
-    devLog('pillarWithPrograms', pillarWithPrograms?.docs);
-  }
+  // if (pillarWithPrograms?.docs) {
+  //   devLog('pillarWithPrograms', pillarWithPrograms?.docs);
+  // }
   const pillarProgram=pillarWithPrograms?.docs;
 
 

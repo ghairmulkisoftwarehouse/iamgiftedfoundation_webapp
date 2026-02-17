@@ -31,7 +31,7 @@ export const AccountLinks = [
 
     {
     name: "Badges Earned",
-    path: "/",
+    path: "/account/badges",
     icon: <BadgesSvg />,
   },
   {

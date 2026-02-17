@@ -20,9 +20,6 @@ import { useDispatch } from "react-redux";
 import { setShowDeleteEventPopup } from "@/redux/reducers/appSlice"
 
 
-
-
-
 const RegisterProgramTable = ({ isLoading = false, isError = false, error = null,setCurrentPage,
 currentPage,setEventId }) => {
 

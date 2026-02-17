@@ -13,7 +13,7 @@ const AppBadge = () => {
    const { publicBadge } = useSelector((state) => state.badge);
    
 
- console.log(' this is a  publicBadge',publicBadge)
+//  console.log(' this is a  publicBadge',publicBadge)
 
   const queryKey = ['publicBadge'];
 

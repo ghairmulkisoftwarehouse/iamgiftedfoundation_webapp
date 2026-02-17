@@ -267,7 +267,7 @@ const now = moment();
           </div>
   {
 
-    isRegistrationOpen    &&  !item?.waitlistEnabled && (
+    isRegistrationOpen    && (
     <button
           
            onClick={(e) => {
@@ -283,7 +283,7 @@ const now = moment();
           </button>
     )
   }
-{(isRegistrationUpcoming || isRegistrationOpen) && item?.waitlistEnabled && (
+{(isRegistrationUpcoming) && item?.waitlistEnabled && (
   <button
     onClick={(e) => {
       e.stopPropagation();

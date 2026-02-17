@@ -24,7 +24,7 @@ const ProgramInformation = ({ loading, error, program,
         allProgramError,
       programId}) => {
 
-   devlog(' this is a program list',allProgram)
+  //  devlog(' this is a program list',allProgram)
    const [activeIndex, setActiveIndex] = useState(-1); 
 
 

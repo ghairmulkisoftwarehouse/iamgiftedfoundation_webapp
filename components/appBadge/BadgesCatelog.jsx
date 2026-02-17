@@ -23,7 +23,7 @@ const BadgesCatelog = () => {
 
        const { publicBadge } = useSelector((state) => state.badge);
 
-  devLog('publicBadge',publicBadge);
+  // devLog('publicBadge',publicBadge);
 
 // const badges = [
 //   { title: "Seed Supporter", Svg: SeedSuppter25Svg },

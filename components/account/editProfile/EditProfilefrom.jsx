@@ -99,7 +99,7 @@ useEffect(() => {
   if (formData.name?.trim()) payload.fullName = formData.name.trim();
   if (formData.phone?.trim()) payload.phone = formData.phone.trim();
 
-  devLog('Payload to send:', payload);
+  // devLog('Payload to send:', payload);
 
   try {
     if (Object.keys(payload).length > 0) {

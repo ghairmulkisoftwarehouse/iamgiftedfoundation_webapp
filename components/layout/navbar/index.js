@@ -67,6 +67,7 @@ const Navbar = () => {
   }, []);
 
   const fullname = user?.profile?.fullName || user?.doc?.username;
+
   // console.log('  this is a fullname',fullname)
 
   // console.log(' user?.profile?.fullName', user?.profile?.fullName)

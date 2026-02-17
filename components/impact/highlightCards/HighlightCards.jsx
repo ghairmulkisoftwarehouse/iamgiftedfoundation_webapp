@@ -15,7 +15,7 @@ const HighlightCards = (
   }
 ) => {
       const { docs } = useSelector(state => state.impact);
-      console.log(' this is  docs',docs)
+      // console.log(' this is  docs',docs)
  
   return (
     <div className=" pt-20 w-full  bg-[#FBFFFF] pb-12 ">

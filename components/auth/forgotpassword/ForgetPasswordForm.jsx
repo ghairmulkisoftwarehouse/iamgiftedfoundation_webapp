@@ -53,7 +53,7 @@ const ForgetPasswordForm = () => {
         };
       
         
-        console.log("Form submitted:", payload);
+        // console.log("Form submitted:", payload);
       
 
          dispatch(forget_Password(payload, router));

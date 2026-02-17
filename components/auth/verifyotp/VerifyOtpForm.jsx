@@ -91,7 +91,7 @@ const handleSubmit = () => {
     type: forgetText ? forgetText : "email",
   };
 
-  devLog("email this is", data);
+  // devLog("email this is", data);
   dispatch(verify_OTP(data, router));
 };
 
@@ -107,7 +107,7 @@ const handleSubmit = () => {
     type: forgetText ? forgetText : "email",
   };
 
-  devLog('Resend OTP data:', data);
+  // devLog('Resend OTP data:', data);
 
   dispatch(resend_OTP(data));
 };

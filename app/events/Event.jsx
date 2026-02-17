@@ -23,7 +23,7 @@ const [endDate, setEndDate] = useState(null);
 
   const [limit] = useState(10);
 
-  devLog(' this is a docs:', docsCategory);
+  // devLog(' this is a docs:', docsCategory);
 
     const eventsQueryKey = [
   "event",

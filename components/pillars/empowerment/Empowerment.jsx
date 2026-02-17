@@ -20,14 +20,14 @@ const Empowerment = ({isLoading,isFetching,isError,error,setCurrentPage,currentP
 
    const { pillarWithPrograms } = useSelector(state => state.pillar);
 
-  // Safely log
-  if (pillarWithPrograms?.docs) {
-    devLog('pillarWithPrograms', pillarWithPrograms?.docs);
-  }
+  // // Safely log
+  // if (pillarWithPrograms?.docs) {
+  //   devLog('pillarWithPrograms', pillarWithPrograms?.docs);
+  // }
 
-  if (pillarWithPrograms?.pages) {
-    devLog('pillarWithPrograms', pillarWithPrograms?.pages);
-  }
+  // if (pillarWithPrograms?.pages) {
+  //   devLog('pillarWithPrograms', pillarWithPrograms?.pages);
+  // }
 
 
   //  const handleClick = (pillar) => {

@@ -26,9 +26,9 @@ const Impact = () => {
 const [limit, setLimit] = useState(4);
 
   // Safely log
-  if (pillarWithPrograms?.docs) {
-    devLog('pillarWithPrograms', pillarWithPrograms.docs);
-  }
+  // if (pillarWithPrograms?.docs) {
+  //   devLog('pillarWithPrograms', pillarWithPrograms.docs);
+  // }
 
   const pillarsQueryKey  = ['pillars',currentPage, limit,];
 
@@ -51,7 +51,7 @@ const [limit, setLimit] = useState(4);
   );
   
   // Safely log
-  devLog(' this is a ddd   devLog  imapct ',docs);
+  // devLog(' this is a ddd   devLog  imapct ',docs);
 
 const queryKey = ["impact"];
 

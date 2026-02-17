@@ -16,10 +16,10 @@ const Pillars = () => {
    const [currentPage, setCurrentPage] = useState(1);
 const [limit, setLimit] = useState(4);
 
-  // Safely log
-  if (pillarWithPrograms?.docs) {
-    devLog('pillarWithPrograms', pillarWithPrograms.docs);
-  }
+  // // Safely log
+  // if (pillarWithPrograms?.docs) {
+  //   devLog('pillarWithPrograms', pillarWithPrograms.docs);
+  // }
 
   const queryKey = ['pillars',currentPage, limit,];
 
