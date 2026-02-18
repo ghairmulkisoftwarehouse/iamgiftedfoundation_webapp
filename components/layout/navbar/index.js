@@ -26,6 +26,8 @@ const Navbar = () => {
      const router=useRouter();
         const { user } = useSelector((state) => state.auth);
         const token = getTokenCookie();
+          const {setAccountPannel,  setShowPannel } = usePannelContext();
+        
             // devLog(' this is  a  user',user); 
   
 
