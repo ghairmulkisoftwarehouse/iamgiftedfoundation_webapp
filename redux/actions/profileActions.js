@@ -4,9 +4,9 @@ import Axios from "@/config/api";
 
 import toast from "react-hot-toast";
 import { setError, setLoading} from "../reducers/profileSlice";
-import {getTokenCookie } from "@/utils/authCookies";
+import {getTokenCookie,removeTokenCookie } from "@/utils/authCookies";
 
-export const updateProfile = (data) => async (dispatch, getState) => {
+export const updateProfile = (data,router) => async (dispatch, getState) => {
   const token = getTokenCookie();
   try {
     dispatch(setLoading(true));
@@ -23,6 +23,10 @@ export const updateProfile = (data) => async (dispatch, getState) => {
     });
 
     toast.success(message);
+    if (data.password) {
+      removeTokenCookie(); 
+      router.push('/auth/login');
+    }
 
   } catch (err) {
     const errorMsg =

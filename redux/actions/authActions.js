@@ -129,7 +129,6 @@ export const verify_OTP = (data, router) => async (dispatch) => {
     dispatch(setLoading(false));
   }
 };
-
 export const resend_OTP = (data) => async (dispatch) => {
   dispatch(setResendingLoading(true));
 
@@ -162,7 +161,6 @@ export const resend_OTP = (data) => async (dispatch) => {
     dispatch(setResendingLoading(false));
   }
 };
-
 export const forget_Password = (data, router) => async (dispatch) => {
   dispatch(setLoading(true));
 
@@ -202,7 +200,6 @@ export const forget_Password = (data, router) => async (dispatch) => {
     dispatch(setLoading(false));
   }
 };
-
 export const reset_Password = (data, router) => async (dispatch) => {
   dispatch(setLoading(true));
 
@@ -241,22 +238,6 @@ export const reset_Password = (data, router) => async (dispatch) => {
     dispatch(setLoading(false));
   }
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 export const logout = (router) => async (dispatch) => {

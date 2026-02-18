@@ -9,6 +9,7 @@ const authSlice = createSlice({
     resendingLoading:false,
     loading: false,
     error: null,
+    userError:null,
      type:'',
      resetOtp:'',
   },
@@ -33,6 +34,10 @@ const authSlice = createSlice({
     },
     
 
+     setUserError(state, action) {
+      state.userError = action.payload;
+    },
+
     setError(state, action) {
       state.error = action.payload;
     },
@@ -40,5 +45,5 @@ const authSlice = createSlice({
   },
 });
 
-export const { setUser, setLoading, setError,setRegisterEmail,setResendingLoading,setType,setResetOtp } = authSlice.actions;
+export const { setUser,setUserError, setLoading, setError,setRegisterEmail,setResendingLoading,setType,setResetOtp } = authSlice.actions;
 export default authSlice.reducer;

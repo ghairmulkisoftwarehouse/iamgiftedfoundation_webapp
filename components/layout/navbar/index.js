@@ -15,7 +15,7 @@ import devLog from '@/utils/logsHelper';
 import fetcher from '@/utils/fetcher';
 import { useQuery } from 'react-query';
 import { useRouter } from 'next/navigation';
-import { getTokenCookie } from "@/utils/authCookies";
+import { getTokenCookie,removeTokenCookie } from "@/utils/authCookies";
 import { ClipLoader } from 'react-spinners';
 import { baseURL } from '@/config/api';
 import img from "@/assets/images/img2.jpg";
@@ -29,23 +29,33 @@ const Navbar = () => {
             // devLog(' this is  a  user',user); 
   
 
-   
-  
 
-   const { isLoading, isError, data, error } = useQuery({
+            const { isLoading, isError, data, error } = useQuery({
   queryKey: ["my-user-profile"],
   queryFn: () => fetcher("/user/my-profile"),
   enabled: !!token, 
   onSuccess: (res) => {
+    console.log("Profile response:", res);
+
     if (res?.status === "success" && res?.data?.doc) {
       dispatch(setUser(res.data));
     }
   },
   onError: (err) => {
     console.error("Profile API failed:", err);
+
+    const status = err?.response?.status || null;
+
+    if (status === 401 || status === 400) {
+      dispatch(setUser(null));
+      removeTokenCookie();
+      router.push("/auth/login");
+    }
   },
 });
-         const {  setShowPannel,setAccountPannel } = usePannelContext();
+   
+  
+
            const [scrolled, setScrolled] = useState(false);
 
          const pathname=usePathname();

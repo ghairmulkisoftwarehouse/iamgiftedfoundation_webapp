@@ -4,6 +4,8 @@ export function middleware(req) {
   const token = req.cookies.get("access_token")?.value;
   const { pathname } = req.nextUrl;
 
+
+  
   const publicPaths = [
     "/auth/login",
     "/auth/register",

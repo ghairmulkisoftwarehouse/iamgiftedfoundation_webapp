@@ -15,6 +15,7 @@ import toast from "react-hot-toast";
 import { convertImageUrlToBase64 } from '@/utils/convertImageUrlToBase64';
 import { baseURL } from '@/config/api';
 import { getTokenCookie } from "@/utils/authCookies";
+import { useRouter } from 'next/navigation';
 
 
 
@@ -24,6 +25,7 @@ const EditProfilefrom = () => {
   const { loading } = useSelector((state) => state.profile);
   const dispatch = useDispatch();
   const queryClient = useQueryClient();
+  const router=useRouter();
 
   
 
@@ -98,12 +100,14 @@ useEffect(() => {
   const payload = {};
   if (formData.name?.trim()) payload.fullName = formData.name.trim();
   if (formData.phone?.trim()) payload.phone = formData.phone.trim();
+   if (formData.password?.trim()) payload.password = formData.password.trim();
 
-  // devLog('Payload to send:', payload);
+
+  devLog('Payload to send:', payload);
 
   try {
     if (Object.keys(payload).length > 0) {
-      await dispatch(updateProfile(payload));
+      await dispatch(updateProfile(payload,router));
     }
 
   
