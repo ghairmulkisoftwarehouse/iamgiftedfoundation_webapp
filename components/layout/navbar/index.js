@@ -179,7 +179,7 @@ return(
  {!token ? (
   // No token: show login button
   <Link href="/auth/login">
-    <button className="btn-animated bg-polar-mist group relative overflow-hidden">
+    <button className="btn-animated cursor-pointer bg-polar-mist group relative overflow-hidden">
       <span className="btn-animated-hover bg-gray-200 group-hover:w-40 group-hover:h-40 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full"></span>
       <span className="btn-animated-text text-black group-hover:text-gray-900 relative z-10">
         Account
@@ -202,17 +202,6 @@ profileImage={profileImage}
            
      
 
-       {/* <Link href="/auth/login">
-        <button className="btn-animated bg-polar-mist group cursor-pointer relative overflow-hidden">
-          <span className="btn-animated-hover bg-gray-200 group-hover:w-40 group-hover:h-40 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full"></span>
-
-          <span className="btn-animated-text text-black group-hover:text-gray-900 relative z-10">
-            Account
-          </span>
-        </button>
-      </Link> */}
-
-
 
          <Link href="/donate">
   <button className="btn-animated bg-mint-cyan border border-transparent group cursor-pointer relative overflow-hidden hover:border-[#8bc9c8]">
@@ -226,7 +215,7 @@ profileImage={profileImage}
           </div>
         </div>
 
-<div className=' flex flex-row '>
+<div className=' flex flex-row  block xl:hidden '>
  <div className="block xl:hidden">
           <div className="flex gap-2.5 h-full">
                   

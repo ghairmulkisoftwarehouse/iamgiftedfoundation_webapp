@@ -2,10 +2,19 @@
 import { useState,useEffect } from 'react';
 import  HeroSectionBanner  from '@/components/global/HeroSectionBanner'
 import DonateKnow  from '@/components/donate/donateKnow/DonateKnow';
+import GetInvolvedHeroSection   from '@/components/getinvolved/getInvolvedHeroSection/GetInvolvedHeroSection';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { setStats,setDoc } from '@/redux/reducers/programSlice';
 import { useQuery } from 'react-query';
 import Axios from '@/config/api';
+import DonationTiers   from '@/components/getinvolved/donationTiers/DonationTiers';
+import TrackImpact   from '@/components/global/trackImpact/TrackImpact';
+import Foundationgurdian  from '@/components/getinvolved/foundationgurdian/Foundationgurdian';
+import { setPillarWithPrograms } from '@/redux/reducers/pillarSlice';
+import ContributionCounts  from '@/components/getinvolved/contributionCounts/ContributionCounts';
+import { Suspense } from "react";
+
 import devLog from '@/utils/logsHelper';
 
 
@@ -14,6 +23,8 @@ const Donate = () => {
  const { docs,doc } = useSelector(state => state.program);
   const [currentPage, setCurrentPage] = useState(1);
 const [limit, setLimit] = useState(10);
+   const { pillarWithPrograms } = useSelector(state => state.pillar);
+
 
  const  intialId=docs[0]?._id;
   // console.log( 'selectProgram  in s',intialId)
@@ -47,6 +58,32 @@ const [selectProgram, setSelectProgram] = useState(null);
         }
   );
 
+
+
+
+
+
+
+  const pillerQueryKey = ['pillars',];
+
+  const { isLoading: isPillarsLoading,
+  isError: isPillarsError,
+  error: pillarsError } = useQuery(
+    pillerQueryKey,
+    () => {
+      const url = `/piller/with-programs-list?sortBy=createdAt_descending`; 
+      return Axios.get(url);
+    },
+    {
+      refetchOnWindowFocus: false,
+      onSuccess: (res) => {
+        const {
+          data: { docs, pages, docsCount, page },
+        } = res.data;
+        dispatch(setPillarWithPrograms({ docs, pages, docsCount, page }));
+      },
+    }
+  );
 
 
 
@@ -88,13 +125,9 @@ const {
 
 
           <div className="flex  flex-col  w-full ">
-            <HeroSectionBanner
-            title="Donate now"
-             height=" h-[200px] md:h-[250px] "
-               bannerSvgClass = '   w-[190px] lg:w-[210px]  xl:w-[280px] '   
-             subtitleClass=" text-sm sm:text-base  md:text-[17px]   text-white/70"
+                <GetInvolvedHeroSection
             />
-            <DonateKnow
+            {/* <DonateKnow
 selectProgram={selectProgram}
 setSelectProgram={setSelectProgram}
       singleProgramLoading={singleProgramLoading}
@@ -104,7 +137,21 @@ setSelectProgram={setSelectProgram}
            isLoading={isLoading && currentPage === 1} 
            isError={isError} 
            error={error}
-            />
+            /> */}
+
+              <Foundationgurdian/>
+                <Suspense fallback={<div>Loading…</div>}>
+                    <ContributionCounts />
+                  </Suspense>
+
+           <DonationTiers
+  isLoading={isPillarsLoading}
+  isError={isPillarsError}
+  error={pillarsError}
+/>
+           <div className='mt-16 w-full '>
+             <TrackImpact/>
+           </div>
        
             
 

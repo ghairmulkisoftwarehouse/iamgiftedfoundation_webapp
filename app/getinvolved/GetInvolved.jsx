@@ -12,6 +12,7 @@ import Foundationgurdian  from '@/components/getinvolved/foundationgurdian/Found
 import { useDispatch, useSelector } from 'react-redux';
 import { setPillarWithPrograms } from '@/redux/reducers/pillarSlice';
 import ContributionCounts  from '@/components/getinvolved/contributionCounts/ContributionCounts';
+import { Suspense } from "react";
 
 import { useQuery } from 'react-query';
 import Axios from '@/config/api';
@@ -54,7 +55,9 @@ const GetInvolved = () => {
             />
 
           <Foundationgurdian/>
-          <ContributionCounts/>
+      <Suspense fallback={<div>Loading…</div>}>
+                         <ContributionCounts />
+                       </Suspense>
 
             <DonationTiers 
              isLoading={isLoading} 

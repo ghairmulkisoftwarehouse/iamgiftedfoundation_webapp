@@ -1,7 +1,6 @@
 
 
 'use client'
-
 import React from 'react';
 import ButterfullySvg from '@/assets/svg/LeftPinkButterfullySvg';
 import ButterfullyrightSvg from '@/assets/svg/RightPinkButterfullysvg';
@@ -46,13 +45,12 @@ const GetInvolvedHeroSection = () => {
     ${bison.className}`}
 >      
         <span className="">
-        donate/GET INVOLVED
-   
+           Donate know   
       
         </span>
 
             <span className="absolute right-0  bottom-[-13px]  xs:bottom-[-2px] z-0">
-             <UnderLineProgramSvg   className={' w-[330px] h-[15px] xs:h-auto   xs:w-[340px]   lg:w-[380px] xl:w-[490px]'}/>
+             <UnderLineProgramSvg   className={'  w-[190px] lg:w-[210px]  xl:w-[300px]'}/>
        
         </span>
       </h2>   

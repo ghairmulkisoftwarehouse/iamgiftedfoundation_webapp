@@ -3,8 +3,8 @@ export const navLinks = [
    { name: "Programs" ,path:"/programs" },
     { name: "Impact", path: "/impact" }, 
       { name: "Events" ,  path:"/events" || "/events/ " },
-        { name: "Donate/Get Involved" , path:'/getinvolved'},  
-          { name: "Donate " , path:'/donate'},  
+        // { name: "Donate/Get Involved" , path:'/getinvolved'},  
+        //   { name: "Donate " , path:'/donate'},  
    { name: "About", path: "/aboutus" },          
   //    { name: "Pillars", path: "/pillars" },
 
@@ -18,12 +18,11 @@ export const navLinks = [
 
 
 export const footerNavLinks = [
-   { name: "Home", path: "/" },  
-   { name: "About Us", path: "/aboutus" },          
-     { name: "Pillars", path: "/pillars" },
- { name: "Impact", path: "/impact" },
-  { name: "Programs" ,path:"/programs" },        
-  { name: "Events" ,  path:"/events" || "/events/ " },     
-  { name: "Donate/Get Involved" , path:'/getinvolved'},    
+ { name: "Home", path: "/" },  
+   { name: "Programs" ,path:"/programs" },
+    { name: "Impact", path: "/impact" }, 
+      { name: "Events" ,  path:"/events" || "/events/ " },
+     
+   { name: "About", path: "/aboutus" },           
   { name: "Contact",path:"/contact" }, 
 ];
