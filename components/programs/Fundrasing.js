@@ -77,16 +77,47 @@ const Fundrasing = ({
          <div className="flex flex-col w-full items-center gap-10">
 
          <div className=' flex flex-col gap-2'>
-                <h2
+         <div className=' w-full sm:w-[80%] md:w-[70%] mx-auto'>
+          <h2
              className={`text-black text-4xl  sm:text-[46px] lg:text-[55px]  text-center  ${bison.className}`}
            >
-      Programs That Transform Belief Into Action
+     Empowering Youth. Strengthening Families. Transforming Communities
            </h2>
+
+         </div>
+               
          <div className=' w-full px-6  md:px-0   md:w-4/5  lg:w-8/12 mx-auto'>
         <p className='  text-sm sm:text-base md:text-lg  font-thin text-[#030F0CCC]/80  text-center ' >
-           IAMGIFTED Foundation programs are designed to deliver real-world outcomes for youth and families while following our Four Pillars.
+          IAMGIFTED Foundation delivers structured, purpose-driven programs that equip youth with life skills, mentorship, academic support, and mental wellness tools that last far beyond the moment.
             </p>
             </div>
+
+              <div className="  grid grid-cols-2 xs:grid-cols-none xs:flex  xs:flex-wrap xs:flex-row items-center  gap-2 w-full   xs:justify-center">
+                    
+
+
+               <button className="btn-animated  bg-mint-cyan w-full xs:w-[160px] h-[45px]   group cursor-pointer relative overflow-hidden hover:border-[#8bc9c8]">
+              <span className="btn-animated-hover bg-[#9dd6d5] group-hover:w-48 group-hover:h-44"></span>
+              <span className="btn-animated-text text-black group-hover:text-gray-900  text-[13px] xs:text-sm sm:text-base   font-semibold">
+               Explore Programs
+              </span>
+            </button>
+                      
+
+               <button className="btn-animated    bg-mint-cyan w-full xs:w-[196px]  h-[45px]   group cursor-pointer relative overflow-hidden hover:border-[#8bc9c8]">
+              <span className="btn-animated-hover bg-[#9dd6d5] group-hover:w-48 group-hover:h-44"></span>
+              <span className="btn-animated-text text-black group-hover:text-gray-900  text-[13px] xs:text-sm sm:text-base  font-semibold">
+              Support a Program
+              </span>
+            </button>
+                      
+        
+            
+                
+
+                
+                
+                </div>
        
          </div>
          
