@@ -45,12 +45,12 @@ const GetInvolvedHeroSection = () => {
     ${bison.className}`}
 >      
         <span className="">
-           Donate know   
+           Donate Now   
       
         </span>
 
             <span className="absolute right-0  bottom-[-13px]  xs:bottom-[-2px] z-0">
-             <UnderLineProgramSvg   className={'  w-[190px] lg:w-[210px]  xl:w-[300px]'}/>
+             <UnderLineProgramSvg   className={'  w-[190px] lg:w-[210px]  xl:w-[270px]'}/>
        
         </span>
       </h2>   

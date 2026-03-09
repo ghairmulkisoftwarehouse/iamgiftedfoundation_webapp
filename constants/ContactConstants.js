@@ -10,19 +10,19 @@ export const ContactItems = [
   {
     id: 1,
     title: "Address",
-    description: "Make a one-time contribution of",
+    description: "IAMGIFTED Foundation 1505 S D St Suite 202 San Bernardino CA 92408",
     icon: ContactLocationSvg,
   },
   {
     id: 2,
     title: "Phone",
-    description: "Make a one-time contribution of",
+    description: "+1 909-200-3595",
     icon: PhoneSvg,
   },
   {
     id: 3,
     title: "Email",
-    description: "Make a one-time contribution of",
+    description: " hello@iamgiftedfoundation.org",
     icon: EmailSvg,
   },
   {

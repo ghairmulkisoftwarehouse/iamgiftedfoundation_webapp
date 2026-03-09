@@ -111,7 +111,7 @@ const handleSubmit = async () => {
         key={index} 
         className="  flex items-center gap-4  w-full"
       >
-               <div className="w-[50px] h-[50px] lg:w-[60px] lg:h-[60px] bg-[#B7A6B7] rounded-full flex justify-center items-center
+               <div className="w-[50px] h-[50px] shrink-0 lg:w-[60px] lg:h-[60px] bg-[#B7A6B7] rounded-full flex justify-center items-center
                 cursor-pointer
                         transform transition-transform duration-300 ease-in-out
                         hover:scale-110">
