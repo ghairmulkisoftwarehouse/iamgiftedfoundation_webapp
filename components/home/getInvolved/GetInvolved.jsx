@@ -10,6 +10,7 @@ const GetInvolved = () => {
         <h2 className={`text-black text-4xl sm:text-[46px] lg:text-[55px] ${bison.className}`}>
           GET INVOLVED
         </h2>
+        
               <div className=' w-full    md:w-4/5  lg:w-8/12'>
              <p className='text-sm sm:text-base md:text-lg  font-thin text-[#030F0CCC]/80  '>
 Whether you donate, volunteer, partner, or advocate, your support helps create opportunities for youth to thrive.
@@ -35,6 +36,9 @@ Whether you donate, volunteer, partner, or advocate, your support helps create o
                   <Icon className="w-[70px] h-[70px] md:w-auto md:h-auto" />
                 </div>
                 <h2 className={`text-xl xl:text-[22px] font-semibold ${textColorClass}`}>{item.title}</h2>
+                <div className=' flex flex-col  gap-1 w-full '>
+                    <div className={`text-base xl:text-lg  text-black/90 font-medium mx-auto `}>{item.subtitle}</div>
+                
                                     <p
                         className={`text-[15px] font-normal xl:text-base text-center ${
                             item.color === '#000000' ? 'text-white/80' : 'text-[#030F0CCC]/80'
@@ -42,6 +46,10 @@ Whether you donate, volunteer, partner, or advocate, your support helps create o
                         >
                         {item.paragraph}
                         </p>
+
+                </div>
+
+                            
               </div>
             );
           })}

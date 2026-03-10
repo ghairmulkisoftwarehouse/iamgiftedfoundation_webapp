@@ -6,6 +6,7 @@ import { teamFundrasing } from '@/constants/ProgramConstants';
 import  img1  from '@/assets/images/donateperson1.png' 
 import  img2  from '@/assets/images/donateperson2.png' 
 import  img3  from '@/assets/images/donateperson3.png'
+import imgawer from '@/assets/images/Awarness.png'
 import Link from 'next/link';
 import Image from 'next/image';
 import DotSvg   from '@/assets/svg/DotSvg'
@@ -14,7 +15,7 @@ import { useRouter } from 'next/navigation';
 import DisplayError from '@/components/global/DisplayError';
 import ItemNotFound from '../global/ItemNotFound';
 import { useSelector } from 'react-redux';
-import ProgramCardShimmer   from  '@/components/global/effect/ProgramCardShimmer';
+import ProgramListShimmer   from  '@/components/global/effect/ProgramListShimmer';
 import fallbackimg  from '@/assets/images/img2.jpg'
 import DOMPurify from "dompurify";
 
@@ -120,125 +121,135 @@ const Fundrasing = ({
                 </div>
        
          </div>
-         
-   {isLoading ? (
-          <ProgramCardShimmer />
-        ) : isError ? (
-          <DisplayError message={error?.message || 'Something went wrong'} />
-        ) :docs?.length > 0 ? (
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  space-y-0 md:space-y-5 w-full   gap-4 px-5 md:px-3.5  md:container mx-auto   relative z-10">
-         {docs.map((item) => (
-  <div
-    key={item?._id} 
-    className="
-        group cursor-pointer
-      border border-black/20 rounded-[20px] p-3
-      flex flex-col gap-3 w-full h-full
-      transition-all duration-700 ease-out
-      hover:shadow-2xl
-      
-    "
- onClick={() => router.push(`/programs/${item?._id}`)}
-  >
-    {/* Image wrapper */}
-    <div className="w-full   h-[250px]     overflow-hidden rounded-[20px]">
-      <Image
-        src={item?.featuredImage?.relativeAddress ? `${baseURL}/${item?.featuredImage?.relativeAddress}` : fallbackimg}
-        width={370}
-        height={236}
-        alt={item?.title}
-        className="
-          w-full object-cover rounded-[20px]
-          transition-transform duration-700 ease-out
-          group-hover:scale-110 h-full
-        "
-      />
-    </div>
-     <h1 className="font-semibold text-lg md:text-[22px]  capitalize">
-      {item?.title}
-    </h1>
-    
-
-    {item?.piller  &&  (
-          <div className='flex flex-row gap-1'>
-       <span className=' font-semibold cap'>Pillar Tag:</span>
-       <div className=' flex items-center gap-0.5 bg-[#E5D5E5] rounded-full px-2.5 py-1.5'>
-       <DotSvg/>
-        <span className=' text-xs sm:text-xs  font-semibold'>{item?.piller?.title}</span>
-       </div>
-       
-      </div>
-    )}
-     
-
-         <div
-      dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(item?.body) }}
-      className="text-sm md:text-[15px] text-black/70"
-    />
-
-
-   
-
-   <div className=' flex flex-row items-center gap-1 text-sm'>
-   <h2 className='text-[#000000] '>Impact Stat:</h2>
-   
-   <div className=' flex flex-row items-center gap-1'>
-      <span className=' pt-0.5 '><GoDotFill/></span>
-      <p className='  font-semibold'>{item?.impactAmount}</p>
-   </div>
-
-   </div>
   
-    <div className="border-b border-black/10 w-full"></div>
 
-    {/* Donors + Button */}
-    <div className="flex justify-between items-center mt-auto pb-4">
-      <div className="flex items-center">
-        {[img1, img2, img3].map((img, i) => (
+
+         
+ {isLoading ? (
+  <ProgramListShimmer />
+) : isError ? (
+  <DisplayError message={error?.message || "Something went wrong"} />
+) : docs?.length > 0 ? (
+
+  <div className="flex flex-col gap-6 w-full px-4 md:px-3.5 md:container mx-auto relative z-10">
+
+    {docs.map((item) => (
+      <div
+        key={item?._id}
+        onClick={() => router.push(`/programs/${item?._id}`)}
+        className="flex flex-col md:flex-row gap-6 p-6 rounded-[24px] bg-white shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer"
+      >
+
+        {/* LEFT CONTENT */}
+        <div className="w-full md:w-6/12 flex flex-col gap-4">
+
+          {/* Title */}
+          <h1 className="font-semibold text-xl md:text-[24px] leading-snug capitalize">
+            {item?.title}
+          </h1>
+
+          {/* Pillar Tag */}
+          {item?.piller && (
+            <div className="flex items-center gap-2 flex-wrap">
+              <span className="font-semibold text-sm">Pillar Tag:</span>
+
+              <div className="flex items-center gap-1 bg-[#E5D5E5] rounded-full px-3 py-1.5">
+                <DotSvg />
+                <span className="text-xs font-semibold">
+                  {item?.piller?.title}
+                </span>
+              </div>
+            </div>
+          )}
+
+          {/* Description */}
           <div
-            key={i}
-            className="w-[30px] h-[30px] rounded-full border-2 border-white ml-[-5px]"
-          >
+            dangerouslySetInnerHTML={{
+              __html: DOMPurify.sanitize(item?.body),
+            }}
+            className="text-sm md:text-[15px] text-black/70 leading-relaxed line-clamp-4"
+          />
+
+          {/* Impact Stat */}
+          <div className="flex items-center gap-3 text-sm">
+            <h2 className="font-medium">Impact Stat:</h2>
+
+            <div className="flex items-center gap-1">
+              <GoDotFill className="text-[#8bc9c8]" />
+              <p className="font-semibold text-base">
+                {item?.impactAmount}
+              </p>
+            </div>
+          </div>
+
+          <div className="border-b border-black/10"></div>
+
+          {/* Donors + Button */}
+          <div className="flex items-center justify-between pt-2">
+
+            {/* Donor Avatars */}
+            <div className="flex items-center">
+              {[img1, img2, img3].map((img, i) => (
+                <div
+                  key={i}
+                  className="w-[32px] h-[32px] rounded-full border-2 border-white -ml-2 first:ml-0 overflow-hidden"
+                >
+                  <Image
+                    src={img}
+                    width={100}
+                    height={100}
+                    className="w-full h-full object-cover"
+                    alt="donor"
+                  />
+                </div>
+              ))}
+
+              <div className="w-[32px] h-[32px] rounded-full border-2 border-white -ml-2 bg-black text-white text-[10px] flex items-center justify-center font-semibold">
+                +{item?.impactAmount}
+              </div>
+            </div>
+
+            {/* Donate Button */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                router.push(`/donate?program=${item?._id}`);
+              }}
+              className="btn-animated bg-mint-cyan border border-transparent group cursor-pointer w-[150px] h-[42px] rounded-full relative overflow-hidden hover:border-[#8bc9c8]"
+            >
+              <span className="btn-animated-hover bg-[#9dd6d5] absolute top-1/2 left-1/2 w-0 h-0 rounded-full -translate-x-1/2 -translate-y-1/2 group-hover:w-44 group-hover:h-44 transition-all duration-500 ease-out"></span>
+
+              <span className="btn-animated-text text-black font-semibold relative z-10">
+                Donate Now
+              </span>
+            </button>
+          </div>
+        </div>
+
+        {/* RIGHT IMAGE */}
+        <div className="w-full md:w-6/12">
+          <div className="w-full h-[260px] md:h-[300px] overflow-hidden rounded-[22px] group">
             <Image
-              src={img}
-              width={200}
+              src={
+                item?.featuredImage?.relativeAddress
+                  ? `${baseURL}/${item?.featuredImage?.relativeAddress}`
+                  : fallbackimg
+              }
+              width={500}
               height={300}
-              className="w-full h-full rounded-full object-cover"
-              alt="donor"
+              alt={item?.title}
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
             />
           </div>
-        ))}
-
-        <div className="w-[30px] h-[30px] rounded-full border-2 border-white ml-[-5px] bg-black text-white text-[10px] flex items-center justify-center font-semibold">
-          {item?.impactAmount}
         </div>
+
       </div>
-
-
-  <button
-      onClick={(e) => {
-        e.stopPropagation(); // stop parent card click
-        router.push(`/donate?program=${item?._id}`);
-      }}
-         className="  mt-auto btn-animated  bg-mint-cyan border border-transparent group cursor-pointer w-[146px] h-[40px] rounded-full relative overflow-hidden hover:border-[#8bc9c8] ">
-          <span className="btn-animated-hover bg-[#9dd6d5] absolute top-1/2 left-1/2 w-0 h-0 rounded-full -translate-x-1/2 -translate-y-1/2 group-hover:w-44 group-hover:h-44 transition-all duration-500 ease-out"></span>
-          <span className="btn-animated-text text-black font-semibold group-hover:text-gray-900 relative z-10">
-            Donate Now
-          </span>
-        </button>
-    
-     
-    
-    </div>
+    ))}
   </div>
-))}
-                
-            
-           </div>
-                ) : (
-          <ItemNotFound message="No  Program found." />
-        )}
+
+) : (
+  <ItemNotFound message="No Program found." />
+)}
    
   
    

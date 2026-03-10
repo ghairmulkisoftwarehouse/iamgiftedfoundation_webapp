@@ -139,20 +139,23 @@ export const pillarsData = [
 export const  involvedData = [
   {
     title: "Donate",
-    paragraph: "The IAMGIFTED Foundation's Life Skills Camp offers a transformative experience, helping young people develop both athletic skills and essential life skills.",
+    subtitle:"Help empower the next generation.",
+    paragraph: "We’d love to hear from you. Whether you're interested in our youth programs, volunteering, partnerships, or supporting the mission, our team is here to help.",
     icon: DonateButtonSvg,
     color:"#B2BCC5",
   },
     {
     title: "Partner",
-    paragraph: "The IAMGIFTED Foundation's Life Skills Camp offers a transformative experience, helping young people develop both athletic skills and essential life skills.",
+     subtitle:"Join us in building stronger communities.",
+    paragraph: "Partner with the IAMGIFTED Foundation to expand opportunities for youth through community programs, mentorship, and educational initiatives. We work with organizations and businesses to create meaningful, lasting impact.",
     icon: PartnerSvg,
       color:"#BFE5E4",
   },
 
     {
     title: "Volunteer",
-    paragraph: "The IAMGIFTED Foundation's Life Skills Camp offers a transformative experience, helping young people develop both athletic skills and essential life skills. ",
+      subtitle:"Become a mentor and role model.",
+    paragraph: "Make a difference by volunteering with the IAMGIFTED Foundation. Volunteers help support youth programs, events, and mentorship opportunities that inspire growth and confidence. ",
     icon: VolunteerUserSvg,
     color:"#D8BFD8",
   },

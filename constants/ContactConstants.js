@@ -6,7 +6,9 @@ import PhoneSvg   from '@/assets/svg/PhoneSvg';
 import EmailSvg   from '@/assets/svg/EmailSvg';
 
 
-export const ContactItems = [ 
+
+
+export  const ContactItems = [
   {
     id: 1,
     title: "Address",
@@ -17,18 +19,21 @@ export const ContactItems = [
     id: 2,
     title: "Phone",
     description: "+1 909-200-3595",
+    link: "tel:+19092003595",
     icon: PhoneSvg,
   },
   {
     id: 3,
     title: "Email",
-    description: " hello@iamgiftedfoundation.org",
+    description: "hello@iamgiftedfoundation.org",
+    link: "mailto:hello@iamgiftedfoundation.org",
     icon: EmailSvg,
   },
   {
     id: 4,
     title: "Have Questions?",
-    description: "Make a one-time contribution of",
+    description:
+      "We’d love to hear from you. Whether you're interested in our youth programs, volunteering, partnerships, or supporting the mission, our team is here to help",
     icon: AnyQuestionSvg,
   },
 ];

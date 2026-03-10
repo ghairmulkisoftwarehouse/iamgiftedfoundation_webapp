@@ -102,32 +102,42 @@ const handleSubmit = async () => {
     
 
    
-      <div className="  grid grid-cols-1 sm:grid-cols-2 gap-7 sm:gap-6  md:flex md:flex-col md:items-center  md:items-start   md:gap-8 xl:gap-10 w-full rounded-[22px] bg-thistle px-4 py-9  xl:px-9 xl:py-9 ">
-  {ContactItems.map((item, index) => {
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-7 sm:gap-6 md:flex md:flex-col md:items-start md:gap-8 xl:gap-10 w-full rounded-[22px] bg-thistle px-4 py-9 xl:px-9 xl:py-9">
+
+  {ContactItems.map((item) => {
     const Icon = item.icon;
 
     return (
-      <div
-        key={index} 
-        className="  flex items-center gap-4  w-full"
-      >
-               <div className="w-[50px] h-[50px] shrink-0 lg:w-[60px] lg:h-[60px] bg-[#B7A6B7] rounded-full flex justify-center items-center
-                cursor-pointer
-                        transform transition-transform duration-300 ease-in-out
-                        hover:scale-110">
+      <div key={item.id} className="flex items-start gap-4 w-full">
+
+        <div className="w-[50px] h-[50px] shrink-0 lg:w-[60px] lg:h-[60px] bg-[#B7A6B7] rounded-full flex justify-center items-center
+          cursor-pointer transform transition-transform duration-300 ease-in-out hover:scale-110">
           <Icon className="w-[30px] md:w-[38px]" />
         </div>
+
         <div className="flex flex-col gap-0.5">
-          <h2 className=" text-lg sm:text-[20px]   xl:text-[22px]  text-black  font-medium">
+          <h2 className="text-lg sm:text-[20px] xl:text-[22px] text-black font-medium">
             {item.title}
           </h2>
-          <p className="  text-sm sm:text-sm md:text-base  text-[#030F0CCC]">
-            {item.description}
-          </p>
+
+          {item.link ? (
+            <a
+              href={item.link}
+              className="text-sm sm:text-sm md:text-base text-[#030F0CCC] hover:underline"
+            >
+              {item.description}
+            </a>
+          ) : (
+            <p className="text-sm sm:text-sm md:text-base text-[#030F0CCC]">
+              {item.description}
+            </p>
+          )}
         </div>
+
       </div>
     );
   })}
+
 </div>
 
      
