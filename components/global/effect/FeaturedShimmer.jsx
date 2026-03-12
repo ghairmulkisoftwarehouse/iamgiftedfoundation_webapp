@@ -2,7 +2,7 @@ import React from "react";
 
 const FeaturedShimmer = () => {
   return (
-    <div className="flex flex-wrap gap-6">
+    <div className="flex flex-wrap gap-6 w-full">
       {Array.from({ length: 3 }).map((_, index) => (
         <div
           key={index}

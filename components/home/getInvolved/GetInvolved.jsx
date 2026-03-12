@@ -37,7 +37,7 @@ Whether you donate, volunteer, partner, or advocate, your support helps create o
                 </div>
                 <h2 className={`text-xl xl:text-[22px] font-semibold ${textColorClass}`}>{item.title}</h2>
                 <div className=' flex flex-col  gap-1 w-full '>
-                    <div className={`text-base xl:text-lg  text-black/90 font-medium mx-auto `}>{item.subtitle}</div>
+                    <div className={`text-base xl:text-lg  text-black/90 font-medium  text-center mx-auto `}>{item.subtitle}</div>
                 
                                     <p
                         className={`text-[15px] font-normal xl:text-base text-center ${
