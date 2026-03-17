@@ -97,9 +97,9 @@ const [active, setActive] = useState('one-time');
 
     dispatch(initiateDonation(payload,token));
     // Reset
-    setAmount(100);
-    // setPaymentMethod("");
-    setIsCustom(false);
+    // setAmount(100);
+    // // setPaymentMethod("");
+    // setIsCustom(false);
     setErrors({});
   };
 
