@@ -233,8 +233,8 @@ const now = moment();
                 <p className="flex items-center gap-1.5 text-sm md:text-[15px]">
                   <DateSvg />
                  <span className="text-black/70">
-  {item?.eventDate
-    ? moment(item.eventDate).format("MMM DD YYYY, h:mm A") 
+  {item?.eventStartDate
+    ? moment(item.eventStartDate).format("MMM DD YYYY, h:mm A") 
     : "Date not available"}
 </span>
                 </p>
@@ -267,36 +267,46 @@ const now = moment();
           </div>
   {
 
-    isRegistrationOpen    && (
+    isRegistrationUpcoming  && (
     <button
           
            onClick={(e) => {
   e.stopPropagation();
   router.push(`/register-event/${item?._id}`);
 }}
-            className="mt-auto btn-animated bg-mint-cyan border border-transparent w-full rounded-full relative overflow-hidden hover:border-[#8bc9c8]"
+            className="mt-auto btn-animated   cursor-pointer bg-mint-cyan border border-transparent w-full rounded-full relative overflow-hidden hover:border-[#8bc9c8]"
           >
             <span className="btn-animated-hover bg-[#9dd6d5] absolute top-1/2 left-1/2 w-0 h-0 rounded-full -translate-x-1/2 -translate-y-1/2 group-hover:w-[999px] group-hover:h-44 transition-all duration-500 ease-out"></span>
             <span className="btn-animated-text text-black font-semibold relative z-10">
-              Register
+             {item?.primaryCTA ||'Register'  }  
             </span>
           </button>
     )
   }
-{(isRegistrationUpcoming) && item?.waitlistEnabled && (
-  <button
-    onClick={(e) => {
-      e.stopPropagation();
-      router.push(`/register-event/${item._id}`);
-    }}
-    className="mt-auto btn-animated group cursor-pointer bg-mint-cyan border border-transparent w-full rounded-full relative overflow-hidden hover:border-[#8bc9c8]"
-  >
-    <span className="btn-animated-hover bg-[#9dd6d5] absolute top-1/2 left-1/2 w-0 h-0 rounded-full -translate-x-1/2 -translate-y-1/2 group-hover:w-[999px] group-hover:h-44 transition-all duration-500 ease-out"></span>
-    <span className="btn-animated-text text-black font-semibold relative z-10">
-      Register for Waitlist
-    </span>
-  </button>
-)}
+
+
+ {
+
+    isRegistrationOpen  && (
+    <button
+          
+           onClick={(e) => {
+  e.stopPropagation();
+  router.push(`/register-event/${item?._id}`);
+}}
+            className="mt-auto btn-animated  cursor-pointer bg-mint-cyan border border-transparent w-full rounded-full relative overflow-hidden hover:border-[#8bc9c8]"
+          >
+            <span className="btn-animated-hover bg-[#9dd6d5] absolute top-1/2 left-1/2 w-0 h-0 rounded-full -translate-x-1/2 -translate-y-1/2 group-hover:w-[999px] group-hover:h-44 transition-all duration-500 ease-out"></span>
+            <span className="btn-animated-text text-black font-semibold relative z-10">
+             {item?.primaryCTA ||'Register'  }  
+            </span>
+          </button>
+    )
+  }
+
+
+
+
 
 
   {

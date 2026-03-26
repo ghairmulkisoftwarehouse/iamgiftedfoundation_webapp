@@ -7,6 +7,7 @@ import InputEmail from '@/components/global/form/InputEmail';
 import toast from "react-hot-toast";
 import {register_event} from '@/redux/actions/eventActions'
 import ButtonClipLoader  from '@/components/global/buttonClipLoader/ButtonClipLoader'
+import InputTextArea   from '@/components/global/form/InputextArea';
 import { useRouter } from 'next/navigation';
 const RegisterForm = ({eventId}) => {
       const router=useRouter();
@@ -15,12 +16,17 @@ const RegisterForm = ({eventId}) => {
   const { user } = useSelector((state) => state.auth); 
     const { createLoading } = useSelector((state) => state.event); 
 
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    number: "",
-    childName: "",
-  });
+ const [formData, setFormData] = useState({
+  firstName: "",
+  lastName: "",
+  email: "",
+  phone: "",
+  notes: "",
+  parentName: "",
+  parentEmail: "",
+  parentPhone: "",
+  childName: "",
+});
 
   const [errors, setErrors] = useState({});
 
@@ -49,12 +55,18 @@ const RegisterForm = ({eventId}) => {
     }
 
     const payload = {
-      parentName: formData.name,
-      ...(formData.email && {parentEmail: formData.email}),
-     ...(formData.number && { parentPhone: formData.number}),
-      ...(formData.childName && {  childName: formData.childName}),
+    firstName: formData.firstName,
 
-    };
+    ...(formData.lastName && { lastName: formData.lastName }),
+    ...(formData.email && { email: formData.email }),
+    ...(formData.phone && { phone: formData.phone }),
+    ...(formData.notes && { notes: formData.notes }),
+
+    ...(formData.parentName && { parentName: formData.parentName }),
+    ...(formData.parentEmail && { parentEmail: formData.parentEmail }),
+    ...(formData.parentPhone && { parentPhone: formData.parentPhone }),
+    ...(formData.childName && { childName: formData.childName }),
+  };
 
     console.log("Form submitted:", payload);
         dispatch(register_event(eventId, payload, router));
@@ -74,41 +86,90 @@ const RegisterForm = ({eventId}) => {
             Your information is used only for registration and safety.
           </p>
         </div>
+{/* Form Fields */}
 
-        {/* Form Fields */}
-        <InputName
-          label="Name"
-          value={formData.name}
-          onChange={handleChange("name")}
-          error={errors.name}
-        />
-        <InputEmail
-          label="Email"
-          value={formData.email}
-          onChange={handleChange("email")}
-          error={errors.email}
-        />
-        <InputName
-          label="Phone Number"
-          value={formData.number}
-          onChange={handleChange("number")}
-          error={errors.number}
-        />
-        <InputName
-          label="Child Name"
-          value={formData.childName}
-          onChange={handleChange("childName")}
-          error={errors.childName}
-        />
+<InputName
+  label="First Name *"
+  value={formData.firstName}
+  onChange={handleChange("firstName")}
+  error={errors.firstName}
+/>
+
+<InputName
+  label="Last Name"
+  value={formData.lastName}
+  onChange={handleChange("lastName")}
+  error={errors.lastName}
+/>
+
+<InputEmail
+  label="Email"
+  value={formData.email}
+  onChange={handleChange("email")}
+  error={errors.email}
+/>
+
+<InputName
+  label="Phone Number"
+  value={formData.phone}
+  onChange={handleChange("phone")}
+  error={errors.phone}
+/>
+
+<InputName
+  label="Child Name"
+  value={formData.childName}
+  onChange={handleChange("childName")}
+  error={errors.childName}
+/>
+
+<InputName
+  label="Parent Name"
+  value={formData.parentName}
+  onChange={handleChange("parentName")}
+  error={errors.parentName}
+/>
+
+<InputEmail
+  label="Parent Email"
+  value={formData.parentEmail}
+  onChange={handleChange("parentEmail")}
+  error={errors.parentEmail}
+/>
+
+<InputName
+  label="Parent Phone"
+  value={formData.parentPhone}
+  onChange={handleChange("parentPhone")}
+  error={errors.parentPhone}
+/>
+
+<InputTextArea
+  label="Notes"
+  value={formData.notes}
+  onChange={handleChange("notes")}
+       rows={4}
+  error={errors.notes}
+/>
 
         {/* Buttons */}
         <div className="flex flex-row gap-2 items-center justify-end w-full pt-4  pb-3.5">
           <button
             type="button"
             className="bg-black/40 w-[140px] rounded-full text-white py-2 cursor-pointer text-sm sm:text-base"
-            onClick={() =>
-              setFormData({ name: "", email: "", number: "", childName: "" })
-            }
+           onClick={() =>
+  setFormData({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    notes: "",
+    parentName: "",
+    parentEmail: "",
+    parentPhone: "",
+    childName: "",
+  })
+}
                         disabled={createLoading}
 
           >

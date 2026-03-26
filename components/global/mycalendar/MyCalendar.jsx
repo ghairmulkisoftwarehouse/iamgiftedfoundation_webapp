@@ -100,17 +100,19 @@ import moment from "moment";
 const MyCalendar = ({ setEndDate }) => {
   const { docs } = useSelector((state) => state.event);
 
- const events = useMemo(() => {
+const events = useMemo(() => {
   if (!docs) return [];
 
-  return docs.map((item) => ({
-    id: item._id,
-    title: "", 
-    date: moment(item.eventDate).format("YYYY-MM-DD"),
-    display: "list-item", // important for dot style
-    backgroundColor: "green",
-    borderColor: "green",
-  }));
+  return docs
+    .filter((item) => item?.eventStartDate)
+    .map((item) => ({
+      id: item?._id,
+      title: "", 
+      date: moment(item.eventStartDate).format("YYYY-MM-DD"),
+      display: "list-item",
+      backgroundColor: "green",
+      borderColor: "green",
+    }));
 }, [docs]);
   const [selectedDate, setSelectedDate] = useState(null);
 
