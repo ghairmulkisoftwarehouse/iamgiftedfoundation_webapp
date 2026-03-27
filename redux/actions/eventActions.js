@@ -5,47 +5,47 @@ import { setDeleteLoading } from "../reducers/registerEventSlice";
 
 import { getTokenCookie } from "@/utils/authCookies";
 
-export const register_event = (id, data, router) => async (dispatch) => {
-  dispatch(setCreateLoading(true));
+  export const register_event = (id, data, router) => async (dispatch) => {
+    dispatch(setCreateLoading(true));
 
-  try {
-    const token = getTokenCookie(); 
+    try {
+      const token = getTokenCookie(); 
 
-    const response = await Axios.post(
-      `/event/register-or-waitlist/${id}`, 
-      data,
-      {
-        headers: { Authorization: `Bearer ${token}` },
+      const response = await Axios.post(
+        `/event/register-or-waitlist/${id}`, 
+        data,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+
+      const {
+        data: {
+          data: { message, doc },
+          status,
+          success,
+        },
+      } = response;
+
+      if (status === "success" && success) {
+        toast.success(message);
+        router.push("/events"); 
+      } else {
+        throw new Error("Registration failed");
       }
-    );
+    } catch (error) {
+      const errorMsg =
+        error?.response?.data?.message ||
+        error?.response?.data?.data?.message ||
+        error?.message ||
+        "Something went wrong";
 
-    const {
-      data: {
-        data: { message, doc },
-        status,
-        success,
-      },
-    } = response;
-
-    if (status === "success" && success) {
-      toast.success(message);
-      router.push("/events"); 
-    } else {
-      throw new Error("Registration failed");
+      dispatch(setError(errorMsg));
+      toast.error(errorMsg);
+    } finally {
+      dispatch(setCreateLoading(false));
     }
-  } catch (error) {
-    const errorMsg =
-      error?.response?.data?.message ||
-      error?.response?.data?.data?.message ||
-      error?.message ||
-      "Something went wrong";
-
-    dispatch(setError(errorMsg));
-    toast.error(errorMsg);
-  } finally {
-    dispatch(setCreateLoading(false));
-  }
-};
+  };
 
 
 

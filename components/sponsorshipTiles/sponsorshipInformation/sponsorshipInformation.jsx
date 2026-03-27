@@ -30,23 +30,22 @@ import Registerfrom   from './Registerfrom';
 
 
 
-const EventInformation = ({ eventId, loading, error, event,  
+
+const BuyInformation = ({ eventId, loading, error, event,  
     allEvent,
         allEventLoading,
         allEventError, }) => {
 
+const [selectedSponsorship, setSelectedSponsorship] = useState(
+  event?.sponsorshipTiles?.length > 0 ? event.sponsorshipTiles[0] : null
+);
 
+// console.log(' this is   allEvent',    event,
+// )
           const router=useRouter();
+    const now = moment();
     
 
-    // console.log(' this is a  event',event)
-
-    //  devLog('EventInformation event:',event );
-    //   const mainImage =
-    // activeIndex === -1
-    //   ? event?.featuredImage?.relativeAddress
-    //   : event?.images?.[activeIndex]?.relativeAddress;
-        // devLog('EventInformation props:', { eventId, loading, error, event });
 
 
 
@@ -140,22 +139,70 @@ const EventInformation = ({ eventId, loading, error, event,
       </div>
 
       {/* Event Title & Body */}
-      <div className="flex flex-col gap-3 mt-4">
+      <div className="flex flex-col gap-3 mt-2">
         <h3 className={`text-[28px] lg:text-[34px] ${bison.className}`}>
           {event?.title}
         </h3>
-     {
-      event?.body  && (
-         <div
+  {
+    event?.body && (
+       <div
           dangerouslySetInnerHTML={{
             __html: DOMPurify.sanitize(event?.body),
           }}
           className="text-[#030F0CCC] text-sm lg:text-[15px] leading-normal lg:leading-[35px]"
         />
-      )
-     }
+    )
+  }
        
       </div>
+
+{event?.sponsorshipTiles?.length > 0 && (
+  <div className="mt-2 flex flex-col gap-4">
+    <h3 className="text-xl font-semibold">Available Sponsorships</h3>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {event.sponsorshipTiles.map((sponsorship) => (
+        <div
+          key={sponsorship._id}
+          className={`
+            border rounded-[22px] p-4 shadow-sm transition-all duration-300 ease-in-out
+            ${
+              selectedSponsorship?._id === sponsorship._id
+                ? "border-primary shadow-lg"
+                : "border-black/10"
+            }
+            hover:shadow-xl hover:-translate-y-1 hover:border-primary/40
+            cursor-pointer
+          `}
+          onClick={() => setSelectedSponsorship(sponsorship)}
+        >
+          <h4 className="text-lg font-semibold transition-colors duration-300 hover:text-primary">
+            {sponsorship.title}
+          </h4>
+
+          {sponsorship.description && (
+            <div
+              className="text-sm text-gray-600 mt-1"
+              dangerouslySetInnerHTML={{
+                __html: DOMPurify.sanitize(sponsorship.description),
+              }}
+            />
+          )}
+
+          {sponsorship.amount && sponsorship.currency && (
+            <p className="mt-2 font-medium transition-colors duration-300 group-hover:text-primary">
+               ${sponsorship.amount}
+            </p>
+          )}
+
+          {sponsorship.ctaLabel && (
+            <p className="text-xs text-gray-500 mt-1">{sponsorship.ctaLabel}</p>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+)}
     </>
   ) : (
     <ItemNotFound message="No Event found." />
@@ -164,7 +211,7 @@ const EventInformation = ({ eventId, loading, error, event,
 
 
 <div className=" w-full  lg:w-2/4  flex flex-col gap-3.5 ">
-<Registerfrom eventId={eventId}   event={event}/>
+<Registerfrom eventId={eventId}  selectedSponsorship={selectedSponsorship}  event={event} />
 
 </div>
    
@@ -188,4 +235,4 @@ const EventInformation = ({ eventId, loading, error, event,
   )
 }
 
-export default EventInformation
+export default BuyInformation

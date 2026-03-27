@@ -172,7 +172,7 @@ const now = moment();
         ) : isError ? (
           <DisplayError message={error?.message || 'Something went wrong'} />
         ) : docs?.length > 0 ? (
-  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-5 md:px-3.5 md:container mx-auto relative z-10">
+  <div className="  w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 px-5 md:px-3.5 md:container mx-auto relative z-10">
     {docs.map((item, index) => {
       const isRegistrationOpen =
         item?.registrationStartDate &&
@@ -265,66 +265,28 @@ const now = moment();
               </div>
             </div>
           </div>
-  {
+  <button
+  onClick={(e) => {
+    e.stopPropagation();
 
-    isRegistrationUpcoming  && (
-    <button
-          
-           onClick={(e) => {
-  e.stopPropagation();
-  router.push(`/register-event/${item?._id}`);
-}}
-            className="mt-auto btn-animated   cursor-pointer bg-mint-cyan border border-transparent w-full rounded-full relative overflow-hidden hover:border-[#8bc9c8]"
-          >
-            <span className="btn-animated-hover bg-[#9dd6d5] absolute top-1/2 left-1/2 w-0 h-0 rounded-full -translate-x-1/2 -translate-y-1/2 group-hover:w-[999px] group-hover:h-44 transition-all duration-500 ease-out"></span>
-            <span className="btn-animated-text text-black font-semibold relative z-10">
-             {item?.primaryCTA ||'Register'  }  
-            </span>
-          </button>
-    )
-  }
-
-
- {
-
-    isRegistrationOpen  && (
-    <button
-          
-           onClick={(e) => {
-  e.stopPropagation();
-  router.push(`/register-event/${item?._id}`);
-}}
-            className="mt-auto btn-animated  cursor-pointer bg-mint-cyan border border-transparent w-full rounded-full relative overflow-hidden hover:border-[#8bc9c8]"
-          >
-            <span className="btn-animated-hover bg-[#9dd6d5] absolute top-1/2 left-1/2 w-0 h-0 rounded-full -translate-x-1/2 -translate-y-1/2 group-hover:w-[999px] group-hover:h-44 transition-all duration-500 ease-out"></span>
-            <span className="btn-animated-text text-black font-semibold relative z-10">
-             {item?.primaryCTA ||'Register'  }  
-            </span>
-          </button>
-    )
-  }
-
-
-
-
-
-
-  {
-
-    isRegistrationClosed
-     && (
-    <button
-            
-            
-            className={`mt-auto btn-animated bg-mint-cyan border border-transparent w-full rounded-full relative overflow-hidden hover:border-[#8bc9c8]  opacity-50 cursor-not-allowed pointer-events-non`}
-          >
-            <span className="btn-animated-hover bg-[#9dd6d5] absolute top-1/2 left-1/2 w-0 h-0 rounded-full -translate-x-1/2 -translate-y-1/2 group-hover:w-[999px] group-hover:h-44 transition-all duration-500 ease-out"></span>
-            <span className="btn-animated-text text-black font-semibold relative z-10">
-               Disabled
-            </span>
-          </button>
-    )
-  }
+    if (item?.sponsorshipTiles?.length > 0) {
+      router.push(`/sponsorshipTiles/${item?._id}`);
+    } else if (item?.ticketDetails?.length > 0) {
+      router.push(`/buyticket/${item?._id}`);
+    } else {
+      router.push(`/register-event/${item?._id}`);
+    }
+  }}
+  className={`mt-auto btn-animated cursor-pointer bg-mint-cyan border border-transparent w-full rounded-full relative overflow-hidden
+    ${isRegistrationClosed ? "opacity-50 cursor-not-allowed pointer-events-none" : ""}
+  `}
+  disabled={isRegistrationClosed}
+>
+  <span className="btn-animated-hover bg-[#9dd6d5] absolute top-1/2 left-1/2 w-0 h-0 rounded-full -translate-x-1/2 -translate-y-1/2 group-hover:w-[999px] group-hover:h-44 transition-all duration-500 ease-out"></span>
+  <span className="btn-animated-text text-black font-semibold relative z-10">
+    {isRegistrationClosed ? "Disabled" : item?.primaryCTA || "Register"}
+  </span>
+</button>
 
 
 

@@ -2,7 +2,7 @@ const EventShimmer = () => {
   const shimmerArray = Array.from({ length: 10 }); // Array of 10 undefined items
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-5 md:px-3.5 md:container mx-auto relative z-10">
+    <div className=" w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 px-5 md:px-3.5 md:container mx-auto relative z-10">
       {shimmerArray.map((_, index) => (
         <div
           key={index}

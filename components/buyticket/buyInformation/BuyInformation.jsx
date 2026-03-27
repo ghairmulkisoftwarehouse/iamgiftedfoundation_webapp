@@ -30,13 +30,20 @@ import Registerfrom   from './Registerfrom';
 
 
 
-const EventInformation = ({ eventId, loading, error, event,  
+
+const BuyInformation = ({ eventId, loading, error, event,  
     allEvent,
         allEventLoading,
         allEventError, }) => {
 
+const [selectedTicket, setSelectedTicket] = useState(
+  event?.ticketDetails?.length > 0 ? event.ticketDetails[0] : null
+);
 
+console.log(' this is   allEvent',    event,
+)
           const router=useRouter();
+    const now = moment();
     
 
     // console.log(' this is a  event',event)
@@ -140,22 +147,68 @@ const EventInformation = ({ eventId, loading, error, event,
       </div>
 
       {/* Event Title & Body */}
-      <div className="flex flex-col gap-3 mt-4">
+      <div className="flex flex-col gap-3 mt-2">
         <h3 className={`text-[28px] lg:text-[34px] ${bison.className}`}>
           {event?.title}
         </h3>
-     {
-      event?.body  && (
-         <div
+
+        <div
           dangerouslySetInnerHTML={{
             __html: DOMPurify.sanitize(event?.body),
           }}
           className="text-[#030F0CCC] text-sm lg:text-[15px] leading-normal lg:leading-[35px]"
         />
-      )
-     }
-       
       </div>
+
+  {event?.ticketDetails?.length > 0 && (
+  <div className="mt-2 flex flex-col gap-4">
+    <h3 className="text-xl font-semibold">Available Tickets</h3>
+
+   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+  {event.ticketDetails.map((ticket) => (
+    <div
+      key={ticket?._id}
+      className={`
+        border  rounded-[22px] p-4 
+        shadow-sm 
+        transition-all duration-300 ease-in-out
+         ${
+      selectedTicket?._id === ticket._id ? "border-primary shadow-lg" : "border-black/10"
+    }
+       hover:shadow-xl hover:-translate-y-1 hover:border-primary/40
+        cursor-pointer`}
+      
+          onClick={() => setSelectedTicket(ticket)}
+    >
+      <h4 className="text-lg font-semibold transition-colors duration-300 hover:text-primary">
+        {ticket?.title}
+      </h4>
+
+      <div
+        className="text-sm text-gray-600 mt-1"
+        dangerouslySetInnerHTML={{
+          __html: DOMPurify.sanitize(ticket?.description),
+        }}
+      />
+
+      <p className="text-xs text-gray-500 mt-2">
+        Sale:{" "}
+        {moment(ticket?.saleStartDate).format("MMM DD, YYYY")} -{" "}
+        {moment(ticket?.saleEndDate).format("MMM DD, YYYY")}
+      </p>
+
+      <p className="mt-2 font-medium transition-colors duration-300 group-hover:text-primary">
+        {ticket?.currency} {ticket?.price}
+      </p>
+
+      <p className="text-xs text-gray-500">
+        {ticket?.quantity - ticket?.soldCount} tickets left
+      </p>
+    </div>
+  ))}
+</div>
+  </div>
+)}
     </>
   ) : (
     <ItemNotFound message="No Event found." />
@@ -164,7 +217,7 @@ const EventInformation = ({ eventId, loading, error, event,
 
 
 <div className=" w-full  lg:w-2/4  flex flex-col gap-3.5 ">
-<Registerfrom eventId={eventId}   event={event}/>
+<Registerfrom eventId={eventId}  selectedTicket={selectedTicket} event={event} />
 
 </div>
    
@@ -188,4 +241,4 @@ const EventInformation = ({ eventId, loading, error, event,
   )
 }
 
-export default EventInformation
+export default BuyInformation

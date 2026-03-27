@@ -2,11 +2,11 @@ import React from "react";
 
 const FeaturedShimmer = () => {
   return (
-    <div className="flex flex-wrap gap-6 w-full">
+    <>
       {Array.from({ length: 3 }).map((_, index) => (
         <div
           key={index}
-          className="w-full md:w-[48%] lg:w-[31%] border border-black/20 rounded-[20px] p-3 flex flex-col gap-3 h-full animate-pulse"
+          className="w-full  border border-black/20 rounded-[20px] p-3 flex flex-col gap-3 h-full animate-pulse"
         >
           {/* Date */}
           <div className="h-4 w-32 bg-gray-200 rounded"></div>
@@ -33,7 +33,7 @@ const FeaturedShimmer = () => {
           </div>
         </div>
       ))}
-    </div>
+    </>
   );
 };
 

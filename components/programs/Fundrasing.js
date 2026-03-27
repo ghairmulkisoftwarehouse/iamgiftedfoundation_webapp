@@ -75,7 +75,7 @@ const Fundrasing = ({
                    );
                  })}
                </div>
-         <div className="flex flex-col w-full items-center gap-10">
+         <div className="flex flex-col w-full px-4 md:px-3.5  items-center gap-10">
 
          <div className=' flex flex-col gap-2'>
          <div className=' w-full sm:w-[80%] md:w-[70%] mx-auto'>
