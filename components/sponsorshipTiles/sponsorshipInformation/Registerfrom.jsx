@@ -176,10 +176,10 @@ const isRegistrationUpcoming =
 />
 )}
         {/* Buttons */}
-        <div className="flex flex-row gap-2 items-center justify-end w-full pt-4  pb-3.5">
+        <div className="flex flex-col xs:flex-row gap-2 xs:items-center xs:justify-end w-full pt-4  pb-3.5">
           <button
             type="button"
-            className="bg-black/40 w-[140px] rounded-full text-white py-2 cursor-pointer text-sm sm:text-base"
+            className="bg-black/40  w-full xs:w-[140px] rounded-full text-white py-2 cursor-pointer text-sm sm:text-base"
            onClick={() =>
   setFormData({
    firstName: "",
@@ -200,7 +200,7 @@ const isRegistrationUpcoming =
             <button
               onClick={handleSubmit}
               disabled={createLoading || isRegistrationClosed || isRegistrationUpcoming}
-              className={`btn-submit relative overflow-hidden   w-fit px-7 rounded-full flex justify-center items-center
+              className={`btn-submit relative overflow-hidden   w-full xs:w-fit px-7 rounded-full flex justify-center items-center
                 ${
                   createLoading || isRegistrationClosed || isRegistrationUpcoming
                     ? "cursor-not-allowed bg-gray-900"
