@@ -55,26 +55,26 @@ export const HonorsData = [
 export const imapactData = [
   { imge: img },
   {
-    count: "4,209",
-    title: "People Served",
-    paragraph: "Through all IAMGIFTED Foundation initiatives across the U.S.",
+    count: "4,225+",
+    title: "Lives Impacted",
+    paragraph: "Across youth, families, and community programs",
   },
   { imge: img2 },
   {
-    count: "98+",
-    title: "Scholarships Granted",
-    paragraph: "Helping students achieve academic success",
+    count: "650+",
+    title: "Youth Developed",
+    paragraph: "Through camps, scholarships, and empowerment programs",
   },
   {
-    count: "2,219+",
-    title: "Youth Engaged in Camps",
-    paragraph: "Programs focused on life skills and empowerment",
+    count: "3,480+",
+    title: "Individuals & Families Supported",
+    paragraph: "Through Rush 2 Give outreach and essential services",
   },
   { imge: img3 },
   {
-    count: "4,464+",
-    title: "Assisted via Rush 2 Give",
-    paragraph: "Providing community and emergency support",
+    count: "60,000+",
+    title: "Scholarships Awarded",
+    paragraph: "Investing in education and future opportunities",
   },
   { imge: img4 },
 ];

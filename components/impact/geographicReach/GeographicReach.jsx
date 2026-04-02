@@ -5,6 +5,7 @@ import {countrycities} from '@/constants/ImpactConstants'
 import  img  from '@/assets/images/worldimg.png'
 import './GeographicReach.css'
 import Image from 'next/image';
+import USAMap   from './UsaMap';
 
 
 const GeographicReach = () => {
@@ -37,13 +38,7 @@ const GeographicReach = () => {
                 </div>
              </div>
                           <div className=' w-full lg:w-[60%]  border border-[#0000002E]   h-auto sm:h-[400px] lg:h-[500px]  rounded-[15px] overflow-hidden p-7 '>
-                          <Image
-                          src={img}
-                          alt='img'
-                           width={746}
-                           height={437}
-                             className=' w-full   h-full  object-contain  sm:object-cover'                    
-                          />
+                            <USAMap/>
                              
                           </div>
                

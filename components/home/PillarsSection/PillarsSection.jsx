@@ -1,7 +1,6 @@
 
 
 'use client';
-
 import { useState } from 'react';
 import { bison } from '@/components/fonts/fonts';
 import Link from 'next/link';

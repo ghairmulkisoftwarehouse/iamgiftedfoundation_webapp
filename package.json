@@ -42,6 +42,7 @@
     "react-player": "^3.4.0",
     "react-query": "^3.39.3",
     "react-redux": "^9.2.0",
+    "react-simple-maps": "^3.0.0",
     "react-spinners": "^0.17.0",
     "react-super-responsive-table": "^6.0.2",
     "shimmer-effects-react": "^1.0.4",
