@@ -115,33 +115,8 @@ export const pillarData = [
 ];
 
 
-
 export const countrycities = [
-  // Extracted from image
-  'Brazil',
-  'Dallas, TX',
-  'Houston, TX',
-  'Chicago, IL',
-  'Los Angeles, CA',
-  'New Orleans, LA',
-  
-  // Additional 18 cities and countries
-  'London, UK',
-  'Tokyo, Japan',
-  'Paris, France',
-  'New York City, NY',
-  'Toronto, Canada',
-  'Berlin, Germany',
-  'Sydney, Australia',
-  'Mumbai, India',
-  'Mexico City, Mexico',
-  'Cairo, Egypt',
-  'Seoul, South Korea',
-  'Madrid, Spain',
-  'Rome, Italy',
   'Miami, FL',
-  'Seattle, WA',
-  'Atlanta, GA',
-  'Denver, CO',
-  'San Francisco, CA'
+  'Boise, ID',
+  'San Bernardino, CA'
 ];
