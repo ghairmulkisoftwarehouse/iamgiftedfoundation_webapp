@@ -105,13 +105,13 @@ const { isLoading, isError, error, data } = useQuery({
       640: { slidesPerView: 2 },
       1024: { slidesPerView: 3 },
     }}
-    className="w-full"
+    className="w-full   h-full"
   >
     {docs.map((item, index) => (
       <SwiperSlide key={item?._id || index}>
         <div
           onClick={() => router.push("/donate")}
-          className="group border border-black/20 rounded-[20px] p-3 flex flex-col gap-3 w-full transition-all duration-700 ease-out hover:shadow-2xl h-full"
+          className="group border border-black/20 rounded-[20px] p-3 flex flex-col gap-3 w-full  h-full  transition-all duration-700 ease-out hover:shadow-2xl "
         >
           <p className="text-sm md:text-base font-medium">
             {item?.createdAt

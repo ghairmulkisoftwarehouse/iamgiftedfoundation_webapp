@@ -7,6 +7,7 @@ import ImpactShimmer   from '@/components/global/effect/ImpactShimmer'
 import DisplayError from '@/components/global/DisplayError';
 import ItemNotFound from '@/components/global/ItemNotFound';
 import SupportSvg   from '@/assets/svg/SupportSvg';
+import DOMPurify from "dompurify";
 
 
 const HighlightCards = (
@@ -66,9 +67,19 @@ const HighlightCards = (
             <h2 className="font-semibold text-lg sm:text-xl lg:text-[20px]">
             {item?.title}
             </h2>
-            <p className="text-[#030F0CCC]/80 text-xs sm:text-sm lg:text-[15px] font-medium">
-               {item?.description}
-            </p>
+
+
+            {
+ item?.description  && (
+
+<div
+      dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(item?.description) }}
+      className="text-[#030F0CCC]/80 text-xs sm:text-sm lg:text-[15px] font-medium"
+    />
+  )
+}
+
+           
           </div>
 
           {/* Chart */}
