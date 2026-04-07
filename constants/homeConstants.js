@@ -72,7 +72,7 @@ export const imapactData = [
   },
   { imge: img3 },
   {
-    count: "60,000+",
+    count: "$60,000+",
     title: "Scholarships Awarded",
     paragraph: "Investing in education and future opportunities",
   },

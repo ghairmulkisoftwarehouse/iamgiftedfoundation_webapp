@@ -8,15 +8,15 @@ import AmericanSvg   from '@/assets/svg/AmericanSvg';
 
 export const impactdata = [
   {
-    count: "98+",
+    count: "$60,000+",
     title: "Scholarships Awarded",
   },
   {
-    count: "2,219+",
-    title: "Youth Served Through Camps",
+    count: "650+",
+    title: "Youth Developed Through Camps",
   },
   {
-    count: "3,464+",
+    count: "3,480+",
     title: "Individuals Supported Through Rush 2 Give",
   },
 ];
