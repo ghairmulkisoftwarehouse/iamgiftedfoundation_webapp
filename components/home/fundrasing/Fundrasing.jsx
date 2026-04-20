@@ -113,11 +113,11 @@ const { isLoading, isError, error, data } = useQuery({
           onClick={() => router.push("/donate")}
           className="group border border-black/20 rounded-[20px] p-3 flex flex-col gap-3 w-full  h-full  transition-all duration-700 ease-out hover:shadow-2xl "
         >
-          <p className="text-sm md:text-base font-medium">
+          {/* <p className="text-sm md:text-base font-medium">
             {item?.createdAt
               ? moment(item.createdAt).format("MMMM D, YYYY")
               : "No Date"}
-          </p>
+          </p> */}
 
           <h1 className="font-semibold text-lg md:text-[22px] line-clamp-2">
             {item?.title}

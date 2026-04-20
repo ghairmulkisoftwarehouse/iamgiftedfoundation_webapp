@@ -13,6 +13,8 @@ import ItemNotFound from '@/components/global/ItemNotFound';
 import { useDispatch, useSelector } from 'react-redux';
 import { setPillarStats } from '@/redux/reducers/pillarSlice';
 import SupportSvg   from '@/assets/svg/SupportSvg';
+import DOMPurify from "dompurify";
+
 
 
 const PillarsSection = () => {
@@ -28,7 +30,7 @@ const PillarsSection = () => {
 const { isLoading, isError, error } = useQuery(
   queryKey,
   async () => {
-    const url = `/piller?pageSize=${limit}&page=${currentPage}`;
+    const url = `/piller?pageSize=${limit}&page=${currentPage}&sortBy=createdAt_descending`;
          return Axios.get(url);
   },
 
@@ -76,15 +78,24 @@ const { isLoading, isError, error } = useQuery(
               return (
                 <div
                   key={item?._id}
-                  className="h-[250px] sm:h-[300px] border border-black/25 rounded-[24px] flex flex-col justify-between px-5 py-5 bg-transparent hover:bg-white hover:shadow-lg transition-all duration-300 group"
+                  className=" h-full border border-black/25 rounded-[24px] flex flex-col justify-between px-5 py-5 bg-transparent hover:bg-white hover:shadow-lg transition-all duration-300 group"
                 >
                   <div className="flex flex-col gap-1 pr-3 xl:pr-8">
                     <h2 className="font-semibold text-lg md:text-xl text-black group-hover:text-gray-800">
                       {item?.title}
                     </h2>
-                    <p className="text-[#030F0CCC]/80 text-sm md:text-[15px] group-hover:text-gray-800">
-                      {item?.description}
-                    </p>
+   {
+    item?.description  && (
+   
+                     <div
+          dangerouslySetInnerHTML={{
+            __html: DOMPurify.sanitize(item?.description),
+          }}
+          className="text-[#030F0CCC]/80 text-sm md:text-[15px] group-hover:text-gray-800"
+        />
+    )
+   }
+                   
                   </div>
 
                 

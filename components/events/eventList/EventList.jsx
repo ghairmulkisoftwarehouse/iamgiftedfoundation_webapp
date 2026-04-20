@@ -112,9 +112,7 @@ const now = moment();
 
 <div className=' w-full flex flex-col gap-4'>
 
-<div className='w-full px-5 md:px-3.5 md:container mx-auto'>
-<MyCalendar  setEndDate={setEndDate}/>
-</div>
+
 
 
  {categoriesLoading ? (
@@ -299,6 +297,11 @@ const now = moment();
 ) : (
           <ItemNotFound message="No  Event found." />
         )}
+
+
+        <div className='w-full px-5 md:px-3.5 md:container mx-auto'>
+<MyCalendar  setEndDate={setEndDate}/>
+</div>
    
 
 </div>

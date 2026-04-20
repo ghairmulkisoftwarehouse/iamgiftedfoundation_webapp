@@ -24,17 +24,7 @@ export const validateRegisterForm = (data) => {
     errors.password = "Password is required";
   } else if (password.length < 6) {
     errors.password = "Password must be at least 6 characters long";
-  } else if (password.length > 72) {
-    errors.password = "Password must be at most 72 characters long";
-  } else if (!/[a-z]/.test(password)) {
-    errors.password = "Password must include at least one lowercase letter";
-  } else if (!/[A-Z]/.test(password)) {
-    errors.password = "Password must include at least one uppercase letter";
-  } else if (!/[0-9]/.test(password)) {
-    errors.password = "Password must include at least one number";
-  } else if (!/[!@#$%^&*(),.?":{}|<>~`+\-=\[\]\\';\/]/.test(password)) {
-    errors.password = "Password must include at least one special character";
-  }
+  } 
 
   // Confirm Password validation
   if (!data.confirmPassword) {

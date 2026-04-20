@@ -12,7 +12,7 @@ export  const ContactItems = [
   {
     id: 1,
     title: "Address",
-    description: "IAMGIFTED Foundation 1505 S D St Suite 202 San Bernardino CA 92408",
+    description: "PO Box 3083  San Bernardino, CA 92413",
     icon: ContactLocationSvg,
   },
   {
