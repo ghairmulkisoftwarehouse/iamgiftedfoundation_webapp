@@ -59,7 +59,7 @@ const ImpactSummary = () => {
       <div className="relative z-20 flex flex-col items-center  gap-8   w-full  px-5 md:px-3.5  md:container mx-auto  ">
       <div className=" flex flex-col  items-center  gap-2  pt-12 md:pt-16">
           <h2 className={`text-black text-4xl  sm:text-[46px] lg:text-[55px] text-center  ${bison.className}`}>
-         4,209 <span className=" text-4xl">Total Youth Served</span> 
+         4,225+ <span className=" text-4xl">Total Youth Served</span> 
         </h2>
    
 
