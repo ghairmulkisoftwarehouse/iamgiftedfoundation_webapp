@@ -15,7 +15,7 @@ import { Toaster } from 'react-hot-toast';
 
 
 
-const siteTitle = "Gifted Foundation";
+const siteTitle = "IAMGIFTED Foundation";
 const siteDescription =
   "Gifted Foundation empowers individuals and communities through education, personal growth, and meaningful social initiatives that create lasting positive impact.";
 
@@ -23,7 +23,7 @@ const siteDescription =
 export const metadata = {
   title: {
     default: siteTitle,
-    template: "%s | Gifted Foundation",
+    template: "%s | IAMGIFTED Foundation",
   },
   description: siteDescription,
 
@@ -31,7 +31,7 @@ export const metadata = {
     title: siteTitle,
     description: siteDescription,
     url: `${webAppBaseURL}/`,
-    siteName: "Gifted Foundation",
+    siteName: "IAMGIFTED Foundation",
     type: "website",
     locale: "en_US",
   },
