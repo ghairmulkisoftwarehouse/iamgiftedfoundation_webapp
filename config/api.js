@@ -9,15 +9,15 @@ import axios from "axios";
 
 
 //production
-export const webAppBaseURL = "http://iamgiftedfoundation.vercel.app/"
+export const webAppBaseURL = "https://iamgiftedfoundation.org/"
 
 // export const apiBaseURL = "http://localhost:5500"
 
 
-export const baseURL = 'https://iamgfserver.devoptixtech.com';  
+export const baseURL = 'https://server.iamgiftedfoundation.org';  
 const Axios = axios.create({
    baseURL: `${baseURL}/api`,
-  timeout: 10000,
+  timeout: 20000,
    withCredentials: true, 
 
 
