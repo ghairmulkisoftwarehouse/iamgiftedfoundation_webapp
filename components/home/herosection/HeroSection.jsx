@@ -26,7 +26,7 @@ const HeroSection = () => {
 className="absolute inset-0 w-full h-full object-cover"      >
         <source src="/optimized_horizontal video website.mp4" type="video/mp4" />
         {/* fallback text */}
-        Your  Browser Does not Support this Video
+        Your  Browser Does not Support this Video 
       </video>
 
       <div className="absolute inset-0 bg-gradient-to-b from-black/80 to-black/5 z-10"></div>
