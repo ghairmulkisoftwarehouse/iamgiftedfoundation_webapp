@@ -12,9 +12,9 @@ const HeroSection = () => {
   return (
     <div
       ref={heroRef}
-      className="flex flex-col gap-2 w-full mt-[-100px] relative
-                h-[650px]  xs:h-[600px] sm:h-[550px] md:h-[673px]
-                 overflow-hidden"
+    className="flex flex-col gap-2 w-full mt-[-100px] relative 
+             min-h-[650px] xs:min-h-[600px] sm:min-h-[550px] md:min-h-[673px] 
+             overflow-hidden"
     >
 
       <video
@@ -23,11 +23,10 @@ const HeroSection = () => {
         muted
         playsInline
         preload="auto"
-        className="absolute inset-0 w-full h-full object-cover"
-      >
-        <source src="/intro.mov" type="video/mp4" />
+className="absolute inset-0 w-full h-full object-cover"      >
+        <source src="/optimized_horizontal video website.mp4" type="video/mp4" />
         {/* fallback text */}
-        Your browser does not support the video tag.
+        Your  Browser Does not Support this Video
       </video>
 
       <div className="absolute inset-0 bg-gradient-to-b from-black/80 to-black/5 z-10"></div>

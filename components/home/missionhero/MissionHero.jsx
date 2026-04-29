@@ -8,7 +8,7 @@ import StarikSvg  from '@/assets/svg/StarikSvg'
 
 const STAR_BOXES = [0, 21];
 
-const MissionHero = () => {
+const   MissionHero = () => {
   const containerRef = useRef(null);
      const [numBoxes, setNumBoxes] = useState(60);
            useEffect(() => {

@@ -13,6 +13,11 @@ const nextConfig = {
         hostname: 'iamgfserver.devoptixtech.com',
         pathname: '/**',
       },
+       {
+        protocol: 'https',
+        hostname: 'server.iamgiftedfoundation.org',
+        pathname: '/**',
+      },
     ],
   },
 };

@@ -17,7 +17,7 @@ import DOMPurify from "dompurify";
 
 
 
-const PillarsSection = () => {
+const   PillarsSection = () => {
   const dispatch = useDispatch();
   const { pillar } = useSelector((state) => state.pillar);
 

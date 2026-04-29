@@ -83,9 +83,9 @@ const HighlightCards = (
           </div>
 
           {/* Chart */}
-          <div className="px-1 pt-3">
+          {/* <div className="px-1 pt-3">
             <BookedChart />
-          </div>
+          </div> */}
         </div>
       );
     })}
